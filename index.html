@@ -239,36 +239,13 @@ body:not(.v35-drug-list) .toolbar{display:none!important}
   z-index:10;
   margin:0 0 12px 0!important;
 }
-</style><style id="v38-icu-hospital-header">
-.v35-hero{
-  position:relative;overflow:hidden;min-height:210px;display:flex;align-items:center;
-  background:#f7fbfc;color:#173746;border:1px solid #dce7eb;border-radius:24px;
-  padding:34px 34px 30px;box-shadow:0 14px 36px rgba(23,55,70,.13);margin-bottom:18px;
-}
-.v35-hero:before{
-  content:"";position:absolute;left:0;top:0;bottom:0;width:34%;
-  background-image:linear-gradient(90deg,rgba(221,241,246,.10),rgba(255,255,255,.22)),url("assets/header-monitor.jpg");
-  background-size:cover;background-position:center;opacity:.72;filter:saturate(.72);
-}
-.v35-hero:after{
-  content:"";position:absolute;right:0;top:0;bottom:0;width:43%;
-  background-image:linear-gradient(90deg,rgba(247,251,252,1) 0%,rgba(247,251,252,.78) 18%,rgba(247,251,252,.25) 58%,rgba(247,251,252,.08) 100%),url("assets/header-hospital.jpg");
-  background-size:cover;background-position:center 52%;opacity:.78;filter:saturate(.72);
-}
-.v35-hero-content{position:relative;z-index:3;width:100%;max-width:none;text-align:center;padding:4px 22%;}
-.v35-kicker{display:none!important}
-.v35-title{color:#123a4c;text-shadow:0 1px 1px rgba(255,255,255,.9);margin:0!important;font-size:clamp(28px,5vw,44px);line-height:1.05;font-weight:800}
-.v35-hospital-name{margin:12px 0 0;color:#5f7480;font-size:15px;letter-spacing:.11em;text-transform:uppercase;font-weight:600}
-.v35-hero-meta{display:none!important}
-.v35-photo-credit{position:absolute;right:12px;bottom:8px;z-index:4;font-size:8px;color:rgba(40,64,73,.66);background:rgba(255,255,255,.56);padding:3px 6px;border-radius:5px}
+</style><style id="v40-single-header-image">
+.v35-hero{position:relative;overflow:hidden;border:1px solid #dce7eb;border-radius:24px;box-shadow:0 14px 36px rgba(23,55,70,.13);margin-bottom:18px;background:#f7fbfc;padding:0;}
+.v40-header-image{display:block;width:100%;height:auto;margin:0;}
+.v40-header-credit{position:absolute;right:10px;bottom:7px;z-index:4;font-size:8px;color:rgba(40,64,73,.68);background:rgba(255,255,255,.62);padding:3px 6px;border-radius:5px;}
 @media(max-width:700px){
-  .v35-hero{min-height:178px;padding:25px 16px 21px;border-radius:19px}
-  .v35-hero:before{width:31%;opacity:.48;background-position:left center}
-  .v35-hero:after{width:48%;opacity:.58;background-position:center center}
-  .v35-hero-content{padding:4px 8%;}
-  .v35-title{font-size:clamp(25px,8vw,34px)}
-  .v35-hospital-name{font-size:10px;letter-spacing:.07em;margin-top:9px}
-  .v35-photo-credit{font-size:7px;right:7px;bottom:6px}
+  .v35-hero{border-radius:19px;margin-bottom:14px;}
+  .v40-header-credit{font-size:7px;right:7px;bottom:5px;padding:2px 5px;}
 }
 </style>
 <style id="v35-hide-global-header-on-landing">
@@ -377,11 +354,8 @@ body:not(.v35-drug-list) > header{
 
 <main id="landing" class="v35-home">
 <section class="v35-hero" aria-label="Recursos UCI HUVM">
-<div class="v35-hero-content">
-<h2 class="v35-title">RECURSOS UCI HUVM</h2>
-<div class="v35-hospital-name">Hospital Universitario Virgen Macarena</div>
-</div>
-<div class="v35-photo-credit">Fotografía: Hospital Universitario Virgen Macarena</div>
+<img class="v40-header-image" src="assets/header-uci-huVM.png" alt="Recursos UCI HUVM — Hospital Universitario Virgen Macarena, con monitor de UCI y fachada del hospital">
+<div class="v40-header-credit">Fotografía: Hospital Universitario Virgen Macarena</div>
 </section>
 <div class="v35-grid" aria-label="Accesos principales">
 <a class="v35-tile" href="#" onclick="showAnalgosedacion();return false;">
