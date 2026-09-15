@@ -241,11 +241,11 @@ body:not(.v35-drug-list) .toolbar{display:none!important}
 }
 </style><style id="v40-single-header-image">
 .v35-hero{position:relative;overflow:hidden;border:1px solid #dce7eb;border-radius:24px;box-shadow:0 14px 36px rgba(23,55,70,.13);margin-bottom:18px;background:#f7fbfc;padding:0;}
-.v40-header-image{display:block;width:100%;height:auto;margin:0;}
+.v40-header-picture{display:block;width:100%;}.v40-header-image{display:block;width:100%;height:auto;margin:0;}
 .v40-header-credit{position:absolute;right:10px;bottom:7px;z-index:4;font-size:8px;color:rgba(40,64,73,.68);background:rgba(255,255,255,.62);padding:3px 6px;border-radius:5px;}
 @media(max-width:700px){
   .v35-hero{border-radius:19px;margin-bottom:14px;}
-  .v40-header-credit{font-size:7px;right:7px;bottom:5px;padding:2px 5px;}
+  .v40-header-credit{display:none;}
 }
 </style>
 <style id="v35-hide-global-header-on-landing">
@@ -354,7 +354,7 @@ body:not(.v35-drug-list) > header{
 
 <main id="landing" class="v35-home">
 <section class="v35-hero" aria-label="Recursos UCI HUVM">
-<img class="v40-header-image" src="assets/header-uci-huVM.png" alt="Recursos UCI HUVM — Hospital Universitario Virgen Macarena, con monitor de UCI y fachada del hospital">
+<picture class="v40-header-picture"><source media="(max-width: 700px)" srcset="assets/header-uci-huVM-mobile-clean.png"><img class="v40-header-image" src="assets/header-uci-huVM.png" alt="Recursos UCI HUVM — Hospital Universitario Virgen Macarena, con monitor de UCI y fachada del hospital"></picture>
 <div class="v40-header-credit">Fotografía: Hospital Universitario Virgen Macarena</div>
 </section>
 <div class="v35-grid" aria-label="Accesos principales">
