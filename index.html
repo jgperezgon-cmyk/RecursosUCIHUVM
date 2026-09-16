@@ -828,6 +828,7 @@ function splitForCalculator(cleaned){
 }
 function openRecord(i){
   const r=records[i];
+  document.body.classList.remove('v35-drug-list');
   document.getElementById('home').style.display='none';
   document.getElementById('viewer').style.display='block';
   document.getElementById('vtitle').textContent=displayName(r);
@@ -1354,7 +1355,7 @@ function initCalculator(r){
   [u,c].forEach(el=>el.addEventListener('change',calc));
 }
 
-function showHome(){document.getElementById('viewer').style.display='none';document.getElementById('compat-view').style.display='none';document.getElementById('analgosedacion-view').style.display='none';document.getElementById('antibioticos-view').style.display='none';document.getElementById('telefonos-view').style.display='none';document.getElementById('insulinizacion-view').style.display='none';document.getElementById('home').style.display='block';render()}
+function showHome(){document.getElementById('viewer').style.display='none';document.getElementById('compat-view').style.display='none';document.getElementById('analgosedacion-view').style.display='none';document.getElementById('antibioticos-view').style.display='none';document.getElementById('telefonos-view').style.display='none';document.getElementById('insulinizacion-view').style.display='none';document.getElementById('home').style.display='block';document.body.classList.add('v35-drug-list');render()}
 function showCompatibility(){document.getElementById('home').style.display='none';document.getElementById('viewer').style.display='none';document.getElementById('analgosedacion-view').style.display='none';document.getElementById('antibioticos-view').style.display='none';document.getElementById('telefonos-view').style.display='none';document.getElementById('insulinizacion-view').style.display='none';document.getElementById('compat-view').style.display='block';window.scrollTo(0,0)}
 function escapeHtml(s){return s.replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]))}
 q.addEventListener('input',render);
