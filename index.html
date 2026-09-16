@@ -54,7 +54,7 @@ main{max-width:1200px;margin:0 auto;padding:18px}.notice{background:#fff;border:
 <style>
 .protocol-text #calcbox{margin:18px 0;}
 .highlight-yellow{background:#fff36a;text-decoration:underline;text-decoration-thickness:2px;text-underline-offset:2px;}
-.protocol-text .calc{margin:18px 0;}
+.protocol-text .calc{margin:18px 0;display:block;clear:both;position:relative;z-index:1;}
 .protocol-danger{color:#a61b1b;font-weight:800}.protocol-warning{color:#8a5a00;font-weight:700}.table-calc{border-left:4px solid var(--accent);}
 </style>
 
@@ -866,7 +866,10 @@ function openRecord(i){
     } else {
     const calc=renderCalculator(r);
     if(calc){
-      if(/ADRENALINA/i.test(r.heading)){
+      // En Cisatracurio la calculadora debe quedar después de TODA la ficha;
+      // así ningún apartado (incluido el bolo) queda visualmente debajo de ella.
+      // El resto de calculadoras mantiene exactamente su comportamiento actual.
+      if(/CISATRACURIO/i.test(r.heading) || /ADRENALINA/i.test(r.heading)){
         document.getElementById('vtext').innerHTML=formatProtocolHtml(cleaned) + calc;
       } else {
         const split=splitForCalculator(cleaned);
