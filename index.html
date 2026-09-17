@@ -388,6 +388,20 @@ body:not(.v35-drug-list) > header{
   .uci-professional-notice-icon{flex-basis:24px;width:24px;height:24px;border-width:2px;font-size:15px;}
 }
 </style>
+
+<style id="search-autocomplete-css">
+header{z-index:1000!important}
+.toolbar{position:relative}
+.search-wrap{position:relative;flex:1 1 360px;min-width:0}
+.search-wrap input[type=search]{width:100%;flex:initial}
+.search-suggestions{position:absolute;left:0;right:0;top:calc(100% + 6px);z-index:1100;background:#fff;border:1px solid #cbd5df;border-radius:12px;box-shadow:0 10px 24px rgba(23,55,70,.14);overflow:hidden;display:none}
+.search-suggestions.show{display:block}
+.search-suggestion{display:block;width:100%;border:0;border-radius:0;background:#fff;padding:12px 14px;text-align:left;font:600 14px/1.25 Inter,system-ui,sans-serif;color:var(--ink,#17232b);cursor:pointer}
+.search-suggestion:hover,.search-suggestion.active{background:#edf5f8;color:#163a4a}
+.search-suggestion small{display:block;margin-top:3px;font-size:11px;font-weight:500;color:#718087}
+@media(max-width:520px){.search-wrap{flex-basis:100%}.search-suggestions{top:calc(100% + 5px)}}
+</style>
+
 </head>
 <body>
 <header>
@@ -692,6 +706,59 @@ const indexNames = ["MILRINONA", "NALOXONA", "N-ACETILCISTEINA", "NIMODIPINO", "
 const q=document.getElementById('q'),results=document.getElementById('results'),alpha=document.getElementById('alpha');
 const allBtn=document.getElementById('allBtn');
 let letter='';
+
+// Autocompletado visual directamente debajo del buscador.
+(function initSearchSuggestions(){
+  const toolbar=q.closest('.toolbar');
+  if(!toolbar || document.getElementById('search-suggestions')) return;
+  const wrap=document.createElement('div');
+  wrap.className='search-wrap';
+  q.parentNode.insertBefore(wrap,q);
+  wrap.appendChild(q);
+  const box=document.createElement('div');
+  box.id='search-suggestions';
+  box.className='search-suggestions';
+  box.setAttribute('role','listbox');
+  box.setAttribute('aria-label','Sugerencias de fármacos');
+  wrap.appendChild(box);
+  q.setAttribute('aria-autocomplete','list');
+  q.setAttribute('aria-controls','search-suggestions');
+  q.setAttribute('aria-expanded','false');
+  let active=-1;
+
+  function hide(){active=-1;box.innerHTML='';box.classList.remove('show');q.setAttribute('aria-expanded','false');}
+  function show(){if(box.children.length){box.classList.add('show');q.setAttribute('aria-expanded','true');}}
+  function choose(index){const buttons=[...box.querySelectorAll('.search-suggestion')];if(!buttons[index])return;const i=Number(buttons[index].dataset.recordIndex);hide();openRecord(i);}
+  function updateActive(){[...box.children].forEach((el,i)=>el.classList.toggle('active',i===active));}
+  function renderSuggestions(){
+    const term=norm(q.value.trim());
+    if(!term){hide();return;}
+    const matches=records.filter(r=>norm(displayName(r)).includes(term)).sort((a,b)=>{
+      const an=norm(displayName(a)),bn=norm(displayName(b));
+      const ap=an.startsWith(term),bp=bn.startsWith(term);
+      if(ap!==bp)return ap?-1:1;
+      const pa=/BOMBAS DE PCA/i.test(a.heading)?1:0,pb=/BOMBAS DE PCA/i.test(b.heading)?1:0;
+      if(pa!==pb)return pa-pb;
+      return displayName(a).localeCompare(displayName(b),'es');
+    }).slice(0,7);
+    box.innerHTML=matches.map(r=>`<button type="button" class="search-suggestion" role="option" data-record-index="${records.indexOf(r)}"><span>${escapeHtml(displayName(r))}</span><small>Página ${r.page}</small></button>`).join('');
+    active=-1;
+    if(matches.length)show();else hide();
+    box.querySelectorAll('.search-suggestion').forEach((b,i)=>b.addEventListener('click',()=>choose(i)));
+  }
+  q.addEventListener('input',renderSuggestions);
+  q.addEventListener('keydown',e=>{
+    const visible=box.classList.contains('show');
+    if(!visible)return;
+    const count=box.children.length;
+    if(e.key==='ArrowDown'){e.preventDefault();active=(active+1)%count;updateActive();}
+    else if(e.key==='ArrowUp'){e.preventDefault();active=(active-1+count)%count;updateActive();}
+    else if(e.key==='Enter' && active>=0){e.preventDefault();choose(active);}
+    else if(e.key==='Escape'){e.preventDefault();hide();}
+  });
+  document.addEventListener('click',e=>{if(!wrap.contains(e.target))hide();});
+})();
+
 function norm(s){return(s||'').normalize('NFD').replace(/[\u0300-\u036f]/g,'').toLowerCase()}
 function displayName(r){return r.heading.replace(/\s+PREPARACIÓN.*$/i,'').trim()}
 function renderAlpha(){
