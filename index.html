@@ -402,6 +402,49 @@ header{z-index:1000!important}
 @media(max-width:520px){.search-wrap{flex-basis:100%}.search-suggestions{top:calc(100% + 5px)}}
 </style>
 
+
+<style id="tcrr-css">
+#tcrr-view{display:none}
+.tcrr-hero{background:linear-gradient(135deg,#0d5ea8,#164b84);color:#fff;border-radius:18px;padding:20px 18px 18px;margin-bottom:16px;text-align:center;box-shadow:0 8px 24px rgba(23,55,70,.12)}
+.tcrr-hero h2{margin:0;font-size:30px;line-height:1.05}
+.tcrr-hero p{margin:7px 0 0;font-size:14px;opacity:.96}
+.tcrr-card{background:#fff;border:1px solid #cbddeb;border-radius:16px;padding:16px;margin-bottom:16px;box-shadow:0 4px 14px rgba(23,55,70,.06)}
+.tcrr-card h3{margin:0;color:#1456a0;font-size:20px}
+.tcrr-sub{margin:4px 0 14px;color:var(--muted);font-size:13px}
+.tcrr-table-wrap{overflow-x:auto}
+.tcrr-table{width:100%;border-collapse:collapse;min-width:650px;font-size:14px}
+.tcrr-table th,.tcrr-table td{border:1px solid #cbd6e1;padding:8px 7px;text-align:center}
+.tcrr-table thead th{background:#e5f0fb;color:#102b4c;font-weight:800}
+.tcrr-table tbody td:first-child{font-weight:800}
+.tcrr-foot{margin-top:7px;color:var(--muted);font-size:11px}
+.tcrr-adjust-grid{display:grid;grid-template-columns:minmax(210px,1fr) minmax(280px,1.05fr) minmax(360px,1.3fr);gap:12px;align-items:stretch}
+.tcrr-inputs,.tcrr-result,.tcrr-reference{border:1px solid #cbddeb;border-radius:12px;padding:14px;background:#f9fcff}
+.tcrr-inputs label{display:block;font-weight:800;color:#172b45;margin-bottom:12px}
+.tcrr-inputs input{display:block;width:100%;box-sizing:border-box;margin-top:7px;padding:10px 12px;border:1px solid #b9c9d8;border-radius:9px;background:#fff;font-size:18px;color:#172b45}
+.tcrr-help{font-size:11px;color:var(--muted);font-weight:500;margin-top:5px}
+.tcrr-actions{display:grid;gap:8px;margin-top:8px}
+.tcrr-actions button{border-radius:9px;padding:10px 12px;font-weight:800;cursor:pointer}
+#tcrr-calc-btn{border:1px solid #1267c4;background:#1267c4;color:#fff}
+#tcrr-reset-btn{border:1px solid #347be0;background:#fff;color:#1267c4}
+.tcrr-result{display:flex;flex-direction:column;justify-content:center;text-align:center;transition:background .15s,border-color .15s}
+.tcrr-result.ok{background:#e9f8ee;border-color:#91d4a5;color:#11653a}
+.tcrr-result.adjust{background:#fff6d9;border-color:#e5c45c;color:#765400}
+.tcrr-result.critical{background:#fff0ef;border-color:#d85b52;color:#a12620}
+.tcrr-result-title{font-size:18px;font-weight:900;text-transform:uppercase;letter-spacing:.02em}
+.tcrr-result-main{font-size:27px;line-height:1.15;font-weight:900;margin:10px 0 12px}
+.tcrr-result-values{border-top:1px solid currentColor;padding-top:10px;font-size:13px;line-height:1.7}
+.tcrr-emergency{margin:0 0 12px;padding:10px 11px;border:1px solid #d85b52;border-radius:9px;background:#fff0ef;color:#a12620;font-size:18px;line-height:1.3;font-weight:700}.tcrr-result.critical .tcrr-result-title{margin-bottom:8px}.tcrr-result.critical .tcrr-result-main{margin-top:4px}
+.tcrr-reference-title{margin:0 0 9px;color:#1456a0;font-size:15px;font-weight:900}
+.tcrr-reference h4{margin:0 0 9px;color:#1456a0;font-size:15px}
+.tcrr-reference .tcrr-table{min-width:0;font-size:12px}
+.tcrr-reference .tcrr-table th,.tcrr-reference .tcrr-table td{padding:8px 6px}
+.tcrr-note{margin-top:8px;color:var(--muted);font-size:11px}
+.tcrr-notes{background:#f1f8ff;border:1px solid #c9e1f6;border-radius:12px;padding:12px 14px;color:#42627f;font-size:12px}
+.tcrr-notes strong{color:#1456a0}
+@media(max-width:900px){.tcrr-adjust-grid{grid-template-columns:1fr}.tcrr-reference .tcrr-table{min-width:0}.tcrr-hero h2{font-size:27px}}
+@media(max-width:520px){#tcrr-view{padding:12px}.tcrr-card{padding:12px}.tcrr-hero{padding:18px 12px}.tcrr-hero p{font-size:12px}.tcrr-result-main{font-size:24px}}
+</style>
+
 </head>
 <body>
 <header>
@@ -438,6 +481,10 @@ header{z-index:1000!important}
 <a class="v35-tile" href="#" onclick="showAntibioticos();return false;">
 <div class="v35-icon" aria-hidden="true">🦠</div>
 <div><strong>Antibióticos</strong><span>Instrucciones de administración de antibióticos en perfusión intravenosa.</span></div>
+</a>
+<a class="v35-tile" href="#" onclick="showTcrr();return false;">
+<div class="v35-icon" aria-hidden="true">🩺</div>
+<div><strong>TCRR</strong><span>Terapias continuas de Reemplazo Renal · HDFVVC con Citrato en PRISMAFLEX.</span></div>
 </a>
 <a class="v35-tile" href="#" onclick="showInsulinizacion();return false;">
 <div class="v35-icon" aria-hidden="true">💉</div>
@@ -673,6 +720,61 @@ header{z-index:1000!important}
 <div class="as-actions"><button type="button" class="as-reset" id="cam-reset">↺ Resetear</button></div>
 <div class="as-source"><strong>Referencia:</strong> escala CAM-ICU proporcionada por la unidad. La lógica de decisión mostrada es: 1 + 2 + (3 o 4).</div>
 </section>
+</main>
+<main id="tcrr-view">
+<button type="button" class="back v35-cover-back" onclick="showLanding()">← Portada</button>
+<section class="tcrr-hero">
+<h2>TCRR</h2>
+<p><strong>Terapias continuas de Reemplazo Renal</strong><br>Dosis y calculadora de ajuste para HDFVVC con Citrato en monitor PRISMAFLEX.</p>
+</section>
+
+<section class="tcrr-card">
+<h3>1. Calculadora de ajuste</h3>
+<p class="tcrr-sub">Según calcio del paciente y calcio postfiltro (Monitor PRISMAFLEX)</p>
+<div class="tcrr-adjust-grid">
+<div class="tcrr-inputs">
+<label>Calcio del paciente (mmol/L)
+<input id="tcrr-patient-ca" type="number" inputmode="decimal" step="0.01" min="0" placeholder="Ej. 1,10">
+<div class="tcrr-help">Introduce el calcio en sangre del paciente.</div>
+</label>
+<label>Calcio postfiltro (mmol/L)
+<input id="tcrr-post-ca" type="number" inputmode="decimal" step="0.01" min="0" placeholder="Ej. 0,30">
+<div class="tcrr-help">Introduce el calcio postfiltro.</div>
+</label>
+<div class="tcrr-actions"><button type="button" id="tcrr-calc-btn">🧮 Calcular</button><button type="button" id="tcrr-reset-btn">↻ Limpiar</button></div>
+</div>
+<div id="tcrr-result" class="tcrr-result" aria-live="polite"><div class="tcrr-result-title">Resultado</div><div class="tcrr-result-main">Introduce los valores</div><div class="tcrr-result-values">El ajuste aparecerá aquí según el protocolo.</div></div>
+<div class="tcrr-reference">
+<h4>Tabla de ajuste (referencia)</h4>
+<div class="tcrr-reference-title">ANTICOAGULACIÓN CON CITRATO EN HDFVVC</div>
+<table class="tcrr-table"><thead><tr><th>CALCIO EN SANGRE</th><th>Ca PF bajo<br>(&lt; 0,25 mmol/l)</th><th>Ca PF normal<br>(0,25–0,35 mmol/l)</th><th>Ca PF alto<br>(&gt; 0,5 mmol/l)</th></tr></thead>
+<tbody>
+<tr><td>Ca en sangre bajo<br>(&lt; 1 mmol/l)</td><td>↓ Citrato 0,5 mmol/l</td><td>↑ Ca 5–10%</td><td>↑ Citrato 0,5 mmol/l<br>y<br>↑ Ca 5–10%</td></tr>
+<tr><td>Ca en sangre normal<br>(1–1,2 mmol/l)</td><td>↓ Citrato 0,5 mmol/l</td><td><strong>Sin intervención</strong></td><td>↑ Citrato 0,5 mmol/l</td></tr>
+<tr><td>Ca en sangre alto<br>(&gt; 1,2 mmol/l)</td><td>↓ Citrato 0,5 mmol/l<br>y<br>↓ Ca 5–10%</td><td>↓ Ca 5–10%</td><td>↓ Ca 5–10%</td></tr>
+</tbody></table>
+<div class="tcrr-note">Si Ca en sangre &lt; 0,8 mmol/l, bolo de 10 ml de cloruro cálcico y aumentar infusión un 10%.</div>
+</div>
+</div>
+</section>
+
+<section class="tcrr-card">
+<h3>2. Protocolo de HDFVVC con Citrato</h3>
+<p class="tcrr-sub">Configuración básica para una dosis de citrato de 3 mmol/l de sangre</p>
+<div class="tcrr-table-wrap"><table class="tcrr-table"><thead><tr><th>PESO<br>(Kg)</th><th>FLUJO DE SANGRE<br>(ml/min)</th><th>FLUJO DEL LÍQUIDO DE DIÁLISIS<br>(ml/h)</th><th>FLUJO DEL LÍQUIDO DE SUSTITUCIÓN POST FILTRO<br>(ml/h)</th><th>DOSIS REAL DE EFLUENTE OBTENIDA</th></tr></thead><tbody>
+<tr><td>50</td><td>100</td><td>1000</td><td>200</td><td>37 ml/kg/h</td></tr>
+<tr><td>60</td><td>110</td><td>1100</td><td>400</td><td>37 ml/kg/h</td></tr>
+<tr><td>70</td><td>120</td><td>1200</td><td>500</td><td>35 ml/kg/h</td></tr>
+<tr><td>80</td><td>130</td><td>1300</td><td>500</td><td>33 ml/kg/h</td></tr>
+<tr><td>90</td><td>140</td><td>1400</td><td>500</td><td>31 ml/kg/h</td></tr>
+<tr><td>100</td><td>150</td><td>1500</td><td>600</td><td>31 ml/kg/h</td></tr>
+<tr><td>110</td><td>160</td><td>1600</td><td>700</td><td>30 ml/kg/h</td></tr>
+<tr><td>120</td><td>170</td><td>1700</td><td>800</td><td>30 ml/kg/h</td></tr>
+<tr><td>130</td><td>180</td><td>1800</td><td>1000</td><td>30 ml/kg/h</td></tr>
+</tbody></table></div>
+<div class="tcrr-foot">Monitor PRISMAFLEX</div>
+</section>
+
 </main>
 <footer>Web de recursos de la UCI del HUVM. Documentos de uso interno. Queda prohibida su distribución.</footer>
 
@@ -1632,8 +1734,9 @@ function initCalculator(r){
   [u,c].forEach(el=>el.addEventListener('change',calc));
 }
 
-function showHome(){document.body.classList.add('v35-drug-list');document.getElementById('viewer').style.display='none';document.getElementById('compat-view').style.display='none';document.getElementById('analgosedacion-view').style.display='none';document.getElementById('antibioticos-view').style.display='none';document.getElementById('telefonos-view').style.display='none';document.getElementById('insulinizacion-view').style.display='none';document.getElementById('home').style.display='block';render()}
-function showCompatibility(){document.getElementById('home').style.display='none';document.getElementById('viewer').style.display='none';document.getElementById('analgosedacion-view').style.display='none';document.getElementById('antibioticos-view').style.display='none';document.getElementById('telefonos-view').style.display='none';document.getElementById('insulinizacion-view').style.display='none';document.getElementById('compat-view').style.display='block';window.scrollTo(0,0)}
+function showHome(){document.body.classList.add('v35-drug-list');document.getElementById('viewer').style.display='none';document.getElementById('compat-view').style.display='none';document.getElementById('analgosedacion-view').style.display='none';document.getElementById('antibioticos-view').style.display='none';document.getElementById('telefonos-view').style.display='none';document.getElementById('insulinizacion-view').style.display='none';document.getElementById('tcrr-view').style.display='none';document.getElementById('home').style.display='block';render()}
+function showCompatibility(){document.getElementById('home').style.display='none';document.getElementById('viewer').style.display='none';document.getElementById('analgosedacion-view').style.display='none';document.getElementById('antibioticos-view').style.display='none';document.getElementById('telefonos-view').style.display='none';document.getElementById('insulinizacion-view').style.display='none';document.getElementById('tcrr-view').style.display='none';
+    document.getElementById('compat-view').style.display='block';window.scrollTo(0,0)}
 function escapeHtml(s){return s.replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]))}
 q.addEventListener('input',render);
 allBtn.onclick=()=>{allBtn.classList.add('active');render()};
@@ -1669,6 +1772,46 @@ initCompatibility();renderAlpha();render();
 })();
 </script>
 
+<script id="tcrr-js">
+(function(){
+  const patient=document.getElementById('tcrr-patient-ca');
+  const post=document.getElementById('tcrr-post-ca');
+  const result=document.getElementById('tcrr-result');
+  const calcBtn=document.getElementById('tcrr-calc-btn');
+  const resetBtn=document.getElementById('tcrr-reset-btn');
+  if(!patient||!post||!result||!calcBtn||!resetBtn)return;
+  function parse(v){return parseFloat(String(v).replace(',','.'));}
+  function patientBand(x){return x<1?'low':x<=1.2?'normal':'high';}
+  function postBand(x){return x<0.25?'low':x<=0.35?'normal':'high';}
+  const actions={
+    'low|low':{text:'↓ Citrato 0,5 mmol/l',adjust:true},
+    'low|normal':{text:'↑ Ca 5–10%',adjust:true},
+    'low|high':{text:'↑ Citrato 0,5 mmol/l y ↑ Ca 5–10%',adjust:true},
+    'normal|low':{text:'↓ Citrato 0,5 mmol/l',adjust:true},
+    'normal|normal':{text:'Sin intervención',adjust:false},
+    'normal|high':{text:'↑ Citrato 0,5 mmol/l',adjust:true},
+    'high|low':{text:'↓ Citrato 0,5 mmol/l y ↓ Ca 5–10%',adjust:true},
+    'high|normal':{text:'↓ Ca 5–10%',adjust:true},
+    'high|high':{text:'↓ Ca 5–10%',adjust:true}
+  };
+  function calculate(){
+    const ca=parse(patient.value),pf=parse(post.value);
+    if(!Number.isFinite(ca)||ca<0||!Number.isFinite(pf)||pf<0){
+      result.className='tcrr-result';
+      result.innerHTML='<div class="tcrr-result-title">Resultado</div><div class="tcrr-result-main">Introduce valores válidos</div><div class="tcrr-result-values">Introduce el calcio del paciente y el calcio postfiltro.</div>';
+      return;
+    }
+    const a=actions[patientBand(ca)+'|'+postBand(pf)];
+    const critical=ca<0.8;
+    result.className='tcrr-result '+(critical?'critical':(a.adjust?'adjust':'ok'));
+    const emergency=critical?'<div class="tcrr-emergency"><strong>AVISO: CA &lt; 0,8</strong><div><strong>Ca en sangre &lt; 0,8 mmol/l: bolo de 10 ml de cloruro cálcico y aumentar infusión un 10%.</strong></div></div>':'';
+    result.innerHTML='<div class="tcrr-result-title">'+(critical?'AVISO: CA &lt; 0,8':(a.adjust?'Ajuste necesario':'Sin intervención'))+'</div>'+(critical?emergency:'')+'<div class="tcrr-result-main">'+a.text+'</div><div class="tcrr-result-values">Calcio paciente: <strong>'+ca.toFixed(2)+' mmol/L</strong><br>Calcio postfiltro: <strong>'+pf.toFixed(2)+' mmol/L</strong><br><span>Resultado según protocolo de ajuste en monitor PRISMAFLEX.</span></div>';
+  }
+  function reset(){patient.value='';post.value='';result.className='tcrr-result';result.innerHTML='<div class="tcrr-result-title">Resultado</div><div class="tcrr-result-main">Introduce los valores</div><div class="tcrr-result-values">El ajuste aparecerá aquí según el protocolo.</div>';patient.focus();}
+  calcBtn.addEventListener('click',calculate); resetBtn.addEventListener('click',reset); patient.addEventListener('keydown',e=>{if(e.key==='Enter')calculate()}); post.addEventListener('keydown',e=>{if(e.key==='Enter')calculate()});
+})();
+</script>
+
 <script id="v35-v5-navigation-js">
 (function(){
   function landing(){
@@ -1680,6 +1823,7 @@ initCompatibility();renderAlpha();render();
     document.getElementById('antibioticos-view').style.display='none';
     document.getElementById('telefonos-view').style.display='none';
     document.getElementById('insulinizacion-view').style.display='none';
+    document.getElementById('tcrr-view').style.display='none';
     document.body.classList.remove('v35-drug-list');
     window.scrollTo(0,0);
   }
@@ -1709,6 +1853,7 @@ initCompatibility();renderAlpha();render();
     document.getElementById('viewer').style.display='none';
     document.getElementById('compat-view').style.display='none';
     document.getElementById('antibioticos-view').style.display='none';
+    document.getElementById('tcrr-view').style.display='none';
     document.getElementById('analgosedacion-view').style.display='block';
     document.body.classList.remove('v35-drug-list');
     window.scrollTo(0,0);
@@ -1722,7 +1867,22 @@ initCompatibility();renderAlpha();render();
     document.getElementById('compat-view').style.display='none';
     document.getElementById('analgosedacion-view').style.display='none';
     document.getElementById('insulinizacion-view').style.display='none';
+    document.getElementById('tcrr-view').style.display='none';
     document.getElementById('antibioticos-view').style.display='block';
+    document.body.classList.remove('v35-drug-list');
+    window.scrollTo(0,0);
+  };
+
+  window.showTcrr=function(){
+    document.getElementById('landing').style.display='none';
+    document.getElementById('home').style.display='none';
+    document.getElementById('viewer').style.display='none';
+    document.getElementById('compat-view').style.display='none';
+    document.getElementById('analgosedacion-view').style.display='none';
+    document.getElementById('antibioticos-view').style.display='none';
+    document.getElementById('telefonos-view').style.display='none';
+    document.getElementById('insulinizacion-view').style.display='none';
+    document.getElementById('tcrr-view').style.display='block';
     document.body.classList.remove('v35-drug-list');
     window.scrollTo(0,0);
   };
@@ -1735,6 +1895,7 @@ initCompatibility();renderAlpha();render();
     document.getElementById('analgosedacion-view').style.display='none';
     document.getElementById('antibioticos-view').style.display='none';
     document.getElementById('telefonos-view').style.display='none';
+    document.getElementById('tcrr-view').style.display='none';
     document.getElementById('insulinizacion-view').style.display='block';
     document.body.classList.remove('v35-drug-list');
     window.scrollTo(0,0);
@@ -1748,6 +1909,7 @@ initCompatibility();renderAlpha();render();
     document.getElementById('analgosedacion-view').style.display='none';
     document.getElementById('antibioticos-view').style.display='none';
     document.getElementById('insulinizacion-view').style.display='none';
+    document.getElementById('tcrr-view').style.display='none';
     document.getElementById('telefonos-view').style.display='block';
     document.body.classList.remove('v35-drug-list');
     window.scrollTo(0,0);
