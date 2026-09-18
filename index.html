@@ -747,7 +747,7 @@ header{z-index:1000!important}
 <div class="tcrr-reference">
 <h4>Tabla de ajuste (referencia)</h4>
 <div class="tcrr-reference-title">ANTICOAGULACIÓN CON CITRATO EN HDFVVC</div>
-<table class="tcrr-table"><thead><tr><th>CALCIO EN SANGRE</th><th>Ca PF bajo<br>(&lt; 0,25 mmol/l)</th><th>Ca PF normal<br>(0,25–0,35 mmol/l)</th><th>Ca PF alto<br>(&gt; 0,5 mmol/l)</th></tr></thead>
+<table class="tcrr-table"><thead><tr><th>CALCIO EN SANGRE</th><th>Ca PF bajo<br>(&lt; 0,25 mmol/l)</th><th>Ca PF normal<br>(0,25–0,35 mmol/l)</th><th>Ca PF alto<br>(&gt; 0,35 mmol/l)</th></tr></thead>
 <tbody>
 <tr><td>Ca en sangre bajo<br>(&lt; 1 mmol/l)</td><td>↓ Citrato 0,5 mmol/l</td><td>↑ Ca 5–10%</td><td>↑ Citrato 0,5 mmol/l<br>y<br>↑ Ca 5–10%</td></tr>
 <tr><td>Ca en sangre normal<br>(1–1,2 mmol/l)</td><td>↓ Citrato 0,5 mmol/l</td><td><strong>Sin intervención</strong></td><td>↑ Citrato 0,5 mmol/l</td></tr>
@@ -1782,7 +1782,7 @@ initCompatibility();renderAlpha();render();
   if(!patient||!post||!result||!calcBtn||!resetBtn)return;
   function parse(v){return parseFloat(String(v).replace(',','.'));}
   function patientBand(x){return x<1?'low':x<=1.2?'normal':'high';}
-  function postBand(x){return x<0.25?'low':x<=0.35?'normal':'high';}
+  function postBand(x){return x<0.25?'low':x<=0.35?'normal':'high';} // Ca PF alto: > 0,35 mmol/l
   const actions={
     'low|low':{text:'↓ Citrato 0,5 mmol/l',adjust:true},
     'low|normal':{text:'↑ Ca 5–10%',adjust:true},
