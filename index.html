@@ -445,6 +445,63 @@ header{z-index:1000!important}
 @media(max-width:520px){#tcrr-view{padding:12px}.tcrr-card{padding:12px}.tcrr-hero{padding:18px 12px}.tcrr-hero p{font-size:12px}.tcrr-result-main{font-size:24px}}
 </style>
 
+
+<style id="ne-minivademecum-css">
+#ne-view{display:none}
+.ne-hero{background:linear-gradient(135deg,#0d5ea8,#164b84);color:#fff;border-radius:18px;padding:20px 18px 18px;margin-bottom:16px;text-align:center;box-shadow:0 8px 24px rgba(23,55,70,.12)}
+.ne-hero h2{margin:0;font-size:28px;line-height:1.08}
+.ne-hero p{margin:7px 0 0;font-size:14px;opacity:.96}
+.ne-card{background:#fff;border:1px solid #cbddeb;border-radius:16px;padding:16px;margin-bottom:14px;box-shadow:0 4px 14px rgba(23,55,70,.06)}
+.ne-card h3{margin:0 0 11px;color:#1456a0;font-size:19px;line-height:1.2}
+.ne-list{margin:0;padding-left:22px}
+.ne-list li{margin:7px 0;font-size:15px;line-height:1.35}
+.ne-alt{color:#111}
+.ne-noalt{color:#c62828;font-weight:700}
+.ne-dys{color:#16a34a;font-weight:700}
+.ne-ind{font-weight:500;color:#222}
+.ne-legend{display:grid;gap:8px;margin-top:14px;padding:12px 14px;border-radius:12px;background:#f7fafc;border:1px solid #d8e3eb;font-size:13px;line-height:1.4}
+.ne-legend span{font-weight:800}
+.ne-source{margin-top:10px;color:var(--muted);font-size:11px}
+@media(max-width:700px){.ne-card{padding:13px}.ne-list{padding-left:20px}.ne-list li{font-size:14px}.ne-hero h2{font-size:25px}}
+.ne-dys-test{margin-bottom:16px}
+.ne-dys-intro{background:#f7fafc;border:1px solid #d8e3eb;border-radius:12px;padding:12px 14px;margin-bottom:14px;font-size:13px;line-height:1.45;color:#334e68}
+.ne-dys-intro strong{color:#1456a0}
+.ne-dys-alerts{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:10px}
+.ne-dys-alert{border-radius:10px;padding:10px 12px;font-size:12px;line-height:1.4}
+.ne-dys-alert.alarm{background:#fff0ef;border:1px solid #e3aaa5;color:#8e241d}
+.ne-dys-alert.effective{background:#eefaf1;border:1px solid #a9d8b4;color:#176b37}
+.ne-dys-start{width:100%;border:0;border-radius:11px;padding:12px 14px;background:#1267c4;color:#fff;font-size:15px;font-weight:800;cursor:pointer}
+.ne-dys-step{border:1px solid #cbddeb;border-radius:14px;padding:14px;margin-top:12px;background:#fff}
+.ne-dys-step h4{margin:0;color:#1456a0;font-size:18px}
+.ne-dys-step h4 span{font-weight:600;color:#5d7185;font-size:13px}
+.ne-dys-step p{margin:5px 0 11px;color:#5d7185;font-size:12px}
+.ne-dys-volumes{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
+.ne-dys-volume{border:1px solid #b9c9d8;border-radius:10px;background:#f9fcff;padding:10px 7px;text-align:center}
+.ne-dys-volume strong{display:block;font-size:16px;color:#172b45;margin-bottom:7px}
+.ne-dys-choice{display:grid;grid-template-columns:1fr 1fr;gap:6px}
+.ne-dys-choice button{border-radius:8px;padding:8px 5px;font-size:12px;font-weight:800;cursor:pointer}
+.ne-dys-ok{border:1px solid #79c58f;background:#e9f8ee;color:#176b37}
+.ne-dys-no{border:1px solid #df8b84;background:#fff0ef;color:#a12620}
+.ne-dys-result{margin-top:12px;border-radius:12px;padding:13px 14px;font-size:14px;line-height:1.45;font-weight:700}
+.ne-dys-result.good{background:#e9f8ee;border:1px solid #91d4a5;color:#176b37}
+.ne-dys-result.warn{background:#fff6d9;border:1px solid #e5c45c;color:#765400}
+.ne-dys-result.bad{background:#fff0ef;border:1px solid #d85b52;color:#a12620}
+.ne-dys-reset{margin-top:10px;border:1px solid #347be0;background:#fff;color:#1267c4;border-radius:9px;padding:9px 12px;font-weight:800;cursor:pointer}
+.ne-dys-warning{margin-top:12px;padding:11px 13px;background:#fff7d6;border:1px solid #e6c85c;border-left:4px solid #d7a900;border-radius:10px;color:#6f5600;font-size:12px;line-height:1.5}
+.ne-dys-flow{margin-top:12px;padding:11px 13px;background:#f1f8ff;border:1px solid #c9e1f6;border-radius:11px;color:#42627f;font-size:12px;line-height:1.5}
+@media(max-width:520px){.ne-dys-alerts{grid-template-columns:1fr}.ne-dys-volumes{grid-template-columns:1fr}.ne-dys-choice button{min-height:40px}}
+
+.ne-hero-secondary{margin-top:8px}
+.ne-dys-trach{margin:12px 0 14px;border:1px solid #d8c36a;border-radius:12px;background:#fffdf2;overflow:hidden}
+.ne-dys-trach summary{cursor:pointer;padding:12px 14px;font-weight:800;color:#765400;list-style:none}
+.ne-dys-trach summary::-webkit-details-marker{display:none}
+.ne-dys-trach summary:before{content:'▸';display:inline-block;margin-right:8px;transition:transform .15s}
+.ne-dys-trach[open] summary:before{transform:rotate(90deg)}
+.ne-dys-trach-body{padding:0 14px 13px;color:#4d4d4d;font-size:13px;line-height:1.55}
+.ne-dys-trach-body p{margin:0 0 9px}
+.ne-dys-trach-note{font-size:11px;color:#777;margin-bottom:0!important}
+</style>
+
 </head>
 <body>
 <header>
@@ -489,6 +546,10 @@ header{z-index:1000!important}
 <a class="v35-tile" href="#" onclick="showInsulinizacion();return false;">
 <div class="v35-icon" aria-hidden="true">💉</div>
 <div><strong>Insulinización</strong><span>Protocolo de insulina intravenosa con calculadora de ajuste.</span></div>
+</a>
+<a class="v35-tile" href="#" onclick="showNE();return false;">
+<div class="v35-icon" aria-hidden="true">🥤</div>
+<div><strong>Test de Disfagia - Minivademecum de NE</strong><span>Test de disfagia, tipos de nutrición enteral, equivalencias e indicaciones.</span></div>
 </a>
 <a class="v35-tile" href="#" onclick="showTelefonos();return false;">
 <div class="v35-icon" aria-hidden="true">☎️</div>
@@ -776,6 +837,262 @@ header{z-index:1000!important}
 </section>
 
 </main>
+
+<main id="ne-view">
+<button type="button" class="back v35-cover-back" onclick="showLanding()">← Portada</button>
+<section class="ne-hero">
+<h2>Test de Disfagia</h2>
+<p><strong>Evaluación de la tolerancia a diferentes texturas y volúmenes</strong></p>
+</section>
+
+
+
+<section class="ne-card ne-dys-test">
+<h3>Test de Disfagia</h3>
+<div class="ne-dys-intro">
+<strong>Exploración de la tolerancia a diferentes texturas y volúmenes.</strong><br>
+Realizar con el paciente lo más sentado posible. El protocolo indica administrar progresivamente pequeñas cantidades de <strong>5 ml, 10 ml y 20 ml</strong> y vigilar los signos de alarma y de efectividad.
+<div class="ne-dys-alerts">
+<div class="ne-dys-alert alarm"><strong>⚠️ Signos de alarma</strong><br>Tos, cambios de voz y desaturación.</div>
+<div class="ne-dys-alert effective"><strong>✓ Signos de efectividad</strong><br>Restos orales, salida de contenido alimenticio por boca y trabajo deglutorio.</div>
+</div>
+</div>
+<details class="ne-dys-trach">
+<summary>Consideraciones especiales en el paciente traqueostomizado</summary>
+<div class="ne-dys-trach-body">
+<p><strong>Nuestro objetivo seguirá siendo realizar una transición adecuada a la nutrición oral segura.</strong></p>
+<p><strong>El momento de inicio:</strong><br>Cuando la situación respiratoria y neurológica del paciente lo permitan y esté en posición de sentado en sillón o cama.</p>
+<ul>
+<li>Si el paciente está conectado al respirador siempre se dará la dieta oral con el balón inflado.</li>
+<li>Si el paciente tolera periodos de desconexión del respirador, entonces:</li>
+</ul>
+<p><strong>Antes de empezar:</strong></p>
+<ul>
+<li><strong>Aislar vía aérea:</strong> cánula con balón: inflar neumotaponamiento <strong>25-30 cm H2O</strong>, evitando el sobreinflado que nos disminuiría el diámetro esofágico.</li>
+</ul>
+<p><strong>Durante la alimentación:</strong></p>
+<ul>
+<li>Comenzar con alimentos semisólidos y líquidos con espesantes.</li>
+<li>Inclinar la cabeza hacia delante para ayudar el paso del bolo alimenticio.</li>
+<li>No correr, darle al paciente su tiempo.</li>
+<li>En las primeras degluciones será enfermería quien alimente al paciente y <strong>NO LA FAMILIA</strong>.</li>
+</ul>
+<p><strong>Después:</strong></p>
+<ul>
+<li>No acostar al paciente inmediatamente.</li>
+<li>Higiene bucal.</li>
+</ul>
+<p>Posteriormente, a medida que vayamos avanzando en la alimentación oral del paciente, iremos deshinchando el neumotaponamiento hasta que pueda deglutir con el balón deshinchado.</p>
+</div>
+</details>
+<button type="button" class="ne-dys-start" id="ne-dys-start">▶ Iniciar test de disfagia</button>
+<div id="ne-dys-test-area" hidden>
+<div class="ne-dys-warning"><strong>⚠️ Importante:</strong> Este test interactivo es solo una guía para la aplicación del test. <strong>No sustituye a la HOJA DE REGISTRO DEL TEST DE VISCOSIDAD Y VOLUMEN</strong>, que debe cumplimentarse y conservarse en la historia clínica del paciente.</div>
+<div class="ne-dys-flow"><strong>Secuencia:</strong> néctar → líquido → pudin. En cada textura se prueban 5 ml, 10 ml y 20 ml de forma progresiva.</div>
+<div id="ne-dys-steps"></div>
+<div id="ne-dys-result" class="ne-dys-result" aria-live="polite"></div>
+<button type="button" class="ne-dys-reset" id="ne-dys-reset">↻ Reiniciar test</button>
+</div>
+</section>
+
+<section class="ne-hero ne-hero-secondary">
+<h2>Minivademecum de Nutriciones Enterales</h2>
+<p><strong>Tipos de NE, equivalencias e indicaciones</strong></p>
+</section>
+
+<section class="ne-card ne-legend-top">
+<h3>Clave de colores</h3>
+<div class="ne-legend">
+<div><span class="ne-alt">Negro:</span> alternativas dentro del grupo.</div>
+<div><span class="ne-noalt">Rojo:</span> NO son alternativas; las cambia el médico.</div>
+<div><span class="ne-dys">Verde:</span> dietas de DISFAGIA.</div>
+</div>
+</section>
+
+<section class="ne-card">
+<h3>1. Normocalórica y normoproteica</h3>
+<ul class="ne-list">
+<li class="ne-alt">Nutrison standar 1.0</li>
+<li class="ne-alt">BI1 VIA estandard fibra 1.0</li>
+<li class="ne-alt">Nutrison advance cubison 1.0</li>
+</ul>
+</section>
+
+<section class="ne-card">
+<h3>2. Hipercalórica e hiperproteica con fibra</h3>
+<ul class="ne-list">
+<li class="ne-alt">Jevity Plus HP 1.3</li>
+<li class="ne-alt">Isosource protein fibra 1,3</li>
+<li class="ne-alt">Ensure Plus Advance RTH 1.5</li>
+<li class="ne-alt">Nutrison protein plus Energy multifibra 1.5</li>
+<li class="ne-alt">Fresubin 2 kcal HP fibra</li>
+<li class="ne-alt">Isosource 2.0 proteín fibra</li>
+</ul>
+</section>
+
+<section class="ne-card">
+<h3>3. Hipercalórica e hiperproteica sin fibra</h3>
+<ul class="ne-list">
+<li class="ne-alt">Nutrison protein Plus 1,25</li>
+<li class="ne-alt">Fresubin 2 kcal HP</li>
+</ul>
+</section>
+
+<section class="ne-card">
+<h3>4. Alteraciones gastrointestinales</h3>
+<ul class="ne-list">
+<li class="ne-noalt">Novasource GI protein <span class="ne-ind">— DANE</span></li>
+<li class="ne-noalt">Nutricomp Hepa <span class="ne-ind">— Encefalopatía hepática</span></li>
+</ul>
+</section>
+
+<section class="ne-card">
+<h3>5. Oligoméricas</h3>
+<ul class="ne-list">
+<li class="ne-noalt">Peptamen 2 enteral <span class="ne-ind">— hipercalórica/hiperproteica</span></li>
+<li class="ne-noalt">Survimed OPD <span class="ne-ind">— normocalórica/normoproteica</span></li>
+<li class="ne-noalt">Peptisens 1,4 <span class="ne-ind">— hipercalórica e hiperproteica</span></li>
+<li class="ne-noalt">Fresubin Intensive 1.2 <span class="ne-ind">— normocalórica/hiperproteica</span></li>
+</ul>
+</section>
+
+<section class="ne-card">
+<h3>6. Enfermedad renal crónica (ERC)</h3>
+<ul class="ne-list">
+<li class="ne-noalt">Nepro LP 2.0 <span class="ne-ind">— pre-diálisis: hipercalórica/hipoproteica</span></li>
+<li class="ne-alt">Nepro HP 2.0 vainilla (220 ml) <span class="ne-ind">— hipercal/normoproteica</span></li>
+<li class="ne-alt">Nepro HP 2.0 neutro (500 ml) <span class="ne-ind">— por sonda</span></li>
+</ul>
+</section>
+
+<section class="ne-card">
+<h3>7. Diabetes mellitus</h3>
+<ul class="ne-list">
+<li class="ne-noalt">Glucerna Select <span class="ne-ind">— normocalórica/hiperproteica</span></li>
+<li class="ne-noalt">Diben estándar <span class="ne-ind">— normocalórica/normoproteica</span></li>
+<li class="ne-noalt">Nutrison Advance Diason <span class="ne-ind">— normo/normoproteica</span></li>
+<li class="ne-alt">Diben 1.5 HP <span class="ne-ind">— hipercalórica/hiperproteica</span></li>
+<li class="ne-alt">Novasource diabet Plus <span class="ne-ind">— hipercalórica/hiperproteica</span></li>
+</ul>
+</section>
+
+<section class="ne-card">
+<h3>8. Con bajo contenido de minerales/sodio</h3>
+<ul class="ne-list"><li class="ne-alt">Nutrison Low Sodium</li></ul>
+</section>
+
+<section class="ne-card">
+<h3>9. Nutrición enteral sin grasas</h3>
+<ul class="ne-list"><li class="ne-alt">Ensure Plus Juce</li></ul>
+</section>
+
+<section class="ne-card">
+<h3>10. Inmunomoduladoras</h3>
+<ul class="ne-list">
+<li class="ne-noalt">Atempero enteral 1.25 (con fibra)</li>
+<li class="ne-noalt">Impact 1.0 (sin fibra)</li>
+</ul>
+</section>
+
+<section class="ne-card">
+<h3>Suplementos nutricionales</h3>
+<h3>1. Pacientes diabéticos hiperproteicos con fibra</h3>
+<ul class="ne-list">
+<li class="ne-alt">Diasip (vainilla)</li>
+<li class="ne-alt">Glucerna advance 1.6 (vainilla)</li>
+<li class="ne-dys">Nutridems multisabor (textura miel)</li>
+<li class="ne-dys">Nutilis complet (textura miel)</li>
+</ul>
+<h3>2. Hiperproteicas hipercalóricas, sin fibra</h3>
+<ul class="ne-list">
+<li class="ne-alt">Ensure plus advance (multisabor)</li>
+<li class="ne-alt">Meritene extra protein (multisabor)</li>
+</ul>
+<h3>3. Hiperproteicas hipercalóricas con fibra</h3>
+<ul class="ne-list">
+<li class="ne-alt">Prosure (vainilla)</li>
+<li class="ne-alt">Fortimel advance (multisabor)</li>
+<li class="ne-dys">Fresubin 2 Kcal. (textura pudin) (vainilla)</li>
+</ul>
+<h3>4. Exenta de lípidos</h3>
+<ul class="ne-list"><li class="ne-alt">Ensure plus juce (melocotón)</li></ul>
+<h3>5. Fórmulas oligoméricas hiperproteicas</h3>
+<ul class="ne-list">
+<li class="ne-noalt">Peptisens (multisabor)</li>
+<li class="ne-noalt">Survimed OPD drink (vainilla)</li>
+</ul>
+<h3>6. Fórmulas oligoméricas normoproteicas</h3>
+<ul class="ne-list"><li class="ne-noalt">Vital 1.5 (vainilla)</li></ul>
+<div class="ne-source">Fuente: <strong>Minivademecum de Nutriciones Enterales</strong> proporcionado por la unidad. Fdo. Ascensión González García.</div>
+</section>
+</main>
+
+<script id="ne-dys-test-js">
+(function(){
+  const start=document.getElementById('ne-dys-start');
+  const area=document.getElementById('ne-dys-test-area');
+  const steps=document.getElementById('ne-dys-steps');
+  const result=document.getElementById('ne-dys-result');
+  const reset=document.getElementById('ne-dys-reset');
+  if(!start||!area||!steps||!result||!reset)return;
+  const textures=[
+    {name:'NÉCTAR',example:'zumo de melocotón'},
+    {name:'LÍQUIDO',example:'agua'},
+    {name:'PUDIN',example:'yogur'}
+  ];
+  const volumes=[5,10,20];
+  let current=0, failed=false;
+  function render(){
+    steps.innerHTML=textures.map((t,ti)=>`<div class="ne-dys-step" data-step="${ti}" ${ti>0?'hidden':''}>
+      <h4>${t.name} <span>(${t.example})</span></h4>
+      <p>Administrar progresivamente y registrar la tolerancia.</p>
+      <div class="ne-dys-volumes">${volumes.map(v=>`<div class="ne-dys-volume" data-volume="${v}"><strong>${v} ml</strong><div class="ne-dys-choice"><button type="button" class="ne-dys-ok" data-ok="1">✓ Tolera</button><button type="button" class="ne-dys-no" data-ok="0">✕ No tolera</button></div></div>`).join('')}</div>
+    </div>`).join('');
+    result.className='ne-dys-result'; result.textContent='';
+    bindStep(0);
+  }
+  function bindStep(ti){
+    const card=steps.querySelector(`[data-step="${ti}"]`);
+    if(!card)return;
+    card.querySelectorAll('button').forEach(btn=>btn.addEventListener('click',()=>{
+      const volume=btn.closest('.ne-dys-volume').dataset.volume;
+      const ok=btn.dataset.ok==='1';
+      if(!ok){
+        failed=true;
+        if(ti===0){
+          showResult('bad','🔴 Problemas de seguridad en néctar.','Según el protocolo, si no tolera alguna de las texturas, debe valorarse la complicación/duda y derivarse al médico para la actuación correspondiente.');
+        }else if(ti===1){
+          showResult('bad','🔴 Problemas de seguridad en líquido.','Según el protocolo, si no tolera alguna de las texturas, debe valorarse la complicación/duda y derivarse al médico para la actuación correspondiente.');
+        }else{
+          showResult('bad','🔴 Problemas de seguridad en pudin.','Según el protocolo, si no tolera alguna de las texturas, debe valorarse la complicación/duda y derivarse al médico para la actuación correspondiente.');
+        }
+        return;
+      }
+      const vol=Number(volume);
+      const volumeButtons=[...card.querySelectorAll('.ne-dys-volume')];
+      const idx=volumeButtons.findIndex(x=>x.dataset.volume===volume);
+      volumeButtons.forEach((x,i)=>{if(i<idx+1)x.style.opacity='.65';});
+      if(vol===20){
+        if(ti<textures.length-1){
+          current=ti+1;
+          const next=steps.querySelector(`[data-step="${current}"]`);
+          if(next){next.hidden=false; next.scrollIntoView({behavior:'smooth',block:'nearest'}); bindStep(current);}
+        }else{
+          showResult('good','🟢 Tolera las 3 texturas.','El protocolo indica continuar con dieta de disfagia. El requerimiento nutricional se ajusta según la tolerancia de la dieta oral: >50% de D.O. → mantener 1 NE; >75% de D.O. durante 3 días → suspender NE.');
+        }
+      }
+    }));
+  }
+  function showResult(type,title,text){
+    result.className='ne-dys-result '+type;
+    result.innerHTML='<strong>'+title+'</strong><br>'+text;
+  }
+  function resetTest(){current=0;failed=false;area.hidden=true;steps.innerHTML='';result.className='ne-dys-result';result.textContent='';start.hidden=false;}
+  start.addEventListener('click',()=>{start.hidden=true;area.hidden=false;render();});
+  reset.addEventListener('click',resetTest);
+})();
+</script>
+
 <footer>Web de recursos de la UCI del HUVM. Documentos de uso interno. Queda prohibida su distribución.</footer>
 
 <script>
@@ -1816,8 +2133,9 @@ function initCalculator(r){
   [u,c].forEach(el=>el.addEventListener('change',calc));
 }
 
-function showHome(){document.body.classList.add('v35-drug-list');document.getElementById('viewer').style.display='none';document.getElementById('compat-view').style.display='none';document.getElementById('analgosedacion-view').style.display='none';document.getElementById('antibioticos-view').style.display='none';document.getElementById('telefonos-view').style.display='none';document.getElementById('insulinizacion-view').style.display='none';document.getElementById('tcrr-view').style.display='none';document.getElementById('home').style.display='block';render()}
+function showHome(){document.body.classList.add('v35-drug-list');document.getElementById('viewer').style.display='none';document.getElementById('compat-view').style.display='none';document.getElementById('analgosedacion-view').style.display='none';document.getElementById('antibioticos-view').style.display='none';document.getElementById('telefonos-view').style.display='none';document.getElementById('insulinizacion-view').style.display='none';document.getElementById('tcrr-view').style.display='none';document.getElementById('ne-view').style.display='none';document.getElementById('home').style.display='block';render()}
 function showCompatibility(){document.getElementById('home').style.display='none';document.getElementById('viewer').style.display='none';document.getElementById('analgosedacion-view').style.display='none';document.getElementById('antibioticos-view').style.display='none';document.getElementById('telefonos-view').style.display='none';document.getElementById('insulinizacion-view').style.display='none';document.getElementById('tcrr-view').style.display='none';
+    document.getElementById('ne-view').style.display='none';
     document.getElementById('compat-view').style.display='block';window.scrollTo(0,0)}
 function escapeHtml(s){return s.replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]))}
 q.addEventListener('input',render);
@@ -1906,6 +2224,7 @@ initCompatibility();renderAlpha();render();
     document.getElementById('telefonos-view').style.display='none';
     document.getElementById('insulinizacion-view').style.display='none';
     document.getElementById('tcrr-view').style.display='none';
+    document.getElementById('ne-view').style.display='none';
     document.body.classList.remove('v35-drug-list');
     window.scrollTo(0,0);
   }
@@ -1936,6 +2255,7 @@ initCompatibility();renderAlpha();render();
     document.getElementById('compat-view').style.display='none';
     document.getElementById('antibioticos-view').style.display='none';
     document.getElementById('tcrr-view').style.display='none';
+    document.getElementById('ne-view').style.display='none';
     document.getElementById('analgosedacion-view').style.display='block';
     document.body.classList.remove('v35-drug-list');
     window.scrollTo(0,0);
@@ -1950,6 +2270,7 @@ initCompatibility();renderAlpha();render();
     document.getElementById('analgosedacion-view').style.display='none';
     document.getElementById('insulinizacion-view').style.display='none';
     document.getElementById('tcrr-view').style.display='none';
+    document.getElementById('ne-view').style.display='none';
     document.getElementById('antibioticos-view').style.display='block';
     document.body.classList.remove('v35-drug-list');
     window.scrollTo(0,0);
@@ -1964,7 +2285,23 @@ initCompatibility();renderAlpha();render();
     document.getElementById('antibioticos-view').style.display='none';
     document.getElementById('telefonos-view').style.display='none';
     document.getElementById('insulinizacion-view').style.display='none';
+    document.getElementById('ne-view').style.display='none';
     document.getElementById('tcrr-view').style.display='block';
+    document.body.classList.remove('v35-drug-list');
+    window.scrollTo(0,0);
+  };
+
+  window.showNE=function(){
+    document.getElementById('landing').style.display='none';
+    document.getElementById('home').style.display='none';
+    document.getElementById('viewer').style.display='none';
+    document.getElementById('compat-view').style.display='none';
+    document.getElementById('analgosedacion-view').style.display='none';
+    document.getElementById('antibioticos-view').style.display='none';
+    document.getElementById('telefonos-view').style.display='none';
+    document.getElementById('insulinizacion-view').style.display='none';
+    document.getElementById('tcrr-view').style.display='none';
+    document.getElementById('ne-view').style.display='block';
     document.body.classList.remove('v35-drug-list');
     window.scrollTo(0,0);
   };
@@ -1978,6 +2315,7 @@ initCompatibility();renderAlpha();render();
     document.getElementById('antibioticos-view').style.display='none';
     document.getElementById('telefonos-view').style.display='none';
     document.getElementById('tcrr-view').style.display='none';
+    document.getElementById('ne-view').style.display='none';
     document.getElementById('insulinizacion-view').style.display='block';
     document.body.classList.remove('v35-drug-list');
     window.scrollTo(0,0);
@@ -1992,6 +2330,7 @@ initCompatibility();renderAlpha();render();
     document.getElementById('antibioticos-view').style.display='none';
     document.getElementById('insulinizacion-view').style.display='none';
     document.getElementById('tcrr-view').style.display='none';
+    document.getElementById('ne-view').style.display='none';
     document.getElementById('telefonos-view').style.display='block';
     document.body.classList.remove('v35-drug-list');
     window.scrollTo(0,0);
