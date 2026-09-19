@@ -809,6 +809,44 @@ const q=document.getElementById('q'),results=document.getElementById('results'),
 const allBtn=document.getElementById('allBtn');
 let letter='';
 
+// Nombres comerciales documentados en las propias fichas del protocolo.
+// Se usan como alias de búsqueda, sin cambiar el nombre de la ficha (principio activo).
+const commercialAliases={
+  'ACIDO VALPROICO (DEPAKINE)':['Depakine'],
+  'AMINOFILINA (87,7 % DE TEOFILINA)':['Eufilina'],
+  'AMIODARONA':['Trangorex'],
+  'CISATRACURIO':['Nimbex'],
+  'CLEVIDIPINO':['Cleviprex'],
+  'DOBUTAMINA':['Dobutrex'],
+  'DEXMEDETOMIDINA':['Dexdor'],
+  'ESMOLOL (Bomba volumétrica)':['Brevibloc'],
+  'ESMOLOL (Bomba Jeringa)':['Brevibloc'],
+  'FENTANILO':['Fentanest'],
+  'FLECAINIDA':['Apocard'],
+  'FUROSEMIDA':['Seguril'],
+  'INSULINA':['Actrapid','Regular'],
+  'ISOPROTERENOL O ISOPRENALINA (ALEUDRINA)':['Aleudrina'],
+  'KETAMINA':['Ketolar'],
+  'LABETALOL':['Trandate'],
+  'LEVOSIMENDAN':['Simdax'],
+  'MILRINONA':['Corotrope'],
+  'NIMODIPINO':['Nimotop'],
+  'OCTREÓTIDO':['Sandostatin'],
+  'PROPAFENONA':['Rytmonorm'],
+  'TIOPENTAL SODICO':['Pentothal Sódico'],
+  'TOCILIZUMAB':['RoActemra'],
+  'URAPIDILO':['Elgadil']
+};
+function aliasesFor(r){
+  const key=String(r.heading||'').trim();
+  return commercialAliases[key]||[];
+}
+function recordMatchesTerm(r,term){
+  if(!term)return true;
+  const name=norm(displayName(r));
+  return name.includes(term)||norm(r.text).includes(term)||aliasesFor(r).some(a=>norm(a).includes(term));
+}
+
 // Autocompletado visual directamente debajo del buscador.
 (function initSearchSuggestions(){
   const toolbar=q.closest('.toolbar');
@@ -835,15 +873,20 @@ let letter='';
   function renderSuggestions(){
     const term=norm(q.value.trim());
     if(!term){hide();return;}
-    const matches=records.filter(r=>norm(displayName(r)).includes(term)).sort((a,b)=>{
+    const matches=records.filter(r=>recordMatchesTerm(r,term)).sort((a,b)=>{
       const an=norm(displayName(a)),bn=norm(displayName(b));
-      const ap=an.startsWith(term),bp=bn.startsWith(term);
+      const aa=aliasesFor(a).map(norm),bb=aliasesFor(b).map(norm);
+      const ap=an.startsWith(term)||aa.some(x=>x.startsWith(term)),bp=bn.startsWith(term)||bb.some(x=>x.startsWith(term));
       if(ap!==bp)return ap?-1:1;
       const pa=/BOMBAS DE PCA/i.test(a.heading)?1:0,pb=/BOMBAS DE PCA/i.test(b.heading)?1:0;
       if(pa!==pb)return pa-pb;
       return displayName(a).localeCompare(displayName(b),'es');
     }).slice(0,7);
-    box.innerHTML=matches.map(r=>`<button type="button" class="search-suggestion" role="option" data-record-index="${records.indexOf(r)}"><span>${escapeHtml(displayName(r))}</span><small>Página ${r.page}</small></button>`).join('');
+    box.innerHTML=matches.map(r=>{
+      const aliases=aliasesFor(r);
+      const aliasText=aliases.length?`<small>${escapeHtml(aliases[0])} → ${escapeHtml(displayName(r))}${aliases.length>1?' · '+aliases.slice(1).map(escapeHtml).join(' · '):''}</small>`:`<small>Página ${r.page}</small>`;
+      return `<button type="button" class="search-suggestion" role="option" data-record-index="${records.indexOf(r)}"><span>${escapeHtml(displayName(r))}</span>${aliasText}</button>`;
+    }).join('');
     active=-1;
     if(matches.length)show();else hide();
     box.querySelectorAll('.search-suggestion').forEach((b,i)=>b.addEventListener('click',()=>choose(i)));
@@ -873,7 +916,7 @@ function render(){
   const term=norm(q.value.trim());
   let arr=records.filter(r=>{
     const name=norm(displayName(r)),txt=norm(r.text);
-    return (!term||name.includes(term)||txt.includes(term))&&(!letter||name.startsWith(norm(letter)))
+    return (!term||recordMatchesTerm(r,term))&&(!letter||name.startsWith(norm(letter)))
   });
   // Las dos fichas de PCA se muestran siempre al final de la lista, fuera del orden alfabético.
   const pcaEndRank=r=>/BOMBAS DE PCA/i.test(r.heading)?1:0;
