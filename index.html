@@ -1089,6 +1089,7 @@ function openRecord(i){
   } else if(/ANGIOTENSINA II/i.test(r.heading)){
     document.getElementById('vtext').innerHTML=renderAngiotensina(cleaned);
     initAngiotensinaCalculator();
+    initAngiotensinaAIMRITE();
   } else if(/AMIODARONA/i.test(r.heading)){
     document.getElementById('vtext').innerHTML=renderAmiodarona(cleaned);
   } else if(/AMINOFILINA/i.test(r.heading)){
@@ -1259,9 +1260,32 @@ function renderAngiotensina(cleaned){
   h=h.replace(/MAP hr0/g,'MAP<sub>hr0</sub>');
   h=h.replace(/MAP hr1/g,'MAP<sub>hr1</sub>');
   h=h.replace(/Ang-II Dose hr1/g,'Ang-II Dose<sub>hr1</sub>');
-  return h.replace(/\n/g,'<br>');
+  return h.replace(/\n/g,'<br>') + renderAngiotensinaCalculators();
 }
-
+function renderAngiotensinaCalculators(){
+  return `<div class="calc angii-calc" id="angii-calc">
+    <h3>🧮 Calculadora de perfusión</h3>
+    <p class="calc-note">Preparación del protocolo: <strong>2,5 mg en 250 ml de SF 0,9%</strong> → concentración final <strong>10 µg/ml</strong>.</p>
+    <div class="calc-grid">
+      <div><label>Peso (kg)<input id="angii-w" type="number" inputmode="decimal" min="0.1" step="0.1" placeholder="Ej. 70"></label></div>
+      <div><label>Dosis<input id="angii-d" type="number" inputmode="decimal" min="0" step="0.1" value="20"></label></div>
+      <div><label>Unidad de dosis<select disabled><option selected>ng/kg/min</option></select></label></div>
+    </div>
+    <div id="angii-r" class="calc-result" aria-live="polite">Introduce el peso para calcular.</div>
+    <div class="calc-warning">Dosis inicial del protocolo: <strong>20 ng/kg/min</strong>. Titular cada 5 minutos según la PA. Máximo <strong>80 ng/kg/min</strong> durante las primeras 3 horas y posteriormente <strong>40 ng/kg/min</strong>.</div>
+  </div>
+  <div class="calc angii-aimrite" id="angii-aimrite">
+    <h3>🧮 Calculadora AIMRITE — valoración de respuesta</h3>
+    <p class="calc-note">Calcula la respuesta inicial de la PAM a la Angiotensina II durante la primera hora.</p>
+    <div class="calc-grid">
+      <div><label>PAM basal — MAP<sub>hr0</sub> (mmHg)<input id="aim-map0" type="number" inputmode="decimal" step="0.1" placeholder="Ej. 65"></label></div>
+      <div><label>PAM a la hora — MAP<sub>hr1</sub> (mmHg)<input id="aim-map1" type="number" inputmode="decimal" step="0.1" placeholder="Ej. 80"></label></div>
+      <div class="full"><label>Dosis de Angiotensina II a la hora — Ang-II Dose<sub>hr1</sub> (ng/kg/min)<input id="aim-dose" type="number" inputmode="decimal" min="0.1" step="0.1" placeholder="Ej. 20"></label></div>
+    </div>
+    <div id="aim-r" class="calc-result" aria-live="polite">Introduce los tres valores para calcular AIMRITE.</div>
+    <div class="calc-warning">Fórmula: <strong>AIMRITE = (MAP<sub>hr1</sub> − MAP<sub>hr0</sub>) / dosis de Angiotensina II a la hora</strong>. Según el protocolo HUVM, <strong>&gt; 0,90 mmHg/ng/kg/min</strong> se considera respuesta.</div>
+  </div>`;
+}
 function initAngiotensinaCalculator(){
   const box=document.getElementById('angii-calc'); if(!box)return;
   const w=box.querySelector('#angii-w'), d=box.querySelector('#angii-d'), r=box.querySelector('#angii-r');
@@ -1270,10 +1294,25 @@ function initAngiotensinaCalculator(){
     if(!Number.isFinite(weight)||weight<=0||!Number.isFinite(dose)||dose<0){r.innerHTML='Introduce un peso y una dosis válidos.';return;}
     const mlh=(dose*weight*60)/10000;
     const shown=mlh<10?mlh.toFixed(2):mlh.toFixed(1);
-    r.innerHTML=`<div>Velocidad de perfusión</div><div class="big">${shown} ml/h</div><div style="font-size:12px;color:var(--muted)">${weight} kg · ${dose} ng/kg/min · 10 mcg/ml</div>`;
+    r.innerHTML=`<div>Velocidad de perfusión</div><div class="big">${shown} ml/h</div><div style="font-size:12px;color:var(--muted)">${weight} kg · ${dose} ng/kg/min · 10 µg/ml</div>`;
   }
-  w.addEventListener('input',calc); d.addEventListener('input',calc);
+  [w,d].forEach(el=>el.addEventListener('input',calc));
+  calc();
 }
+function initAngiotensinaAIMRITE(){
+  const box=document.getElementById('angii-aimrite'); if(!box)return;
+  const map0=box.querySelector('#aim-map0'), map1=box.querySelector('#aim-map1'), dose=box.querySelector('#aim-dose'), r=box.querySelector('#aim-r');
+  function calc(){
+    const a=parseFloat(map0.value), b=parseFloat(map1.value), d=parseFloat(dose.value);
+    if(!Number.isFinite(a)||!Number.isFinite(b)||!Number.isFinite(d)||d<=0){r.innerHTML='Introduce PAM basal, PAM a la hora y dosis de Angiotensina II válidas.';return;}
+    const aimrite=(b-a)/d;
+    const responsive=aimrite>0.90;
+    const shown=aimrite.toFixed(2).replace('.',',');
+    r.innerHTML=`<div>AIMRITE</div><div class="big">${shown} mmHg/ng/kg/min</div><div style="font-size:12px;color:var(--muted)">ΔPAM: ${(b-a).toFixed(1).replace('.',',')} mmHg · Dosis a la hora: ${d.toFixed(1).replace('.',',')} ng/kg/min</div><div style="margin-top:8px;font-weight:800;color:${responsive?'#166534':'#9f1239'}">${responsive?'RESPONDEDOR':'NO RESPONDEDOR SEGÚN UMBRAL DEL PROTOCOLO'}</div>`;
+  }
+  [map0,map1,dose].forEach(el=>el.addEventListener('input',calc));
+}
+
 function renderAmiodarona(cleaned){
   // Mantener la jerarquía visual de la ficha original: los encabezados y
   // apartados que aparecen en negrita en el PDF se conservan destacados.
