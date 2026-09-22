@@ -270,6 +270,8 @@ body:not(.v35-drug-list) > header{
 .v35-incompat-toggle{box-sizing:border-box;width:100%;min-height:46px;display:flex;align-items:center;gap:9px;padding:12px 15px;border:1px solid #e4b7b7;border-radius:12px;background:#fff8f8;color:#9b2c2c;font:600 15px/1.2 Inter,Arial,sans-serif;cursor:pointer;text-align:left}
 .v35-incompat-count{margin-left:auto;min-width:24px;height:24px;padding:0 7px;display:inline-flex;align-items:center;justify-content:center;border-radius:999px;background:#f4d8d8;color:#8d2525;font-size:13px}
 .v35-incompat-list{display:none;margin-top:10px;gap:7px}
+.v35-incompat-warning{box-sizing:border-box;display:block;margin-bottom:10px;padding:12px 14px;border:1px solid #ead8a8;border-radius:10px;background:#fff9e8;color:#5f4b16;font:14px/1.45 Inter,Arial,sans-serif}
+.v35-incompat-warning strong{font-weight:700}
 .v35-incompat-item{display:flex;align-items:center;gap:10px;padding:10px 12px;border:1px solid #ead7d7;border-radius:10px;background:#fffafa;color:#26343c;font:500 14px/1.35 Inter,Arial,sans-serif;cursor:pointer}
 .v35-incompat-icon{width:25px;height:25px;flex:0 0 25px;display:flex;align-items:center;justify-content:center;border-radius:50%;background:#f7dddd;color:#9b2c2c;font-weight:700}
 .v35-incompat-empty{padding:12px 14px;border:1px solid #dbe4e8;border-radius:10px;background:#f8fafb;color:#64727a;font:14px/1.4 Inter,Arial,sans-serif}
@@ -278,7 +280,9 @@ body:not(.v35-drug-list) > header{
 .protocol-incompat-section{margin:18px 0 12px;padding-top:14px;border-top:1px solid #e2e8ec}
 .protocol-incompat-toggle{box-sizing:border-box;width:100%;min-height:46px;display:flex;align-items:center;gap:9px;padding:12px 15px;border:1px solid #e4b7b7;border-radius:12px;background:#fff8f8;color:#9b2c2c;font:600 15px/1.2 Inter,Arial,sans-serif;cursor:pointer;text-align:left}
 .protocol-incompat-count{margin-left:auto;min-width:24px;height:24px;padding:0 7px;display:inline-flex;align-items:center;justify-content:center;border-radius:999px;background:#f4d8d8;color:#8d2525;font-size:13px}
-.protocol-incompat-list{display:none;margin-top:10px;gap:7px}
+.protocol-incompat-list{display:none;margin-top:10px;gap:7px;grid-template-columns:1fr}
+.protocol-incompat-warning{grid-column:1/-1!important;display:block!important;box-sizing:border-box;margin:10px 0 12px;padding:14px 16px;border:1px solid #e2b800!important;border-left:6px solid #d09f00!important;border-radius:10px;background:#fff3b8!important;color:#4a3b00!important;font:14px/1.5 Inter,Arial,sans-serif;box-shadow:0 2px 5px rgba(180,140,0,.15)}
+.protocol-incompat-warning strong{font-weight:700}
 .protocol-incompat-item{display:flex;align-items:center;gap:10px;padding:10px 12px;border:1px solid #ead7d7;border-radius:10px;background:#fffafa;color:#26343c;font:500 14px/1.35 Inter,Arial,sans-serif}
 .protocol-incompat-item>span:first-child{width:25px;height:25px;display:flex;align-items:center;justify-content:center;border-radius:50%;background:#f7dddd;color:#9b2c2c;font-weight:700}
 </style>
@@ -2387,7 +2391,11 @@ initCompatibility();renderAlpha();render();
    count.textContent=arr.length?arr.length:'';
    list.innerHTML='';
    list.style.display='none';
-   if(!arr.length){list.innerHTML='<div class="v35-incompat-empty">No hay incompatibilidades registradas en la matriz maestra.</div>';}
+   var warning=document.createElement('div');
+   warning.className='v35-incompat-warning';
+   warning.innerHTML='⚠️ <strong>Importante:</strong> Esta lista recoge únicamente los fármacos para los que existe <strong>evidencia científica de incompatibilidad en Y</strong>. <strong>Que un fármaco no aparezca en esta lista no implica que sea compatible.</strong> La ausencia de datos o de una incompatibilidad descrita no permite asumir compatibilidad. Para confirmar la compatibilidad entre dos fármacos, consulte la aplicación <strong>«Compatibilidad en Y»</strong>. <strong>Solo las combinaciones clasificadas como «Compatible» deben considerarse compatibles.</strong>';
+   list.appendChild(warning);
+   if(!arr.length){var empty=document.createElement('div');empty.className='v35-incompat-empty';empty.textContent='No hay incompatibilidades registradas en la matriz maestra.';list.appendChild(empty);}
    else arr.forEach(function(drug){
      var row=document.createElement('div'); row.className='v35-incompat-item';
      row.innerHTML='<span class="v35-incompat-icon">×</span><span>'+drug+'</span>';
@@ -2435,7 +2443,7 @@ function render(name){
  if(!key){sec.style.display='none';return;}
  // Flecainida no tiene incompatibilidades registradas: ocultar por completo el aviso solo en esta ficha.
  if(n(key)==='flecainida'||n(key)==='flumazenil'){sec.style.display='none';return;}
- list.innerHTML='';
+ list.innerHTML='<div class="protocol-incompat-warning"><strong>⚠️ Importante:</strong> Esta lista recoge únicamente los fármacos para los que existe <strong>evidencia científica de incompatibilidad en Y</strong>. <strong>Que un fármaco no aparezca en esta lista no implica que sea compatible.</strong> La ausencia de datos o de una incompatibilidad descrita no permite asumir compatibilidad. Para confirmar la compatibilidad entre dos fármacos, consulte la aplicación <strong>«Compatibilidad en Y»</strong>. <strong>Solo las combinaciones clasificadas como «Compatible» deben considerarse compatibles.</strong></div>';
  var arr=DATA[key]||[];
  count.textContent=arr.length?arr.length:'';
  arr.forEach(function(x){var d=document.createElement('div');d.className='protocol-incompat-item';d.innerHTML='<span>×</span><span>'+x+'</span>';list.appendChild(d);});
