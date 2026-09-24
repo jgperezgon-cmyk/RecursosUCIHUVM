@@ -341,6 +341,13 @@ body:not(.v35-drug-list) > header{
 .ab-hero{background:linear-gradient(135deg,#eef7f0,#f9fcfa);border:1px solid #dce9df;border-radius:16px;padding:18px 18px 16px;margin-bottom:14px}
 .ab-hero h2{margin:0 0 5px;font-size:23px;color:#173d2b}.ab-hero p{margin:0;color:#62756a;font-size:14px}
 .ab-card{background:#fff;border:1px solid #dfe8e2;border-radius:16px;margin:14px 0;padding:16px;box-shadow:0 2px 8px rgba(20,50,35,.04)}
+.ab-letter-filter{margin:14px 0 18px;padding:14px 16px;background:#fff;border:1px solid #dfe8e2;border-radius:14px;box-shadow:0 2px 8px rgba(20,50,35,.04)}
+.ab-letter-label{display:block;margin-bottom:9px;font-size:13px;font-weight:700;color:#315344}
+.ab-letter-buttons{display:flex;flex-wrap:wrap;gap:7px}
+.ab-letter-btn{min-width:38px;padding:8px 11px;border:1px solid #cbd9d1;border-radius:9px;background:#f7faf8;color:#244936;font-size:14px;font-weight:700;cursor:pointer}
+.ab-letter-btn:hover{border-color:#7d9b89}
+.ab-letter-btn.active{background:#173d2b;color:#fff;border-color:#173d2b}
+
 .ab-card h3{margin:0 0 12px;color:#173d2b;font-size:19px}
 .ab-table{width:100%;border-collapse:separate;border-spacing:0;overflow:hidden;border:1px solid #dce6df;border-radius:11px;font-size:14px}
 .ab-table th,.ab-table td{padding:11px 12px;text-align:left;vertical-align:top;border-bottom:1px solid #e6ece8}
@@ -583,7 +590,7 @@ header{z-index:1000!important}
 <button class="back" onclick="showHome()">← Volver al listado</button>
 <section class="compatibility" aria-labelledby="compat-title">
 <h2 id="compat-title">Compatibilidad de perfusiones</h2>
-<p class="muted">Selecciona dos fármacos para consultar la compatibilidad. Se utiliza exclusivamente la matriz maestra revisada. Garreta 2025 se utiliza para los pares incluidos en ese estudio; Castells 2020 se utiliza para los pares que solo constan en Castells, incluidos los 7 fármacos exclusivos.</p>
+<p class="muted">Selecciona los dos fármacos que quieres administrar por la misma vía y consulta el resultado de compatibilidad en Y.</p>
 <div class="compat-grid">
 <label>Fármaco 1<select id="compat-a"></select></label>
 <label>Fármaco 2<select id="compat-b"></select></label>
@@ -613,28 +620,45 @@ header{z-index:1000!important}
 <main id="antibioticos-view" class="ab-view">
 <button type="button" class="back v35-cover-back" onclick="showLanding()">← Portada</button>
 <section class="ab-hero"><h2>Antibióticos</h2><p>Administración de antibióticos en perfusión según la tabla proporcionada.</p></section>
+<div class="ab-letter-filter" role="navigation" aria-label="Buscar antibiótico por letra">
+  <span class="ab-letter-label">Buscar por letra:</span>
+  <div class="ab-letter-buttons">
+    <button type="button" class="ab-letter-btn active" data-letter="all">Todos</button>
+    <button type="button" class="ab-letter-btn" data-letter="A">A</button>
+    <button type="button" class="ab-letter-btn" data-letter="C">C</button>
+    <button type="button" class="ab-letter-btn" data-letter="D">D</button>
+    <button type="button" class="ab-letter-btn" data-letter="E">E</button>
+    <button type="button" class="ab-letter-btn" data-letter="F">F</button>
+    <button type="button" class="ab-letter-btn" data-letter="G">G</button>
+    <button type="button" class="ab-letter-btn" data-letter="L">L</button>
+    <button type="button" class="ab-letter-btn" data-letter="M">M</button>
+    <button type="button" class="ab-letter-btn" data-letter="P">P</button>
+    <button type="button" class="ab-letter-btn" data-letter="T">T</button>
+    <button type="button" class="ab-letter-btn" data-letter="V">V</button>
+  </div>
+</div>
+<section class="ab-card"><h3>Aciclovir</h3><table class="ab-table"><thead><tr><th>Dosis de carga</th><th>Administración</th><th>Reconstitución</th></tr></thead><tbody><tr><td>—</td><td>En SF-100 ml<br>En 1 h</td><td>Reconstitución: 10 ml de API</td></tr></tbody></table></section>
+<section class="ab-card"><h3>Amikacina</h3><table class="ab-table"><thead><tr><th>Dosis de carga</th><th>Administración</th><th>Reconstitución</th></tr></thead><tbody><tr><td>—</td><td>Dosis única diaria · En SF-100 ml · 30 min</td><td>Reconstitución: 10 ml de API</td></tr></tbody></table></section>
+<section class="ab-card"><h3>Anfotericina B liposomal</h3><table class="ab-table"><thead><tr><th>Dosis de carga</th><th>Administración</th><th>Reconstitución</th></tr></thead><tbody><tr><td>—</td><td>En SG5%-250 ml<br>En 1 h</td><td>Reconstitución: 12 ml de API</td></tr></tbody></table></section>
+<section class="ab-card"><h3>Caspofungina</h3><table class="ab-table"><thead><tr><th>Dosis de carga</th><th>Administración</th><th>Reconstitución</th></tr></thead><tbody><tr><td>—</td><td>En SF-100 ml<br>En 1 h</td><td>Reconstitución: 10 ml de API</td></tr></tbody></table></section>
 <section class="ab-card"><h3>Cefepima</h3><table class="ab-table"><thead><tr><th>Dosis de carga</th><th>Administración</th><th>Reconstitución</th></tr></thead><tbody><tr><td>En SF-100 ml<br>30 min</td><td>En SF-100 ml<br>3 h a 35 ml/h</td><td>Reconstitución: 10 ml de API</td></tr></tbody></table></section>
 <section class="ab-card"><h3>Ceftazidima</h3><table class="ab-table"><thead><tr><th>Dosis de carga</th><th>Administración</th><th>Reconstitución</th></tr></thead><tbody><tr><td>En SF-100 ml<br>30 min</td><td>En SF-100 ml<br>3 h a 35 ml/h</td><td>Reconstitución: 10 ml de API</td></tr></tbody></table></section>
-<section class="ab-card"><h3>Piperacilina-tazobactam</h3><table class="ab-table"><thead><tr><th>Dosis de carga</th><th>Administración</th><th>Reconstitución</th></tr></thead><tbody><tr><td>En SF-100 ml<br>30 min</td><td>En SF-100 ml<br>4 h a 25 ml/h</td><td>Reconstitución: 10 ml de API</td></tr></tbody></table></section>
-<section class="ab-card"><h3>Meropenem</h3><table class="ab-table"><thead><tr><th>Dosis de carga</th><th>Administración</th><th>Reconstitución</th></tr></thead><tbody><tr><td>En SF-100 ml<br>30 min</td><td>En SF-100 ml<br>3 h a 35 ml/h</td><td>Reconstitución: 20 ml de API</td></tr></tbody></table></section>
-<section class="ab-card"><h3>Amikacina</h3><table class="ab-table"><thead><tr><th>Dosis de carga</th><th>Administración</th><th>Reconstitución</th></tr></thead><tbody><tr><td>—</td><td>Dosis única diaria · En SF-100 ml · 30 min</td><td>Reconstitución: 10 ml de API</td></tr></tbody></table></section>
+<section class="ab-card"><h3>Cidofovir</h3><table class="ab-table"><thead><tr><th>Dosis de carga</th><th>Administración</th><th>Reconstitución</th></tr></thead><tbody><tr><td>—</td><td>En SF-100 ml<br>En 1 h</td><td>Reconstitución: 5 ml de API</td></tr></tbody></table></section>
+<section class="ab-card"><h3>Ciprofloxacino</h3><table class="ab-table"><thead><tr><th>Dosis de carga</th><th>Administración</th><th>Reconstitución</th></tr></thead><tbody><tr><td>—</td><td>En SF-100 ml<br>En 1 h</td><td>Reconstitución: no precisa</td></tr></tbody></table></section>
+<section class="ab-card"><h3>Claritromicina</h3><table class="ab-table"><thead><tr><th>Dosis de carga</th><th>Administración</th><th>Reconstitución</th></tr></thead><tbody><tr><td>—</td><td>En SF-250 ml<br>En 1 h</td><td>Reconstitución: 10 ml de API</td></tr></tbody></table></section>
+<section class="ab-card"><h3>Cloxacilina</h3><table class="ab-table"><thead><tr><th>Dosis de carga</th><th>Administración</th><th>Reconstitución</th></tr></thead><tbody><tr><td>—</td><td>En SF-100 ml<br>En 1 h</td><td>Reconstitución: 20 ml de API</td></tr></tbody></table></section>
+<section class="ab-card"><h3>Cotrimoxazol</h3><table class="ab-table"><thead><tr><th>Dosis de carga</th><th>Administración</th><th>Reconstitución</th></tr></thead><tbody><tr><td>—</td><td>En SF-250 ml<br>En 1 h</td><td>Reconstitución: disolvente especial</td></tr></tbody></table></section>
+<section class="ab-card"><h3>Doxiciclina</h3><table class="ab-table"><thead><tr><th>Dosis de carga</th><th>Administración</th><th>Reconstitución</th></tr></thead><tbody><tr><td>—</td><td>En SF-250 ml<br>En 1 h</td><td>Reconstitución: no precisa</td></tr></tbody></table></section>
+<section class="ab-card"><h3>Eritromicina</h3><table class="ab-table"><thead><tr><th>Dosis de carga</th><th>Administración</th><th>Reconstitución</th></tr></thead><tbody><tr><td>—</td><td>En SF-250 ml<br>En 1 h</td><td>Reconstitución: 20 ml de API</td></tr></tbody></table></section>
+<section class="ab-card"><h3>Fosfomicina</h3><table class="ab-table"><thead><tr><th>Dosis de carga</th><th>Administración</th><th>Reconstitución</th></tr></thead><tbody><tr><td>—</td><td>En SF-100 ml<br>En 1 h</td><td>Reconstitución: 20 ml de API</td></tr></tbody></table></section>
+<section class="ab-card"><h3>Ganciclovir</h3><table class="ab-table"><thead><tr><th>Dosis de carga</th><th>Administración</th><th>Reconstitución</th></tr></thead><tbody><tr><td>—</td><td>En SF-100 ml<br>En 1 h</td><td>Reconstitución: 10 ml de API</td></tr></tbody></table></section>
 <section class="ab-card"><h3>Gentamicina</h3><table class="ab-table"><thead><tr><th>Dosis de carga</th><th>Administración</th><th>Reconstitución</th></tr></thead><tbody><tr><td>—</td><td>Dosis única diaria · En SF-100 ml · 30 min</td><td>Reconstitución: 10 ml de API</td></tr></tbody></table></section>
+<section class="ab-card"><h3>Levofloxacino</h3><table class="ab-table"><thead><tr><th>Dosis de carga</th><th>Administración</th><th>Reconstitución</th></tr></thead><tbody><tr><td>—</td><td>En SF-100 ml<br>En 1 h</td><td>Reconstitución: no precisa</td></tr></tbody></table></section>
+<section class="ab-card"><h3>Meropenem</h3><table class="ab-table"><thead><tr><th>Dosis de carga</th><th>Administración</th><th>Reconstitución</th></tr></thead><tbody><tr><td>En SF-100 ml<br>30 min</td><td>En SF-100 ml<br>3 h a 35 ml/h</td><td>Reconstitución: 20 ml de API</td></tr></tbody></table></section>
+<section class="ab-card"><h3>Piperacilina-tazobactam</h3><table class="ab-table"><thead><tr><th>Dosis de carga</th><th>Administración</th><th>Reconstitución</th></tr></thead><tbody><tr><td>En SF-100 ml<br>30 min</td><td>En SF-100 ml<br>4 h a 25 ml/h</td><td>Reconstitución: 10 ml de API</td></tr></tbody></table></section>
 <section class="ab-card"><h3>Tobramicina</h3><table class="ab-table"><thead><tr><th>Dosis de carga</th><th>Administración</th><th>Reconstitución</th></tr></thead><tbody><tr><td>—</td><td>Dosis única diaria · En SF-100 ml · 30 min</td><td>Reconstitución: 10 ml de API</td></tr></tbody></table></section>
 <section class="ab-card"><h3>Vancomicina</h3><table class="ab-table"><thead><tr><th>Dosis de carga</th><th>Administración</th><th>Reconstitución</th></tr></thead><tbody><tr><td>—</td><td>En SF-250 ml<br>3 h a 83 ml/h</td><td>Reconstitución: 20 ml de API</td></tr></tbody></table></section>
 <section class="ab-card"><h3>Voriconazol</h3><table class="ab-table"><thead><tr><th>Dosis de carga</th><th>Administración</th><th>Reconstitución</th></tr></thead><tbody><tr><td>—</td><td>En SF-250 ml<br>3 h a 83 ml/h</td><td>Reconstitución: 20 ml de API</td></tr></tbody></table></section>
-<section class="ab-card"><h3>Cloxacilina</h3><table class="ab-table"><thead><tr><th>Dosis de carga</th><th>Administración</th><th>Reconstitución</th></tr></thead><tbody><tr><td>—</td><td>En SF-100 ml<br>En 1 h</td><td>Reconstitución: 20 ml de API</td></tr></tbody></table></section>
-<section class="ab-card"><h3>Ciprofloxacino</h3><table class="ab-table"><thead><tr><th>Dosis de carga</th><th>Administración</th><th>Reconstitución</th></tr></thead><tbody><tr><td>—</td><td>En SF-100 ml<br>En 1 h</td><td>Reconstitución: no precisa</td></tr></tbody></table></section>
-<section class="ab-card"><h3>Levofloxacino</h3><table class="ab-table"><thead><tr><th>Dosis de carga</th><th>Administración</th><th>Reconstitución</th></tr></thead><tbody><tr><td>—</td><td>En SF-100 ml<br>En 1 h</td><td>Reconstitución: no precisa</td></tr></tbody></table></section>
-<section class="ab-card"><h3>Doxiciclina</h3><table class="ab-table"><thead><tr><th>Dosis de carga</th><th>Administración</th><th>Reconstitución</th></tr></thead><tbody><tr><td>—</td><td>En SF-250 ml<br>En 1 h</td><td>Reconstitución: no precisa</td></tr></tbody></table></section>
-<section class="ab-card"><h3>Claritromicina</h3><table class="ab-table"><thead><tr><th>Dosis de carga</th><th>Administración</th><th>Reconstitución</th></tr></thead><tbody><tr><td>—</td><td>En SF-250 ml<br>En 1 h</td><td>Reconstitución: 10 ml de API</td></tr></tbody></table></section>
-<section class="ab-card"><h3>Eritromicina</h3><table class="ab-table"><thead><tr><th>Dosis de carga</th><th>Administración</th><th>Reconstitución</th></tr></thead><tbody><tr><td>—</td><td>En SF-250 ml<br>En 1 h</td><td>Reconstitución: 20 ml de API</td></tr></tbody></table></section>
-<section class="ab-card"><h3>Cotrimoxazol</h3><table class="ab-table"><thead><tr><th>Dosis de carga</th><th>Administración</th><th>Reconstitución</th></tr></thead><tbody><tr><td>—</td><td>En SF-250 ml<br>En 1 h</td><td>Reconstitución: disolvente especial</td></tr></tbody></table></section>
-<section class="ab-card"><h3>Caspofungina</h3><table class="ab-table"><thead><tr><th>Dosis de carga</th><th>Administración</th><th>Reconstitución</th></tr></thead><tbody><tr><td>—</td><td>En SF-100 ml<br>En 1 h</td><td>Reconstitución: 10 ml de API</td></tr></tbody></table></section>
-<section class="ab-card"><h3>Anfotericina B liposomal</h3><table class="ab-table"><thead><tr><th>Dosis de carga</th><th>Administración</th><th>Reconstitución</th></tr></thead><tbody><tr><td>—</td><td>En SG5%-250 ml<br>En 1 h</td><td>Reconstitución: 12 ml de API</td></tr></tbody></table></section>
-<section class="ab-card"><h3>Fosfomicina</h3><table class="ab-table"><thead><tr><th>Dosis de carga</th><th>Administración</th><th>Reconstitución</th></tr></thead><tbody><tr><td>—</td><td>En SF-100 ml<br>En 1 h</td><td>Reconstitución: 20 ml de API</td></tr></tbody></table></section>
-<section class="ab-card"><h3>Aciclovir</h3><table class="ab-table"><thead><tr><th>Dosis de carga</th><th>Administración</th><th>Reconstitución</th></tr></thead><tbody><tr><td>—</td><td>En SF-100 ml<br>En 1 h</td><td>Reconstitución: 10 ml de API</td></tr></tbody></table></section>
-<section class="ab-card"><h3>Cidofovir</h3><table class="ab-table"><thead><tr><th>Dosis de carga</th><th>Administración</th><th>Reconstitución</th></tr></thead><tbody><tr><td>—</td><td>En SF-100 ml<br>En 1 h</td><td>Reconstitución: 5 ml de API</td></tr></tbody></table></section>
-<section class="ab-card"><h3>Ganciclovir</h3><table class="ab-table"><thead><tr><th>Dosis de carga</th><th>Administración</th><th>Reconstitución</th></tr></thead><tbody><tr><td>—</td><td>En SF-100 ml<br>En 1 h</td><td>Reconstitución: 10 ml de API</td></tr></tbody></table></section>
 <section class="ab-card"><div class="ab-notes"><div class="ab-note-title">Nota de la tabla original</div><div>Todos se reconstituyen con 10 ml de Agua para Inyección (API), excepto los indicados expresamente como 20 ml, 12 ml, 5 ml, no precisa o disolvente especial.</div></div></section>
 </main>
 <main id="insulinizacion-view" class="ins-view">
@@ -1116,8 +1140,39 @@ function initCompatibility(){
     const source=compatibilityData.sources[key] || compatibilityData.sources[`${j},${i}`] || 'Sin dato en las dos matrices';
     const labels={C:['Compatible','compat'],I:['Incompatible','incompat'],Ii:['Compatibilidad no confirmada','conditional'],Csf:['Compatible solo en suero fisiológico','fluid'],GLU:['Solo compatible en suero glucosado','fluid'],SAL:['Solo compatible en suero fisiológico','fluid'],SPECIAL:['Compatible en situaciones especiales','special'],"I/C":['Compatible en situaciones especiales','special'],ND:['Sin datos de compatibilidad','none']};
     const [label,cls]=labels[code]||labels.ND;
+    const normPairName=s=>String(s||'').normalize('NFD').replace(/[\u0300-\u036f]/g,'').toLowerCase().replace(/\s+/g,' ').trim();
+    const pairKey=[normPairName(compatibilityData.names[i]),normPairName(compatibilityData.names[j])].sort().join(' + ');
+    const huvmSpecificConditional=new Set([
+      'amiodarona 15 mg/ml + gluconato calcico',
+      'amiodarona 15 mg/ml + ceftriaxona',
+      'amiodarona 15 mg/ml + fentanilo 30 mcg/ml',
+      'amiodarona 15 mg/ml + furosemida 10 mg/ml',
+      'amiodarona 15 mg/ml + cloruro potasico',
+      'arginina vasopresina 0,8 ui/ml + cisatracurio 5 mg/ml',
+      'arginina vasopresina 0,8 ui/ml + furosemida 10 mg/ml',
+      'bicarbonato sodico + cisatracurio 5 mg/ml',
+      'bivalirudina 5 mg/ml + labetalol 4 mg/ml',
+      'cefotaxima + cisatracurio 5 mg/ml',
+      'cisatracurio 5 mg/ml + furosemida 10 mg/ml',
+      'cisatracurio 5 mg/ml + nitroprusiato sodico',
+      'cisatracurio 5 mg/ml + ganciclovir',
+      'cisatracurio 5 mg/ml + heparina sodica 500 ui/ml',
+      'esmolol 10 mg/ml + fenitoina',
+      'furosemida 10 mg/ml + remifentanilo 0,1 mg/ml',
+      'propofol + remifentanilo 0,1 mg/ml',
+      'esmolol 10 mg/ml + trimetoprim/sulfametoxazol',
+      'ganciclovir + propofol',
+      'lidocaina + propofol',
+      'midazolam 2 mg/ml + propofol',
+      'morfina clorhidrato 2 mg/ml + propofol',
+      'propofol + remifentanilo 0,1 mg/ml'
+    ]);
+    const isHuvmSpecificConditional=huvmSpecificConditional.has(pairKey);
+    const conditionalMessage=isHuvmSpecificConditional
+      ? 'Hay evidencia de compatibilidad en determinadas condiciones de concentración y dilución que NO son asimilables a las que usamos en el HUVM.'
+      : 'La evidencia disponible indica que la compatibilidad depende de la concentración y/o el diluyente. Por tanto, no puede confirmarse la compatibilidad en las condiciones de preparación utilizadas en el HUVM.';
     out.className=`compat-result ${cls}`;
-    out.innerHTML=`<div class="status">${label}</div>${code==='Ii'?'<div class="conditional-note">La evidencia disponible indica que la compatibilidad depende de la concentración y/o el diluyente. Por tanto, no puede confirmarse la compatibilidad en las condiciones de preparación utilizadas en el HUVM.</div>':''}<div style="font-size:12px;color:var(--muted);margin-top:5px">${htmlEscape(compatibilityData.names[i])} · ${htmlEscape(compatibilityData.names[j])}</div><div class="pair-source" style="margin-top:12px;font-size:12px"><strong>Estudio:</strong> ${htmlEscape(source)}</div>`;
+    out.innerHTML=`<div class="status">${label}</div>${code==='Ii'?`<div class="conditional-note">${conditionalMessage}</div>`:''}<div style="font-size:12px;color:var(--muted);margin-top:5px">${htmlEscape(compatibilityData.names[i])} · ${htmlEscape(compatibilityData.names[j])}</div><div class="pair-source" style="margin-top:12px;font-size:12px"><strong>Estudio:</strong> ${htmlEscape(source)}</div>`;
   }
   a.addEventListener('change',show); b.addEventListener('change',show);
 }
@@ -2279,6 +2334,27 @@ initCompatibility();renderAlpha();render();
     document.body.classList.remove('v35-drug-list');
     window.scrollTo(0,0);
   };
+
+  (function initAntibioticLetterFilter(){
+    function apply(letter){
+      var cards=document.querySelectorAll('#antibioticos-view .ab-card h3');
+      cards.forEach(function(h){
+        var card=h.closest('.ab-card');
+        if(!card)return;
+        if(letter==='all'){card.style.display='';return;}
+        var first=(h.textContent||'').trim().normalize('NFD').replace(/[\u0300-\u036f]/g,'').charAt(0).toUpperCase();
+        card.style.display=first===letter?'':'none';
+      });
+      document.querySelectorAll('#antibioticos-view .ab-letter-btn').forEach(function(btn){
+        btn.classList.toggle('active',btn.getAttribute('data-letter')===letter);
+      });
+    }
+    document.addEventListener('click',function(e){
+      var btn=e.target.closest('#antibioticos-view .ab-letter-btn');
+      if(!btn)return;
+      apply(btn.getAttribute('data-letter')||'all');
+    });
+  })();
 
   window.showTcrr=function(){
     document.getElementById('landing').style.display='none';
