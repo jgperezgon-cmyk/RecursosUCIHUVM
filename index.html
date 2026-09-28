@@ -293,13 +293,83 @@ body:not(.v35-drug-list) > header{
 .as-hero h2{margin:0 0 5px;font-size:23px;color:#173746}.as-hero p{margin:0;color:#5f7078;font-size:14px}
 .as-card{background:#fff;border:1px solid #dfe7eb;border-radius:16px;margin:14px 0;padding:16px;box-shadow:0 2px 8px rgba(20,50,65,.04)}
 .as-card h3{margin:0 0 5px;color:#173746;font-size:19px}.as-card .as-desc{margin:0 0 14px;color:#65757d;font-size:13px;line-height:1.45}
-.as-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px}.as-field label{display:block;font-size:13px;font-weight:600;color:#364a53;margin-bottom:6px}.as-field select,.as-field input{width:100%;box-sizing:border-box;border:1px solid #ccd8dd;border-radius:10px;padding:11px 10px;background:#fff;font-size:15px;color:#24353d}
+.as-panel.hidden{display:none}
+#analgosedacion-view{--accent2:#e8f3f6;--ok:#e8f5ea;--oktext:#216b32;--dangerbg:#fdebea;--dangertext:#9b2828;--line2:#dce3e7;--muted2:#65737d}
+#analgosedacion-view .as-tabs{display:grid;grid-template-columns:repeat(3,1fr);gap:0;margin-bottom:14px;padding:4px;background:#eef4f7;border:1px solid #d8e2e6;border-radius:18px;box-shadow:inset 0 1px 2px rgba(25,55,65,.04)}
+#analgosedacion-view .as-tabs.as-tabs-2{grid-template-columns:1fr 1fr;margin-bottom:12px}
+#analgosedacion-view .as-tab{border:0;background:transparent;min-height:58px;padding:11px 8px;font:inherit;font-size:16px;font-weight:800;color:#65737d;cursor:pointer;border-radius:14px;transition:.15s}
+#analgosedacion-view .as-tab:hover{color:#176b87;background:rgba(255,255,255,.55)}
+#analgosedacion-view .as-tab.active{color:#173746;background:#fff;box-shadow:0 2px 8px rgba(25,55,65,.10)}
+#analgosedacion-view .as-scale-list{display:grid;gap:7px;margin-top:8px}
+#analgosedacion-view .as-scale-btn,#analgosedacion-view .as-choice,#analgosedacion-view .as-num{border:1px solid #cbd7dc;background:#fff;border-radius:10px;padding:10px 12px;text-align:left;cursor:pointer;font:inherit;color:inherit;transition:.15s;width:100%}
+#analgosedacion-view .as-scale-btn:hover,#analgosedacion-view .as-choice:hover,#analgosedacion-view .as-num:hover{border-color:#176b87;background:#f5fbfc}
+#analgosedacion-view .as-scale-btn.selected,#analgosedacion-view .as-choice.selected,#analgosedacion-view .as-num.selected{background:#176b87;color:#fff;border-color:#176b87}
+#analgosedacion-view .as-rass-row{display:flex;gap:8px;align-items:stretch}
+#analgosedacion-view .as-rass-score{width:54px;flex:none;font-weight:800;text-align:center}
+#analgosedacion-view #as-rassList .as-scale-btn.as-rass-agitated{background:#fde2e1;border-color:#e5a3a0}
+#analgosedacion-view #as-rassList .as-scale-btn.as-rass-agitated:hover{background:#f8c9c6}
+#analgosedacion-view #as-rassList .as-scale-btn.as-rass-alert{background:#dff2df;border-color:#9acb9a}
+#analgosedacion-view #as-rassList .as-scale-btn.as-rass-alert:hover{background:#c9e8c9}
+#analgosedacion-view #as-rassList .as-scale-btn.as-rass-sed-light{background:#e4f0fb;border-color:#a9c9e8}
+#analgosedacion-view #as-rassList .as-scale-btn.as-rass-sed-light:hover{background:#d0e5f7}
+#analgosedacion-view #as-rassList .as-scale-btn.as-rass-sed-deep{background:#e8e3f5;border-color:#b6a8d7}
+#analgosedacion-view #as-rassList .as-scale-btn.as-rass-sed-deep:hover{background:#d9d1eb}
+#analgosedacion-view #as-rassList .as-scale-btn.selected{box-shadow:0 0 0 3px rgba(0,0,0,.12);font-weight:700}
 .as-result{margin-top:14px;padding:14px;border-radius:12px;background:#f4f8fa;border:1px solid #dbe6ea;color:#29404a;line-height:1.4}.as-result .big{font-size:27px;font-weight:750;margin-top:3px;color:#173746}.eva-intensity{margin-top:7px;font-size:16px;color:#173746}.eva-range-label{font-size:13px;color:#718087;font-weight:650}.eva-description{margin-top:3px;color:#53656d;font-size:14px}.as-result.ok{background:#f1f8f3;border-color:#cfe5d4}.as-result.warn{background:#fff8ed;border-color:#ecd8b7}.as-result.alert{background:#fff3f3;border-color:#eccaca}
-.as-actions{display:flex;justify-content:flex-end;margin-top:12px}.as-reset{border:1px solid #b9c8ce;background:#fff;color:#38515c;border-radius:10px;padding:9px 13px;font-weight:600;cursor:pointer}.as-reset:hover{background:#f5f8f9}
-.as-options{display:grid;gap:10px;margin-top:8px}.as-option{display:flex;align-items:flex-start;gap:10px;padding:10px 11px;border:1px solid #dce5e9;border-radius:11px;background:#fbfcfd;cursor:pointer}.as-option input{margin-top:3px;flex:0 0 auto}.as-option strong{display:block;color:#2d424b}.as-option span{display:block;color:#68777e;font-size:12px;margin-top:2px}
-.as-cam-table{display:grid;grid-template-columns:1fr 1fr;gap:10px}.as-pill{display:inline-block;padding:5px 8px;border-radius:999px;background:#eef2f5;color:#59636c;font-size:12px;font-weight:700;white-space:nowrap}.as-pill.positive{background:#fff0f0;color:#a33}.as-pill.negative{background:#eef8f0;color:#287344}
+#analgosedacion-view .as-eva-picker{display:flex;gap:14px;align-items:center;padding:12px 10px 14px;background:#f8fbfc;border:1px solid #dce3e7;border-radius:12px}
+#analgosedacion-view .as-eva-value-wrap{flex:0 0 76px;text-align:center}
+#analgosedacion-view .as-eva-value{width:72px;height:72px;display:flex;align-items:center;justify-content:center;margin:0 auto 6px;border-radius:50%;background:#fff;border:1px solid #d7e1e5;color:#173746;font-size:34px;font-weight:800;line-height:1;box-shadow:0 3px 10px rgba(23,55,70,.18);font-variant-numeric:tabular-nums}
+#analgosedacion-view .as-eva-value-label{font-size:12px;font-weight:750;color:#53656d;letter-spacing:.04em}
+#analgosedacion-view .as-eva-scale-wrap{flex:1;min-width:0}
+#analgosedacion-view .as-eva-endpoints{display:flex;justify-content:space-between;color:#53656d;font-size:12px;font-weight:700;margin:0 3px 2px}
+#analgosedacion-view .as-eva-range{appearance:none;-webkit-appearance:none;width:100%;height:44px;background:transparent;cursor:pointer;margin:0;padding:0}
+#analgosedacion-view .as-eva-range::-webkit-slider-runnable-track{height:10px;border-radius:999px;background:linear-gradient(90deg,#55a96b 0%,#55a96b 30%,#e0b34b 50%,#df7b4b 70%,#c94b4b 100%);box-shadow:inset 0 0 0 1px rgba(25,55,65,.10)}
+#analgosedacion-view .as-eva-range::-moz-range-track{height:10px;border-radius:999px;background:linear-gradient(90deg,#55a96b 0%,#55a96b 30%,#e0b34b 50%,#df7b4b 70%,#c94b4b 100%);box-shadow:inset 0 0 0 1px rgba(25,55,65,.10)}
+#analgosedacion-view .as-eva-range::-webkit-slider-thumb{appearance:none;-webkit-appearance:none;width:28px;height:28px;border-radius:50%;background:#fff;border:4px solid #173746;box-shadow:0 2px 7px rgba(23,55,70,.28);margin-top:-9px}
+#analgosedacion-view .as-eva-range::-moz-range-thumb{width:22px;height:22px;border-radius:50%;background:#fff;border:4px solid #173746;box-shadow:0 2px 7px rgba(23,55,70,.28)}
+#analgosedacion-view .as-eva-range:focus-visible{outline:2px solid #4c879b;outline-offset:4px;border-radius:8px}
+#analgosedacion-view .as-eva-ticks{display:grid;grid-template-columns:repeat(11,1fr);margin-top:-1px;color:#6b7b82;font-size:11px;text-align:center;font-variant-numeric:tabular-nums}
+#analgosedacion-view .as-eva-hint{margin-top:9px;text-align:center;color:#718087;font-size:11px}
+#analgosedacion-view .as-num{text-align:center;padding:9px 2px}
+#analgosedacion-view .as-escid-item{border-top:1px solid #dce3e7;padding:11px 0}
+#analgosedacion-view .as-escid-item:first-child{border-top:0}
+#analgosedacion-view .as-escid-title{font-weight:700;margin-bottom:7px;color:#26343d}
+#analgosedacion-view .as-choice-row{display:grid;grid-template-columns:repeat(3,1fr);gap:6px}
+#analgosedacion-view .as-choice{font-size:13px}
+#analgosedacion-view .as-cam-step{padding:14px;border:1px solid #dce3e7;border-radius:10px;background:#fbfcfd}
+#analgosedacion-view .as-cam-step h4{margin:0 0 5px;font-size:16px;color:#164d61}
+#analgosedacion-view .as-cam-question{margin:8px 0 12px}
+#analgosedacion-view .as-cam-subquestion{font-size:13px;color:#65737d;margin:6px 0}
+#analgosedacion-view .as-cam-sequence{margin:10px 0;padding:12px;text-align:center;border-radius:10px;background:#eef5f7;border:1px solid #dce3e7;font-weight:800;letter-spacing:.16em;font-size:18px}
+#analgosedacion-view .as-cam-errors{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:10px}
+#analgosedacion-view .as-cam-rass-grid{display:grid;grid-template-columns:repeat(10,1fr);gap:5px;margin-top:10px}
+#analgosedacion-view .as-cam-rass-grid button{padding:9px 3px;text-align:center}
+#analgosedacion-view .as-cam-status{margin-top:10px;padding:10px 12px;border-radius:9px;background:#f1f6f8;font-size:13px}
+#analgosedacion-view .as-cam-status.positive{background:#fdebea;color:#9b2828}
+#analgosedacion-view .as-cam-status.negative{background:#e8f5ea;color:#216b32}
+#analgosedacion-view .as-cam-actions{display:flex;gap:8px;margin-top:12px}
+#analgosedacion-view .as-cam-actions button{flex:1;text-align:center}
+#analgosedacion-view .as-small{font-size:13px;color:#65737d}
+#analgosedacion-view .as-summary-bar{position:sticky;bottom:10px;background:#173f4d;color:#fff;border-radius:13px;padding:11px 14px;box-shadow:0 4px 16px rgba(0,0,0,.16);display:flex;gap:12px;flex-wrap:wrap;justify-content:center;align-items:center;font-size:14px;margin-top:16px}
+#analgosedacion-view .as-summary-bar span{white-space:nowrap}
+#analgosedacion-view .as-summary-reset{border:0;background:#fff;color:#173f4d;padding:7px 12px;border-radius:8px;font-weight:700;cursor:pointer}
 .as-source{margin-top:16px;padding-top:12px;border-top:1px solid #e3eaed;color:#6c7b82;font-size:11px;line-height:1.45}.as-source a{color:#456b7b}
-@media(max-width:600px){.as-view{padding:12px 10px 30px}.as-card{padding:13px}.as-cam-table{grid-template-columns:1fr}.as-hero h2{font-size:21px}}
+@media(max-width:600px){
+.as-view{padding:12px 10px 30px}.as-card{padding:13px}.as-hero h2{font-size:21px}
+#analgosedacion-view .as-tab{min-height:52px;font-size:14px;padding:9px 5px}
+#analgosedacion-view .as-eva-picker{gap:11px;padding:12px 8px 14px}
+#analgosedacion-view .as-eva-value-wrap{flex:0 0 64px}
+#analgosedacion-view .as-eva-value{width:62px;height:62px;font-size:30px}
+#analgosedacion-view .as-eva-range{height:48px}
+#analgosedacion-view .as-eva-ticks{font-size:10px}
+#analgosedacion-view .as-eva-hint{font-size:10px}
+#analgosedacion-view .as-choice-row{grid-template-columns:1fr}
+#analgosedacion-view .as-cam-rass-grid{grid-template-columns:repeat(5,1fr)}
+#analgosedacion-view .as-cam-errors{grid-template-columns:1fr}
+#analgosedacion-view .as-cam-sequence{font-size:16px;letter-spacing:.10em}
+#analgosedacion-view .as-rass-row{flex-direction:column}
+#analgosedacion-view .as-rass-score{width:auto;text-align:left}
+}
 </style>
 <style id="esmolol-tabs-css">
 .esmolol-tabs{display:flex;gap:6px;padding:5px;background:#f1f5f7;border:1px solid #dbe5e9;border-radius:13px;margin:0 0 14px}
@@ -807,60 +877,689 @@ header{z-index:1000!important}
 </main>
 <main id="analgosedacion-view" class="as-view">
 <button type="button" class="back v35-cover-back" onclick="showLanding()">← Portada</button>
-<section class="as-hero"><h2>Escalas de Analgosedación</h2><p>Herramientas de valoración rápida para sedación, dolor y delirium.</p></section>
+<style id="analgosedacion-v12-css">
+:root{
+  --bg:#f4f7f9;--card:#fff;--text:#26343d;--muted:#65737d;
+  --line:#dce3e7;--accent:#176b87;--accent2:#e8f3f6;
+  --ok:#e8f5ea;--oktext:#216b32;--danger:#fdebea;--dangertext:#9b2828;
+  --shadow:0 2px 10px rgba(25,45,55,.08);--radius:14px;
+}
+*{box-sizing:border-box}
+#analgosedacion-view{margin:0;background:var(--bg);color:var(--text);font-family:Inter,system-ui,-apple-system,"Segoe UI",Arial,sans-serif;line-height:1.5}
+#analgosedacion-view .as-v12-wrap{max-width:1050px;margin:auto;padding:18px}
+#analgosedacion-view .as-v12-header{background:#fff;border-radius:var(--radius);box-shadow:var(--shadow);padding:18px;margin-bottom:16px;text-align:center}
+#analgosedacion-view .as-v12-header h1{margin:0;font-size:25px;color:#164d61}
+#analgosedacion-view .as-v12-header p{margin:4px 0 0;color:var(--muted);font-size:14px}
+.grid{display:grid;grid-template-columns:1fr;gap:16px}
+  .main-tabs{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:0;
+    margin-bottom:16px;
+    padding:4px;
+    background:#eef4f7;
+    border:1px solid #d8e2e6;
+    border-radius:18px;
+    box-shadow:inset 0 1px 2px rgba(25,55,65,.04);
+  }
+  .main-tab{
+    border:0;
+    background:transparent;
+    min-height:62px;
+    padding:12px 10px;
+    font:inherit;
+    font-size:18px;
+    font-weight:800;
+    color:var(--muted);
+    cursor:pointer;
+    border-radius:14px;
+    transition:.15s;
+  }
+  .main-tab:hover{color:var(--accent);background:rgba(255,255,255,.55)}
+  .main-tab.active{
+    color:#173746;
+    background:#fff;
+    box-shadow:0 2px 8px rgba(25,55,65,.10);
+  }
+  .main-panel.hidden{display:none}
+#analgosedacion-view .as-v12-card{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);box-shadow:var(--shadow);padding:18px}
+#analgosedacion-view .as-v12-card h2{margin:0 0 12px;font-size:20px;color:#164d61}
+#analgosedacion-view .as-v12-card h3{margin:14px 0 8px;font-size:16px}
+#analgosedacion-view .as-v12-badge{display:inline-block;background:var(--accent2);color:var(--accent);border-radius:999px;padding:4px 10px;font-size:12px;font-weight:700}
+.scale-list{display:grid;gap:7px}
+.scale-btn,.choice,.num{
+  border:1px solid #cbd7dc;background:#fff;border-radius:10px;padding:10px 12px;
+  text-align:left;cursor:pointer;font:inherit;color:inherit;transition:.15s;
+}
+.scale-btn:hover,.choice:hover,.num:hover{border-color:var(--accent);background:#f5fbfc}
+.scale-btn.selected,.choice.selected,.num.selected{background:var(--accent);color:#fff;border-color:var(--accent)}
+.rass-row{display:flex;gap:8px;align-items:stretch}
+.rass-score{width:54px;flex:none;font-weight:800;text-align:center}
+.result{margin-top:14px;padding:12px 14px;border-radius:10px;background:var(--accent2);font-weight:700}
+.result.ok{background:var(--ok);color:var(--oktext)}
+.result.danger{background:var(--danger);color:var(--dangertext)}
+.selector{display:flex;align-items:center;gap:10px;margin-bottom:12px;flex-wrap:wrap}
+select{font:inherit;border:1px solid #cbd7dc;border-radius:9px;padding:8px 10px;background:#fff}
+.pain-tabs{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:0;
+  margin-bottom:14px;
+  padding:4px;
+  background:#eef4f7;
+  border:1px solid #d8e2e6;
+  border-radius:18px;
+  box-shadow:inset 0 1px 2px rgba(25,55,65,.04);
+}
+.pain-tab{
+  border:0;
+  background:transparent;
+  min-height:64px;
+  padding:12px 14px;
+  font:inherit;
+  font-size:18px;
+  font-weight:800;
+  color:var(--muted);
+  cursor:pointer;
+  border-radius:14px;
+  transition:.15s;
+}
+.pain-tab:hover{color:var(--accent);background:rgba(255,255,255,.55)}
+.pain-tab.active{
+  color:#173746;
+  background:#fff;
+  box-shadow:0 2px 8px rgba(25,55,65,.10);
+}
+.eva-numbers{display:grid;grid-template-columns:repeat(11,1fr);gap:5px}
+.eva-picker{display:flex;gap:14px;align-items:center;padding:12px 10px 14px;background:#f8fbfc;border:1px solid var(--line);border-radius:12px}
+.eva-value-wrap{flex:0 0 76px;text-align:center}
+.eva-value{width:72px;height:72px;display:flex;align-items:center;justify-content:center;margin:0 auto 6px;border-radius:50%;background:#fff;border:1px solid #d7e1e5;color:#173746;font-size:34px;font-weight:800;line-height:1;box-shadow:0 3px 10px rgba(23,55,70,.18);font-variant-numeric:tabular-nums}
+.eva-value-label{font-size:12px;font-weight:750;color:#53656d;letter-spacing:.04em}
+.eva-scale-wrap{flex:1;min-width:0}
+.eva-endpoints{display:flex;justify-content:space-between;color:#53656d;font-size:12px;font-weight:700;margin:0 3px 2px}
+.eva-range{appearance:none;-webkit-appearance:none;width:100%;height:44px;background:transparent;cursor:pointer;margin:0;padding:0}
+.eva-range::-webkit-slider-runnable-track{height:10px;border-radius:999px;background:linear-gradient(90deg,#55a96b 0%,#55a96b 30%,#e0b34b 50%,#df7b4b 70%,#c94b4b 100%);box-shadow:inset 0 0 0 1px rgba(25,55,65,.10)}
+.eva-range::-moz-range-track{height:10px;border-radius:999px;background:linear-gradient(90deg,#55a96b 0%,#55a96b 30%,#e0b34b 50%,#df7b4b 70%,#c94b4b 100%);box-shadow:inset 0 0 0 1px rgba(25,55,65,.10)}
+.eva-range::-webkit-slider-thumb{appearance:none;-webkit-appearance:none;width:28px;height:28px;border-radius:50%;background:#fff;border:4px solid #173746;box-shadow:0 2px 7px rgba(23,55,70,.28);margin-top:-9px}
+.eva-range::-moz-range-thumb{width:22px;height:22px;border-radius:50%;background:#fff;border:4px solid #173746;box-shadow:0 2px 7px rgba(23,55,70,.28)}
+.eva-range:focus-visible{outline:2px solid #4c879b;outline-offset:4px;border-radius:8px}
+.eva-ticks{display:grid;grid-template-columns:repeat(11,1fr);margin-top:-1px;color:#6b7b82;font-size:11px;text-align:center;font-variant-numeric:tabular-nums}
+.eva-hint{margin-top:9px;text-align:center;color:#718087;font-size:11px}
+.eva-intensity{margin-top:4px;font-size:16px}
+.eva-range-label{font-size:12px;color:var(--muted)}
+.eva-description{margin-top:5px;font-size:13px;color:var(--muted)}
+.result .big{font-size:28px;font-weight:800;color:var(--accent)}
+@media(max-width:600px){.eva-picker{gap:11px;padding:12px 8px 14px}.eva-value-wrap{flex:0 0 64px}.eva-value{width:62px;height:62px;font-size:30px}.eva-range{height:48px}.eva-ticks{font-size:10px}.eva-hint{font-size:10px}}
+.num{text-align:center;padding:9px 2px}
+.scale-caption{display:flex;justify-content:space-between;color:var(--muted);font-size:12px;margin-top:7px}
+.escid-item{border-top:1px solid var(--line);padding:11px 0}
+.escid-item:first-child{border-top:0}
+.escid-title{font-weight:700;margin-bottom:7px}
+.choice-row{display:grid;grid-template-columns:repeat(3,1fr);gap:6px}
+.choice{font-size:13px}
+.cam-step{padding:14px;border:1px solid var(--line);border-radius:10px;background:#fbfcfd}
+.cam-question{margin:8px 0 12px}
+.cam-subquestion{font-size:13px;color:var(--muted);margin:6px 0}
+.cam-sequence{margin:10px 0;padding:12px;text-align:center;border-radius:10px;background:#eef5f7;border:1px solid var(--line);font-weight:800;letter-spacing:.16em;font-size:18px}
+.cam-errors{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:10px}
+.cam-rass-grid{display:grid;grid-template-columns:repeat(10,1fr);gap:5px;margin-top:10px}
+.cam-rass-grid button{padding:9px 3px;text-align:center}
+.cam-status{margin-top:10px;padding:10px 12px;border-radius:9px;background:#f1f6f8;font-size:13px}
+.cam-status.positive{background:var(--danger);color:var(--dangertext)}
+.cam-status.negative{background:var(--ok);color:var(--oktext)}
+@media(max-width:560px){.cam-rass-grid{grid-template-columns:repeat(5,1fr)}.cam-errors{grid-template-columns:1fr}.cam-sequence{font-size:16px;letter-spacing:.10em}}
+.cam-step h3{margin:0 0 5px}
+.cam-actions{display:flex;gap:8px;margin-top:12px}
+.cam-actions button{flex:1;text-align:center}
+.small{font-size:13px;color:var(--muted)}
+.summary{position:sticky;bottom:10px;background:#173f4d;color:#fff;border-radius:13px;padding:11px 14px;box-shadow:0 4px 16px rgba(0,0,0,.16);display:flex;gap:12px;flex-wrap:wrap;justify-content:center;font-size:14px}
+.summary span{white-space:nowrap}
+.reset{border:0;background:#fff;color:#173f4d;padding:7px 12px;border-radius:8px;font-weight:700;cursor:pointer}
 
-<section class="as-card" id="rass-card">
-<h3>RASS — Richmond Agitation-Sedation Scale</h3>
-<p class="as-desc">Selecciona el nivel que mejor describe el estado actual del paciente.</p>
-<div class="as-field"><label for="rass-score">Nivel RASS</label><select id="rass-score"></select></div>
-<div id="rass-result" class="as-result">Selecciona un nivel RASS.</div>
-<div class="as-actions"><button type="button" class="as-reset" id="rass-reset">↺ Resetear</button></div>
-</section>
+@media(max-width:560px){  .main-tab{min-height:56px;font-size:16px;padding:10px 6px}
 
-<section class="as-card" id="pain-card">
-<h3>EVA / ESCID — Valoración del dolor</h3>
-<p class="as-desc">EVA para pacientes capaces de comunicar su dolor. ESCID para pacientes no comunicativos y con ventilación mecánica.</p>
-<div class="pain-tabs" role="tablist" aria-label="Escala de valoración del dolor">
-  <button type="button" class="pain-tab" id="pain-tab-eva" role="tab" aria-selected="true" aria-controls="eva-panel">EVA (0–10)</button>
-  <button type="button" class="pain-tab" id="pain-tab-escid" role="tab" aria-selected="false" aria-controls="escid-panel">ESCID (0–10)</button>
-</div>
-<div id="eva-panel" class="pain-panel" role="tabpanel" aria-labelledby="pain-tab-eva">
-  <div class="eva-picker" aria-labelledby="eva-label">
-    <div class="eva-value-wrap">
-      <div id="eva-value" class="eva-value" aria-live="polite">0</div>
-      <div id="eva-label" class="eva-value-label">EVA</div>
-    </div>
-    <div class="eva-scale-wrap">
-      <div class="eva-endpoints"><span>0</span><span>10</span></div>
-      <input id="eva-score" class="eva-range" type="range" min="0" max="10" step="1" value="0" aria-label="Puntuación EVA de 0 a 10">
-      <div class="eva-ticks" aria-hidden="true"><span>0</span><span>1</span><span>2</span><span>3</span><span>4</span><span>5</span><span>6</span><span>7</span><span>8</span><span>9</span><span>10</span></div>
-      <div class="eva-hint">Desliza o toca sobre la escala para seleccionar la puntuación</div>
-    </div>
+  #analgosedacion-view .as-v12-wrap{padding:10px}#analgosedacion-view .as-v12-card{padding:14px}#analgosedacion-view .as-v12-header h1{font-size:21px}
+  .eva-numbers{gap:3px}.num{font-size:13px;padding:8px 1px}
+  .choice-row{grid-template-columns:1fr}
+  .pain-tab{min-height:58px;font-size:16px;padding:10px 8px}
+  .rass-row{flex-direction:column}.rass-score{width:auto;text-align:left}
+}
+
+/* RASS: codificación visual por nivel */
+#rass .rass-row.rass-agitated { background:#fde2e1; border-color:#e5a3a0; }
+#rass .rass-row.rass-agitated:hover { background:#f8c9c6; }
+#rass .rass-row.rass-alert { background:#dff2df; border-color:#9acb9a; }
+#rass .rass-row.rass-alert:hover { background:#c9e8c9; }
+#rass .rass-row.rass-sed-light { background:#e4f0fb; border-color:#a9c9e8; }
+#rass .rass-row.rass-sed-light:hover { background:#d0e5f7; }
+#rass .rass-row.rass-sed-deep { background:#e8e3f5; border-color:#b6a8d7; }
+#rass .rass-row.rass-sed-deep:hover { background:#d9d1eb; }
+#rass .rass-row.selected { box-shadow:0 0 0 3px rgba(0,0,0,.12); font-weight:700; }
+
+
+#analgosedacion-view .as-v12-wrap{max-width:100%;margin:0;padding:0;}
+#analgosedacion-view .as-v12-wrap *{box-sizing:border-box;}
+</style>
+
+<div class="as-v12-wrap">
+  
+
+  <main>
+    <nav class="main-tabs" role="tablist" aria-label="Escalas de analgosedación">
+      <button class="main-tab active" id="mainTabRass" role="tab" aria-selected="true" onclick="selectMainTab('rass')">RASS</button>
+      <button class="main-tab" id="mainTabPain" role="tab" aria-selected="false" onclick="selectMainTab('pain')">Dolor</button>
+      <button class="main-tab" id="mainTabCam" role="tab" aria-selected="false" onclick="selectMainTab('cam')">CAM-ICU</button>
+    </nav>
+
+    <section class="card main-panel" id="panelRass">
+      <h2>RASS</h2>
+      <p class="small">Selecciona el nivel que mejor describe al paciente.</p>
+      <div id="rass" class="scale-list"></div>
+      <div id="rassResult"></div>
+    </section>
+
+    <section class="card main-panel hidden" id="panelPain">
+      <h2>Dolor</h2>
+      <div class="pain-tabs" role="tablist" aria-label="Escala de dolor">
+        <button class="pain-tab active" id="tabEva" role="tab" aria-selected="true" onclick="selectPainTab('eva')">EVA</button>
+        <button class="pain-tab" id="tabEscid" role="tab" aria-selected="false" onclick="selectPainTab('escid')">ESCID</button>
+      </div>
+      <div id="pain"></div>
+    </section>
+
+    <section class="card main-panel cam hidden" id="panelCam">
+      <h2>CAM-ICU</h2>
+      <p class="small">El algoritmo avanza solo cuando corresponde. Un resultado negativo detiene la valoración.</p>
+      <div id="cam"></div>
+    </section>
+  </main>
+
+  <div class="summary" id="summary">
+    <span>RASS: —</span><span id="painSummary">EVA: —</span><span>CAM-ICU: —</span>
+    <button class="reset" onclick="resetAll()">↻ Nueva valoración</button>
   </div>
-  <div id="eva-result" class="as-result">Selecciona una puntuación de 0 a 10.</div>
 </div>
-<div id="escid-panel" class="pain-panel" role="tabpanel" aria-labelledby="pain-tab-escid" hidden>
-  <div class="as-options" id="escid-options"></div>
-  <div id="escid-result" class="as-result">Selecciona los cinco componentes.</div>
-</div>
-<div class="as-actions"><button type="button" class="as-reset" id="pain-reset">↺ Resetear</button></div>
-</section>
 
-<section class="as-card" id="camicu-card">
-<h3>CAM-ICU — Confusion Assessment Method for the ICU</h3>
-<p class="as-desc">El CAM-ICU es positivo cuando están presentes la <strong>característica 1</strong>, la <strong>característica 2</strong> y además la <strong>característica 3 o la 4</strong>.</p>
-<div id="cam-fields" style="margin-top:12px">
-  <div class="as-options">
-    <div class="as-option cam-step" id="cam-step1"><span><strong>1. Cambio agudo o fluctuante del estado mental</strong><span>¿Existe un cambio agudo del estado mental basal? ¿El estado mental ha fluctuado en las últimas 24 horas?</span></span><select id="cam-f1"><option value="">Selecciona…</option><option value="1">Sí</option><option value="0">No</option></select></div>
-    <div class="as-option cam-step" id="cam-step2" hidden><span><strong>2. Inatención</strong><span>Apriete mi mano cuando diga la letra «A». Deletree C-A-S-A-B-L-A-N-C-A. Registre el número de errores.</span></span><select id="cam-f2" disabled><option value="">Selecciona…</option><option value="0">0–1 error</option><option value="1">2 o más errores</option></select></div>
-    <div class="as-option cam-step" id="cam-step3" hidden><span><strong>3. Alteración del nivel de conciencia</strong><span>Seleccione el RASS actual. <strong>RASS ≠ 0</strong> es positivo. RASS = 0: alerta y tranquilo.</span><div class="as-field cam-rass-field"><label for="cam-rass">RASS actual</label><select id="cam-rass" disabled></select></div></span><span id="cam-f3-display" class="as-pill">—</span></div>
-    <div class="as-option cam-step" id="cam-step4" hidden><span><strong>4. Pensamiento desorganizado</strong><span>Valore estas cuatro preguntas: ¿Las piedras flotan en el agua? ¿Hay peces en el mar? ¿1 kg pesa más que 2 kg? ¿Los martillos sirven para poner clavos?</span></span><select id="cam-f4" disabled><option value="">Selecciona…</option><option value="0">0–1 error</option><option value="1">2 o más errores</option></select></div>
-  </div>
-</div>
-<div id="cam-result" class="as-result">Paso 1: determina primero si existe un cambio agudo o fluctuante del estado mental.</div>
-<div class="as-actions"><button type="button" class="as-reset" id="cam-reset">↺ Resetear</button></div>
-<div class="as-source"><strong>Referencia:</strong> escala CAM-ICU proporcionada por la unidad. La lógica de decisión mostrada es: 1 + 2 + (3 o 4).</div>
-</section>
+<script>
+const rassData=[
+[4,"Combativo","Violento, peligro inmediato para el personal."],
+[3,"Muy agitado","Tira de tubos o catéteres; comportamiento agresivo."],
+[2,"Agitado","Movimientos frecuentes sin propósito; lucha con el ventilador."],
+[1,"Inquieto","Ansioso o aprensivo, pero sin movimientos agresivos o vigorosos."],
+[0,"Alerta y tranquilo","Alerta y tranquilo."],
+[-1,"Somnoliento","No completamente alerta, pero mantiene el despertar con contacto visual >10 segundos."],
+[-2,"Sedación ligera","Despierta brevemente con contacto visual <10 segundos."],
+[-3,"Sedación moderada","Movimiento o apertura ocular a la voz, pero sin contacto visual."],
+[-4,"Sedación profunda","No responde a la voz, pero se mueve o abre los ojos ante estímulo físico."],
+[-5,"No despertable","No responde a la voz ni al estímulo físico."]
+];
+
+function renderRass(){
+ const el=document.getElementById('rass'); el.innerHTML='';
+ rassData.forEach(([score,name,desc])=>{
+   let zone = score > 0 ? 'rass-agitated' : score === 0 ? 'rass-alert' : (score >= -3 ? 'rass-sed-light' : 'rass-sed-deep');
+   const b=document.createElement('button'); b.className=`scale-btn rass-row ${zone}`;
+   b.innerHTML=`<span class="rass-score">${score>0?'+':''}${score}</span><span><b>${name}</b><br><small>${desc}</small></span>`;
+   b.onclick=()=>{
+     document.querySelectorAll('#rass .scale-btn').forEach(x=>x.classList.remove('selected'));
+     b.classList.add('selected');
+     document.getElementById('rassResult').innerHTML=`<div class="result">RASS ${score>0?'+':''}${score} — ${name}</div>`;
+     // El RASS se introduce una sola vez aquí y se reutiliza automáticamente en el paso 3 del CAM-ICU.
+     cam.rass=score;
+     if(cam.step===3){ renderCam(); }
+     summary();
+   };
+   el.appendChild(b);
+ });
+}
+  let mainTab='rass';
+  function selectMainTab(tab){
+    mainTab=tab;
+    const tabs={
+      rass:document.getElementById('mainTabRass'),
+      pain:document.getElementById('mainTabPain'),
+      cam:document.getElementById('mainTabCam')
+    };
+    const panels={
+      rass:document.getElementById('panelRass'),
+      pain:document.getElementById('panelPain'),
+      cam:document.getElementById('panelCam')
+    };
+    Object.keys(tabs).forEach(key=>{
+      const active=key===tab;
+      tabs[key].classList.toggle('active',active);
+      tabs[key].setAttribute('aria-selected',active);
+      panels[key].classList.toggle('hidden',!active);
+    });
+  }
+
+
+
+let painScale='eva';
+function selectPainTab(scale){
+ painScale=scale;
+ document.getElementById('tabEva').classList.toggle('active',scale==='eva');
+ document.getElementById('tabEscid').classList.toggle('active',scale==='escid');
+ document.getElementById('tabEva').setAttribute('aria-selected',scale==='eva');
+ document.getElementById('tabEscid').setAttribute('aria-selected',scale==='escid');
+ eva=null; escid=[null,null,null,null,null];
+ renderPain(); summary();
+}
+function renderPain(){
+ const el=document.getElementById('pain');
+ if(painScale==='eva'){
+   const value = eva===null ? 0 : eva;
+   el.innerHTML=`<div class="eva-picker">
+     <div class="eva-value-wrap">
+       <div id="eva-value" class="eva-value" aria-live="polite">${value}</div>
+       <div class="eva-value-label">EVA</div>
+     </div>
+     <div class="eva-scale-wrap">
+       <div class="eva-endpoints"><span>0</span><span>10</span></div>
+       <input id="eva-score" class="eva-range" type="range" min="0" max="10" step="1" value="${value}" aria-label="Puntuación EVA de 0 a 10" oninput="calcEva()">
+       <div class="eva-ticks" aria-hidden="true"><span>0</span><span>1</span><span>2</span><span>3</span><span>4</span><span>5</span><span>6</span><span>7</span><span>8</span><span>9</span><span>10</span></div>
+       <div class="eva-hint">Desliza o toca sobre la escala para seleccionar la puntuación</div>
+     </div>
+   </div>
+   <div id="eva-result" class="result">Selecciona una puntuación de 0 a 10.</div>`;
+ }else{
+   const items=[
+    ["Musculatura facial",["0 — Relajada","1 — Tensa","2 — Gesticulación de dolor"]],
+    ["Tranquilidad",["0 — Tranquilo","1 — Movimientos ocasionales","2 — Movimientos frecuentes / agitación"]],
+    ["Tono muscular",["0 — Normal","1 — Aumentado","2 — Muy aumentado / rigidez"]],
+    ["Adaptación a ventilación mecánica",["0 — Tolera ventilador","1 — Tos / lucha ocasional","2 — Lucha con ventilador"]],
+    ["Confortabilidad",["0 — Cómodo","1 — Inquieto ocasionalmente","2 — Muy incómodo"]]
+   ];
+   el.innerHTML=items.map((it,idx)=>`<div class="escid-item"><div class="escid-title">${idx+1}. ${it[0]}</div><div class="choice-row">${it[1].map((x,j)=>`<button class="choice" onclick="setEscid(${idx},${j},this)">${x}</button>`).join('')}</div></div>`).join('')+`<div id="painResult"></div>`;
+ }
+}
+let eva=null,escid=[null,null,null,null,null],rass=null,cam={step:1,result:null,f1:null,f2:null,rass:null,f4:null};
+
+function calcEva(){
+ const v=document.getElementById('eva-score').value, out=document.getElementById('eva-result');
+ const n=Number(v);
+ document.getElementById('eva-value').textContent=String(n);
+ let range,intensity,description;
+ if(n===0){
+   range='0'; intensity='Sin dolor'; description='No existe dolor.';
+ }else if(n<=3){
+   range='1–3'; intensity='Dolor leve'; description='Molestia tolerable, no limita actividades.';
+ }else if(n<=6){
+   range='4–6'; intensity='Dolor moderado'; description='Interfiere parcialmente con actividades.';
+ }else if(n<=9){
+   range='7–9'; intensity='Dolor intenso'; description='Limita significativamente las actividades.';
+ }else{
+   range='10'; intensity='Peor dolor imaginable'; description='Dolor insoportable.';
+ }
+ out.className='result';
+ out.innerHTML=`<div>Puntuación EVA</div><div class="big">${n}/10</div><div class="eva-intensity"><strong>${intensity}</strong> <span class="eva-range-label">(${range})</span></div><div class="eva-description">${description}</div>`;
+ eva=n;
+ summary();
+}
+function setEva(v){eva=Number(v);calcEva();}
+
+function setEscid(i,v,b){escid[i]=v;document.querySelectorAll('.escid-item')[i].querySelectorAll('.choice').forEach(x=>x.classList.remove('selected'));b.classList.add('selected');const total=escid.every(x=>x!==null)?escid.reduce((a,x)=>a+x,0):null;document.getElementById('painResult').innerHTML=total===null?`<div class="result">ESCID: ${escid.filter(x=>x!==null).reduce((a,x)=>a+x,0)}/10 — completa los 5 apartados</div>`:`<div class="result">ESCID ${total}/10</div>`;summary()}
+
+function camFinish(present){
+ cam.result=present?'Delirio presente':'Delirio ausente';
+ renderCam(); summary();
+}
+function renderCam(){
+ const el=document.getElementById('cam');
+
+ if(cam.result){
+   el.innerHTML=`<div class="result ${cam.result==='Delirio presente'?'danger':'ok'}"><b>${cam.result}</b></div>
+   <p class="small">La valoración ha finalizado. Para repetirla, pulsa «Nueva valoración».</p>`;
+   return;
+ }
+
+ if(cam.step===1){
+   el.innerHTML=`<div class="cam-step">
+     <h3>1. Cambio agudo o curso fluctuante del estado mental</h3>
+     <div class="cam-question">Es positivo si existe <b>alguna</b> de las siguientes situaciones:</div>
+     <div class="cam-subquestion"><b>1A.</b> ¿Existe evidencia de un cambio agudo del estado mental respecto al estado basal?</div>
+     <div class="cam-subquestion"><b>1B.</b> ¿Ha fluctuado el estado mental durante las últimas 24 horas (aparece y desaparece, o aumenta y disminuye en gravedad)?</div>
+     <div class="cam-actions">
+       <button class="choice" onclick="camAnswer(1,true)">Sí</button>
+       <button class="choice" onclick="camAnswer(1,false)">No</button>
+     </div>
+   </div>`;
+   return;
+ }
+
+ if(cam.step===2){
+   el.innerHTML=`<div class="cam-step">
+     <h3>2. Inatención</h3>
+     <div class="cam-question"><b>Examen de atención auditiva (letras)</b></div>
+     <div class="cam-subquestion">Diga al paciente: <b>«Apriete mi mano cuando escuche la letra A».</b></div>
+     <div class="cam-subquestion">Lea la siguiente secuencia lentamente, a aproximadamente una letra por segundo:</div>
+     <div class="cam-sequence" aria-label="Secuencia de letras">C – A – S – A – B – L – A – N – C – A</div>
+     <div class="cam-subquestion">Hay <b>4 letras A</b>. Se considera un error cada vez que el paciente <b>no aprieta</b> la mano al oír una A o <b>aprieta</b> ante una letra diferente de A.</div>
+     <div class="cam-question"><b>¿Cuántos errores ha cometido?</b></div>
+     <div class="cam-errors">
+       <button class="choice" onclick="camAnswer(2,false)">0–2 errores<br><small>Inatención ausente</small></button>
+       <button class="choice" onclick="camAnswer(2,true)">≥3 errores<br><small>Inatención presente</small></button>
+     </div>
+   </div>`;
+   return;
+ }
+
+ if(cam.step===3){
+   el.innerHTML=`<div class="cam-step">
+     <h3>3. Alteración del nivel de conciencia</h3>
+     <div class="cam-question">Se utiliza automáticamente el <b>RASS valorado en la pestaña RASS</b>. Se considera alterado cuando <b>RASS ≠ 0</b>.</div>
+     ${cam.rass===null
+       ? `<div class="cam-status">Primero seleccione el RASS del paciente en la pestaña <b>RASS</b>.</div>`
+       : `<div class="cam-status ${cam.rass!==0?'positive':'negative'}"><b>RASS ${cam.rass>0?'+':''}${cam.rass}</b> — ${cam.rass===0?'sin alteración del nivel de conciencia':'alteración del nivel de conciencia'}</div>`}
+   </div>`;
+   if(cam.rass===null) return;
+   if(cam.rass===-4 || cam.rass===-5){
+     cam.result=null;
+     el.innerHTML+=`<div class="result danger"><b>CAM-ICU no valorable actualmente</b></div><p class="small">Con RASS −4 o −5 no es posible realizar adecuadamente la valoración del CAM-ICU. Revalorar cuando el paciente pueda ser evaluado.</p>`;
+     return;
+   }
+   if(cam.rass!==0){
+     camFinish(true);
+     return;
+   }
+   cam.step=4;
+   renderCam();
+   return;
+ }
+
+ if(cam.step===4){
+   el.innerHTML=`<div class="cam-step">
+     <h3>4. Pensamiento desorganizado</h3>
+     <div class="cam-question">Realice las siguientes preguntas de respuesta Sí/No:</div>
+     <div class="cam-subquestion"><b>1.</b> ¿Las piedras flotan en el agua?</div>
+     <div class="cam-subquestion"><b>2.</b> ¿Hay peces en el mar?</div>
+     <div class="cam-subquestion"><b>3.</b> ¿1 kg pesa más que 2 kg?</div>
+     <div class="cam-subquestion"><b>4.</b> ¿Los martillos sirven para poner clavos?</div>
+     <div class="cam-question">Después, realice la prueba de los dedos según el protocolo de CAM-ICU. Se considera positivo si hay <b>≥2 errores</b> en el conjunto de preguntas/prueba.</div>
+     <div class="cam-errors">
+       <button class="choice" onclick="camAnswer(4,false)">0–1 errores<br><small>Pensamiento no desorganizado</small></button>
+       <button class="choice" onclick="camAnswer(4,true)">≥2 errores<br><small>Pensamiento desorganizado</small></button>
+     </div>
+   </div>`;
+   return;
+ }
+}
+
+function camAnswer(step,yes){
+ if(step===1){
+   cam.f1=yes;
+   if(!yes){camFinish(false);return;}
+   cam.step=2;
+ }else if(step===2){
+   cam.f2=yes;
+   if(!yes){camFinish(false);return;}
+   cam.step=3;
+ }else if(step===4){
+   cam.f4=yes;
+   camFinish(!!(cam.f1 && cam.f2 && (cam.rass!==0 || cam.f4)));
+   return;
+ }
+ renderCam(); summary();
+}
+
+function camSetRass(value){
+ cam.rass=value;
+ if(value===-4 || value===-5){
+   cam.result=null;
+   document.getElementById('cam').innerHTML=`<div class="result danger"><b>CAM-ICU no valorable actualmente</b></div>
+   <p class="small">Con RASS −4 o −5 no es posible realizar adecuadamente la valoración del CAM-ICU. Revalorar cuando el paciente pueda ser evaluado.</p>`;
+   summary();
+   return;
+ }
+ if(value!==0){
+   camFinish(true);
+   return;
+ }
+ cam.step=4;
+ renderCam(); summary();
+}
+
+function summary(){
+ const r=document.querySelector('#rass .selected');
+ const rv=r?r.querySelector('.rass-score').textContent:'—';
+ document.getElementById('summary').innerHTML=`<span>RASS: ${rv}</span><span>${painScale.toUpperCase()}: ${painScale==='eva'?(eva===null?'—':eva+'/10'):(escid.every(x=>x!==null)?escid.reduce((a,x)=>a+x,0)+'/10':'—')}</span><span>CAM-ICU: ${cam.result||'—'}</span><button class="reset" onclick="resetAll()">↻ Nueva valoración</button>`;
+}
+function resetAll(){eva=null;escid=[null,null,null,null,null];cam={step:1,result:null,f1:null,f2:null,rass:null,f4:null};document.getElementById('rassResult').innerHTML='';renderRass();renderPain();renderCam();selectMainTab('rass');summary()}
+renderRass();renderPain();renderCam();calcEva();selectMainTab('rass');summary();
+</script>
+
+<script id="analgosedacion-v12-js">
+const rassData=[
+[4,"Combativo","Violento, peligro inmediato para el personal."],
+[3,"Muy agitado","Tira de tubos o catéteres; comportamiento agresivo."],
+[2,"Agitado","Movimientos frecuentes sin propósito; lucha con el ventilador."],
+[1,"Inquieto","Ansioso o aprensivo, pero sin movimientos agresivos o vigorosos."],
+[0,"Alerta y tranquilo","Alerta y tranquilo."],
+[-1,"Somnoliento","No completamente alerta, pero mantiene el despertar con contacto visual >10 segundos."],
+[-2,"Sedación ligera","Despierta brevemente con contacto visual <10 segundos."],
+[-3,"Sedación moderada","Movimiento o apertura ocular a la voz, pero sin contacto visual."],
+[-4,"Sedación profunda","No responde a la voz, pero se mueve o abre los ojos ante estímulo físico."],
+[-5,"No despertable","No responde a la voz ni al estímulo físico."]
+];
+
+function renderRass(){
+ const el=document.getElementById('rass'); el.innerHTML='';
+ rassData.forEach(([score,name,desc])=>{
+   let zone = score > 0 ? 'rass-agitated' : score === 0 ? 'rass-alert' : (score >= -3 ? 'rass-sed-light' : 'rass-sed-deep');
+   const b=document.createElement('button'); b.className=`scale-btn rass-row ${zone}`;
+   b.innerHTML=`<span class="rass-score">${score>0?'+':''}${score}</span><span><b>${name}</b><br><small>${desc}</small></span>`;
+   b.onclick=()=>{document.querySelectorAll('#rass .scale-btn').forEach(x=>x.classList.remove('selected'));b.classList.add('selected');document.getElementById('rassResult').innerHTML=`<div class="result">RASS ${score>0?'+':''}${score} — ${name}</div>`;summary()};
+   el.appendChild(b);
+ });
+}
+  let mainTab='rass';
+  function selectMainTab(tab){
+    mainTab=tab;
+    const tabs={
+      rass:document.getElementById('mainTabRass'),
+      pain:document.getElementById('mainTabPain'),
+      cam:document.getElementById('mainTabCam')
+    };
+    const panels={
+      rass:document.getElementById('panelRass'),
+      pain:document.getElementById('panelPain'),
+      cam:document.getElementById('panelCam')
+    };
+    Object.keys(tabs).forEach(key=>{
+      const active=key===tab;
+      tabs[key].classList.toggle('active',active);
+      tabs[key].setAttribute('aria-selected',active);
+      panels[key].classList.toggle('hidden',!active);
+    });
+  }
+
+
+
+let painScale='eva';
+function selectPainTab(scale){
+ painScale=scale;
+ document.getElementById('tabEva').classList.toggle('active',scale==='eva');
+ document.getElementById('tabEscid').classList.toggle('active',scale==='escid');
+ document.getElementById('tabEva').setAttribute('aria-selected',scale==='eva');
+ document.getElementById('tabEscid').setAttribute('aria-selected',scale==='escid');
+ eva=null; escid=[null,null,null,null,null];
+ renderPain(); summary();
+}
+function renderPain(){
+ const el=document.getElementById('pain');
+ if(painScale==='eva'){
+   const value = eva===null ? 0 : eva;
+   el.innerHTML=`<div class="eva-picker">
+     <div class="eva-value-wrap">
+       <div id="eva-value" class="eva-value" aria-live="polite">${value}</div>
+       <div class="eva-value-label">EVA</div>
+     </div>
+     <div class="eva-scale-wrap">
+       <div class="eva-endpoints"><span>0</span><span>10</span></div>
+       <input id="eva-score" class="eva-range" type="range" min="0" max="10" step="1" value="${value}" aria-label="Puntuación EVA de 0 a 10" oninput="calcEva()">
+       <div class="eva-ticks" aria-hidden="true"><span>0</span><span>1</span><span>2</span><span>3</span><span>4</span><span>5</span><span>6</span><span>7</span><span>8</span><span>9</span><span>10</span></div>
+       <div class="eva-hint">Desliza o toca sobre la escala para seleccionar la puntuación</div>
+     </div>
+   </div>
+   <div id="eva-result" class="result">Selecciona una puntuación de 0 a 10.</div>`;
+ }else{
+   const items=[
+    ["Musculatura facial",["0 — Relajada","1 — Tensa","2 — Gesticulación de dolor"]],
+    ["Tranquilidad",["0 — Tranquilo","1 — Movimientos ocasionales","2 — Movimientos frecuentes / agitación"]],
+    ["Tono muscular",["0 — Normal","1 — Aumentado","2 — Muy aumentado / rigidez"]],
+    ["Adaptación a ventilación mecánica",["0 — Tolera ventilador","1 — Tos / lucha ocasional","2 — Lucha con ventilador"]],
+    ["Confortabilidad",["0 — Cómodo","1 — Inquieto ocasionalmente","2 — Muy incómodo"]]
+   ];
+   el.innerHTML=items.map((it,idx)=>`<div class="escid-item"><div class="escid-title">${idx+1}. ${it[0]}</div><div class="choice-row">${it[1].map((x,j)=>`<button class="choice" onclick="setEscid(${idx},${j},this)">${x}</button>`).join('')}</div></div>`).join('')+`<div id="painResult"></div>`;
+ }
+}
+let eva=null,escid=[null,null,null,null,null],rass=null,cam={step:1,result:null,f1:null,f2:null,rass:null,f4:null};
+
+function calcEva(){
+ const v=document.getElementById('eva-score').value, out=document.getElementById('eva-result');
+ const n=Number(v);
+ document.getElementById('eva-value').textContent=String(n);
+ let range,intensity,description;
+ if(n===0){
+   range='0'; intensity='Sin dolor'; description='No existe dolor.';
+ }else if(n<=3){
+   range='1–3'; intensity='Dolor leve'; description='Molestia tolerable, no limita actividades.';
+ }else if(n<=6){
+   range='4–6'; intensity='Dolor moderado'; description='Interfiere parcialmente con actividades.';
+ }else if(n<=9){
+   range='7–9'; intensity='Dolor intenso'; description='Limita significativamente las actividades.';
+ }else{
+   range='10'; intensity='Peor dolor imaginable'; description='Dolor insoportable.';
+ }
+ out.className='result';
+ out.innerHTML=`<div>Puntuación EVA</div><div class="big">${n}/10</div><div class="eva-intensity"><strong>${intensity}</strong> <span class="eva-range-label">(${range})</span></div><div class="eva-description">${description}</div>`;
+ eva=n;
+ summary();
+}
+function setEva(v){eva=Number(v);calcEva();}
+
+function setEscid(i,v,b){escid[i]=v;document.querySelectorAll('.escid-item')[i].querySelectorAll('.choice').forEach(x=>x.classList.remove('selected'));b.classList.add('selected');const total=escid.every(x=>x!==null)?escid.reduce((a,x)=>a+x,0):null;document.getElementById('painResult').innerHTML=total===null?`<div class="result">ESCID: ${escid.filter(x=>x!==null).reduce((a,x)=>a+x,0)}/10 — completa los 5 apartados</div>`:`<div class="result">ESCID ${total}/10</div>`;summary()}
+
+function camFinish(present){
+ cam.result=present?'Delirio presente':'Delirio ausente';
+ renderCam(); summary();
+}
+function renderCam(){
+ const el=document.getElementById('cam');
+
+ if(cam.result){
+   el.innerHTML=`<div class="result ${cam.result==='Delirio presente'?'danger':'ok'}"><b>${cam.result}</b></div>
+   <p class="small">La valoración ha finalizado. Para repetirla, pulsa «Nueva valoración».</p>`;
+   return;
+ }
+
+ if(cam.step===1){
+   el.innerHTML=`<div class="cam-step">
+     <h3>1. Cambio agudo o curso fluctuante del estado mental</h3>
+     <div class="cam-question">Es positivo si existe <b>alguna</b> de las siguientes situaciones:</div>
+     <div class="cam-subquestion"><b>1A.</b> ¿Existe evidencia de un cambio agudo del estado mental respecto al estado basal?</div>
+     <div class="cam-subquestion"><b>1B.</b> ¿Ha fluctuado el estado mental durante las últimas 24 horas (aparece y desaparece, o aumenta y disminuye en gravedad)?</div>
+     <div class="cam-actions">
+       <button class="choice" onclick="camAnswer(1,true)">Sí</button>
+       <button class="choice" onclick="camAnswer(1,false)">No</button>
+     </div>
+   </div>`;
+   return;
+ }
+
+ if(cam.step===2){
+   el.innerHTML=`<div class="cam-step">
+     <h3>2. Inatención</h3>
+     <div class="cam-question"><b>Examen de atención auditiva (letras)</b></div>
+     <div class="cam-subquestion">Diga al paciente: <b>«Apriete mi mano cuando escuche la letra A».</b></div>
+     <div class="cam-subquestion">Lea la siguiente secuencia lentamente, a aproximadamente una letra por segundo:</div>
+     <div class="cam-sequence" aria-label="Secuencia de letras">C – A – S – A – B – L – A – N – C – A</div>
+     <div class="cam-subquestion">Hay <b>4 letras A</b>. Se considera un error cada vez que el paciente <b>no aprieta</b> la mano al oír una A o <b>aprieta</b> ante una letra diferente de A.</div>
+     <div class="cam-question"><b>¿Cuántos errores ha cometido?</b></div>
+     <div class="cam-errors">
+       <button class="choice" onclick="camAnswer(2,false)">0–2 errores<br><small>Inatención ausente</small></button>
+       <button class="choice" onclick="camAnswer(2,true)">≥3 errores<br><small>Inatención presente</small></button>
+     </div>
+   </div>`;
+   return;
+ }
+
+ if(cam.step===3){
+   const values=[-5,-4,-3,-2,-1,0,1,2,3,4];
+   el.innerHTML=`<div class="cam-step">
+     <h3>3. Alteración del nivel de conciencia</h3>
+     <div class="cam-question">Seleccione el <b>RASS actual</b>. Se considera alterado cuando <b>RASS ≠ 0</b>.</div>
+     <div class="cam-rass-grid">
+       ${values.map(v=>`<button class="num ${cam.rass===v?'selected':''}" onclick="camSetRass(${v})">${v>0?'+':''}${v}</button>`).join('')}
+     </div>
+     ${cam.rass===null
+       ? `<div class="cam-status">Seleccione una puntuación RASS para continuar.</div>`
+       : `<div class="cam-status ${cam.rass!==0?'positive':'negative'}"><b>RASS ${cam.rass>0?'+':''}${cam.rass}</b> — ${cam.rass===0?'sin alteración del nivel de conciencia':'alteración del nivel de conciencia'}</div>`}
+   </div>`;
+   return;
+ }
+
+ if(cam.step===4){
+   el.innerHTML=`<div class="cam-step">
+     <h3>4. Pensamiento desorganizado</h3>
+     <div class="cam-question">Realice las siguientes preguntas de respuesta Sí/No:</div>
+     <div class="cam-subquestion"><b>1.</b> ¿Las piedras flotan en el agua?</div>
+     <div class="cam-subquestion"><b>2.</b> ¿Hay peces en el mar?</div>
+     <div class="cam-subquestion"><b>3.</b> ¿1 kg pesa más que 2 kg?</div>
+     <div class="cam-subquestion"><b>4.</b> ¿Los martillos sirven para poner clavos?</div>
+     <div class="cam-question">Después, realice la prueba de los dedos según el protocolo de CAM-ICU. Se considera positivo si hay <b>≥2 errores</b> en el conjunto de preguntas/prueba.</div>
+     <div class="cam-errors">
+       <button class="choice" onclick="camAnswer(4,false)">0–1 errores<br><small>Pensamiento no desorganizado</small></button>
+       <button class="choice" onclick="camAnswer(4,true)">≥2 errores<br><small>Pensamiento desorganizado</small></button>
+     </div>
+   </div>`;
+   return;
+ }
+}
+
+function camAnswer(step,yes){
+ if(step===1){
+   cam.f1=yes;
+   if(!yes){camFinish(false);return;}
+   cam.step=2;
+ }else if(step===2){
+   cam.f2=yes;
+   if(!yes){camFinish(false);return;}
+   cam.step=3;
+ }else if(step===4){
+   cam.f4=yes;
+   camFinish(!!(cam.f1 && cam.f2 && (cam.rass!==0 || cam.f4)));
+   return;
+ }
+ renderCam(); summary();
+}
+
+function camSetRass(value){
+ cam.rass=value;
+ if(value===-4 || value===-5){
+   cam.result=null;
+   document.getElementById('cam').innerHTML=`<div class="result danger"><b>CAM-ICU no valorable actualmente</b></div>
+   <p class="small">Con RASS −4 o −5 no es posible realizar adecuadamente la valoración del CAM-ICU. Revalorar cuando el paciente pueda ser evaluado.</p>`;
+   summary();
+   return;
+ }
+ if(value!==0){
+   camFinish(true);
+   return;
+ }
+ cam.step=4;
+ renderCam(); summary();
+}
+
+function summary(){
+ const r=document.querySelector('#rass .selected');
+ const rv=r?r.querySelector('.rass-score').textContent:'—';
+ document.getElementById('summary').innerHTML=`<span>RASS: ${rv}</span><span>${painScale.toUpperCase()}: ${painScale==='eva'?(eva===null?'—':eva+'/10'):(escid.every(x=>x!==null)?escid.reduce((a,x)=>a+x,0)+'/10':'—')}</span><span>CAM-ICU: ${cam.result||'—'}</span><button class="reset" onclick="resetAll()">↻ Nueva valoración</button>`;
+}
+function resetAll(){eva=null;escid=[null,null,null,null,null];cam={step:1,result:null,f1:null,f2:null,rass:null,f4:null};document.getElementById('rassResult').innerHTML='';renderRass();renderPain();renderCam();selectMainTab('rass');summary()}
+renderRass();renderPain();renderCam();calcEva();selectMainTab('rass');summary();
+
+</script>
 </main>
 <main id="tcrr-view">
 <button type="button" class="back v35-cover-back" onclick="showLanding()">← Portada</button>
@@ -2589,184 +3288,247 @@ hook();setTimeout(hook,100);setTimeout(hook,500);setTimeout(hook,1500);
 })();
 </script>
 <script id="analgosedacion-js">
-(function(){
-  const rass=[
-    [4,'Combativo','Abiertamente combativo, violento, peligro inmediato para el personal.'],
-    [3,'Muy agitado','Tira o retira tubos o catéteres; comportamiento agresivo.'],
-    [2,'Agitado','Movimientos frecuentes y sin propósito; lucha con el respirador.'],
-    [1,'Inquieto','Ansioso o aprensivo, pero sin movimientos agresivos o vigorosos.'],
-    [0,'Alerta y tranquilo','Alerta y tranquilo.'],
-    [-1,'Somnoliento','No está completamente alerta, pero se mantiene despierto >10 s con contacto visual/voz.'],
-    [-2,'Sedación ligera','Despierta brevemente (<10 s) con contacto visual/voz.'],
-    [-3,'Sedación moderada','Movimiento o apertura ocular ante la voz, pero sin contacto visual.'],
-    [-4,'Sedación profunda','Sin respuesta a la voz, pero movimiento o apertura ocular ante estimulación física.'],
-    [-5,'No despertable','Sin respuesta a la voz ni a la estimulación física.']
-  ];
-  const escid=[
-    ['Expresión facial',['Relajada','Ceño fruncido, apretado, gesto de dolor','Mueca de dolor'],['0','1','2']],
-    ['Tranquilidad',['Tranquilo','Inquieto','Agitado'],['0','1','2']],
-    ['Tono muscular',['Normal','Aumentado','Rígido'],['0','1','2']],
-    ['Adaptación a ventilación mecánica',['Tolera la ventilación','Tose pero tolera la ventilación','Lucha con el respirador'],['0','1','2']],
-    ['Consolabilidad',['No necesita consuelo','Se distrae o se calma con la voz','Difícil de consolar'],['0','1','2']]
-  ];
-  const $=id=>document.getElementById(id);
-  function fillRass(sel){sel.innerHTML='<option value="">Selecciona…</option>'+rass.map(x=>`<option value="${x[0]}">${x[0]>0?'+':''}${x[0]} — ${x[1]}</option>`).join('');}
-  fillRass($('rass-score')); fillRass($('cam-rass'));
-  $('rass-score').addEventListener('change',function(){
-    const v=this.value; const out=$('rass-result');
-    if(v===''){out.className='as-result';out.textContent='Selecciona un nivel RASS.';return;}
-    const x=rass.find(a=>String(a[0])===v); out.className='as-result'; out.innerHTML=`<div>RASS</div><div class="big">${x[0]>0?'+':''}${x[0]} · ${x[1]}</div><div>${x[2]}</div>`;
-  });
-  $('rass-reset').addEventListener('click',()=>{$('rass-score').value='';$('rass-score').dispatchEvent(new Event('change'));});
+const asRassData=[
+[4,"Combativo","Violento, peligro inmediato para el personal."],
+[3,"Muy agitado","Tira de tubos o catéteres; comportamiento agresivo."],
+[2,"Agitado","Movimientos frecuentes sin propósito; lucha con el ventilador."],
+[1,"Inquieto","Ansioso o aprensivo, pero sin movimientos agresivos o vigorosos."],
+[0,"Alerta y tranquilo","Alerta y tranquilo."],
+[-1,"Somnoliento","No completamente alerta, pero mantiene el despertar con contacto visual >10 segundos."],
+[-2,"Sedación ligera","Despierta brevemente con contacto visual <10 segundos."],
+[-3,"Sedación moderada","Movimiento o apertura ocular a la voz, pero sin contacto visual."],
+[-4,"Sedación profunda","No responde a la voz, pero se mueve o abre los ojos ante estímulo físico."],
+[-5,"No despertable","No responde a la voz ni al estímulo físico."]
+];
 
-  function buildEscid(){
-    $('escid-options').innerHTML=escid.map((item,i)=>`<div class="as-field"><label for="escid-${i}">${item[0]}</label><select id="escid-${i}"><option value="">Selecciona…</option>${item[1].map((d,j)=>`<option value="${j}">${item[2][j]} — ${d}</option>`).join('')}</select></div>`).join('');
-    escid.forEach((_,i)=>$('escid-'+i).addEventListener('change',calcEscid));
-  }
-  function calcEva(){
-    const v=$('eva-score').value, out=$('eva-result');
-    const n=Number(v);
-    $('eva-value').textContent=String(n);
-    if(!Number.isInteger(n)||n<0||n>10){out.className='as-result alert';out.textContent='La EVA debe estar entre 0 y 10.';return;}
-    let range, intensity, description;
-    if(n===0){
-      range='0';
-      intensity='Sin dolor';
-      description='No existe dolor.';
-    }else if(n<=3){
-      range='1–3';
-      intensity='Dolor leve';
-      description='Molestia tolerable, no limita actividades.';
-    }else if(n<=6){
-      range='4–6';
-      intensity='Dolor moderado';
-      description='Interfiere parcialmente con actividades.';
-    }else if(n<=9){
-      range='7–9';
-      intensity='Dolor intenso';
-      description='Limita significativamente las actividades.';
-    }else{
-      range='10';
-      intensity='Peor dolor imaginable';
-      description='Dolor insoportable.';
-    }
-    out.className='as-result';
-    out.innerHTML=`<div>Puntuación EVA</div><div class="big">${n}/10</div><div class="eva-intensity"><strong>${intensity}</strong> <span class="eva-range-label">(${range})</span></div><div class="eva-description">${description}</div>`;
-  }
-  function calcEscid(){
-    let total=0, complete=true; escid.forEach((_,i)=>{const v=$('escid-'+i).value;if(v==='')complete=false;else total+=Number(v)});
-    const out=$('escid-result');
-    if(!complete){out.className='as-result';out.textContent='Selecciona los cinco componentes.';return;}
-    out.className='as-result';out.innerHTML=`<div>Puntuación ESCID</div><div class="big">${total}/10</div><div>La puntuación integra cinco indicadores conductuales de dolor.</div>`;
-  }
-  buildEscid();
-  function setPainTab(mode){
-    const eva=mode==='eva';
-    $('pain-tab-eva').setAttribute('aria-selected',eva?'true':'false');
-    $('pain-tab-escid').setAttribute('aria-selected',eva?'false':'true');
-    $('eva-panel').hidden=!eva;
-    $('escid-panel').hidden=eva;
-  }
-  $('pain-tab-eva').addEventListener('click',()=>setPainTab('eva'));
-  $('pain-tab-escid').addEventListener('click',()=>setPainTab('escid'));
-  $('eva-score').addEventListener('input',calcEva);
-  calcEva();
-  $('pain-reset').addEventListener('click',()=>{setPainTab('eva');$('eva-score').value='0';calcEva();escid.forEach((_,i)=>$('escid-'+i).value='');calcEscid();});
+let asMainTab='rass', asPainScale='eva', asEva=null, asEscid=[null,null,null,null,null];
+let asCam={step:1,result:null,f1:null,f2:null,rass:null,f4:null};
 
-  function camShowStep(step){
-    ['cam-step1','cam-step2','cam-step3','cam-step4'].forEach((id,i)=>{
-      const el=$(id);
-      const show=(i+1)===step;
-      el.hidden=!show;
-      el.style.display=show?'flex':'none';
-      el.setAttribute('aria-hidden',show?'false':'true');
-    });
-  }
-  function camDisableAfter(step){
-    const f2=$('cam-f2'), f4=$('cam-f4'), rass=$('cam-rass');
-    f2.disabled = step<2;
-    rass.disabled = step<3;
-    f4.disabled = step<4;
-  }
-  function camResetFieldsAfter(step){
-    if(step<2) $('cam-f2').value='';
-    if(step<3) $('cam-rass').value='';
-    if(step<4) $('cam-f4').value='';
-    $('cam-f3-display').textContent='—';
-    $('cam-f3-display').className='as-pill';
-  }
-  function calcCam(){
-    const out=$('cam-result');
-    const f1=$('cam-f1').value;
-    if(f1===''){
-      camShowStep(1); camDisableAfter(1); camResetFieldsAfter(1);
-      out.className='as-result';
-      out.textContent='Paso 1: determina primero si existe un cambio agudo o fluctuante del estado mental.';
-      return;
-    }
-    if(f1==='0'){
-      camShowStep(1); camDisableAfter(1); camResetFieldsAfter(1);
-      out.className='as-result ok';
-      out.innerHTML='<div>CAM-ICU</div><div class="big">DELIRIO AUSENTE</div><div>Característica 1 negativa. Al no existir un cambio agudo o fluctuante del estado mental, el CAM-ICU es negativo y no es necesario continuar.</div>';
-      return;
-    }
+function asRenderRass(){
+ const el=document.getElementById('as-rassList'); el.innerHTML='';
+ asRassData.forEach(([score,name,desc])=>{
+   const zone = score>0 ? 'as-rass-agitated' : score===0 ? 'as-rass-alert' : (score>=-3 ? 'as-rass-sed-light' : 'as-rass-sed-deep');
+   const b=document.createElement('button'); b.type='button'; b.className=`as-scale-btn as-rass-row ${zone}`;
+   b.innerHTML=`<span class="as-rass-score">${score>0?'+':''}${score}</span><span><b>${name}</b><br><small>${desc}</small></span>`;
+   b.onclick=()=>{
+     document.querySelectorAll('#as-rassList .as-scale-btn').forEach(x=>x.classList.remove('selected'));
+     b.classList.add('selected');
+     document.getElementById('as-rassResult').innerHTML=`<div class="as-result"><div>RASS ${score>0?'+':''}${score}</div><div class="big">${name}</div></div>`;
+     // El RASS seleccionado aquí es la única fuente de RASS para el paso 3 del CAM-ICU.
+     asCam.rass=score;
+     asSummary();
+     if(asCam.step===3){
+       asRenderCam();
+       asSummary();
+     }
+   };
+   el.appendChild(b);
+ });
+}
 
-    const f2=$('cam-f2').value;
-    if(f2===''){
-      camShowStep(2); camDisableAfter(2); camResetFieldsAfter(2);
-      out.className='as-result';
-      out.textContent='Paso 2: valora ahora la inatención.';
-      return;
-    }
-    if(f2==='0'){
-      camShowStep(2); camDisableAfter(2); camResetFieldsAfter(2);
-      out.className='as-result ok';
-      out.innerHTML='<div>CAM-ICU</div><div class="big">DELIRIO AUSENTE</div><div>Característica 2 negativa. Sin inatención, el CAM-ICU es negativo y no es necesario continuar.</div>';
-      return;
-    }
+function asSelectMainTab(tab){
+ asMainTab=tab;
+ const tabs={rass:document.getElementById('as-mainTabRass'),pain:document.getElementById('as-mainTabPain'),cam:document.getElementById('as-mainTabCam')};
+ const panels={rass:document.getElementById('as-panelRass'),pain:document.getElementById('as-panelPain'),cam:document.getElementById('as-panelCam')};
+ Object.keys(tabs).forEach(key=>{
+   const active=key===tab;
+   tabs[key].classList.toggle('active',active);
+   tabs[key].setAttribute('aria-selected',active);
+   panels[key].classList.toggle('hidden',!active);
+ });
+}
 
-    const rass=$('cam-rass').value;
-    if(rass===''){
-      camShowStep(3); camDisableAfter(3); camResetFieldsAfter(3);
-      out.className='as-result';
-      out.textContent='Paso 3: selecciona el RASS para valorar el nivel de conciencia.';
-      return;
-    }
-    const r=Number(rass), f3=(r!==0);
-    $('cam-f3-display').textContent=f3?'Sí — RASS ≠ 0':'No — RASS = 0';
-    $('cam-f3-display').className='as-pill '+(f3?'positive':'negative');
-    if(r===-4||r===-5){
-      $('cam-f4').value=''; $('cam-f4').disabled=true;
-      camShowStep(3);
-      out.className='as-result warn';
-      out.innerHTML='<div>CAM-ICU</div><div class="big">NO VALORABLE ACTUALMENTE</div><div>RASS −4 o −5: el paciente no puede valorarse adecuadamente con CAM-ICU en este momento. Revalorar cuando sea posible.</div>';
-      return;
-    }
-    if(f3){
-      camShowStep(3); camDisableAfter(3); $('cam-f4').value='';
-      out.className='as-result alert';
-      out.innerHTML='<div>CAM-ICU</div><div class="big">DELIRIO PRESENTE</div><div>Las características 1 y 2 son positivas y la característica 3 es positiva (RASS ≠ 0). No es necesario continuar con el paso 4.</div>';
-      return;
-    }
+function asSelectPainTab(scale){
+ asPainScale=scale;
+ document.getElementById('as-tabEva').classList.toggle('active',scale==='eva');
+ document.getElementById('as-tabEscid').classList.toggle('active',scale==='escid');
+ document.getElementById('as-tabEva').setAttribute('aria-selected',scale==='eva');
+ document.getElementById('as-tabEscid').setAttribute('aria-selected',scale==='escid');
+ asEva=null; asEscid=[null,null,null,null,null];
+ asRenderPain(); asSummary();
+}
 
-    const f4=$('cam-f4').value;
-    if(f4===''){
-      camShowStep(4); camDisableAfter(4);
-      out.className='as-result';
-      out.textContent='Paso 4: valora el pensamiento desorganizado.';
-      return;
-    }
-    const positive=f1==='1' && f2==='1' && (f3 || f4==='1');
-    camShowStep(4); camDisableAfter(4);
-    out.className='as-result '+(positive?'alert':'ok');
-    out.innerHTML=`<div>CAM-ICU</div><div class="big">${positive?'DELIRIO PRESENTE':'DELIRIO AUSENTE'}</div><div>1. Cambio agudo/fluctuante: Sí · 2. Inatención: ≥2 errores · 3. RASS: = 0 · 4. Pensamiento desorganizado: ${f4==='1'?'≥2 errores':'0–1 errores'}.</div>`;
-  }
-  ['cam-rass','cam-f1','cam-f2','cam-f4'].forEach(id=>$(id).addEventListener('change',calcCam));
-  $('cam-reset').addEventListener('click',()=>{['cam-f1','cam-f2','cam-f4','cam-rass'].forEach(id=>$(id).value='');$('cam-f3-display').textContent='—';$('cam-f3-display').className='as-pill';camShowStep(1);camDisableAfter(1);calcCam();});
-  // CAM-ICU: al abrir la escala solo debe estar visible el paso 1.
-  camShowStep(1);
-  camDisableAfter(1);
-})();
+function asRenderPain(){
+ const el=document.getElementById('as-pain');
+ if(asPainScale==='eva'){
+   const value=asEva===null?0:asEva;
+   el.innerHTML=`<div class="as-eva-picker">
+     <div class="as-eva-value-wrap">
+       <div id="as-eva-value" class="as-eva-value" aria-live="polite">${value}</div>
+       <div class="as-eva-value-label">EVA</div>
+     </div>
+     <div class="as-eva-scale-wrap">
+       <div class="as-eva-endpoints"><span>0</span><span>10</span></div>
+       <input id="as-eva-score" class="as-eva-range" type="range" min="0" max="10" step="1" value="${value}" aria-label="Puntuación EVA de 0 a 10" oninput="asCalcEva()">
+       <div class="as-eva-ticks" aria-hidden="true"><span>0</span><span>1</span><span>2</span><span>3</span><span>4</span><span>5</span><span>6</span><span>7</span><span>8</span><span>9</span><span>10</span></div>
+       <div class="as-eva-hint">Desliza o toca sobre la escala para seleccionar la puntuación</div>
+     </div>
+   </div>
+   <div id="as-eva-result" class="as-result">Selecciona una puntuación de 0 a 10.</div>`;
+ }else{
+   const items=[
+    ["Musculatura facial",["0 — Relajada","1 — Tensa","2 — Gesticulación de dolor"]],
+    ["Tranquilidad",["0 — Tranquilo","1 — Movimientos ocasionales","2 — Movimientos frecuentes / agitación"]],
+    ["Tono muscular",["0 — Normal","1 — Aumentado","2 — Muy aumentado / rigidez"]],
+    ["Adaptación a ventilación mecánica",["0 — Tolera ventilador","1 — Tos / lucha ocasional","2 — Lucha con ventilador"]],
+    ["Confortabilidad",["0 — Cómodo","1 — Inquieto ocasionalmente","2 — Muy incómodo"]]
+   ];
+   el.innerHTML=items.map((it,idx)=>`<div class="as-escid-item"><div class="as-escid-title">${idx+1}. ${it[0]}</div><div class="as-choice-row">${it[1].map((x,j)=>`<button type="button" class="as-choice" onclick="asSetEscid(${idx},${j},this)">${x}</button>`).join('')}</div></div>`).join('')+`<div id="as-painResult"></div>`;
+ }
+}
+
+function asCalcEva(){
+ const v=document.getElementById('as-eva-score').value, out=document.getElementById('as-eva-result');
+ const n=Number(v);
+ document.getElementById('as-eva-value').textContent=String(n);
+ let range,intensity,description;
+ if(n===0){range='0';intensity='Sin dolor';description='No existe dolor.';}
+ else if(n<=3){range='1–3';intensity='Dolor leve';description='Molestia tolerable, no limita actividades.';}
+ else if(n<=6){range='4–6';intensity='Dolor moderado';description='Interfiere parcialmente con actividades.';}
+ else if(n<=9){range='7–9';intensity='Dolor intenso';description='Limita significativamente las actividades.';}
+ else{range='10';intensity='Peor dolor imaginable';description='Dolor insoportable.';}
+ out.className='as-result';
+ out.innerHTML=`<div>Puntuación EVA</div><div class="big">${n}/10</div><div class="eva-intensity"><strong>${intensity}</strong> <span class="eva-range-label">(${range})</span></div><div class="eva-description">${description}</div>`;
+ asEva=n;
+ asSummary();
+}
+
+function asSetEscid(i,v,b){
+ asEscid[i]=v;
+ document.querySelectorAll('#as-pain .as-escid-item')[i].querySelectorAll('.as-choice').forEach(x=>x.classList.remove('selected'));
+ b.classList.add('selected');
+ const complete=asEscid.every(x=>x!==null);
+ const partial=asEscid.filter(x=>x!==null).reduce((a,x)=>a+x,0);
+ document.getElementById('as-painResult').innerHTML = complete
+   ? `<div class="as-result ok"><div>ESCID</div><div class="big">${partial}/10</div></div>`
+   : `<div class="as-result">ESCID: ${partial}/10 — completa los 5 apartados</div>`;
+ asSummary();
+}
+
+function asCamFinish(present){
+ asCam.result=present?'Delirio presente':'Delirio ausente';
+ asRenderCam(); asSummary();
+}
+
+function asRenderCam(){
+ const el=document.getElementById('as-cam');
+
+ if(asCam.result){
+   el.innerHTML=`<div class="as-result ${asCam.result==='Delirio presente'?'alert':'ok'}"><b>${asCam.result}</b></div>
+   <p class="as-small">La valoración ha finalizado. Para repetirla, pulsa «Nueva valoración».</p>`;
+   return;
+ }
+
+ if(asCam.step===1){
+   el.innerHTML=`<div class="as-cam-step">
+     <h4>1. Cambio agudo o curso fluctuante del estado mental</h4>
+     <div class="as-cam-question">Es positivo si existe <b>alguna</b> de las siguientes situaciones:</div>
+     <div class="as-cam-subquestion"><b>1A.</b> ¿Existe evidencia de un cambio agudo del estado mental respecto al estado basal?</div>
+     <div class="as-cam-subquestion"><b>1B.</b> ¿Ha fluctuado el estado mental durante las últimas 24 horas (aparece y desaparece, o aumenta y disminuye en gravedad)?</div>
+     <div class="as-cam-actions">
+       <button type="button" class="as-choice" onclick="asCamAnswer(1,true)">Sí</button>
+       <button type="button" class="as-choice" onclick="asCamAnswer(1,false)">No</button>
+     </div>
+   </div>`;
+   return;
+ }
+
+ if(asCam.step===2){
+   el.innerHTML=`<div class="as-cam-step">
+     <h4>2. Inatención</h4>
+     <div class="as-cam-question"><b>Examen de atención auditiva (letras)</b></div>
+     <div class="as-cam-subquestion">Diga al paciente: <b>«Apriete mi mano cuando escuche la letra A».</b></div>
+     <div class="as-cam-subquestion">Lea la siguiente secuencia lentamente, a aproximadamente una letra por segundo:</div>
+     <div class="as-cam-sequence" aria-label="Secuencia de letras">C – A – S – A – B – L – A – N – C – A</div>
+     <div class="as-cam-subquestion">Hay <b>4 letras A</b>. Se considera un error cada vez que el paciente <b>no aprieta</b> la mano al oír una A o <b>aprieta</b> ante una letra diferente de A.</div>
+     <div class="as-cam-question"><b>¿Cuántos errores ha cometido?</b></div>
+     <div class="as-cam-errors">
+       <button type="button" class="as-choice" onclick="asCamAnswer(2,false)">0–2 errores<br><small>Inatención ausente</small></button>
+       <button type="button" class="as-choice" onclick="asCamAnswer(2,true)">≥3 errores<br><small>Inatención presente</small></button>
+     </div>
+   </div>`;
+   return;
+ }
+
+ if(asCam.step===3){
+   const rassSelected=document.querySelector('#as-rassList .as-scale-btn.selected');
+   const rassText=rassSelected ? rassSelected.querySelector('.as-rass-score').textContent : null;
+   const rassValue=rassText===null ? null : Number(rassText);
+   if(rassValue!==null) asCam.rass=rassValue;
+   el.innerHTML=`<div class="as-cam-step">
+     <h4>3. Alteración del nivel de conciencia</h4>
+     <div class="as-cam-question">Se utiliza automáticamente el <b>RASS valorado en la pestaña RASS</b>. Se considera alterado cuando <b>RASS ≠ 0</b>.</div>
+     ${asCam.rass===null
+       ? `<div class="as-cam-status">Primero seleccione el RASS del paciente en la pestaña <b>RASS</b>.</div>`
+       : `<div class="as-cam-status ${asCam.rass!==0?'positive':'negative'}"><b>RASS ${asCam.rass>0?'+':''}${asCam.rass}</b> — ${asCam.rass===0?'sin alteración del nivel de conciencia':'alteración del nivel de conciencia'}</div>`}
+   </div>`;
+   if(asCam.rass===null) return;
+   if(asCam.rass===-4 || asCam.rass===-5){
+     asCam.result=null;
+     el.innerHTML+=`<div class="as-result alert"><b>CAM-ICU no valorable actualmente</b></div><p class="as-small">Con RASS −4 o −5 no es posible realizar adecuadamente la valoración del CAM-ICU. Revalorar cuando el paciente pueda ser evaluado.</p>`;
+     return;
+   }
+   if(asCam.rass!==0){
+     asCamFinish(true);
+     return;
+   }
+   if(asCam.step===3){
+     // RASS 0: continuar automáticamente al paso 4.
+     asCam.step=4;
+     asRenderCam();
+   }
+   return;
+ }
+
+ if(asCam.step===4){
+   el.innerHTML=`<div class="as-cam-step">
+     <h4>4. Pensamiento desorganizado</h4>
+     <div class="as-cam-question">Realice las siguientes preguntas de respuesta Sí/No:</div>
+     <div class="as-cam-subquestion"><b>1.</b> ¿Las piedras flotan en el agua?</div>
+     <div class="as-cam-subquestion"><b>2.</b> ¿Hay peces en el mar?</div>
+     <div class="as-cam-subquestion"><b>3.</b> ¿1 kg pesa más que 2 kg?</div>
+     <div class="as-cam-subquestion"><b>4.</b> ¿Los martillos sirven para poner clavos?</div>
+     <div class="as-cam-question">Después, realice la prueba de los dedos según el protocolo de CAM-ICU. Se considera positivo si hay <b>≥2 errores</b> en el conjunto de preguntas/prueba.</div>
+     <div class="as-cam-errors">
+       <button type="button" class="as-choice" onclick="asCamAnswer(4,false)">0–1 errores<br><small>Pensamiento no desorganizado</small></button>
+       <button type="button" class="as-choice" onclick="asCamAnswer(4,true)">≥2 errores<br><small>Pensamiento desorganizado</small></button>
+     </div>
+   </div>`;
+   return;
+ }
+}
+
+function asCamAnswer(step,yes){
+ if(step===1){
+   asCam.f1=yes;
+   if(!yes){asCamFinish(false);return;}
+   asCam.step=2;
+ }else if(step===2){
+   asCam.f2=yes;
+   if(!yes){asCamFinish(false);return;}
+   asCam.step=3;
+ }else if(step===4){
+   asCam.f4=yes;
+   asCamFinish(!!(asCam.f1 && asCam.f2 && (asCam.rass!==0 || asCam.f4)));
+   return;
+ }
+ asRenderCam(); asSummary();
+}
+
+function asSummary(){
+ const r=document.querySelector('#as-rassList .selected');
+ const rv=r?r.querySelector('.as-rass-score').textContent:'—';
+ document.getElementById('as-summary').innerHTML=`<span>RASS: ${rv}</span><span>${asPainScale.toUpperCase()}: ${asPainScale==='eva'?(asEva===null?'—':asEva+'/10'):(asEscid.every(x=>x!==null)?asEscid.reduce((a,x)=>a+x,0)+'/10':'—')}</span><span>CAM-ICU: ${asCam.result||'—'}</span><button type="button" class="as-summary-reset" onclick="asResetAll()">↻ Nueva valoración</button>`;
+}
+
+function asResetAll(){
+ asEva=null; asEscid=[null,null,null,null,null]; asCam={step:1,result:null,f1:null,f2:null,rass:null,f4:null};
+ document.getElementById('as-rassResult').innerHTML='';
+ document.querySelectorAll('#as-rassList .as-scale-btn').forEach(x=>x.classList.remove('selected'));
+ asRenderRass(); asRenderPain(); asRenderCam(); asSelectMainTab('rass'); asSelectPainTab('eva'); asSummary();
+}
+
+asRenderRass(); asRenderPain(); asRenderCam(); asCalcEva(); asSelectMainTab('rass'); asSummary();
 </script>
 <script id="drive-contents-js">
 function showDriveContents(){
