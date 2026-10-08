@@ -533,6 +533,26 @@ header{z-index:1000!important}
   .protocol-text{font-size:15.5px;line-height:1.65;}
 }
 </style>
+<style id="mi-turno-host-style">
+#mi-turno-view { max-width: 1240px; width: 100%; margin: 0 auto; padding: 0 clamp(14px, 3vw, 36px) 30px; }
+#mi-turno-frame { display: block; width: 100%; min-height: 900px; height: 1800px; border: 0; background: #f5f6f8; }
+#host-maddox-dialog { position: fixed; inset: 50% auto auto 50%; transform: translate(-50%, -50%); box-sizing: border-box; width: min(760px, calc(100vw - 24px)); max-height: calc(100vh - 24px); max-height: calc(100dvh - 24px); margin: 0; padding: 0; overflow: auto; border: 1px solid #e8ebef; border-radius: 13px; background: #fff; color: #202a38; box-shadow: 0 18px 65px #1113; }
+#host-maddox-dialog::backdrop { background: #18213369; backdrop-filter: blur(2px); }
+#host-maddox-dialog .maddox-head { display: flex; justify-content: space-between; align-items: flex-start; gap: 16px; padding: 20px 22px 14px; border-bottom: 1px solid #e8ebef; }
+#host-maddox-dialog .maddox-head h2 { margin: 0 0 4px; font-size: 17px; color: #202a38; }
+#host-maddox-dialog .maddox-head p { margin: 0; color: #788394; font-size: 11px; }
+#host-maddox-dialog .maddox-head .x { border: 0; background: transparent; color: #8490a0; font-size: 20px; line-height: 1; padding: 1px 3px; }
+#host-maddox-dialog .maddox-body { padding: 14px 22px 20px; }
+#host-maddox-dialog .maddox-table { width: 100%; border-collapse: collapse; }
+#host-maddox-dialog .maddox-table th { padding: 10px 12px; text-align: left; background: #526bef; color: #fff; text-transform: uppercase; letter-spacing: .6px; font-size: 10px; }
+#host-maddox-dialog .maddox-table th:first-child { width: 82px; }
+#host-maddox-dialog .maddox-table td { padding: 12px; border-bottom: 1px solid #e8ebef; color: #485465; font-size: 12px; line-height: 1.5; vertical-align: top; }
+#host-maddox-dialog .maddox-table td:first-child { color: #202a38; font-weight: 700; text-align: center; }
+#host-maddox-dialog .maddox-table tr:nth-child(even) td { background: #fff4dd; }
+#host-maddox-dialog .maddox-foot { display: flex; justify-content: flex-end; padding: 0 22px 20px; }
+#host-maddox-dialog .maddox-foot button { border: 0; border-radius: 8px; padding: 9px 13px; background: #526bef; color: #fff; font-size: 11px; font-weight: 600; }
+@media (max-width: 700px) { #mi-turno-view { padding: 0 0 20px; } #mi-turno-frame { min-height: 1100px; } #host-maddox-dialog { width: calc(100vw - 24px); max-height: calc(100vh - 24px); max-height: calc(100dvh - 24px); } #host-maddox-dialog .maddox-head { padding: 17px 16px 12px; } #host-maddox-dialog .maddox-body { padding: 10px 12px 16px; } #host-maddox-dialog .maddox-table th, #host-maddox-dialog .maddox-table td { padding: 9px 8px; font-size: 11px; } #host-maddox-dialog .maddox-table th:first-child { width: 54px; } #host-maddox-dialog .maddox-foot { padding: 0 16px 16px; } }
+</style>
 </head>
 <body>
 <header>
@@ -554,6 +574,10 @@ header{z-index:1000!important}
 <div>Uso exclusivo de los profesionales de la UCI.</div>
 </div>
 <div class="v35-grid" aria-label="Accesos principales">
+<a class="v35-tile" href="#" onclick="showMiTurno();return false;">
+<div class="v35-icon" aria-hidden="true">📋</div>
+<div><strong>Objetivos asistenciales 2026</strong><span>Recordatorios por turno para Enfermería y TCAEs.</span></div>
+</a>
 <a class="v35-tile" href="#" onclick="showAnalgosedacion();return false;">
 <div class="v35-icon" aria-hidden="true">🧠</div>
 <div><strong>Escalas de Analgosedación</strong><span>RASS, EVA/ESCID y CAM-ICU con calculadoras.</span></div>
@@ -591,6 +615,647 @@ header{z-index:1000!important}
 <div><strong>Contenidos del Drive</strong><span>Localiza y accede a las carpetas y documentos de la unidad.</span></div>
 </a>
 </div>
+</main>
+<main id="mi-turno-view" aria-label="Objetivos asistenciales" style="display:none">
+<button type="button" class="back v35-cover-back" onclick="showLanding()" style="display:inline-block!important;visibility:visible!important;">← Portada</button>
+<iframe id="mi-turno-frame" title="Objetivos asistenciales 2026" scrolling="no" srcdoc="&lt;!doctype html&gt;
+&lt;html lang=&quot;es&quot;&gt;
+&lt;head&gt;
+  &lt;meta charset=&quot;utf-8&quot;&gt;
+  &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1&quot;&gt;
+  &lt;meta name=&quot;theme-color&quot; content=&quot;#123b43&quot;&gt;
+  &lt;title&gt;Objetivos asistenciales 2026 &#183; Recursos UCI HUVM&lt;/title&gt;
+  &lt;style&gt;
+    :root {
+      color-scheme: light;
+      --ink: #17323a;
+      --muted: #64777b;
+      --line: #e4ece9;
+      --paper: #ffffff;
+      --canvas: #f4f7f5;
+      --teal: #176c68;
+      --teal-dark: #123b43;
+      --mint: #e8f4ef;
+      --blue: #edf3fa;
+      --amber: #fbf3e5;
+      --plum: #f3eef8;
+      --shadow: 0 15px 45px rgba(27, 58, 57, .07);
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;
+    }
+    * { box-sizing: border-box; }
+    body { margin: 0; background: var(--canvas); color: var(--ink); }
+    button, input { font: inherit; }
+    button { cursor: pointer; }
+    .shell { min-height: 100vh; }
+    .topbar {
+      min-height: 72px; padding: 0 clamp(20px, 5vw, 72px); display: flex; align-items: center;
+      justify-content: space-between; gap: 18px; background: var(--teal-dark); color: white;
+    }
+    .brand { display: flex; align-items: center; gap: 12px; font-weight: 700; letter-spacing: -.02em; }
+    .brand-mark { width: 34px; height: 34px; border: 1px solid rgba(255,255,255,.28); border-radius: 11px; display: grid; place-items: center; color: #bde9d5; font-size: 14px; }
+    .brand-name { font-size: 14px; }
+    .brand-name small { display: block; color: #b8cbc9; font-size: 10px; letter-spacing: .12em; text-transform: uppercase; margin-top: 2px; }
+    .top-meta { font-size: 12px; color: #c8d9d6; display: flex; align-items: center; gap: 9px; }
+    .meta-dot { width: 7px; height: 7px; border-radius: 50%; background: #8bd5b2; box-shadow: 0 0 0 4px rgba(139,213,178,.13); }
+    main { max-width: 1240px; margin: 0 auto; padding: 34px clamp(18px, 4vw, 56px) 64px; }
+    .breadcrumbs { color: #81918f; font-size: 12px; margin-bottom: 20px; }
+    .breadcrumbs span { color: #b1bfbb; margin: 0 8px; }
+    .hero { display: flex; justify-content: space-between; align-items: flex-end; gap: 28px; margin-bottom: 26px; }
+    .eyebrow { color: var(--teal); text-transform: uppercase; letter-spacing: .14em; font-size: 10px; font-weight: 800; margin-bottom: 10px; }
+    h1 { font-size: clamp(32px, 5vw, 48px); letter-spacing: -.055em; line-height: 1; margin: 0 0 12px; color: #163a40; }
+    .hero p { color: var(--muted); font-size: 15px; line-height: 1.55; max-width: 600px; margin: 0; }
+    .year-tag { white-space: nowrap; border: 1px solid #d9e6e0; background: rgba(255,255,255,.7); color: #496b68; border-radius: 999px; padding: 9px 13px; font-size: 11px; font-weight: 700; }
+    .utility-row { display: flex; align-items: center; justify-content: space-between; gap: 16px; margin: 26px 0 28px; }
+    .frequency-nav { display: flex; flex-wrap: wrap; gap: 7px; }
+    .filter-chip { border: 1px solid transparent; background: transparent; padding: 9px 13px; border-radius: 999px; color: #607573; font-size: 12px; font-weight: 700; transition: .18s ease; }
+    .filter-chip:hover { background: #e8efeb; color: var(--ink); }
+    .filter-chip.active { background: var(--teal-dark); color: white; }
+    .search { position: relative; width: min(280px, 100%); flex-shrink: 0; }
+    .search svg { position: absolute; left: 13px; top: 50%; transform: translateY(-50%); color: #829491; pointer-events: none; }
+    .search input { width: 100%; background: white; border: 1px solid var(--line); border-radius: 12px; padding: 11px 14px 11px 38px; outline: none; font-size: 12px; color: var(--ink); }
+    .search input:focus { border-color: #8bbab0; box-shadow: 0 0 0 3px rgba(23,108,104,.09); }
+    .notice { display: flex; gap: 12px; align-items: center; background: #fff; border: 1px solid #e5ece9; border-radius: 14px; padding: 13px 16px; margin-bottom: 30px; color: #526a6b; box-shadow: 0 4px 16px rgba(27,58,57,.025); font-size: 12px; line-height: 1.45; }
+    .notice-icon { flex: 0 0 28px; height: 28px; display: grid; place-items: center; border-radius: 9px; background: var(--mint); color: var(--teal); font-weight: 800; }
+    .notice strong { color: #27494b; }
+    .section { margin: 0 0 34px; scroll-margin-top: 20px; }
+    .section-head { display: flex; align-items: center; gap: 13px; margin: 0 0 15px; }
+    .section-num { font-size: 10px; letter-spacing: .12em; color: #8b9a96; font-weight: 800; }
+    .section-title-wrap { display: flex; align-items: baseline; gap: 10px; flex-wrap: wrap; }
+    h2 { font-size: 17px; letter-spacing: -.025em; margin: 0; color: #1b3c42; }
+    .section-sub { color: #859492; font-size: 11px; }
+    .section-rule { height: 1px; background: #e3eae7; flex: 1; margin-left: 3px; }
+    .cards { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; }
+    .card { position: relative; display: flex; flex-direction: column; min-height: 178px; background: var(--paper); border: 1px solid #e5ece9; border-radius: 16px; padding: 17px; box-shadow: 0 5px 18px rgba(26,54,54,.025); transition: transform .18s ease, box-shadow .18s ease, border-color .18s ease; }
+    .card:hover { transform: translateY(-2px); border-color: #c7ded5; box-shadow: var(--shadow); }
+    .card-top { display: flex; align-items: flex-start; justify-content: space-between; gap: 12px; margin-bottom: 11px; }
+    .icon { width: 36px; height: 36px; flex: 0 0 36px; border-radius: 12px; display: grid; place-items: center; font-size: 16px; }
+    .icon.mint { background: var(--mint); color: #247363; }
+    .icon.blue { background: var(--blue); color: #4e6f94; }
+    .icon.amber { background: var(--amber); color: #98651d; }
+    .icon.plum { background: var(--plum); color: #735d8a; }
+    .type { color: #899895; text-transform: uppercase; letter-spacing: .1em; font-size: 9px; font-weight: 800; padding-top: 4px; }
+    h3 { margin: 0 0 6px; font-size: 14px; letter-spacing: -.018em; line-height: 1.3; color: #203d42; }
+    .card p { margin: 0; color: #6d7e7d; font-size: 11px; line-height: 1.55; }
+    .card-bottom { display: flex; align-items: center; justify-content: space-between; gap: 8px; margin-top: auto; padding-top: 16px; }
+    .system-hint { color: #99a5a1; font-size: 10px; }
+    .action { border: 0; padding: 8px 10px; border-radius: 9px; background: #edf5f1; color: #21645e; font-size: 10px; font-weight: 800; white-space: nowrap; transition: background .15s ease; }
+    .action:hover { background: #dceee5; }
+    .arrow { margin-left: 4px; font-size: 13px; vertical-align: -1px; }
+    .empty { display: none; text-align: center; padding: 30px 16px; color: #738482; font-size: 13px; background: white; border: 1px dashed #cfdbd6; border-radius: 14px; }
+    .shared { margin-top: 42px; background: #173d43; color: white; border-radius: 18px; padding: 22px 24px; display: grid; grid-template-columns: 1.2fr 1fr auto; align-items: center; gap: 24px; box-shadow: 0 16px 35px rgba(18,59,67,.13); }
+    .shared .eyebrow { color: #a7ddc7; margin: 0 0 7px; font-size: 9px; }
+    .shared h2 { color: white; font-size: 17px; margin: 0 0 7px; }
+    .shared p { margin: 0; color: #c0d3d0; font-size: 11px; line-height: 1.5; }
+    .shared-list { display: flex; flex-wrap: wrap; gap: 7px; }
+    .shared-list span { border: 1px solid rgba(255,255,255,.18); background: rgba(255,255,255,.07); border-radius: 999px; padding: 7px 10px; font-size: 10px; color: #dce9e5; }
+    .shared .action { color: #164a48; background: #c5ead7; padding: 11px 14px; }
+    .shared .action:hover { background: #d9f3e5; }
+    footer { display: flex; align-items: center; justify-content: space-between; gap: 15px; padding-top: 25px; color: #8b9996; font-size: 10px; }
+    footer span:last-child { text-align: right; }
+    dialog { border: 1px solid #dbe7e1; border-radius: 20px; padding: 0; width: min(440px, calc(100vw - 32px)); color: var(--ink); box-shadow: 0 25px 90px rgba(11,36,37,.28); }
+    dialog::backdrop { background: rgba(13,39,43,.48); backdrop-filter: blur(3px); }
+    .dialog-inner { padding: 25px; }
+    .dialog-mark { width: 42px; height: 42px; display: grid; place-items: center; background: var(--mint); border-radius: 14px; color: var(--teal); font-size: 19px; margin-bottom: 17px; }
+    .dialog-inner .eyebrow { margin-bottom: 7px; }
+    .dialog-inner h2 { font-size: 21px; margin: 0 0 9px; }
+    .dialog-inner p { color: #687a79; font-size: 13px; line-height: 1.55; margin: 0 0 16px; }
+    .destination { background: #f2f7f4; border: 1px solid #e3ece7; border-radius: 12px; padding: 12px 14px; font-size: 12px; color: #476763; }
+    .destination strong { display: block; color: #82938e; font-size: 9px; letter-spacing: .1em; text-transform: uppercase; margin-bottom: 5px; }
+    .dialog-actions { display: flex; justify-content: flex-end; margin-top: 20px; }
+    .dialog-actions button { border: 0; border-radius: 10px; padding: 10px 15px; background: var(--teal-dark); color: white; font-size: 12px; font-weight: 700; }
+    .dialog-actions button:hover { background: #20555a; }
+    [hidden] { display: none !important; }
+    @media (max-width: 900px) {
+      .cards { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .shared { grid-template-columns: 1fr auto; }
+      .shared-list { grid-column: 1 / -1; grid-row: 2; }
+      .shared .action { grid-column: 2; grid-row: 1; }
+    }
+    @media (max-width: 620px) {
+      .topbar { min-height: 62px; padding: 0 18px; }
+      .top-meta { font-size: 10px; }
+      main { padding-top: 24px; }
+      .hero { align-items: flex-start; flex-direction: column; gap: 16px; }
+      .year-tag { align-self: flex-start; }
+      .utility-row { align-items: stretch; flex-direction: column; margin-top: 22px; }
+      .frequency-nav { overflow-x: auto; flex-wrap: nowrap; padding-bottom: 2px; }
+      .filter-chip { white-space: nowrap; }
+      .search { width: 100%; }
+      .cards { grid-template-columns: 1fr; gap: 9px; }
+      .card { min-height: 0; padding: 15px; }
+      .card-bottom { padding-top: 13px; }
+      .shared { display: flex; flex-direction: column; align-items: flex-start; padding: 20px; gap: 16px; }
+      .shared .action { align-self: stretch; }
+      .shared-list { order: 1; }
+      footer { align-items: flex-start; flex-direction: column; }
+      footer span:last-child { text-align: left; }
+    }
+    @media (prefers-reduced-motion: reduce) { *, *::before, *::after { scroll-behavior: auto !important; transition: none !important; } }
+  &lt;/style&gt;
+  &lt;style&gt;
+    @import url(&#39;https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&amp;family=Manrope:wght@400;500;600;700;800&amp;display=swap&#39;);
+    :root {
+      --ink: #202a38; --muted: #788394; --line: #e8ebef; --paper: #fff; --canvas: #f5f6f8;
+      --teal: #4d6fed; --teal-dark: #202d40; --mint: #e7f5ef; --blue: #4d6fed;
+      --blue-p: #eef1ff; --amber: #be7c18; --amber-p: #fff4dd; --plum: #eef1ff;
+      --shadow: 0 3px 14px #1d29390c;
+      font-family: &#39;DM Sans&#39;, sans-serif;
+    }
+    body { background: var(--canvas); color: var(--ink); font: 14px &#39;DM Sans&#39;, sans-serif; }
+    .topbar { min-height: 64px; height: 64px; padding: 0 clamp(18px, 4vw, 56px); background: #ffffffd9; color: var(--ink); border-bottom: 1px solid var(--line); position: sticky; top: 0; z-index: 3; backdrop-filter: blur(12px); }
+    .brand-mark { border: 0; border-radius: 10px; background: #546eef; color: #fff; font-size: 10px; font-weight: 800; }
+    .brand-name { color: var(--ink); font: 800 16px Manrope, sans-serif; letter-spacing: -.4px; }
+    .brand-name small { color: #8490a0; font: 400 10px &#39;DM Sans&#39;, sans-serif; letter-spacing: .3px; }
+    .top-meta { color: var(--muted); font-size: 12px; }
+    .meta-dot { background: #526bef; box-shadow: 0 0 0 4px #526bef18; }
+    main { max-width: 1240px; padding: 31px clamp(18px, 4vw, 56px) 52px; }
+    .breadcrumbs { color: var(--muted); font-size: 12px; margin-bottom: 23px; }
+    .breadcrumbs span { color: #c3cad3; }
+    .hero { align-items: flex-start; margin-bottom: 23px; }
+    .eyebrow { color: #728096; font-size: 11px; letter-spacing: .8px; margin-bottom: 6px; }
+    h1 { color: var(--ink); font: 700 26px Manrope, sans-serif; letter-spacing: -.75px; line-height: 1.2; margin: 0 0 5px; }
+    .hero p { color: var(--muted); font-size: 12px; line-height: 1.5; }
+    .year-tag { color: #4a60cf; border: 1px solid var(--blue-p); background: var(--blue-p); border-radius: 8px; padding: 8px 11px; font-size: 11px; }
+    .utility-row { margin: 0 0 14px; }
+    .frequency-nav { gap: 4px; padding: 3px; border-radius: 8px; background: #f0f2f5; }
+    .filter-chip { border: 0; border-radius: 6px; color: #738092; padding: 6px 10px; font-size: 10px; }
+    .filter-chip:hover { background: #fff9; color: #394457; }
+    .filter-chip.active { background: #fff; color: #394457; box-shadow: 0 1px 4px #1111; }
+    .search input { border: 1px solid var(--line); border-radius: 7px; padding-top: 9px; padding-bottom: 9px; font-size: 11px; }
+    .notice { border-radius: 8px; border: 1px solid #e4e8fb; background: #f0f3ff; box-shadow: none; color: #5263ab; font-size: 11px; margin-bottom: 23px; padding: 11px 12px; }
+    .notice strong { color: #45569d; }
+    .notice-icon { background: #e4e8fb; color: #526bef; border-radius: 7px; }
+    .section { margin-bottom: 25px; }
+    .section-head { margin-bottom: 12px; gap: 10px; }
+    h2 { color: var(--ink); font: 700 16px Manrope, sans-serif; letter-spacing: -.2px; }
+    .section-sub { color: var(--muted); font-size: 11px; }
+    .section-rule { background: var(--line); }
+    .cards { gap: 15px; }
+    .card { min-height: 168px; border: 1px solid #edf0f3; border-radius: 12px; padding: 18px; box-shadow: var(--shadow); }
+    .card:hover { border-color: #d7dff4; box-shadow: 0 5px 18px #1d293911; }
+    .card-top { margin-bottom: 10px; }
+    .icon { width: 37px; height: 37px; flex-basis: 37px; border-radius: 10px; }
+    .icon.mint { background: var(--mint); color: #21936e; }
+    .icon.blue, .icon.plum { background: var(--blue-p); color: var(--blue); }
+    .icon.amber { background: var(--amber-p); color: var(--amber); }
+    .type { color: #5667c9; font-size: 10px; letter-spacing: 0; }
+    h3 { color: var(--ink); font: 700 13px Manrope, sans-serif; letter-spacing: -.15px; }
+    .card p { color: var(--muted); font-size: 11px; line-height: 1.5; }
+    .system-hint { color: #8792a0; font-size: 10px; }
+    .action { border: 1px solid var(--blue-p); border-radius: 8px; background: var(--blue-p); color: #4a60cf; padding: 6px 9px; font-size: 11px; }
+    .action:hover { border-color: #d9defe; background: #e5e9ff; }
+    .shared { background: #fff; border: 1px solid #edf0f3; border-radius: 12px; padding: 18px; gap: 18px; box-shadow: var(--shadow); }
+    .shared .eyebrow { color: #728096; }
+    .shared h2 { color: var(--ink); font-size: 16px; }
+    .shared p { color: var(--muted); }
+    .shared-list span { color: #687487; background: #f0f2f5; border: 0; padding: 5px 8px; font-size: 10px; }
+    .shared .action { border: 1px solid var(--blue-p); color: #4a60cf; background: var(--blue-p); padding: 8px 11px; }
+    .zero-section { margin-bottom: 26px; }
+    .zero-cards { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+    .zero-card { min-height: 156px; }
+    .zero-card .type { color: #5667c9; }
+    .zero-card h3 { font-size: 13px; }
+    .zero-foot { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 10px; margin-top: 10px; padding: 10px 12px; border: 1px solid #e4e8fb; border-radius: 8px; background: #f0f3ff; color: #5263ab; font-size: 11px; }
+    .zero-foot strong { color: #45569d; }
+    .shared { grid-template-columns: 1fr auto; }
+    footer { color: #8792a0; font-size: 10px; border-top: 1px solid var(--line); margin-top: 24px; }
+    dialog { border-color: var(--line); border-radius: 13px; box-shadow: 0 18px 65px #1113; }
+    dialog::backdrop { background: #18213369; backdrop-filter: blur(2px); }
+    .dialog-mark { background: var(--blue-p); color: var(--blue); border-radius: 10px; }
+    .dialog-inner .eyebrow { color: #728096; }
+    .destination { background: #f5f6f8; border-color: var(--line); border-radius: 8px; }
+    .dialog-actions button { border-radius: 8px; background: #526bef; }
+    .dialog-actions button:hover { background: #415add; }
+    #maddox-dialog { width: min(760px, calc(100vw - 32px)); max-height: 90vh; overflow: auto; }
+    .maddox-head { display: flex; justify-content: space-between; align-items: flex-start; gap: 16px; padding: 20px 22px 14px; border-bottom: 1px solid var(--line); }
+    .maddox-head h2 { font-size: 17px; margin: 0 0 4px; }
+    .maddox-head p { margin: 0; color: var(--muted); font-size: 11px; }
+    .maddox-head .x { border: 0; background: transparent; color: #8490a0; font-size: 20px; line-height: 1; padding: 1px 3px; }
+    .maddox-body { padding: 14px 22px 20px; }
+    .maddox-table { width: 100%; border-collapse: collapse; }
+    .maddox-table th { padding: 10px 12px; text-align: left; background: #526bef; color: #fff; text-transform: uppercase; letter-spacing: .6px; font-size: 10px; }
+    .maddox-table th:first-child { width: 82px; }
+    .maddox-table td { padding: 12px; border-bottom: 1px solid var(--line); color: #485465; font-size: 12px; line-height: 1.5; vertical-align: top; white-space: normal; }
+    .maddox-table td:first-child { color: var(--ink); font: 700 14px Manrope, sans-serif; text-align: center; }
+    .maddox-table tr:nth-child(even) td { background: #fff4dd; }
+    .maddox-foot { display: flex; justify-content: flex-end; padding: 0 22px 20px; }
+    .maddox-foot button { border: 0; border-radius: 8px; padding: 9px 13px; background: #526bef; color: white; font-size: 11px; font-weight: 600; }
+    .maddox-foot button:hover { background: #415add; }
+    @media (max-width: 900px) { .zero-cards { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+    @media (max-width: 620px) {
+      .topbar { min-height: 56px; height: 56px; padding: 0 14px; }
+      .brand-name { font-size: 14px; }
+      .top-meta { font-size: 10px; }
+      main { padding: 22px 14px 40px; }
+      .hero { margin-bottom: 20px; }
+      .utility-row { margin: 0 0 13px; }
+      .frequency-nav { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); width: 100%; gap: 7px; overflow: visible; padding: 0; }
+      .filter-chip { display: flex; min-height: 44px; padding: 9px 8px; align-items: center; justify-content: center; text-align: center; white-space: normal; line-height: 1.25; font-size: 12px; border: 1px solid var(--line); background: #fff; }
+      .filter-chip:last-child { grid-column: 1 / -1; }
+      .filter-chip.active { border-color: #526bef; }
+      .section { margin-bottom: 22px; }
+      .card { min-height: 0; padding: 14px; }
+      .zero-cards { grid-template-columns: 1fr; }
+      .zero-card { min-height: 0; }
+      .zero-foot { align-items: flex-start; flex-direction: column; }
+      .card-bottom { align-items: flex-start; flex-wrap: wrap; }
+      .shared { display: flex; flex-direction: column; align-items: flex-start; padding: 16px; }
+      .shared .action { align-self: stretch; }
+      footer { margin-top: 20px; }
+      .maddox-head { padding: 17px 16px 12px; }
+      .maddox-body { padding: 10px 12px 16px; }
+      .maddox-table th, .maddox-table td { padding: 9px 8px; font-size: 11px; }
+      .maddox-table th:first-child { width: 54px; }
+      .maddox-foot { padding: 0 16px 16px; }
+    }
+  &lt;/style&gt;
+  &lt;style id=&quot;mi-turno-integrated-style&quot;&gt;
+    .topbar { display: none; }
+    .role-tabs { display: flex; width: max-content; max-width: 100%; gap: 4px; margin: 0 0 18px; padding: 4px; border: 1px solid var(--line); border-radius: 9px; background: #eef1f5; }
+    .role-tab { border: 0; border-radius: 6px; padding: 8px 13px; background: transparent; color: #738092; font-size: 11px; font-weight: 700; }
+    .role-tab:hover { color: #394457; background: #ffffff88; }
+    .role-tab.active { color: #394457; background: #fff; box-shadow: 0 1px 4px #1111; }
+    .role-tab:focus-visible { outline: 2px solid #526bef; outline-offset: 2px; }
+    .tcae-outline { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 15px; margin-top: 26px; }
+    .tcae-outline article { min-height: 130px; padding: 18px; border: 1px solid #edf0f3; border-radius: 12px; background: #fff; box-shadow: var(--shadow); }
+    .tcae-outline .section-num { display: block; margin-bottom: 14px; }
+    .tcae-outline h2 { margin-bottom: 8px; }
+    .tcae-outline p { margin: 0; color: var(--muted); font-size: 11px; line-height: 1.5; }
+    @media (max-width: 760px) { .tcae-outline { grid-template-columns: 1fr; gap: 9px; } .tcae-outline article { min-height: 0; padding: 15px; } .tcae-outline .section-num { margin-bottom: 9px; } }
+    .cards, .cards.zero-cards { grid-template-columns: 1fr; gap: 8px; }
+    .card.accordion-card { display: block; min-height: 0; padding: 0; overflow: hidden; border-radius: 10px; box-shadow: none; }
+    .card.accordion-card:hover { transform: none; box-shadow: var(--shadow); }
+    .card-summary { display: flex; width: 100%; min-height: 54px; align-items: center; gap: 10px; padding: 9px 12px; border: 0; background: #fff; color: var(--ink); text-align: left; cursor: pointer; }
+    .card-summary:hover { background: #f8f9fc; }
+    .card-summary:focus-visible { outline: 2px solid #526bef; outline-offset: -2px; }
+    .card-summary .icon { width: 32px; height: 32px; flex: 0 0 32px; border-radius: 9px; font-size: 13px; }
+    .card-title { flex: 1; min-width: 0; color: var(--ink); font: 700 13px/1.3 Manrope, sans-serif; }
+    .card-chevron { flex: 0 0 auto; margin-left: auto; color: #8792a0; font-size: 18px; line-height: 1; transition: transform .18s ease; }
+    .card.expanded .card-chevron { transform: rotate(180deg); }
+    .card-details { padding: 0 12px 12px 54px; background: #fff; }
+    .card-details > .type { display: block; margin: 0 0 7px; padding: 0; color: #64728a; font-size: 9px; }
+    .card-details p { margin: 0 0 10px; color: var(--muted); font-size: 12px; line-height: 1.5; }
+    .card-details .card-bottom { margin: 0; padding: 9px 0 0; border-top: 1px solid var(--line); }
+    &lt;/style&gt;
+&lt;/head&gt;
+&lt;body&gt;
+  &lt;div class=&quot;shell&quot;&gt;
+    &lt;header class=&quot;topbar&quot;&gt;
+      &lt;div class=&quot;brand&quot; aria-label=&quot;Recursos UCI HUVM&quot;&gt;
+        &lt;div class=&quot;brand-mark&quot; aria-hidden=&quot;true&quot;&gt;UCI&lt;/div&gt;
+        &lt;div class=&quot;brand-name&quot;&gt;Recursos UCI HUVM&lt;small&gt;Unidad de Cuidados Intensivos&lt;/small&gt;&lt;/div&gt;
+      &lt;/div&gt;
+      &lt;div class=&quot;top-meta&quot;&gt;&lt;span class=&quot;meta-dot&quot; aria-hidden=&quot;true&quot;&gt;&lt;/span&gt; Gu&#237;a r&#225;pida de turno&lt;/div&gt;
+    &lt;/header&gt;
+
+    &lt;main&gt;
+      &lt;nav class=&quot;role-tabs&quot; role=&quot;tablist&quot; aria-label=&quot;Profesional&quot;&gt;
+        &lt;button class=&quot;role-tab active&quot; id=&quot;role-tab-enfermeria&quot; type=&quot;button&quot; role=&quot;tab&quot; aria-selected=&quot;true&quot; aria-controls=&quot;nurse-panel&quot;&gt;Enfermer&#237;a&lt;/button&gt;
+        &lt;button class=&quot;role-tab&quot; id=&quot;role-tab-tcae&quot; type=&quot;button&quot; role=&quot;tab&quot; aria-selected=&quot;false&quot; aria-controls=&quot;tcae-panel&quot;&gt;TCAEs&lt;/button&gt;
+      &lt;/nav&gt;
+      &lt;section class=&quot;role-panel&quot; id=&quot;nurse-panel&quot;&gt;
+      &lt;div class=&quot;breadcrumbs&quot;&gt;Recursos UCI &lt;span&gt;/&lt;/span&gt; Objetivos asistenciales &lt;span&gt;/&lt;/span&gt; Objetivos de Enfermer&#237;a&lt;/div&gt;
+      &lt;section class=&quot;hero&quot; aria-labelledby=&quot;page-title&quot;&gt;
+        &lt;div&gt;
+          &lt;div class=&quot;eyebrow&quot;&gt;Objetivos asistenciales &#183; Enfermer&#237;a&lt;/div&gt;
+          &lt;h1 id=&quot;page-title&quot;&gt;Objetivos de Enfermer&#237;a&lt;/h1&gt;
+          &lt;p&gt;Consulta las escalas y los objetivos asistenciales por frecuencia, junto con los recordatorios de los proyectos ZERO y de la unidad.&lt;/p&gt;
+        &lt;/div&gt;
+        &lt;div class=&quot;year-tag&quot;&gt;Objetivos 2026&lt;/div&gt;
+      &lt;/section&gt;
+
+      &lt;div class=&quot;utility-row&quot;&gt;
+        &lt;nav class=&quot;frequency-nav&quot; aria-label=&quot;Filtrar por momento&quot;&gt;
+          &lt;button class=&quot;filter-chip active&quot; type=&quot;button&quot; data-filter=&quot;all&quot; aria-pressed=&quot;true&quot;&gt;Ver todo&lt;/button&gt;
+          &lt;button class=&quot;filter-chip&quot; type=&quot;button&quot; data-filter=&quot;turno&quot; aria-pressed=&quot;false&quot;&gt;En cada turno&lt;/button&gt;
+          &lt;button class=&quot;filter-chip&quot; type=&quot;button&quot; data-filter=&quot;diario&quot; aria-pressed=&quot;false&quot;&gt;Cada d&#237;a&lt;/button&gt;
+          &lt;button class=&quot;filter-chip&quot; type=&quot;button&quot; data-filter=&quot;oportunidad&quot; aria-pressed=&quot;false&quot;&gt;Cuando corresponda&lt;/button&gt;
+          &lt;button class=&quot;filter-chip&quot; type=&quot;button&quot; data-filter=&quot;unidad&quot; aria-pressed=&quot;false&quot;&gt;Objetivos de unidad&lt;/button&gt;
+        &lt;/nav&gt;
+      &lt;/div&gt;
+
+      &lt;section class=&quot;section&quot; data-section=&quot;turno&quot; aria-labelledby=&quot;turno-title&quot;&gt;
+        &lt;div class=&quot;section-head&quot;&gt;&lt;span class=&quot;section-num&quot;&gt;01&lt;/span&gt;&lt;div class=&quot;section-title-wrap&quot;&gt;&lt;h2 id=&quot;turno-title&quot;&gt;En cada turno&lt;/h2&gt;&lt;span class=&quot;section-sub&quot;&gt;Valoraci&#243;n y seguridad del paciente&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;section-rule&quot;&gt;&lt;/div&gt;&lt;/div&gt;
+        &lt;div class=&quot;cards&quot;&gt;
+          &lt;article class=&quot;card&quot; data-search=&quot;dolor escala dolor EVN ESCID escalas estaci&#243;n de cuidados registro&quot;&gt;
+            &lt;div class=&quot;card-top&quot;&gt;&lt;div class=&quot;icon mint&quot; aria-hidden=&quot;true&quot;&gt;◉&lt;/div&gt;&lt;span class=&quot;type&quot;&gt;Escala &#183; objetivo 100 %&lt;/span&gt;&lt;/div&gt;
+            &lt;h3&gt;Dolor &#183; EVN / ESCID&lt;/h3&gt;
+            &lt;p&gt;Valora a los pacientes a tu cargo y registra el resultado en Estaci&#243;n de Cuidados.&lt;/p&gt;
+            &lt;div class=&quot;card-bottom&quot;&gt;&lt;span class=&quot;system-hint&quot;&gt;Resultado: Estaci&#243;n de Cuidados&lt;/span&gt;&lt;button class=&quot;action&quot; type=&quot;button&quot; data-parent-tool=&quot;scale-pain&quot; data-title=&quot;Dolor &#183; EVN / ESCID&quot; data-destination=&quot;Escalas → Dolor (EVN / ESCID)&quot; data-detail=&quot;Escala para la valoraci&#243;n del dolor.&quot;&gt;Abrir escala &lt;span class=&quot;arrow&quot;&gt;›&lt;/span&gt;&lt;/button&gt;&lt;/div&gt;
+          &lt;/article&gt;
+          &lt;article class=&quot;card&quot; data-search=&quot;rass sedaci&#243;n escala estaci&#243;n cuidados registro&quot;&gt;
+            &lt;div class=&quot;card-top&quot;&gt;&lt;div class=&quot;icon blue&quot; aria-hidden=&quot;true&quot;&gt;◌&lt;/div&gt;&lt;span class=&quot;type&quot;&gt;Escala &#183; objetivo 100 %&lt;/span&gt;&lt;/div&gt;
+            &lt;h3&gt;Sedaci&#243;n &#183; RASS&lt;/h3&gt;
+            &lt;p&gt;Valora a los pacientes a tu cargo; registra el resultado en Estaci&#243;n de Cuidados.&lt;/p&gt;
+            &lt;div class=&quot;card-bottom&quot;&gt;&lt;span class=&quot;system-hint&quot;&gt;Resultado: Estaci&#243;n de Cuidados&lt;/span&gt;&lt;button class=&quot;action&quot; type=&quot;button&quot; data-parent-tool=&quot;scale-rass&quot; data-title=&quot;Sedaci&#243;n &#183; RASS&quot; data-destination=&quot;Escalas → RASS&quot; data-detail=&quot;Escala para la valoraci&#243;n de sedaci&#243;n.&quot;&gt;Abrir escala &lt;span class=&quot;arrow&quot;&gt;›&lt;/span&gt;&lt;/button&gt;&lt;/div&gt;
+          &lt;/article&gt;
+          &lt;article class=&quot;card&quot; data-search=&quot;delirio cam-icu cam icu escala estaci&#243;n cuidados registro&quot;&gt;
+            &lt;div class=&quot;card-top&quot;&gt;&lt;div class=&quot;icon plum&quot; aria-hidden=&quot;true&quot;&gt;✳&lt;/div&gt;&lt;span class=&quot;type&quot;&gt;Escala &#183; objetivo 100 %&lt;/span&gt;&lt;/div&gt;
+            &lt;h3&gt;Delirio &#183; CAM-ICU&lt;/h3&gt;
+            &lt;p&gt;Valora a los pacientes a tu cargo; registra el resultado en Estaci&#243;n de Cuidados.&lt;/p&gt;
+            &lt;div class=&quot;card-bottom&quot;&gt;&lt;span class=&quot;system-hint&quot;&gt;Resultado: Estaci&#243;n de Cuidados&lt;/span&gt;&lt;button class=&quot;action&quot; type=&quot;button&quot; data-parent-tool=&quot;scale-cam&quot; data-title=&quot;Delirio &#183; CAM-ICU&quot; data-destination=&quot;Escalas → CAM-ICU&quot; data-detail=&quot;Escala para la valoraci&#243;n del delirio.&quot;&gt;Abrir escala &lt;span class=&quot;arrow&quot;&gt;›&lt;/span&gt;&lt;/button&gt;&lt;/div&gt;
+          &lt;/article&gt;
+          &lt;article class=&quot;card&quot; data-search=&quot;l&#237;mites alarmas alarma gr&#225;fica revisar registrar turno&quot;&gt;
+            &lt;div class=&quot;card-top&quot;&gt;&lt;div class=&quot;icon amber&quot; aria-hidden=&quot;true&quot;&gt;⌁&lt;/div&gt;&lt;span class=&quot;type&quot;&gt;Seguridad &#183; en gr&#225;fica&lt;/span&gt;&lt;/div&gt;
+            &lt;h3&gt;L&#237;mites de alarma&lt;/h3&gt;
+            &lt;p&gt;Revisa los l&#237;mites de alarma y registra la revisi&#243;n en la gr&#225;fica en cada turno.&lt;/p&gt;
+            &lt;div class=&quot;card-bottom&quot;&gt;&lt;span class=&quot;system-hint&quot;&gt;Registrar la revisi&#243;n en gr&#225;fica&lt;/span&gt;&lt;/div&gt;
+          &lt;/article&gt;
+          &lt;article class=&quot;card&quot; data-search=&quot;identificaci&#243;n inequ&#237;voca paciente registros identificaci&#243;n alergias gr&#225;fica seguridad&quot;&gt;
+            &lt;div class=&quot;card-top&quot;&gt;&lt;div class=&quot;icon mint&quot; aria-hidden=&quot;true&quot;&gt;⌖&lt;/div&gt;&lt;span class=&quot;type&quot;&gt;Seguridad &#183; identificaci&#243;n&lt;/span&gt;&lt;/div&gt;
+            &lt;h3&gt;Identificaci&#243;n y alergias&lt;/h3&gt;
+            &lt;p&gt;Comprueba la identificaci&#243;n inequ&#237;voca del paciente y de los registros; revisa que las alergias consten en gr&#225;fica.&lt;/p&gt;
+            &lt;div class=&quot;card-bottom&quot;&gt;&lt;span class=&quot;system-hint&quot;&gt;Identidad &#183; alergias en gr&#225;fica&lt;/span&gt;&lt;/div&gt;
+          &lt;/article&gt;
+        &lt;/div&gt;
+      &lt;/section&gt;
+
+      &lt;section class=&quot;section&quot; data-section=&quot;diario&quot; aria-labelledby=&quot;diario-title&quot;&gt;
+        &lt;div class=&quot;section-head&quot;&gt;&lt;span class=&quot;section-num&quot;&gt;02&lt;/span&gt;&lt;div class=&quot;section-title-wrap&quot;&gt;&lt;h2 id=&quot;diario-title&quot;&gt;Cada d&#237;a&lt;/h2&gt;&lt;span class=&quot;section-sub&quot;&gt;Actualizaci&#243;n en la gr&#225;fica&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;section-rule&quot;&gt;&lt;/div&gt;&lt;/div&gt;
+        &lt;div class=&quot;cards&quot;&gt;
+          &lt;article class=&quot;card&quot; data-search=&quot;peso diario actualizar gr&#225;fica paciente registro&quot;&gt;
+            &lt;div class=&quot;card-top&quot;&gt;&lt;div class=&quot;icon blue&quot; aria-hidden=&quot;true&quot;&gt;↗&lt;/div&gt;&lt;span class=&quot;type&quot;&gt;Registro diario&lt;/span&gt;&lt;/div&gt;
+            &lt;h3&gt;Peso diario&lt;/h3&gt;
+            &lt;p&gt;Registra y actualiza el peso de cada paciente en la gr&#225;fica.&lt;/p&gt;
+            &lt;div class=&quot;card-bottom&quot;&gt;&lt;span class=&quot;system-hint&quot;&gt;Registrar / actualizar en gr&#225;fica&lt;/span&gt;&lt;/div&gt;
+          &lt;/article&gt;
+          &lt;article class=&quot;card&quot; data-search=&quot;patr&#243;n intestinal eliminaci&#243;n intestinal gr&#225;fica valoraci&#243;n registro diario&quot;&gt;
+            &lt;div class=&quot;card-top&quot;&gt;&lt;div class=&quot;icon amber&quot; aria-hidden=&quot;true&quot;&gt;⌁&lt;/div&gt;&lt;span class=&quot;type&quot;&gt;Valoraci&#243;n diaria&lt;/span&gt;&lt;/div&gt;
+            &lt;h3&gt;Patr&#243;n intestinal&lt;/h3&gt;
+            &lt;p&gt;Valora y registra a diario la eliminaci&#243;n intestinal en la gr&#225;fica.&lt;/p&gt;
+            &lt;div class=&quot;card-bottom&quot;&gt;&lt;span class=&quot;system-hint&quot;&gt;Registrar en gr&#225;fica&lt;/span&gt;&lt;/div&gt;
+          &lt;/article&gt;
+        &lt;/div&gt;
+      &lt;/section&gt;
+
+      &lt;section class=&quot;section&quot; data-section=&quot;oportunidad&quot; aria-labelledby=&quot;oportunidad-title&quot;&gt;
+        &lt;div class=&quot;section-head&quot;&gt;&lt;span class=&quot;section-num&quot;&gt;03&lt;/span&gt;&lt;div class=&quot;section-title-wrap&quot;&gt;&lt;h2 id=&quot;oportunidad-title&quot;&gt;Cuando corresponda&lt;/h2&gt;&lt;span class=&quot;section-sub&quot;&gt;Seg&#250;n evoluci&#243;n, procedimiento u oportunidad&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;section-rule&quot;&gt;&lt;/div&gt;&lt;/div&gt;
+        &lt;div class=&quot;cards&quot;&gt;
+          &lt;article class=&quot;card&quot; data-search=&quot;retirada cat&#233;ter venoso central cvc perif&#233;rico maddox registro&quot;&gt;
+            &lt;div class=&quot;card-top&quot;&gt;&lt;div class=&quot;icon plum&quot; aria-hidden=&quot;true&quot;&gt;⌁&lt;/div&gt;&lt;span class=&quot;type&quot;&gt;Registro de retirada&lt;/span&gt;&lt;/div&gt;
+            &lt;h3&gt;Retirada de cat&#233;ter&lt;/h3&gt;
+            &lt;p&gt;Registra la retirada de cat&#233;ter venoso central y perif&#233;rico (escala Maddox). Objetivo: ≥80 % de pacientes con oportunidad.&lt;/p&gt;
+            &lt;div class=&quot;card-bottom&quot;&gt;&lt;span class=&quot;system-hint&quot;&gt;Registrar en Estaci&#243;n de Cuidados&lt;/span&gt;&lt;button class=&quot;action maddox-open&quot; type=&quot;button&quot;&gt;Ver escala Maddox &lt;span class=&quot;arrow&quot;&gt;›&lt;/span&gt;&lt;/button&gt;&lt;/div&gt;
+          &lt;/article&gt;
+          &lt;article class=&quot;card&quot; data-search=&quot;historia enfermer&#237;a inicial plan cuidados ICC DAE posterior transferencia&quot;&gt;
+            &lt;div class=&quot;card-top&quot;&gt;&lt;div class=&quot;icon mint&quot; aria-hidden=&quot;true&quot;&gt;▤&lt;/div&gt;&lt;span class=&quot;type&quot;&gt;Historia de enfermer&#237;a&lt;/span&gt;&lt;/div&gt;
+            &lt;h3&gt;Historia y continuidad de cuidados&lt;/h3&gt;
+            &lt;p&gt;Completa en Estaci&#243;n de Cuidados la valoraci&#243;n inicial, el plan de cuidados, ICC cuando corresponda, DAE, la valoraci&#243;n posterior y el informe de transferencia.&lt;/p&gt;
+            &lt;div class=&quot;card-bottom&quot;&gt;&lt;span class=&quot;system-hint&quot;&gt;Completar en Estaci&#243;n de Cuidados &#183; DAE&lt;/span&gt;&lt;/div&gt;
+          &lt;/article&gt;
+          &lt;article class=&quot;card&quot; data-search=&quot;incidencia evoluci&#243;n LPP lesiones presi&#243;n COMHON cuestionarios oportunidad 80%&quot;&gt;
+            &lt;div class=&quot;card-top&quot;&gt;&lt;div class=&quot;icon amber&quot; aria-hidden=&quot;true&quot;&gt;◈&lt;/div&gt;&lt;span class=&quot;type&quot;&gt;Si existe oportunidad&lt;/span&gt;&lt;/div&gt;
+            &lt;h3&gt;Incidencias, LPP y COMHON&lt;/h3&gt;
+            &lt;p&gt;En Estaci&#243;n de Cuidados (DAE), registra incidencias, evoluci&#243;n de LPP y cuestionarios de valoraci&#243;n (&#237;ndice COMHON) cuando exista oportunidad. Objetivo: ≥80 %.&lt;/p&gt;
+            &lt;div class=&quot;card-bottom&quot;&gt;&lt;span class=&quot;system-hint&quot;&gt;Completar en Estaci&#243;n de Cuidados &#183; DAE&lt;/span&gt;&lt;/div&gt;
+          &lt;/article&gt;
+          &lt;article class=&quot;card&quot; data-search=&quot;ca&#237;das caida mayores 65 a&#241;os registro oportunidad&quot;&gt;
+            &lt;div class=&quot;card-top&quot;&gt;&lt;div class=&quot;icon blue&quot; aria-hidden=&quot;true&quot;&gt;＋&lt;/div&gt;&lt;span class=&quot;type&quot;&gt;Si existe oportunidad&lt;/span&gt;&lt;/div&gt;
+            &lt;h3&gt;Registro de ca&#237;das &#183; mayores de 65&lt;/h3&gt;
+            &lt;p&gt;Completa el registro de ca&#237;das en pacientes mayores de 65 a&#241;os cuando exista oportunidad. Objetivo: ≥80 % con oportunidad.&lt;/p&gt;
+            &lt;div class=&quot;card-bottom&quot;&gt;&lt;span class=&quot;system-hint&quot;&gt;Registrar en el sistema habitual&lt;/span&gt;&lt;/div&gt;
+          &lt;/article&gt;
+          &lt;article class=&quot;card&quot; data-search=&quot;gasometr&#237;a gasometr&#237;as POCT ATOM gas&#243;metro identificaci&#243;n muestra&quot;&gt;
+            &lt;div class=&quot;card-top&quot;&gt;&lt;div class=&quot;icon plum&quot; aria-hidden=&quot;true&quot;&gt;◉&lt;/div&gt;&lt;span class=&quot;type&quot;&gt;Al realizar una POCT&lt;/span&gt;&lt;/div&gt;
+            &lt;h3&gt;Gasometr&#237;a &#183; identificaci&#243;n POCT&lt;/h3&gt;
+            &lt;p&gt;Identifica en el gas&#243;metro la muestra de cada gasometr&#237;a realizada en POCT y disponible en ATOM. Objetivo: 100 % identificadas.&lt;/p&gt;
+            &lt;div class=&quot;card-bottom&quot;&gt;&lt;span class=&quot;system-hint&quot;&gt;Identificar muestra en gas&#243;metro / ATOM&lt;/span&gt;&lt;/div&gt;
+          &lt;/article&gt;
+          &lt;article class=&quot;card&quot; data-search=&quot;interconsulta EPA traqueotom&#237;a traqueo ostom&#237;as oncolog&#237;a necesidad&quot;&gt;
+            &lt;div class=&quot;card-top&quot;&gt;&lt;div class=&quot;icon mint&quot; aria-hidden=&quot;true&quot;&gt;↗&lt;/div&gt;&lt;span class=&quot;type&quot;&gt;Seg&#250;n necesidad&lt;/span&gt;&lt;/div&gt;
+            &lt;h3&gt;Interconsultas EPA&lt;/h3&gt;
+            &lt;p&gt;Antes del alta, valora si procede interconsulta a EPA en pacientes traqueostomizados (especialmente si pasan a planta), oncol&#243;gicos, ostomizados o con curas complejas.&lt;/p&gt;
+            &lt;div class=&quot;card-bottom&quot;&gt;&lt;span class=&quot;system-hint&quot;&gt;Seguir circuito de interconsulta&lt;/span&gt;&lt;/div&gt;
+          &lt;/article&gt;
+          &lt;article class=&quot;card&quot; data-search=&quot;preparaci&#243;n preparacion box verificaci&#243;n verificacion ingreso checklist lista&quot;&gt;
+            &lt;div class=&quot;card-top&quot;&gt;&lt;div class=&quot;icon amber&quot; aria-hidden=&quot;true&quot;&gt;▧&lt;/div&gt;&lt;span class=&quot;type&quot;&gt;Al ingreso&lt;/span&gt;&lt;/div&gt;
+            &lt;h3&gt;Preparaci&#243;n y verificaci&#243;n del box&lt;/h3&gt;
+            &lt;p&gt;Al ingreso, cumplimenta el listado de preparaci&#243;n del box y realiza la verificaci&#243;n.&lt;/p&gt;
+            &lt;div class=&quot;card-bottom&quot;&gt;&lt;span class=&quot;system-hint&quot;&gt;Gu&#237;a r&#225;pida de Recursos UCI&lt;/span&gt;&lt;button class=&quot;action&quot; type=&quot;button&quot; data-parent-tool=&quot;drive-box-checklist&quot; data-title=&quot;Preparaci&#243;n y verificaci&#243;n del box&quot; data-destination=&quot;Tareas y comprobaciones → Gu&#237;a de preparaci&#243;n del box&quot; data-detail=&quot;Gu&#237;a r&#225;pida para la preparaci&#243;n y verificaci&#243;n del box al ingreso.&quot;&gt;Ver checklist del box &lt;span class=&quot;arrow&quot;&gt;›&lt;/span&gt;&lt;/button&gt;&lt;/div&gt;
+          &lt;/article&gt;
+        &lt;/div&gt;
+      &lt;/section&gt;
+
+      &lt;section class=&quot;section zero-section&quot; id=&quot;zero-section&quot; data-section=&quot;unidad&quot; aria-labelledby=&quot;zero-title&quot;&gt;
+        &lt;div class=&quot;section-head&quot;&gt;&lt;span class=&quot;section-num&quot;&gt;OBJETIVOS DE UNIDAD&lt;/span&gt;&lt;div class=&quot;section-title-wrap&quot;&gt;&lt;h2 id=&quot;zero-title&quot;&gt;Proyectos ZERO&lt;/h2&gt;&lt;span class=&quot;section-sub&quot;&gt;Medidas de seguridad, separadas por proyecto&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;section-rule&quot;&gt;&lt;/div&gt;&lt;/div&gt;
+        &lt;div class=&quot;cards zero-cards&quot;&gt;
+          &lt;article class=&quot;card zero-card&quot; data-search=&quot;BZ bacteriemia zero checklist mantenimiento v&#237;as s p&quot;&gt;
+            &lt;div class=&quot;card-top&quot;&gt;&lt;div class=&quot;icon blue&quot; aria-hidden=&quot;true&quot;&gt;BZ&lt;/div&gt;&lt;span class=&quot;type&quot;&gt;Proyecto ZERO&lt;/span&gt;&lt;/div&gt;
+            &lt;h3&gt;Bacteriemia ZERO &#183; BZ&lt;/h3&gt;
+            &lt;p&gt;Checklist y mantenimiento de v&#237;as S/P.&lt;/p&gt;
+          &lt;/article&gt;
+          &lt;article class=&quot;card zero-card&quot; data-search=&quot;NZ neumon&#237;a zero neumotaponamiento cabecero elevaci&#243;n aspiraci&#243;n secreciones higiene bucal&quot;&gt;
+            &lt;div class=&quot;card-top&quot;&gt;&lt;div class=&quot;icon mint&quot; aria-hidden=&quot;true&quot;&gt;NZ&lt;/div&gt;&lt;span class=&quot;type&quot;&gt;Proyecto ZERO&lt;/span&gt;&lt;/div&gt;
+            &lt;h3&gt;Neumon&#237;a ZERO &#183; NZ&lt;/h3&gt;
+            &lt;p&gt;Seg&#250;n protocolo: neumotaponamiento, elevaci&#243;n del cabecero, aspiraci&#243;n de secreciones e higiene bucal.&lt;/p&gt;
+          &lt;/article&gt;
+          &lt;article class=&quot;card zero-card&quot; data-search=&quot;RZ resistencia zero prevenci&#243;n infecci&#243;n relacionada asistencia sanitaria aislamientos&quot;&gt;
+            &lt;div class=&quot;card-top&quot;&gt;&lt;div class=&quot;icon amber&quot; aria-hidden=&quot;true&quot;&gt;RZ&lt;/div&gt;&lt;span class=&quot;type&quot;&gt;Proyecto ZERO&lt;/span&gt;&lt;/div&gt;
+            &lt;h3&gt;Resistencia ZERO &#183; RZ&lt;/h3&gt;
+            &lt;p&gt;Medidas de prevenci&#243;n de infecci&#243;n relacionada con la asistencia sanitaria y aislamientos.&lt;/p&gt;
+          &lt;/article&gt;
+          &lt;article class=&quot;card zero-card&quot; data-search=&quot;ITUZ infecci&#243;n tracto urinario zero medidas prevenci&#243;n&quot;&gt;
+            &lt;div class=&quot;card-top&quot;&gt;&lt;div class=&quot;icon plum&quot; aria-hidden=&quot;true&quot;&gt;ITUZ&lt;/div&gt;&lt;span class=&quot;type&quot;&gt;Proyecto ZERO&lt;/span&gt;&lt;/div&gt;
+            &lt;h3&gt;ITU ZERO &#183; ITUZ&lt;/h3&gt;
+            &lt;p&gt;Aplicar las medidas preventivas del proyecto ITUZ.&lt;/p&gt;
+          &lt;/article&gt;
+        &lt;/div&gt;
+        &lt;div class=&quot;zero-foot&quot;&gt;&lt;span&gt;&lt;strong&gt;Formaci&#243;n:&lt;/strong&gt; renovaci&#243;n de los cursos de actualizaci&#243;n del Proyecto ZERO.&lt;/span&gt;&lt;/div&gt;
+      &lt;/section&gt;
+
+      &lt;section class=&quot;section&quot; data-section=&quot;unidad&quot; aria-labelledby=&quot;carros-title&quot;&gt;
+        &lt;div class=&quot;section-head&quot;&gt;&lt;span class=&quot;section-num&quot;&gt;OBJETIVOS DE UNIDAD&lt;/span&gt;&lt;div class=&quot;section-title-wrap&quot;&gt;&lt;h2 id=&quot;carros-title&quot;&gt;Revisi&#243;n de carros&lt;/h2&gt;&lt;span class=&quot;section-sub&quot;&gt;Ubicaci&#243;n, periodicidad y responsables&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;section-rule&quot;&gt;&lt;/div&gt;&lt;/div&gt;
+        &lt;div class=&quot;cards&quot;&gt;
+          &lt;article class=&quot;card&quot; data-search=&quot;carro de parada paradas cada unidad noche uso box 1 enfermero TCAE revisi&#243;n&quot;&gt;
+            &lt;div class=&quot;card-top&quot;&gt;&lt;div class=&quot;icon amber&quot; aria-hidden=&quot;true&quot;&gt;↻&lt;/div&gt;&lt;span class=&quot;type&quot;&gt;Cada noche &#183; despu&#233;s de cada uso&lt;/span&gt;&lt;/div&gt;
+            &lt;h3&gt;Carro de paradas&lt;/h3&gt;
+            &lt;p&gt;El carro de paradas en cada unidad. Se revisa cada noche y despu&#233;s de cada uso.&lt;/p&gt;
+            &lt;div class=&quot;card-bottom&quot;&gt;&lt;span class=&quot;system-hint&quot;&gt;Responsables: enfermero/a y TCAE responsables de la cama 1 de cada unidad&lt;/span&gt;&lt;/div&gt;
+          &lt;/article&gt;
+          &lt;article class=&quot;card&quot; data-search=&quot;carro esternotom&#237;a esternotomia cada domingo box ingreso P UCP box 6 enfermero TCAE revisi&#243;n&quot;&gt;
+            &lt;div class=&quot;card-top&quot;&gt;&lt;div class=&quot;icon blue&quot; aria-hidden=&quot;true&quot;&gt;↻&lt;/div&gt;&lt;span class=&quot;type&quot;&gt;Cada domingo&lt;/span&gt;&lt;/div&gt;
+            &lt;h3&gt;Carro de esternotom&#237;a&lt;/h3&gt;
+            &lt;p&gt;Ubicaci&#243;n: box de ingreso de la P.&lt;/p&gt;
+            &lt;div class=&quot;card-bottom&quot;&gt;&lt;span class=&quot;system-hint&quot;&gt;Responsables: enfermero/a y TCAE responsables de la cama 6 de UCP&lt;/span&gt;&lt;/div&gt;
+          &lt;/article&gt;
+          &lt;article class=&quot;card&quot; data-search=&quot;carro v&#237;a a&#233;rea dif&#237;cil via aerea dificil cada domingo UCI B cama 4 enfermer&#237;a TCAE revisi&#243;n&quot;&gt;
+            &lt;div class=&quot;card-top&quot;&gt;&lt;div class=&quot;icon plum&quot; aria-hidden=&quot;true&quot;&gt;↻&lt;/div&gt;&lt;span class=&quot;type&quot;&gt;Cada domingo&lt;/span&gt;&lt;/div&gt;
+            &lt;h3&gt;Carro de v&#237;a a&#233;rea dif&#237;cil&lt;/h3&gt;
+            &lt;p&gt;Ubicaci&#243;n: UCI B.&lt;/p&gt;
+            &lt;div class=&quot;card-bottom&quot;&gt;&lt;span class=&quot;system-hint&quot;&gt;Responsables: enfermero/a y TCAE responsables de la cama 4 de UCI B&lt;/span&gt;&lt;/div&gt;
+          &lt;/article&gt;
+        &lt;/div&gt;
+      &lt;/section&gt;
+
+      &lt;/section&gt;
+      &lt;section class=&quot;role-panel&quot; id=&quot;tcae-panel&quot; hidden&gt;
+        &lt;div class=&quot;breadcrumbs&quot;&gt;Recursos UCI &lt;span&gt;/&lt;/span&gt; Objetivos asistenciales &lt;span&gt;/&lt;/span&gt; Objetivos de TCAE&lt;/div&gt;
+        &lt;section class=&quot;hero&quot; aria-labelledby=&quot;tcae-page-title&quot;&gt;
+          &lt;div&gt;
+            &lt;div class=&quot;eyebrow&quot;&gt;Objetivos asistenciales &#183; TCAE&lt;/div&gt;
+            &lt;h1 id=&quot;tcae-page-title&quot;&gt;Objetivos de TCAE&lt;/h1&gt;
+            &lt;p&gt;Objetivos del TCAE organizados seg&#250;n el momento de la asistencia.&lt;/p&gt;
+          &lt;/div&gt;
+          &lt;div class=&quot;year-tag&quot;&gt;Objetivos 2026&lt;/div&gt;
+        &lt;/section&gt;
+        &lt;div class=&quot;tcae-outline&quot; aria-label=&quot;Frecuencia de los objetivos&quot;&gt;
+          &lt;article&gt;&lt;span class=&quot;section-num&quot;&gt;01&lt;/span&gt;&lt;h2&gt;En cada turno&lt;/h2&gt;&lt;p&gt;Objetivos para consultar durante cada turno.&lt;/p&gt;&lt;/article&gt;
+          &lt;article&gt;&lt;span class=&quot;section-num&quot;&gt;02&lt;/span&gt;&lt;h2&gt;Cada d&#237;a&lt;/h2&gt;&lt;p&gt;Objetivos que se revisan diariamente.&lt;/p&gt;&lt;/article&gt;
+          &lt;article&gt;&lt;span class=&quot;section-num&quot;&gt;03&lt;/span&gt;&lt;h2&gt;Cuando corresponda&lt;/h2&gt;&lt;p&gt;Objetivos vinculados a la situaci&#243;n asistencial.&lt;/p&gt;&lt;/article&gt;
+        &lt;/div&gt;
+      &lt;/section&gt;
+      &lt;footer&gt;&lt;span&gt;Recursos UCI HUVM&lt;/span&gt;&lt;span&gt;Objetivos asistenciales &#183; 2026&lt;/span&gt;&lt;/footer&gt;
+    &lt;/main&gt;
+  &lt;/div&gt;
+
+  &lt;dialog id=&quot;action-dialog&quot; aria-labelledby=&quot;dialog-title&quot;&gt;
+    &lt;div class=&quot;dialog-inner&quot;&gt;
+      &lt;div class=&quot;dialog-mark&quot; aria-hidden=&quot;true&quot;&gt;↗&lt;/div&gt;
+      &lt;div class=&quot;eyebrow&quot;&gt;Recursos UCI HUVM&lt;/div&gt;
+      &lt;h2 id=&quot;dialog-title&quot;&gt;Herramienta&lt;/h2&gt;
+      &lt;p id=&quot;dialog-detail&quot;&gt;&lt;/p&gt;
+      &lt;div class=&quot;destination&quot;&gt;&lt;strong&gt;Secci&#243;n&lt;/strong&gt;&lt;span id=&quot;dialog-destination&quot;&gt;&lt;/span&gt;&lt;/div&gt;
+      &lt;div class=&quot;dialog-actions&quot;&gt;&lt;button type=&quot;button&quot; id=&quot;close-dialog&quot;&gt;Entendido&lt;/button&gt;&lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/dialog&gt;
+
+  &lt;dialog id=&quot;maddox-dialog&quot; aria-labelledby=&quot;maddox-title&quot;&gt;
+    &lt;div class=&quot;maddox-head&quot;&gt;
+      &lt;div&gt;&lt;h2 id=&quot;maddox-title&quot;&gt;Escala Maddox&lt;/h2&gt;&lt;p&gt;Criterios de valoraci&#243;n &#183; Grados 0 a 5&lt;/p&gt;&lt;/div&gt;
+      &lt;button class=&quot;x&quot; type=&quot;button&quot; id=&quot;maddox-close&quot; aria-label=&quot;Cerrar&quot;&gt;&#215;&lt;/button&gt;
+    &lt;/div&gt;
+    &lt;div class=&quot;maddox-body&quot;&gt;
+      &lt;table class=&quot;maddox-table&quot;&gt;
+        &lt;thead&gt;&lt;tr&gt;&lt;th&gt;Grado&lt;/th&gt;&lt;th&gt;Criterio&lt;/th&gt;&lt;/tr&gt;&lt;/thead&gt;
+        &lt;tbody&gt;
+          &lt;tr&gt;&lt;td&gt;0&lt;/td&gt;&lt;td&gt;No dolor, eritema, tumefacci&#243;n ni induraci&#243;n de un cord&#243;n venoso.&lt;/td&gt;&lt;/tr&gt;
+          &lt;tr&gt;&lt;td&gt;1&lt;/td&gt;&lt;td&gt;Dolor en el punto de inserci&#243;n, sin signos de eritema, tumefacci&#243;n o palpaci&#243;n de un cord&#243;n venoso.&lt;/td&gt;&lt;/tr&gt;
+          &lt;tr&gt;&lt;td&gt;2&lt;/td&gt;&lt;td&gt;Cierto grado de eritema, tumefacci&#243;n o ambos a la vez. No induraci&#243;n ni cord&#243;n venoso.&lt;/td&gt;&lt;/tr&gt;
+          &lt;tr&gt;&lt;td&gt;3&lt;/td&gt;&lt;td&gt;Eritema, tumefacci&#243;n en el punto de inserci&#243;n y cord&#243;n venoso palpable, de 5–6 cm por encima del punto de inserci&#243;n. Fiebre.&lt;/td&gt;&lt;/tr&gt;
+          &lt;tr&gt;&lt;td&gt;4&lt;/td&gt;&lt;td&gt;Eritema, tumefacci&#243;n en la zona de inserci&#243;n y cord&#243;n venoso palpable en la zona, superior a 5–6 cm. Fiebre.&lt;/td&gt;&lt;/tr&gt;
+          &lt;tr&gt;&lt;td&gt;5&lt;/td&gt;&lt;td&gt;Trombosis venosa franca con todos los signos anteriores y dificultad o detenci&#243;n de la perfusi&#243;n.&lt;/td&gt;&lt;/tr&gt;
+        &lt;/tbody&gt;
+      &lt;/table&gt;
+    &lt;/div&gt;
+    &lt;div class=&quot;maddox-foot&quot;&gt;&lt;button type=&quot;button&quot; id=&quot;maddox-done&quot;&gt;Cerrar&lt;/button&gt;&lt;/div&gt;
+  &lt;/dialog&gt;
+
+  &lt;script&gt;
+    const chips = [...document.querySelectorAll(&#39;.filter-chip&#39;)];
+    const sections = [...document.querySelectorAll(&#39;.section[data-section]&#39;)];
+    let activeFilter = &#39;all&#39;;
+
+    function updateView() {
+      sections.forEach(section =&gt; {
+        let sectionHasVisible = false;
+        const matchesFilter = activeFilter === &#39;all&#39; || section.dataset.section === activeFilter;
+        section.querySelectorAll(&#39;.card&#39;).forEach(card =&gt; {
+          const visible = matchesFilter;
+          card.hidden = !visible;
+          if (visible) sectionHasVisible = true;
+        });
+        section.hidden = !sectionHasVisible;
+      });
+    }
+
+    chips.forEach(chip =&gt; chip.addEventListener(&#39;click&#39;, () =&gt; {
+      activeFilter = chip.dataset.filter;
+      chips.forEach(item =&gt; {
+        const selected = item === chip;
+        item.classList.toggle(&#39;active&#39;, selected);
+        item.setAttribute(&#39;aria-pressed&#39;, String(selected));
+      });
+      updateView();
+    }));
+
+    document.querySelectorAll(&#39;.card&#39;).forEach((card, index) =&gt; {
+      const top = card.querySelector(&#39;.card-top&#39;);
+      const title = Array.from(card.children).find(child =&gt; child.matches(&#39;h3&#39;));
+      const description = Array.from(card.children).find(child =&gt; child.matches(&#39;p&#39;));
+      const bottom = Array.from(card.children).find(child =&gt; child.classList.contains(&#39;card-bottom&#39;));
+      if (!top || !title) return;
+
+      const icon = top.querySelector(&#39;.icon&#39;);
+      const type = top.querySelector(&#39;.type&#39;);
+      const summary = document.createElement(&#39;button&#39;);
+      summary.type = &#39;button&#39;;
+      summary.className = &#39;card-summary&#39;;
+      summary.setAttribute(&#39;aria-expanded&#39;, &#39;false&#39;);
+      const details = document.createElement(&#39;div&#39;);
+      details.className = &#39;card-details&#39;;
+      details.id = &#39;task-detail-&#39; + index;
+      details.hidden = true;
+      summary.setAttribute(&#39;aria-controls&#39;, details.id);
+
+      if (icon) summary.append(icon);
+      const summaryTitle = document.createElement(&#39;span&#39;);
+      summaryTitle.className = &#39;card-title&#39;;
+      summaryTitle.textContent = title.textContent;
+      summary.append(summaryTitle);
+      const chevron = document.createElement(&#39;span&#39;);
+      chevron.className = &#39;card-chevron&#39;;
+      chevron.setAttribute(&#39;aria-hidden&#39;, &#39;true&#39;);
+      chevron.textContent = &#39;⌄&#39;;
+      summary.append(chevron);
+
+      if (type) details.append(type);
+      if (description) details.append(description);
+      if (bottom) details.append(bottom);
+      top.remove();
+      card.replaceChildren(summary, details);
+      card.classList.add(&#39;accordion-card&#39;);
+      summary.addEventListener(&#39;click&#39;, () =&gt; {
+        const expanded = summary.getAttribute(&#39;aria-expanded&#39;) !== &#39;true&#39;;
+        summary.setAttribute(&#39;aria-expanded&#39;, String(expanded));
+        details.hidden = !expanded;
+        card.classList.toggle(&#39;expanded&#39;, expanded);
+      });
+    });
+
+    const dialog = document.getElementById(&#39;action-dialog&#39;);
+    const dialogTitle = document.getElementById(&#39;dialog-title&#39;);
+    const dialogDetail = document.getElementById(&#39;dialog-detail&#39;);
+    const dialogDestination = document.getElementById(&#39;dialog-destination&#39;);
+    document.querySelectorAll(&#39;.action:not(.maddox-open)&#39;).forEach(button =&gt; button.addEventListener(&#39;click&#39;, () =&gt; {
+      if (button.dataset.parentTool) {
+        window.parent.postMessage({ type: &#39;mi-turno-action&#39;, action: button.dataset.parentTool }, &#39;*&#39;);
+        return;
+      }
+      dialogTitle.textContent = button.dataset.title;
+      dialogDetail.textContent = button.dataset.detail;
+      dialogDestination.textContent = button.dataset.destination;
+      dialog.showModal();
+    }));
+    document.getElementById(&#39;close-dialog&#39;).addEventListener(&#39;click&#39;, () =&gt; dialog.close());
+    dialog.addEventListener(&#39;click&#39;, event =&gt; { if (event.target === dialog) dialog.close(); });
+    const maddoxDialog = document.getElementById(&#39;maddox-dialog&#39;);
+    document.querySelector(&#39;.maddox-open&#39;).addEventListener(&#39;click&#39;, () =&gt; window.parent.postMessage({ type: &#39;mi-turno-action&#39;, action: &#39;scale-maddox&#39; }, &#39;*&#39;));
+    document.getElementById(&#39;maddox-close&#39;).addEventListener(&#39;click&#39;, () =&gt; maddoxDialog.close());
+    document.getElementById(&#39;maddox-done&#39;).addEventListener(&#39;click&#39;, () =&gt; maddoxDialog.close());
+    maddoxDialog.addEventListener(&#39;click&#39;, event =&gt; { if (event.target === maddoxDialog) maddoxDialog.close(); });
+  &lt;/script&gt;
+  &lt;script id=&quot;mi-turno-integrated-bridge&quot;&gt;
+    const roleTabs = [...document.querySelectorAll(&#39;.role-tab&#39;)];
+    const rolePanels = [...document.querySelectorAll(&#39;.role-panel&#39;)];
+    function reportFrameHeight() {
+      window.parent.postMessage({ type: &#39;mi-turno-resize&#39;, height: document.documentElement.scrollHeight }, &#39;*&#39;);
+    }
+    roleTabs.forEach(tab =&gt; tab.addEventListener(&#39;click&#39;, () =&gt; {
+      roleTabs.forEach(item =&gt; {
+        const selected = item === tab;
+        item.classList.toggle(&#39;active&#39;, selected);
+        item.setAttribute(&#39;aria-selected&#39;, String(selected));
+      });
+      rolePanels.forEach(panel =&gt; { panel.hidden = panel.id !== tab.getAttribute(&#39;aria-controls&#39;); });
+      reportFrameHeight();
+    }));
+    if (&#39;ResizeObserver&#39; in window) new ResizeObserver(reportFrameHeight).observe(document.documentElement);
+    window.addEventListener(&#39;load&#39;, reportFrameHeight);
+    setTimeout(reportFrameHeight, 80);
+  &lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+"></iframe>
 </main>
 
 <main id="drive-view">
@@ -1938,7 +2603,7 @@ function initEsmolol(){
   }));
 }
 
-function openRecord(i){
+function openRecord(i){hideMiTurnoView();
   const r=records[i];
   document.body.classList.remove('v35-drug-list');
   document.getElementById('home').style.display='none';
@@ -2641,8 +3306,8 @@ function initCalculator(r){
   [u,c].forEach(el=>el.addEventListener('change',calc));
 }
 
-function showHome(){document.body.classList.add('v35-drug-list');document.getElementById('viewer').style.display='none';document.getElementById('compat-view').style.display='none';document.getElementById('analgosedacion-view').style.display='none';document.getElementById('antibioticos-view').style.display='none';document.getElementById('telefonos-view').style.display='none';document.getElementById('insulinizacion-view').style.display='none';document.getElementById('tcrr-view').style.display='none';document.getElementById('ne-view').style.display='none';document.getElementById('home').style.display='block';render()}
-function showCompatibility(){document.getElementById('home').style.display='none';document.getElementById('viewer').style.display='none';document.getElementById('analgosedacion-view').style.display='none';document.getElementById('antibioticos-view').style.display='none';document.getElementById('telefonos-view').style.display='none';document.getElementById('insulinizacion-view').style.display='none';document.getElementById('tcrr-view').style.display='none';
+function showHome(){hideMiTurnoView();document.body.classList.add('v35-drug-list');document.getElementById('viewer').style.display='none';document.getElementById('compat-view').style.display='none';document.getElementById('analgosedacion-view').style.display='none';document.getElementById('antibioticos-view').style.display='none';document.getElementById('telefonos-view').style.display='none';document.getElementById('insulinizacion-view').style.display='none';document.getElementById('tcrr-view').style.display='none';document.getElementById('ne-view').style.display='none';document.getElementById('home').style.display='block';render()}
+function showCompatibility(){hideMiTurnoView();document.getElementById('home').style.display='none';document.getElementById('viewer').style.display='none';document.getElementById('analgosedacion-view').style.display='none';document.getElementById('antibioticos-view').style.display='none';document.getElementById('telefonos-view').style.display='none';document.getElementById('insulinizacion-view').style.display='none';document.getElementById('tcrr-view').style.display='none';
     document.getElementById('ne-view').style.display='none';
     document.getElementById('compat-view').style.display='block';window.scrollTo(0,0)}
 function escapeHtml(s){return s.replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]))}
@@ -2694,6 +3359,7 @@ initCompatibility();renderAlpha();render();
 <script id="v35-v5-navigation-js">
 (function(){
   function landing(){
+    hideMiTurnoView();
     document.getElementById('landing').style.display='block';
     document.getElementById('home').style.display='none';
     document.getElementById('viewer').style.display='none';
@@ -2728,6 +3394,7 @@ initCompatibility();renderAlpha();render();
   };
 
   window.showAnalgosedacion=function(){
+    hideMiTurnoView();
     document.getElementById('telefonos-view').style.display='none';
     document.getElementById('landing').style.display='none';
     document.getElementById('home').style.display='none';
@@ -2742,6 +3409,7 @@ initCompatibility();renderAlpha();render();
   };
 
   window.showAntibioticos=function(){
+    hideMiTurnoView();
     document.getElementById('telefonos-view').style.display='none';
     document.getElementById('landing').style.display='none';
     document.getElementById('home').style.display='none';
@@ -2778,6 +3446,7 @@ initCompatibility();renderAlpha();render();
   })();
 
   window.showTcrr=function(){
+    hideMiTurnoView();
     document.getElementById('landing').style.display='none';
     document.getElementById('home').style.display='none';
     document.getElementById('viewer').style.display='none';
@@ -2793,6 +3462,7 @@ initCompatibility();renderAlpha();render();
   };
 
   window.showNE=function(){
+    hideMiTurnoView();
     document.getElementById('landing').style.display='none';
     document.getElementById('home').style.display='none';
     document.getElementById('viewer').style.display='none';
@@ -2808,6 +3478,7 @@ initCompatibility();renderAlpha();render();
   };
 
   window.showInsulinizacion=function(){
+    hideMiTurnoView();
     document.getElementById('landing').style.display='none';
     document.getElementById('home').style.display='none';
     document.getElementById('viewer').style.display='none';
@@ -2823,6 +3494,7 @@ initCompatibility();renderAlpha();render();
   };
 
   window.showTelefonos=function(){
+    hideMiTurnoView();
     document.getElementById('landing').style.display='none';
     document.getElementById('home').style.display='none';
     document.getElementById('viewer').style.display='none';
@@ -2958,7 +3630,7 @@ hook();setTimeout(hook,100);setTimeout(hook,500);setTimeout(hook,1500);
 </script>
 
 <script id="drive-contents-js">
-function showDriveContents(){
+function showDriveContents(){hideMiTurnoView();
   document.getElementById('landing').style.display='none';
   document.getElementById('home').style.display='none';
   document.getElementById('compat-view').style.display='none';
@@ -2989,5 +3661,127 @@ document.addEventListener('DOMContentLoaded',()=>{
   if(q) q.addEventListener('input',updateDriveContents);
   updateDriveContents();
 });
+</script>
+<script id="mi-turno-host-bridge">
+function hideMiTurnoView(){
+  const view=document.getElementById('mi-turno-view');
+  if(view) view.style.display='none';
+}
+function showMiTurno(){
+  document.querySelectorAll('body > main').forEach(view=>view.style.display='none');
+  document.getElementById('mi-turno-view').style.display='block';
+  document.body.classList.remove('v35-drug-list');
+  window.scrollTo(0,0);
+}
+window.addEventListener('message',event=>{
+  const frame=document.getElementById('mi-turno-frame');
+  if(!frame || event.source!==frame.contentWindow || !event.data) return;
+  if(event.data.type==='mi-turno-resize'){
+    const height=Number(event.data.height);
+    if(Number.isFinite(height)) frame.style.height=Math.max(700,Math.min(7000,Math.ceil(height)))+'px';
+    return;
+  }
+  if(event.data.type!=='mi-turno-action') return;
+  if(event.data.action==='scale-rass' || event.data.action==='scale-pain' || event.data.action==='scale-cam'){
+    const tabs={'scale-rass':'rass','scale-pain':'pain','scale-cam':'cam'};
+    window.showAnalgosedacion();
+    selectMainTab(tabs[event.data.action]);
+  } else if(event.data.action==='drive-box-checklist'){
+    window.showDriveContents();
+    const search=document.getElementById('drive-search');
+    if(search){ search.value='preparación box e ingreso check list'; updateDriveContents(); }
+  } else if(event.data.action==='scale-maddox'){
+    let dialog=document.getElementById('host-maddox-dialog');
+    if(!dialog){
+      const source=frame.contentDocument.getElementById('maddox-dialog');
+      if(!source)return;
+      dialog=source.cloneNode(true);
+      dialog.id='host-maddox-dialog';
+      document.body.appendChild(dialog);
+      dialog.querySelector('#maddox-close').addEventListener('click',()=>dialog.close());
+      dialog.querySelector('#maddox-done').addEventListener('click',()=>dialog.close());
+      dialog.addEventListener('click',event=>{if(event.target===dialog)dialog.close();});
+    }
+    if(!dialog.open)dialog.showModal();
+  }
+});
+</script>
+<script id="uci-app-browser-back-js">
+(function(){
+  const stateKey='uciHuVmView';
+  let restoring=false;
+
+  function currentView(){
+    const state=window.history.state;
+    return state&&state[stateKey]||{view:'landing'};
+  }
+
+  function sameView(a,b){
+    return a.view===b.view&&(a.view!=='record'||Number(a.recordIndex)===Number(b.recordIndex));
+  }
+
+  function rememberView(view){
+    if(restoring||sameView(currentView(),view))return;
+    const state=window.history.state&&typeof window.history.state==='object'?window.history.state:{};
+    window.history.pushState({...state,[stateKey]:view},'');
+  }
+
+  function wrap(name,viewForArgs){
+    const original=window[name];
+    if(typeof original!=='function'||original.__uciHistoryWrapped)return;
+    function wrapped(){
+      const result=original.apply(this,arguments);
+      rememberView(viewForArgs(Array.from(arguments)));
+      return result;
+    }
+    wrapped.__uciHistoryWrapped=true;
+    window[name]=wrapped;
+  }
+
+  [
+    ['showLanding',()=>({view:'landing'})],
+    ['showHome',()=>({view:'drugs'})],
+    ['showDrugsList',()=>({view:'drugs'})],
+    ['showCompatibility',()=>({view:'compatibility'})],
+    ['showCompatibilityFromLanding',()=>({view:'compatibility'})],
+    ['showMiTurno',()=>({view:'mi-turno'})],
+    ['showAnalgosedacion',()=>({view:'analgosedacion'})],
+    ['showAntibioticos',()=>({view:'antibioticos'})],
+    ['showTcrr',()=>({view:'tcrr'})],
+    ['showNE',()=>({view:'ne'})],
+    ['showInsulinizacion',()=>({view:'insulinizacion'})],
+    ['showTelefonos',()=>({view:'telefonos'})],
+    ['showDriveContents',()=>({view:'drive'})],
+    ['openRecord',args=>({view:'record',recordIndex:Number(args[0])})]
+  ].forEach(([name,viewForArgs])=>wrap(name,viewForArgs));
+
+  const initial=window.history.state&&typeof window.history.state==='object'?window.history.state:{};
+  window.history.replaceState({...initial,[stateKey]:{view:'landing'}},'');
+
+  function restore(view){
+    const mains=document.querySelectorAll('body > main');
+    mains.forEach(main=>main.style.display='none');
+    switch(view.view){
+      case 'drugs': window.showDrugsList(); break;
+      case 'compatibility': window.showCompatibility(); break;
+      case 'mi-turno': window.showMiTurno(); break;
+      case 'analgosedacion': window.showAnalgosedacion(); break;
+      case 'antibioticos': window.showAntibioticos(); break;
+      case 'tcrr': window.showTcrr(); break;
+      case 'ne': window.showNE(); break;
+      case 'insulinizacion': window.showInsulinizacion(); break;
+      case 'telefonos': window.showTelefonos(); break;
+      case 'drive': window.showDriveContents(); break;
+      case 'record': window.openRecord(view.recordIndex); break;
+      default: window.showLanding();
+    }
+  }
+
+  window.addEventListener('popstate',function(event){
+    restoring=true;
+    try{restore(event.state&&event.state[stateKey]||{view:'landing'});}
+    finally{restoring=false;}
+  });
+})();
 </script>
 </body></html>
