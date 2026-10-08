@@ -1014,6 +1014,7 @@ function renderRass(){
    let zone = score > 0 ? 'rass-agitated' : score === 0 ? 'rass-alert' : (score >= -3 ? 'rass-sed-light' : 'rass-sed-deep');
    const b=document.createElement('button'); b.className=`scale-btn rass-row ${zone}`;
    b.innerHTML=`<span class="rass-score">${score>0?'+':''}${score}</span><span><b>${name}</b><br><small>${desc}</small></span>`;
+   if(cam.rass===score) b.classList.add('selected');
    b.onclick=()=>{
      document.querySelectorAll('#rass .scale-btn').forEach(x=>x.classList.remove('selected'));
      b.classList.add('selected');
@@ -1159,12 +1160,15 @@ function renderCam(){
  }
 
  if(cam.step===3){
+   const currentRass = rassData.find(([score])=>score===cam.rass);
    el.innerHTML=`<div class="cam-step">
      <h3>3. Alteración del nivel de conciencia</h3>
-     <div class="cam-question">Se utiliza automáticamente el <b>RASS valorado en la pestaña RASS</b>. Se considera alterado cuando <b>RASS ≠ 0</b>.</div>
+     <div class="cam-question">Se utiliza el <b>RASS compartido con la escala RASS</b>. Si ya lo ha valorado, se mostrará automáticamente. Si todavía no lo ha introducido, puede hacerlo aquí.</div>
      ${cam.rass===null
-       ? `<div class="cam-status">Primero seleccione el RASS del paciente en la pestaña <b>RASS</b>.</div>`
-       : `<div class="cam-status ${cam.rass!==0?'positive':'negative'}"><b>RASS ${cam.rass>0?'+':''}${cam.rass}</b> — ${cam.rass===0?'sin alteración del nivel de conciencia':'alteración del nivel de conciencia'}</div>`}
+       ? `<div class="cam-status">No se ha introducido todavía ningún RASS. <b>Seleccione el RASS directamente aquí:</b></div>
+          <div class="cam-rass-grid">${rassData.map(([score,name])=>`<button type="button" class="choice" onclick="camSetRass(${score})"><b>${score>0?'+':''}${score}</b><br><small>${name}</small></button>`).join('')}</div>`
+       : `<div class="cam-status ${cam.rass!==0?'positive':'negative'}"><b>RASS ${cam.rass>0?'+':''}${cam.rass}</b> — ${currentRass?currentRass[1]:''} — ${cam.rass===0?'sin alteración del nivel de conciencia':'alteración del nivel de conciencia'}</div>
+          <div class="cam-actions"><button type="button" class="choice" onclick="camSetRass(null)">Cambiar RASS</button></div>`}
    </div>`;
    if(cam.rass===null) return;
    if(cam.rass===-4 || cam.rass===-5){
@@ -1217,22 +1221,33 @@ function camAnswer(step,yes){
 }
 
 function camSetRass(value){
- cam.rass=value;
- if(value===-4 || value===-5){
-   cam.result=null;
-   document.getElementById('cam').innerHTML=`<div class="result danger"><b>CAM-ICU no valorable actualmente</b></div>
-   <p class="small">Con RASS −4 o −5 no es posible realizar adecuadamente la valoración del CAM-ICU. Revalorar cuando el paciente pueda ser evaluado.</p>`;
-   summary();
-   return;
+  cam.rass=value;
+  document.querySelectorAll('#rass .scale-btn').forEach(x=>x.classList.remove('selected'));
+  if(value!==null){
+    const rassBtn=[...document.querySelectorAll('#rass .scale-btn')].find(x=>x.querySelector('.rass-score')?.textContent===`${value>0?'+':''}${value}`);
+    if(rassBtn) rassBtn.classList.add('selected');
+    const data=rassData.find(([score])=>score===value);
+    if(data) document.getElementById('rassResult').innerHTML=`<div class="result">RASS ${value>0?'+':''}${value} — ${data[1]}</div>`;
+  } else {
+    document.getElementById('rassResult').innerHTML='';
+    renderCam();
+    summary();
+    return;
+  }
+  if(value===-4 || value===-5){
+    cam.result=null;
+    document.getElementById('cam').innerHTML=`<div class="result danger"><b>CAM-ICU no valorable actualmente</b></div>
+    <p class="small">Con RASS −4 o −5 no es posible realizar adecuadamente la valoración del CAM-ICU. Revalorar cuando el paciente pueda ser evaluado.</p>`;
+    summary();
+    return;
+  }
+  if(value!==0){
+    camFinish(true);
+    return;
+  }
+  cam.step=4;
+  renderCam(); summary();
  }
- if(value!==0){
-   camFinish(true);
-   return;
- }
- cam.step=4;
- renderCam(); summary();
-}
-
 function summary(){
  const r=document.querySelector('#rass .selected');
  const rv=r?r.querySelector('.rass-score').textContent:'—';
