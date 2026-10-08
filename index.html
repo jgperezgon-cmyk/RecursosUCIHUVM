@@ -871,8 +871,8 @@ header{z-index:1000!important}
   &lt;/style&gt;
   &lt;style id=&quot;mi-turno-integrated-style&quot;&gt;
     .topbar { display: none; }
-    .role-tabs { display: flex; width: max-content; max-width: 100%; gap: 4px; margin: 0 0 18px; padding: 4px; border: 1px solid var(--line); border-radius: 9px; background: #eef1f5; }
-    .role-tab { border: 0; border-radius: 6px; padding: 8px 13px; background: transparent; color: #738092; font-size: 11px; font-weight: 700; }
+    .role-tabs { display: flex; width: max-content; max-width: 100%; gap: 5px; margin: 0 0 18px; padding: 5px; border: 1px solid var(--line); border-radius: 11px; background: #eef1f5; }
+    .role-tab { min-height: 46px; border: 0; border-radius: 8px; padding: 10px 19px; background: transparent; color: #738092; font-size: 13px; font-weight: 700; }
     .role-tab:hover { color: #394457; background: #ffffff88; }
     .role-tab.active { color: #394457; background: #fff; box-shadow: 0 1px 4px #1111; }
     .role-tab:focus-visible { outline: 2px solid #526bef; outline-offset: 2px; }
@@ -881,7 +881,7 @@ header{z-index:1000!important}
     .tcae-outline .section-num { display: block; margin-bottom: 14px; }
     .tcae-outline h2 { margin-bottom: 8px; }
     .tcae-outline p { margin: 0; color: var(--muted); font-size: 11px; line-height: 1.5; }
-    @media (max-width: 760px) { .tcae-outline { grid-template-columns: 1fr; gap: 9px; } .tcae-outline article { min-height: 0; padding: 15px; } .tcae-outline .section-num { margin-bottom: 9px; } }
+    @media (max-width: 760px) { .role-tabs { width: 100%; } .role-tab { flex: 1; min-width: 0; min-height: 50px; padding: 11px 12px; font-size: 14px; } .tcae-outline { grid-template-columns: 1fr; gap: 9px; } .tcae-outline article { min-height: 0; padding: 15px; } .tcae-outline .section-num { margin-bottom: 9px; } }
     .cards, .cards.zero-cards { grid-template-columns: 1fr; gap: 8px; }
     .card.accordion-card { display: block; min-height: 0; padding: 0; overflow: hidden; border-radius: 10px; box-shadow: none; }
     .card.accordion-card:hover { transform: none; box-shadow: var(--shadow); }
