@@ -896,6 +896,15 @@ header{z-index:1000!important}
     .card-details > .type { display: block; margin: 0 0 7px; padding: 0; color: #64728a; font-size: 9px; }
     .card-details p { margin: 0 0 10px; color: var(--muted); font-size: 12px; line-height: 1.5; }
     .card-details .card-bottom { margin: 0; padding: 9px 0 0; border-top: 1px solid var(--line); }
+    .cart-card .card-summary { min-height: 54px; }
+    .cart-card .card-heading { display: flex; flex: 1; min-width: 0; flex-direction: column; gap: 5px; }
+    .cart-card .cart-responsible { display: block; margin: 0 0 8px; color: #46566d; font-size: 12px; line-height: 1.45; }
+    .cart-card .card-details { padding-top: 8px; border-top: 1px solid var(--line); }
+    .cart-card .cart-schedule { display: block; margin: 0 0 8px; color: #4058d6; font-size: 13px; font-weight: 800; line-height: 1.4; }
+    .cart-card .cart-location { margin: 0 !important; color: #8792a0 !important; font-size: 10px !important; line-height: 1.35 !important; }
+    .cart-drive-link { display: table; margin: 9px 0 0 auto; padding: 9px 11px; border: 1px solid #e1e7ff; border-radius: 8px; background: #f4f6ff; color: #4058d6; font-size: 11px; font-weight: 700; text-decoration: none; }
+    .cart-drive-link:hover { background: #e9edff; }
+    .cart-drive-link:focus-visible { outline: 2px solid #526bef; outline-offset: 2px; }
     &lt;/style&gt;
 &lt;/head&gt;
 &lt;body&gt;
@@ -1066,19 +1075,19 @@ header{z-index:1000!important}
       &lt;section class=&quot;section&quot; data-section=&quot;unidad&quot; aria-labelledby=&quot;carros-title&quot;&gt;
         &lt;div class=&quot;section-head&quot;&gt;&lt;span class=&quot;section-num&quot;&gt;OBJETIVOS DE UNIDAD&lt;/span&gt;&lt;div class=&quot;section-title-wrap&quot;&gt;&lt;h2 id=&quot;carros-title&quot;&gt;Revisi&#243;n de carros&lt;/h2&gt;&lt;span class=&quot;section-sub&quot;&gt;Ubicaci&#243;n, periodicidad y responsables&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;section-rule&quot;&gt;&lt;/div&gt;&lt;/div&gt;
         &lt;div class=&quot;cards&quot;&gt;
-          &lt;article class=&quot;card&quot; data-search=&quot;carro de parada paradas cada unidad noche uso box 1 enfermero TCAE revisi&#243;n&quot;&gt;
+          &lt;article class=&quot;card cart-card&quot; data-drive-url=&quot;https://drive.google.com/open?id=1SFBRDj3rLNHUH2tKvUD9bRvHmHPm17iw&quot; data-search=&quot;carro de parada paradas cada unidad noche uso box 1 enfermero TCAE revisi&#243;n&quot;&gt;
             &lt;div class=&quot;card-top&quot;&gt;&lt;div class=&quot;icon amber&quot; aria-hidden=&quot;true&quot;&gt;↻&lt;/div&gt;&lt;span class=&quot;type&quot;&gt;Cada noche &#183; despu&#233;s de cada uso&lt;/span&gt;&lt;/div&gt;
             &lt;h3&gt;Carro de paradas&lt;/h3&gt;
-            &lt;p&gt;El carro de paradas en cada unidad. Se revisa cada noche y despu&#233;s de cada uso.&lt;/p&gt;
-            &lt;div class=&quot;card-bottom&quot;&gt;&lt;span class=&quot;system-hint&quot;&gt;Responsables: enfermero/a y TCAE responsables de la cama 1 de cada unidad&lt;/span&gt;&lt;/div&gt;
+            &lt;p&gt;Ubicaci&#243;n: un carro en cada unidad.&lt;/p&gt;
+            &lt;div class=&quot;card-bottom&quot;&gt;&lt;span class=&quot;system-hint&quot;&gt;Responsables: enfermero/a y TCAE asignados al box 1 de cada unidad&lt;/span&gt;&lt;/div&gt;
           &lt;/article&gt;
-          &lt;article class=&quot;card&quot; data-search=&quot;carro esternotom&#237;a esternotomia cada domingo box ingreso P UCP box 6 enfermero TCAE revisi&#243;n&quot;&gt;
+          &lt;article class=&quot;card cart-card&quot; data-drive-url=&quot;https://drive.google.com/open?id=13z9K-e3Y18MMnlzpt7zrJB6vLkw11rCr&quot; data-search=&quot;carro esternotom&#237;a esternotomia cada domingo box ingreso P UCP box 6 enfermero TCAE revisi&#243;n&quot;&gt;
             &lt;div class=&quot;card-top&quot;&gt;&lt;div class=&quot;icon blue&quot; aria-hidden=&quot;true&quot;&gt;↻&lt;/div&gt;&lt;span class=&quot;type&quot;&gt;Cada domingo&lt;/span&gt;&lt;/div&gt;
             &lt;h3&gt;Carro de esternotom&#237;a&lt;/h3&gt;
             &lt;p&gt;Ubicaci&#243;n: box de ingreso de la P.&lt;/p&gt;
-            &lt;div class=&quot;card-bottom&quot;&gt;&lt;span class=&quot;system-hint&quot;&gt;Responsables: enfermero/a y TCAE responsables de la cama 6 de UCP&lt;/span&gt;&lt;/div&gt;
+            &lt;div class=&quot;card-bottom&quot;&gt;&lt;span class=&quot;system-hint&quot;&gt;Responsables: enfermero/a y TCAE del box 6 de la UCP&lt;/span&gt;&lt;/div&gt;
           &lt;/article&gt;
-          &lt;article class=&quot;card&quot; data-search=&quot;carro v&#237;a a&#233;rea dif&#237;cil via aerea dificil cada domingo UCI B cama 4 enfermer&#237;a TCAE revisi&#243;n&quot;&gt;
+          &lt;article class=&quot;card cart-card&quot; data-drive-url=&quot;https://drive.google.com/open?id=1cE69iHdXARj8HSdN0dW087MJDvYZ2wP6&quot; data-search=&quot;carro v&#237;a a&#233;rea dif&#237;cil via aerea dificil cada domingo UCI B cama 4 enfermer&#237;a TCAE revisi&#243;n&quot;&gt;
             &lt;div class=&quot;card-top&quot;&gt;&lt;div class=&quot;icon plum&quot; aria-hidden=&quot;true&quot;&gt;↻&lt;/div&gt;&lt;span class=&quot;type&quot;&gt;Cada domingo&lt;/span&gt;&lt;/div&gt;
             &lt;h3&gt;Carro de v&#237;a a&#233;rea dif&#237;cil&lt;/h3&gt;
             &lt;p&gt;Ubicaci&#243;n: UCI B.&lt;/p&gt;
@@ -1191,16 +1200,49 @@ header{z-index:1000!important}
       const summaryTitle = document.createElement(&#39;span&#39;);
       summaryTitle.className = &#39;card-title&#39;;
       summaryTitle.textContent = title.textContent;
-      summary.append(summaryTitle);
+      if (card.classList.contains(&#39;cart-card&#39;)) {
+        const heading = document.createElement(&#39;span&#39;);
+        heading.className = &#39;card-heading&#39;;
+        heading.append(summaryTitle);
+        const responsibleText = bottom &amp;&amp; bottom.querySelector(&#39;.system-hint&#39;);
+        summary.append(heading);
+        if (type) {
+          const schedule = document.createElement(&#39;span&#39;);
+          schedule.className = &#39;cart-schedule&#39;;
+          schedule.textContent = &#39;Revisi&#243;n: &#39; + type.textContent;
+          details.append(schedule);
+        }
+        if (responsibleText) {
+          const responsible = document.createElement(&#39;span&#39;);
+          responsible.className = &#39;cart-responsible&#39;;
+          responsible.textContent = responsibleText.textContent;
+          details.append(responsible);
+        }
+        if (description) {
+          description.classList.add(&#39;cart-location&#39;);
+          details.append(description);
+        }
+        if (card.dataset.driveUrl) {
+          const driveLink = document.createElement(&#39;a&#39;);
+          driveLink.className = &#39;cart-drive-link&#39;;
+          driveLink.href = card.dataset.driveUrl;
+          driveLink.target = &#39;_blank&#39;;
+          driveLink.rel = &#39;noopener noreferrer&#39;;
+          driveLink.textContent = &#39;Ver protocolo&#39;;
+          details.append(driveLink);
+        }
+      } else {
+        summary.append(summaryTitle);
+        if (type) details.append(type);
+        if (description) details.append(description);
+        if (bottom) details.append(bottom);
+      }
       const chevron = document.createElement(&#39;span&#39;);
       chevron.className = &#39;card-chevron&#39;;
       chevron.setAttribute(&#39;aria-hidden&#39;, &#39;true&#39;);
       chevron.textContent = &#39;⌄&#39;;
       summary.append(chevron);
 
-      if (type) details.append(type);
-      if (description) details.append(description);
-      if (bottom) details.append(bottom);
       top.remove();
       card.replaceChildren(summary, details);
       card.classList.add(&#39;accordion-card&#39;);
