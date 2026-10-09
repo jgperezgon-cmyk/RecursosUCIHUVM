@@ -239,6 +239,7 @@ input,select{
 #landing{display:block}
 #home{display:none}
 #compat-view{display:none}
+#limpieza-view{display:none}
 body.v35-drug-list .toolbar{display:flex!important}
 body:not(.v35-drug-list) .toolbar{display:none!important}
 </style><style id="v35-cover-button-robust">
@@ -553,6 +554,51 @@ header{z-index:1000!important}
 #host-maddox-dialog .maddox-foot button { border: 0; border-radius: 8px; padding: 9px 13px; background: #526bef; color: #fff; font-size: 11px; font-weight: 600; }
 @media (max-width: 700px) { #mi-turno-view { padding: 0 0 20px; } #mi-turno-frame { min-height: 1100px; } #host-maddox-dialog { width: calc(100vw - 24px); max-height: calc(100vh - 24px); max-height: calc(100dvh - 24px); } #host-maddox-dialog .maddox-head { padding: 17px 16px 12px; } #host-maddox-dialog .maddox-body { padding: 10px 12px 16px; } #host-maddox-dialog .maddox-table th, #host-maddox-dialog .maddox-table td { padding: 9px 8px; font-size: 11px; } #host-maddox-dialog .maddox-table th:first-child { width: 54px; } #host-maddox-dialog .maddox-foot { padding: 0 16px 16px; } }
 </style>
+<style id="limpieza-preparacion-css">
+#limpieza-view{box-sizing:border-box;max-width:1050px;width:100%;margin:0 auto;padding:0 clamp(14px,3vw,36px) 38px;color:#173746;font-family:Inter,Arial,sans-serif}
+.clean-hero{position:relative;overflow:hidden;margin:0 0 20px;padding:25px 27px;border:1px solid #d9e8e1;border-radius:20px;background:linear-gradient(120deg,#eff7f2 0%,#f8fbfa 65%,#edf5f8 100%);box-shadow:0 8px 26px rgba(29,68,61,.07)}
+.clean-eyebrow{margin:0 0 7px;color:#538174;font-size:11px;font-weight:800;letter-spacing:.12em;text-transform:uppercase}
+.clean-hero h2{margin:0 0 8px;color:#183f42;font-size:clamp(24px,4vw,32px);letter-spacing:-.04em;line-height:1.15}
+.clean-hero p{max-width:680px;margin:0;color:#5f7474;font-size:14px;line-height:1.55}
+.clean-hero-tags{display:flex;flex-wrap:wrap;gap:7px;margin-top:15px}
+.clean-tag{display:inline-flex;align-items:center;gap:5px;padding:7px 10px;border:1px solid #d8e7df;border-radius:999px;background:#ffffffb8;color:#496b66;font-size:12px;font-weight:700}
+.clean-section-label{display:flex;align-items:center;gap:10px;margin:22px 2px 10px;color:#53706e;font-size:11px;font-weight:800;letter-spacing:.12em;text-transform:uppercase}
+.clean-section-label:after{height:1px;flex:1;background:#e1eae6;content:""}
+.clean-card{margin:0 0 12px;overflow:hidden;border:1px solid #dfe9e4;border-radius:15px;background:#fff;box-shadow:0 3px 12px rgba(23,55,70,.045)}
+.clean-card[open]{box-shadow:0 8px 25px rgba(23,55,70,.07)}
+.clean-summary{display:flex;min-height:72px;align-items:center;gap:13px;padding:13px 16px;cursor:pointer;list-style:none}
+.clean-summary::-webkit-details-marker{display:none}
+.clean-icon{display:grid;width:42px;height:42px;flex:0 0 42px;place-items:center;border-radius:12px;background:#eaf4ee;color:#427569;font-size:20px}
+.clean-card.fibro .clean-icon{background:#f3eef8;color:#735d8a}
+.clean-summary-title{display:flex;min-width:0;flex:1;flex-direction:column;gap:4px;color:#253f47;font-size:17px;font-weight:750}
+.clean-summary-title small{color:#748682;font-size:13px;font-weight:600}
+.clean-chevron{margin-left:auto;color:#718682;font-size:21px;transition:transform .18s ease}
+.clean-card[open] .clean-chevron{transform:rotate(180deg)}
+.clean-details{padding:0 17px 17px;border-top:1px solid #edf1ef}
+.clean-intro{margin:14px 0;color:#617474;font-size:15px;line-height:1.55}
+.clean-phase-grid{display:grid;grid-template-columns:1fr;gap:10px}
+.clean-phase{min-width:0;padding:16px;border:1px solid #e7eeea;border-radius:12px;background:#fbfdfc}
+.clean-phase h3{display:flex;align-items:center;gap:8px;margin:0 0 10px;color:#315b55;font-size:16px;line-height:1.35}
+.clean-step-number{display:grid;width:27px;height:27px;flex:0 0 27px;place-items:center;border-radius:50%;background:#e2efe8;color:#3c7466;font-size:13px;font-weight:800}
+.clean-phase p,.clean-phase li{color:#586b6c;font-size:14px;line-height:1.55}
+.clean-phase p{margin:0 0 7px}.clean-phase p:last-child{margin-bottom:0}
+.clean-phase ul{margin:0;padding-left:18px}.clean-phase li+li{margin-top:4px}
+.clean-mixture{display:flex;flex-wrap:wrap;align-items:center;gap:7px;margin:10px 0 8px}
+.clean-mixture strong{padding:9px 11px;border-radius:8px;background:#eaf4ee;color:#285d51;font-size:15px}
+.clean-mixture span{color:#6f817e;font-size:14px}
+.clean-warning{margin-top:10px;padding:12px 13px;border:1px solid #f0dfb9;border-left:4px solid #d5a348;border-radius:9px;background:#fff9ed;color:#705c34;font-size:13px;line-height:1.5}
+.clean-tcae{margin-top:12px;padding:0 14px;border:1px solid #d9e8f1;border-radius:12px;background:#f2f8fb}
+.clean-tcae>summary{padding:13px 0;color:#345b72;font-size:14px;font-weight:750;cursor:pointer}
+.clean-tcae ul{margin:0 0 14px;padding-left:20px}
+.clean-tcae li{margin:6px 0;color:#536875;font-size:13px;line-height:1.5}
+.clean-footer{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-top:13px;padding-top:12px;border-top:1px solid #edf1ef}
+.clean-footer-note{color:#82908d;font-size:12px;line-height:1.45}
+.clean-link{display:inline-flex;min-height:44px;align-items:center;justify-content:center;gap:7px;padding:10px 14px;border:1px solid #dcebe2;border-radius:9px;background:#edf6f0;color:#286356;font-size:14px;font-weight:750;text-decoration:none;white-space:nowrap}
+.clean-link:hover{background:#e1efe6}
+.clean-link:focus-visible{outline:2px solid #4c879b;outline-offset:2px}
+.clean-fibro-copy{margin:14px 0 0;color:#586b6c;font-size:15px;line-height:1.55}
+@media(max-width:700px){#limpieza-view{padding:0 12px 28px}.clean-hero{padding:20px 18px;border-radius:17px}.clean-summary{min-height:66px;padding:12px}.clean-footer{align-items:stretch;flex-direction:column}.clean-link{width:100%;box-sizing:border-box}.clean-footer-note{font-size:12px}}
+</style>
 </head>
 <body>
 <header>
@@ -593,6 +639,10 @@ header{z-index:1000!important}
 <a class="v35-tile" href="#" onclick="showAntibioticos();return false;">
 <div class="v35-icon" aria-hidden="true">🦠</div>
 <div><strong>Antibióticos</strong><span>Instrucciones de administración de antibióticos en perfusión intravenosa.</span></div>
+</a>
+<a class="v35-tile" href="#" onclick="showLimpieza();return false;">
+<div class="v35-icon" aria-hidden="true">🧹</div>
+<div><strong>Limpieza y preparación</strong><span>Limpieza del box y preparación para el siguiente ingreso.</span></div>
 </a>
 <a class="v35-tile" href="#" onclick="showTcrr();return false;">
 <div class="v35-icon" aria-hidden="true">🩺</div>
@@ -1036,12 +1086,6 @@ header{z-index:1000!important}
             &lt;p&gt;Antes del alta, valora si procede interconsulta a EPA en pacientes traqueostomizados (especialmente si pasan a planta), oncol&#243;gicos, ostomizados o con curas complejas.&lt;/p&gt;
             &lt;div class=&quot;card-bottom&quot;&gt;&lt;span class=&quot;system-hint&quot;&gt;Seguir circuito de interconsulta&lt;/span&gt;&lt;/div&gt;
           &lt;/article&gt;
-          &lt;article class=&quot;card&quot; data-search=&quot;preparaci&#243;n preparacion box verificaci&#243;n verificacion ingreso checklist lista&quot;&gt;
-            &lt;div class=&quot;card-top&quot;&gt;&lt;div class=&quot;icon amber&quot; aria-hidden=&quot;true&quot;&gt;▧&lt;/div&gt;&lt;span class=&quot;type&quot;&gt;Al ingreso&lt;/span&gt;&lt;/div&gt;
-            &lt;h3&gt;Preparaci&#243;n y verificaci&#243;n del box&lt;/h3&gt;
-            &lt;p&gt;Al ingreso, cumplimenta el listado de preparaci&#243;n del box y realiza la verificaci&#243;n.&lt;/p&gt;
-            &lt;div class=&quot;card-bottom&quot;&gt;&lt;span class=&quot;system-hint&quot;&gt;Gu&#237;a r&#225;pida de Recursos UCI&lt;/span&gt;&lt;button class=&quot;action&quot; type=&quot;button&quot; data-parent-tool=&quot;drive-box-checklist&quot; data-title=&quot;Preparaci&#243;n y verificaci&#243;n del box&quot; data-destination=&quot;Tareas y comprobaciones → Gu&#237;a de preparaci&#243;n del box&quot; data-detail=&quot;Gu&#237;a r&#225;pida para la preparaci&#243;n y verificaci&#243;n del box al ingreso.&quot;&gt;Ver checklist del box &lt;span class=&quot;arrow&quot;&gt;›&lt;/span&gt;&lt;/button&gt;&lt;/div&gt;
-          &lt;/article&gt;
         &lt;/div&gt;
       &lt;/section&gt;
 
@@ -1298,6 +1342,87 @@ header{z-index:1000!important}
 &lt;/body&gt;
 &lt;/html&gt;
 "></iframe>
+</main>
+
+<main id="limpieza-view" class="limpieza-view" aria-label="Limpieza y preparación">
+  <button type="button" class="back v35-cover-back" onclick="showLanding()">← Portada</button>
+  <section class="clean-hero" aria-labelledby="limpieza-title">
+    <p class="clean-eyebrow">Tareas de la unidad</p>
+    <h2 id="limpieza-title">Limpieza y preparación</h2>
+    <p>Recordatorios prácticos para limpiar el box y dejarlo preparado para el siguiente ingreso.</p>
+    <div class="clean-hero-tags"><span class="clean-tag">🧹 Un mismo procedimiento · del alta al siguiente ingreso</span></div>
+  </section>
+
+  <div class="clean-section-label">Procedimientos de la unidad</div>
+  <details class="clean-card">
+    <summary class="clean-summary">
+      <span class="clean-icon" aria-hidden="true">🧽</span>
+      <span class="clean-summary-title">Limpieza y preparación del box<small>Procedimiento de limpieza tras el alta y preparación del box</small></span>
+      <span class="clean-chevron" aria-hidden="true">⌄</span>
+    </summary>
+    <div class="clean-details">
+      <p class="clean-intro">Un único proceso: limpiar el box y dejarlo montado y revisado para el siguiente ingreso.</p>
+      <div class="clean-phase-grid">
+        <section class="clean-phase">
+          <h3><span class="clean-step-number">1</span>Preparar y retirar</h3>
+          <p>Material: bata desechable, guantes, mascarilla, cepillo y compresas.</p>
+          <div class="clean-mixture"><strong>19 ml de hipoclorito</strong><span>+</span><strong>750 ml de agua</strong></div>
+          <p>Efectivo a partir de <strong>15 min</strong> · duración de la solución: <strong>24 h</strong>.</p>
+          <ul>
+            <li>Retirar la ropa de cama y doblarla hacia dentro.</li>
+            <li>Desechar material desechable y poroso; retirar el reutilizable para limpiarlo.</li>
+          </ul>
+        </section>
+        <section class="clean-phase">
+          <h3><span class="clean-step-number">2</span>Limpiar el aparataje</h3>
+          <p>Usar compresas con el preparado de hipoclorito.</p>
+          <ul>
+            <li><strong>Puente y mesa:</strong> caudalímetros, manómetros y contenedor de cortantes.</li>
+            <li><strong>Respirador:</strong> limpieza externa y cambio de válvula/sensor.</li>
+            <li><strong>Torre de bombas:</strong> desmontar, limpiar y colocar 2 bombas volumétricas y 1 de jeringa.</li>
+            <li><strong>Monitor:</strong> limpiar monitor, cables y manguito PNI; sumergir el manguito en líquido enzimático 30 min. <strong>No sacar los cables del box.</strong></li>
+            <li><strong>AMBU:</strong> si se usó, reemplazar; si no, cambiar bolsa y etiquetar.</li>
+          </ul>
+          <details class="clean-tcae">
+            <summary>Puntos clave del aparataje</summary>
+            <ul>
+              <li><strong>Cables:</strong> ECG, pulsioxímetro y PANI vuelven al monitor; las derivaciones extra de ECG, a una bolsa.</li>
+              <li><strong>ONAF:</strong> confirmar tubo y filtro unidos por la anilla tras la desinfección pirolítica.</li>
+              <li><strong>Medias neumáticas:</strong> líneas reutilizables, no desechar; limpiar con la bomba y retirar del box.</li>
+              <li><strong>Humidificación:</strong> no desechar los cables adaptadores; limpiar con la base y el respirador.</li>
+              <li><strong>Cojín antiescaras:</strong> guardar cargadores y adaptadores junto al cojín y confirmarlo tras la limpieza.</li>
+            </ul>
+          </details>
+          <div class="clean-warning"><strong>Aviso a Limpieza:</strong> realizarlo en el Sistema de Gestión de Camas.</div>
+        </section>
+        <section class="clean-phase">
+          <h3><span class="clean-step-number">3</span>Montar y dejar listo</h3>
+          <ul>
+            <li>Montar y tarar la cama; revisar el box con Enfermería.</li>
+            <li>No cubrir la pantalla del respirador.</li>
+            <li>Completar el checklist con Enfermería y dejarlo en la carpeta.</li>
+            <li>Dejar el box listo para el nuevo ingreso.</li>
+          </ul>
+        </section>
+      </div>
+      <div class="clean-footer">
+        <span class="clean-footer-note">Procedimiento de limpieza y checklist de preparación.</span>
+        <a class="clean-link" href="https://drive.google.com/open?id=1Ra3LUUylP_bnf3qEmgufiRWFCHgpVaIO&amp;usp=drive_copy" target="_blank" rel="noopener noreferrer">Ver protocolo <span aria-hidden="true">↗</span></a>
+        <a class="clean-link" href="https://drive.google.com/open?id=1nK_fBFDFrDt_ljsXGA5NaVo7GVjOUIJZ&amp;usp=drive_copy" target="_blank" rel="noopener noreferrer">Ver checklist del box <span aria-hidden="true">↗</span></a>
+      </div>
+    </div>
+  </details>
+
+  <details class="clean-card fibro">
+    <summary class="clean-summary">
+      <span class="clean-icon" aria-hidden="true">〰</span>
+      <span class="clean-summary-title">Limpieza del fibrobroncoscopio<small>Procedimiento de limpieza y desinfección</small></span>
+      <span class="clean-chevron" aria-hidden="true">⌄</span>
+    </summary>
+    <div class="clean-details">
+      <p class="clean-fibro-copy">Este apartado reunirá los pasos y comprobaciones del procedimiento de limpieza del fibrobroncoscopio.</p>
+    </div>
+  </details>
 </main>
 
 <main id="drive-view">
@@ -3402,6 +3527,7 @@ initCompatibility();renderAlpha();render();
 (function(){
   function landing(){
     hideMiTurnoView();
+    document.getElementById('limpieza-view').style.display='none';
     document.getElementById('landing').style.display='block';
     document.getElementById('home').style.display='none';
     document.getElementById('viewer').style.display='none';
@@ -3709,6 +3835,13 @@ function hideMiTurnoView(){
   const view=document.getElementById('mi-turno-view');
   if(view) view.style.display='none';
 }
+function showLimpieza(){
+  document.querySelectorAll('body > main').forEach(view=>view.style.display='none');
+  document.getElementById('limpieza-view').style.display='block';
+  document.body.classList.remove('v35-drug-list');
+  window.scrollTo(0,0);
+}
+window.showLimpieza=showLimpieza;
 function showMiTurno(){
   document.querySelectorAll('body > main').forEach(view=>view.style.display='none');
   document.getElementById('mi-turno-view').style.display='block';
@@ -3787,6 +3920,7 @@ window.addEventListener('message',event=>{
     ['showCompatibility',()=>({view:'compatibility'})],
     ['showCompatibilityFromLanding',()=>({view:'compatibility'})],
     ['showMiTurno',()=>({view:'mi-turno'})],
+    ['showLimpieza',()=>({view:'limpieza'})],
     ['showAnalgosedacion',()=>({view:'analgosedacion'})],
     ['showAntibioticos',()=>({view:'antibioticos'})],
     ['showTcrr',()=>({view:'tcrr'})],
@@ -3807,6 +3941,7 @@ window.addEventListener('message',event=>{
       case 'drugs': window.showDrugsList(); break;
       case 'compatibility': window.showCompatibility(); break;
       case 'mi-turno': window.showMiTurno(); break;
+      case 'limpieza': window.showLimpieza(); break;
       case 'analgosedacion': window.showAnalgosedacion(); break;
       case 'antibioticos': window.showAntibioticos(); break;
       case 'tcrr': window.showTcrr(); break;
