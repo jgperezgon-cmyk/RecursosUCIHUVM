@@ -939,6 +939,10 @@ header{z-index:1000!important}
     .zero-indicator-list { display: grid; gap: 8px; margin: 9px 0 0; padding: 0; list-style: none; }
     .zero-indicator-list li { padding: 0 0 8px; border-bottom: 1px solid #edf0f3; color: var(--muted); font-size: 11px; line-height: 1.45; }
     .zero-indicator-list strong { color: var(--ink); }
+    .priority-badge, .zero-priority-mark { display: inline-flex; align-items: center; padding: 3px 7px; border-radius: 999px; background: #fff3d8; color: #805700; font: 750 9px/1.2 Manrope, sans-serif; white-space: nowrap; }
+    .priority-badge { flex: 0 0 auto; }
+    .priority-badge.tolerance { background: #fff0ee; color: #a44239; }
+    .zero-priority-mark { margin: 0 6px 3px 0; }
     .card.accordion-card { display: block; min-height: 0; padding: 0; overflow: hidden; border-radius: 10px; box-shadow: none; }
     .card.accordion-card:hover { transform: none; box-shadow: var(--shadow); }
     .card-summary { display: flex; width: 100%; min-height: 54px; align-items: center; gap: 10px; padding: 9px 12px; border: 0; background: #fff; color: var(--ink); text-align: left; cursor: pointer; }
@@ -1013,7 +1017,7 @@ header{z-index:1000!important}
       &lt;li&gt;Realizar desinfección del bioconector con toallitas alcohólicas (&lt;strong&gt;limpieza vigorosa por 15-30 segundos + esperar secado&lt;/strong&gt;).&lt;/li&gt;
       &lt;li&gt;Registrar los catéteres e identificar el tipo de acceso: central (CVC), periférico, PICC o línea media.&lt;/li&gt;
       &lt;li&gt;Identificar las líneas de perfusión con el nombre del fármaco y la vía/acceso; comprobarlo cada turno y en el traspaso.&lt;/li&gt;
-      &lt;li&gt;Cambiar los sistemas de infusión venosos cada 5 d&#237;as; identificarlos con fecha y hora de montaje y registrar el cambio en gr&#225;fica. Frecuencias espec&#237;ficas: nutrici&#243;n parenteral con l&#237;pidos cada 24 h; propofol y clevidipino cada 6-12 h, al cambiar el vial.&lt;/li&gt;
+      &lt;li&gt;&lt;span class=&quot;zero-priority-mark&quot;&gt;A reforzar&lt;/span&gt;Cambiar los sistemas de infusión venosos cada 5 d&#237;as; identificarlos con fecha y hora de montaje y registrar el cambio en gr&#225;fica. Frecuencias espec&#237;ficas: nutrici&#243;n parenteral con l&#237;pidos cada 24 h; propofol y clevidipino cada 6-12 h, al cambiar el vial.&lt;/li&gt;
   &lt;/ul&gt;
 &lt;/div&gt;
           &lt;/article&gt;
@@ -1022,7 +1026,7 @@ header{z-index:1000!important}
             &lt;h3&gt;Neumon&#237;a ZERO &#183; NZ&lt;/h3&gt;
             &lt;div class=&quot;zero-indicators&quot;&gt;
   &lt;ul class=&quot;zero-indicator-list&quot;&gt;
-      &lt;li&gt;Realizar higiene oral con clorhexidina cada 6-8 h a todo paciente con ventilación mecánica invasiva y registrarla en gráfica; comprobar la presión del neumotaponamiento antes de la higiene.&lt;/li&gt;
+      &lt;li&gt;&lt;span class=&quot;zero-priority-mark&quot;&gt;A reforzar&lt;/span&gt;Realizar higiene oral con clorhexidina cada 6-8 h a todo paciente con ventilación mecánica invasiva y registrarla en gráfica; comprobar la presión del neumotaponamiento antes de la higiene.&lt;/li&gt;
       &lt;li&gt;Mantener el cabecero entre 30º y 45º.&lt;/li&gt;
       &lt;li&gt;Medir la presión del neumotaponamiento con la frecuencia recomendada y mantenerla entre 20 y 30 cmH2O.&lt;/li&gt;
   &lt;/ul&gt;
@@ -1055,25 +1059,25 @@ header{z-index:1000!important}
             &lt;p&gt;Valora la sedaci&#243;n con RASS al menos dos veces por turno y registra el resultado en Estaci&#243;n de Cuidados.&lt;/p&gt;
             &lt;div class=&quot;card-bottom&quot;&gt;&lt;span class=&quot;system-hint&quot;&gt;Resultado: Estaci&#243;n de Cuidados&lt;/span&gt;&lt;button class=&quot;action&quot; type=&quot;button&quot; data-parent-tool=&quot;scale-rass&quot; data-title=&quot;Sedaci&#243;n &#183; RASS&quot; data-destination=&quot;Escalas → RASS&quot; data-detail=&quot;Escala para la valoraci&#243;n de sedaci&#243;n.&quot;&gt;Abrir escala &lt;span class=&quot;arrow&quot;&gt;›&lt;/span&gt;&lt;/button&gt;&lt;/div&gt;
           &lt;/article&gt;
-          &lt;article class=&quot;card&quot; data-search=&quot;delirio cam-icu cam icu escala estaci&#243;n cuidados registro&quot;&gt;
+          &lt;article class=&quot;card&quot; data-priority=&quot;refuerzo&quot; data-search=&quot;delirio cam-icu cam icu escala estaci&#243;n cuidados registro&quot;&gt;
             &lt;div class=&quot;card-top&quot;&gt;&lt;div class=&quot;icon plum&quot; aria-hidden=&quot;true&quot;&gt;✳&lt;/div&gt;&lt;span class=&quot;type&quot;&gt;Escala &#183; objetivo 100 %&lt;/span&gt;&lt;/div&gt;
             &lt;h3&gt;Delirio &#183; CAM-ICU&lt;/h3&gt;
             &lt;p&gt;Realiza CAM-ICU al menos una vez por turno en pacientes con factores de riesgo de delirio y nivel de consciencia adecuado (RASS entre -2 y +4). Registra el resultado en Estaci&#243;n de Cuidados y en gr&#225;fica, en el apartado de la escala Glasgow.&lt;/p&gt;
             &lt;div class=&quot;card-bottom&quot;&gt;&lt;span class=&quot;system-hint&quot;&gt;Registrar en Estaci&#243;n de Cuidados y en gr&#225;fica (apartado Glasgow)&lt;/span&gt;&lt;button class=&quot;action&quot; type=&quot;button&quot; data-parent-tool=&quot;scale-cam&quot; data-title=&quot;Delirio &#183; CAM-ICU&quot; data-destination=&quot;Escalas → CAM-ICU&quot; data-detail=&quot;Escala para la valoraci&#243;n del delirio.&quot;&gt;Abrir escala &lt;span class=&quot;arrow&quot;&gt;›&lt;/span&gt;&lt;/button&gt;&lt;/div&gt;
           &lt;/article&gt;
-          &lt;article class=&quot;card&quot; data-search=&quot;l&#237;mites alarmas alarma gr&#225;fica revisar registrar turno&quot;&gt;
+          &lt;article class=&quot;card&quot; data-priority=&quot;refuerzo&quot; data-search=&quot;l&#237;mites alarmas alarma gr&#225;fica revisar registrar turno&quot;&gt;
             &lt;div class=&quot;card-top&quot;&gt;&lt;div class=&quot;icon amber&quot; aria-hidden=&quot;true&quot;&gt;⌁&lt;/div&gt;&lt;span class=&quot;type&quot;&gt;Seguridad &#183; en gr&#225;fica&lt;/span&gt;&lt;/div&gt;
             &lt;h3&gt;L&#237;mites de alarma&lt;/h3&gt;
             &lt;p&gt;Revisa los l&#237;mites de alarma y registra la revisi&#243;n en la gr&#225;fica en cada turno.&lt;/p&gt;
             &lt;div class=&quot;card-bottom&quot;&gt;&lt;span class=&quot;system-hint&quot;&gt;Registrar la revisi&#243;n en gr&#225;fica&lt;/span&gt;&lt;/div&gt;
           &lt;/article&gt;
-          &lt;article class=&quot;card&quot; data-search=&quot;cambios posturales movilizaci&#243;n giro cada cuatro horas gr&#225;fica registro&quot;&gt;
+          &lt;article class=&quot;card&quot; data-priority=&quot;refuerzo&quot; data-search=&quot;cambios posturales movilizaci&#243;n giro cada cuatro horas gr&#225;fica registro&quot;&gt;
             &lt;div class=&quot;card-top&quot;&gt;&lt;div class=&quot;icon blue&quot; aria-hidden=&quot;true&quot;&gt;↻&lt;/div&gt;&lt;span class=&quot;type&quot;&gt;Seg&#250;n pauta&lt;/span&gt;&lt;/div&gt;
             &lt;h3&gt;Cambios posturales&lt;/h3&gt;
             &lt;p&gt;Realiza y registra en gr&#225;fica los cambios posturales con la frecuencia pautada (m&#237;nimo cada 4 h) en los pacientes que los precisen.&lt;/p&gt;
             &lt;div class=&quot;card-bottom&quot;&gt;&lt;span class=&quot;system-hint&quot;&gt;Registrar en gr&#225;fica&lt;/span&gt;&lt;/div&gt;
           &lt;/article&gt;
-          &lt;article class=&quot;card&quot; data-search=&quot;identificaci&#243;n inequ&#237;voca paciente registros identificaci&#243;n alergias gr&#225;fica seguridad&quot;&gt;
+          &lt;article class=&quot;card&quot; data-priority=&quot;tolerancia&quot; data-search=&quot;identificaci&#243;n inequ&#237;voca paciente registros identificaci&#243;n alergias gr&#225;fica seguridad&quot;&gt;
             &lt;div class=&quot;card-top&quot;&gt;&lt;div class=&quot;icon mint&quot; aria-hidden=&quot;true&quot;&gt;⌖&lt;/div&gt;&lt;span class=&quot;type&quot;&gt;Seguridad &#183; identificaci&#243;n&lt;/span&gt;&lt;/div&gt;
             &lt;h3&gt;Identificaci&#243;n y alergias&lt;/h3&gt;
             &lt;p&gt;Comprueba la identificaci&#243;n inequ&#237;voca del paciente y sus registros. En cada turno, verifica que la pulsera est&#233; colocada y registrada; anota en gr&#225;fica las alergias del paciente o su ausencia.&lt;/p&gt;
@@ -1327,6 +1331,17 @@ header{z-index:1000!important}
             details.append(driveLink);
           }
         }
+      }
+      if (card.dataset.priority) {
+        const priorityBadge = document.createElement(&#39;span&#39;);
+        priorityBadge.className = &#39;priority-badge&#39;;
+        if (card.dataset.priority === &#39;tolerancia&#39;) {
+          priorityBadge.classList.add(&#39;tolerance&#39;);
+          priorityBadge.textContent = &#39;Tolerancia cero&#39;;
+        } else {
+          priorityBadge.textContent = &#39;A reforzar&#39;;
+        }
+        summary.append(priorityBadge);
       }
       const chevron = document.createElement(&#39;span&#39;);
       chevron.className = &#39;card-chevron&#39;;
