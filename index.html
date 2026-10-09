@@ -934,6 +934,11 @@ header{z-index:1000!important}
     .tcae-outline p { margin: 0; color: var(--muted); font-size: 11px; line-height: 1.5; }
     @media (max-width: 760px) { .role-tabs { width: 100%; } .role-tab { flex: 1; min-width: 0; min-height: 50px; padding: 11px 12px; font-size: 14px; transition: background .18s ease, color .18s ease, box-shadow .18s ease; } .role-tab#role-tab-enfermeria { color: #477267; background: #edf5f1; } .role-tab#role-tab-tcae { color: #596a9b; background: #f0f2fa; } .role-tab#role-tab-enfermeria.active { color: #285c50; background: #dceee5; box-shadow: 0 1px 4px #285c5026; } .role-tab#role-tab-tcae.active { color: #40558b; background: #e2e7f7; box-shadow: 0 1px 4px #40558b26; } .tcae-outline { grid-template-columns: 1fr; gap: 9px; } .tcae-outline article { min-height: 0; padding: 15px; } .tcae-outline .section-num { margin-bottom: 9px; } }
     .cards, .cards.zero-cards { grid-template-columns: 1fr; gap: 8px; }
+    .zero-indicators { margin-top: 11px; padding-top: 9px; border-top: 1px solid var(--line); }
+    .zero-indicator-title { margin: 0 0 7px; color: #4a60cf; font-size: 11px; font-weight: 750; line-height: 1.4; }
+    .zero-indicator-list { display: grid; gap: 8px; margin: 9px 0 0; padding: 0; list-style: none; }
+    .zero-indicator-list li { padding: 0 0 8px; border-bottom: 1px solid #edf0f3; color: var(--muted); font-size: 11px; line-height: 1.45; }
+    .zero-indicator-list strong { color: var(--ink); }
     .card.accordion-card { display: block; min-height: 0; padding: 0; overflow: hidden; border-radius: 10px; box-shadow: none; }
     .card.accordion-card:hover { transform: none; box-shadow: var(--shadow); }
     .card-summary { display: flex; width: 100%; min-height: 54px; align-items: center; gap: 10px; padding: 9px 12px; border: 0; background: #fff; color: var(--ink); text-align: left; cursor: pointer; }
@@ -993,6 +998,47 @@ header{z-index:1000!important}
           &lt;button class=&quot;filter-chip&quot; type=&quot;button&quot; data-filter=&quot;unidad&quot; aria-pressed=&quot;false&quot;&gt;Objetivos de unidad&lt;/button&gt;
         &lt;/nav&gt;
       &lt;/div&gt;
+
+      &lt;section class=&quot;section zero-section&quot; id=&quot;zero-section&quot; data-section=&quot;unidad&quot; aria-labelledby=&quot;zero-title&quot;&gt;
+        &lt;div class=&quot;section-head&quot;&gt;&lt;span class=&quot;section-num&quot;&gt;OBJETIVOS DE UNIDAD&lt;/span&gt;&lt;div class=&quot;section-title-wrap&quot;&gt;&lt;h2 id=&quot;zero-title&quot;&gt;Proyectos ZERO&lt;/h2&gt;&lt;span class=&quot;section-sub&quot;&gt;Medidas de seguridad, separadas por proyecto&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;section-rule&quot;&gt;&lt;/div&gt;&lt;/div&gt;
+        &lt;div class=&quot;cards zero-cards&quot;&gt;
+          &lt;article class=&quot;card zero-card&quot; data-search=&quot;BZ bacteriemia zero checklist mantenimiento v&#237;as s p bioconectores acceso vascular ap&#243;sitos llaves conexiones cat&#233;teres l&#237;neas perfusi&#243;n sistemas infusi&#243;n curas central perif&#233;rico PICC l&#237;nea media&quot;&gt;
+            &lt;div class=&quot;card-top&quot;&gt;&lt;div class=&quot;icon blue&quot; aria-hidden=&quot;true&quot;&gt;BZ&lt;/div&gt;&lt;/div&gt;
+            &lt;h3&gt;Bacteriemia ZERO &#183; BZ&lt;/h3&gt;
+            &lt;div class=&quot;zero-indicators&quot;&gt;
+  &lt;ul class=&quot;zero-indicator-list&quot;&gt;
+      &lt;li&gt;Comprobar que el acceso vascular venoso o arterial está disponible; colocar apósito transparente si está indicado y mantenerlo limpio y adherido. Registrar la cura y verificar que la fecha del apósito coincide con la registrada en gráfica.&lt;/li&gt;
+      &lt;li&gt;Mantener las conexiones venosas y arteriales limpias y tapadas, con un número adecuado de llaves.&lt;/li&gt;
+      &lt;li&gt;Colocar bioconectores solo donde se administren bolos o perfusiones discontinuas y comprobar su presencia en cada turno.&lt;/li&gt;
+      &lt;li&gt;Realizar desinfección del bioconector con toallitas alcohólicas (&lt;strong&gt;limpieza vigorosa por 15-30 segundos + esperar secado&lt;/strong&gt;).&lt;/li&gt;
+      &lt;li&gt;Registrar los catéteres e identificar el tipo de acceso: central (CVC), periférico, PICC o línea media.&lt;/li&gt;
+      &lt;li&gt;Identificar las líneas de perfusión con el nombre del fármaco y la vía/acceso; comprobarlo cada turno y en el traspaso.&lt;/li&gt;
+      &lt;li&gt;Cambiar los sistemas según la frecuencia indicada, identificarlos con fecha y hora de montaje y registrar el cambio en gráfica. Para lípidos: nutrición parenteral con lípidos cada 24 h; propofol y clevidipino cada 6-12 h, al cambiar el vial.&lt;/li&gt;
+  &lt;/ul&gt;
+&lt;/div&gt;
+          &lt;/article&gt;
+          &lt;article class=&quot;card zero-card&quot; data-search=&quot;NZ neumon&#237;a zero neumotaponamiento cabecero elevaci&#243;n aspiraci&#243;n secreciones higiene bucal clorhexidina ventilaci&#243;n mec&#225;nica presi&#243;n cuff&quot;&gt;
+            &lt;div class=&quot;card-top&quot;&gt;&lt;div class=&quot;icon mint&quot; aria-hidden=&quot;true&quot;&gt;NZ&lt;/div&gt;&lt;/div&gt;
+            &lt;h3&gt;Neumon&#237;a ZERO &#183; NZ&lt;/h3&gt;
+            &lt;div class=&quot;zero-indicators&quot;&gt;
+  &lt;ul class=&quot;zero-indicator-list&quot;&gt;
+      &lt;li&gt;Realizar higiene oral con clorhexidina cada 6-8 h a todo paciente con ventilación mecánica invasiva y registrarla en gráfica; comprobar la presión del neumotaponamiento antes de la higiene.&lt;/li&gt;
+      &lt;li&gt;Mantener el cabecero entre 30º y 45º.&lt;/li&gt;
+      &lt;li&gt;Medir la presión del neumotaponamiento con la frecuencia recomendada y mantenerla entre 20 y 30 cmH2O.&lt;/li&gt;
+  &lt;/ul&gt;
+&lt;/div&gt;
+          &lt;/article&gt;
+          &lt;article class=&quot;card zero-card&quot; data-search=&quot;ITUZ infecci&#243;n tracto urinario zero medidas prevenci&#243;n sonda vesical pertinencia retirada precoz&quot;&gt;
+            &lt;div class=&quot;card-top&quot;&gt;&lt;div class=&quot;icon plum&quot; aria-hidden=&quot;true&quot;&gt;ITUZ&lt;/div&gt;&lt;/div&gt;
+            &lt;h3&gt;ITU ZERO &#183; ITUZ&lt;/h3&gt;
+            &lt;div class=&quot;zero-indicators&quot;&gt;
+  &lt;ul class=&quot;zero-indicator-list&quot;&gt;
+      &lt;li&gt;Revisar la pertinencia de mantener la sonda vesical y valorar su retirada precoz.&lt;/li&gt;
+  &lt;/ul&gt;
+&lt;/div&gt;
+          &lt;/article&gt;
+        &lt;/div&gt;
+      &lt;/section&gt;
 
       &lt;section class=&quot;section&quot; data-section=&quot;turno&quot; aria-labelledby=&quot;turno-title&quot;&gt;
         &lt;div class=&quot;section-head&quot;&gt;&lt;span class=&quot;section-num&quot;&gt;01&lt;/span&gt;&lt;div class=&quot;section-title-wrap&quot;&gt;&lt;h2 id=&quot;turno-title&quot;&gt;En cada turno&lt;/h2&gt;&lt;span class=&quot;section-sub&quot;&gt;Valoraci&#243;n y seguridad del paciente&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;section-rule&quot;&gt;&lt;/div&gt;&lt;/div&gt;
@@ -1070,9 +1116,9 @@ header{z-index:1000!important}
             &lt;div class=&quot;card-bottom&quot;&gt;&lt;span class=&quot;system-hint&quot;&gt;LPP: Nuevo Portal de Heridas de Diraya &#183; Escala COMHON: DAE&lt;/span&gt;&lt;/div&gt;
           &lt;/article&gt;
           &lt;article class=&quot;card&quot; data-search=&quot;ca&#237;das caida mayores 65 a&#241;os registro oportunidad&quot;&gt;
-            &lt;div class=&quot;card-top&quot;&gt;&lt;div class=&quot;icon blue&quot; aria-hidden=&quot;true&quot;&gt;＋&lt;/div&gt;&lt;span class=&quot;type&quot;&gt;Si existe oportunidad&lt;/span&gt;&lt;/div&gt;
+            &lt;div class=&quot;card-top&quot;&gt;&lt;div class=&quot;icon blue&quot; aria-hidden=&quot;true&quot;&gt;＋&lt;/div&gt;&lt;/div&gt;
             &lt;h3&gt;Registro de ca&#237;das &#183; mayores de 65&lt;/h3&gt;
-            &lt;p&gt;Completa el registro de ca&#237;das en pacientes mayores de 65 a&#241;os cuando exista oportunidad. Objetivo: ≥80 % con oportunidad.&lt;/p&gt;
+            &lt;p&gt;Realizar Test de Cribado para la detecci&#243;n del riesgo de ca&#237;das en pacientes mayores de 65 a&#241;os&lt;/p&gt;
             &lt;div class=&quot;card-bottom&quot;&gt;&lt;span class=&quot;system-hint&quot;&gt;Registrar en el sistema habitual&lt;/span&gt;&lt;/div&gt;
           &lt;/article&gt;
           &lt;article class=&quot;card&quot; data-search=&quot;gasometr&#237;a gasometr&#237;as POCT ATOM gas&#243;metro identificaci&#243;n muestra&quot;&gt;
@@ -1088,33 +1134,6 @@ header{z-index:1000!important}
             &lt;div class=&quot;card-bottom&quot;&gt;&lt;span class=&quot;system-hint&quot;&gt;Seguir circuito de interconsulta&lt;/span&gt;&lt;/div&gt;
           &lt;/article&gt;
         &lt;/div&gt;
-      &lt;/section&gt;
-
-      &lt;section class=&quot;section zero-section&quot; id=&quot;zero-section&quot; data-section=&quot;unidad&quot; aria-labelledby=&quot;zero-title&quot;&gt;
-        &lt;div class=&quot;section-head&quot;&gt;&lt;span class=&quot;section-num&quot;&gt;OBJETIVOS DE UNIDAD&lt;/span&gt;&lt;div class=&quot;section-title-wrap&quot;&gt;&lt;h2 id=&quot;zero-title&quot;&gt;Proyectos ZERO&lt;/h2&gt;&lt;span class=&quot;section-sub&quot;&gt;Medidas de seguridad, separadas por proyecto&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;section-rule&quot;&gt;&lt;/div&gt;&lt;/div&gt;
-        &lt;div class=&quot;cards zero-cards&quot;&gt;
-          &lt;article class=&quot;card zero-card&quot; data-search=&quot;BZ bacteriemia zero checklist mantenimiento v&#237;as s p&quot;&gt;
-            &lt;div class=&quot;card-top&quot;&gt;&lt;div class=&quot;icon blue&quot; aria-hidden=&quot;true&quot;&gt;BZ&lt;/div&gt;&lt;span class=&quot;type&quot;&gt;Proyecto ZERO&lt;/span&gt;&lt;/div&gt;
-            &lt;h3&gt;Bacteriemia ZERO &#183; BZ&lt;/h3&gt;
-            &lt;p&gt;Checklist y mantenimiento de v&#237;as S/P.&lt;/p&gt;
-          &lt;/article&gt;
-          &lt;article class=&quot;card zero-card&quot; data-search=&quot;NZ neumon&#237;a zero neumotaponamiento cabecero elevaci&#243;n aspiraci&#243;n secreciones higiene bucal&quot;&gt;
-            &lt;div class=&quot;card-top&quot;&gt;&lt;div class=&quot;icon mint&quot; aria-hidden=&quot;true&quot;&gt;NZ&lt;/div&gt;&lt;span class=&quot;type&quot;&gt;Proyecto ZERO&lt;/span&gt;&lt;/div&gt;
-            &lt;h3&gt;Neumon&#237;a ZERO &#183; NZ&lt;/h3&gt;
-            &lt;p&gt;Seg&#250;n protocolo: neumotaponamiento, elevaci&#243;n del cabecero, aspiraci&#243;n de secreciones e higiene bucal.&lt;/p&gt;
-          &lt;/article&gt;
-          &lt;article class=&quot;card zero-card&quot; data-search=&quot;RZ resistencia zero prevenci&#243;n infecci&#243;n relacionada asistencia sanitaria aislamientos&quot;&gt;
-            &lt;div class=&quot;card-top&quot;&gt;&lt;div class=&quot;icon amber&quot; aria-hidden=&quot;true&quot;&gt;RZ&lt;/div&gt;&lt;span class=&quot;type&quot;&gt;Proyecto ZERO&lt;/span&gt;&lt;/div&gt;
-            &lt;h3&gt;Resistencia ZERO &#183; RZ&lt;/h3&gt;
-            &lt;p&gt;Medidas de prevenci&#243;n de infecci&#243;n relacionada con la asistencia sanitaria y aislamientos.&lt;/p&gt;
-          &lt;/article&gt;
-          &lt;article class=&quot;card zero-card&quot; data-search=&quot;ITUZ infecci&#243;n tracto urinario zero medidas prevenci&#243;n&quot;&gt;
-            &lt;div class=&quot;card-top&quot;&gt;&lt;div class=&quot;icon plum&quot; aria-hidden=&quot;true&quot;&gt;ITUZ&lt;/div&gt;&lt;span class=&quot;type&quot;&gt;Proyecto ZERO&lt;/span&gt;&lt;/div&gt;
-            &lt;h3&gt;ITU ZERO &#183; ITUZ&lt;/h3&gt;
-            &lt;p&gt;Aplicar las medidas preventivas del proyecto ITUZ.&lt;/p&gt;
-          &lt;/article&gt;
-        &lt;/div&gt;
-        &lt;div class=&quot;zero-foot&quot;&gt;&lt;span&gt;&lt;strong&gt;Formaci&#243;n:&lt;/strong&gt; renovaci&#243;n de los cursos de actualizaci&#243;n del Proyecto ZERO.&lt;/span&gt;&lt;/div&gt;
       &lt;/section&gt;
 
       &lt;section class=&quot;section&quot; data-section=&quot;unidad&quot; aria-labelledby=&quot;carros-title&quot;&gt;
@@ -1227,6 +1246,7 @@ header{z-index:1000!important}
       const title = Array.from(card.children).find(child =&gt; child.matches(&#39;h3&#39;));
       const description = Array.from(card.children).find(child =&gt; child.matches(&#39;p&#39;));
       const bottom = Array.from(card.children).find(child =&gt; child.classList.contains(&#39;card-bottom&#39;));
+      const extraContent = Array.from(card.children).filter(child =&gt; ![top, title, description, bottom].includes(child));
       if (!top || !title) return;
 
       const icon = top.querySelector(&#39;.icon&#39;);
@@ -1278,9 +1298,14 @@ header{z-index:1000!important}
         }
       } else {
         summary.append(summaryTitle);
-        if (type) details.append(type);
-        if (description) details.append(description);
-        if (bottom) details.append(bottom);
+        if (card.classList.contains(&#39;zero-card&#39;)) {
+          extraContent.forEach(child =&gt; details.append(child));
+        } else {
+          if (type) details.append(type);
+          if (description) details.append(description);
+          if (bottom) details.append(bottom);
+          extraContent.forEach(child =&gt; details.append(child));
+        }
       }
       const chevron = document.createElement(&#39;span&#39;);
       chevron.className = &#39;card-chevron&#39;;
