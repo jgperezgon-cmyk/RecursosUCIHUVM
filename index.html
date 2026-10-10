@@ -2391,7 +2391,7 @@ renderRass();renderPain();renderCam();calcEva();selectMainTab('rass');summary();
 <h3>Test de Disfagia</h3>
 <div class="ne-dys-intro">
 <strong>Exploración de la tolerancia a diferentes texturas y volúmenes.</strong><br>
-Realizar con el paciente lo más sentado posible. El protocolo indica administrar progresivamente pequeñas cantidades de <strong>5 ml, 10 ml y 20 ml</strong> y vigilar los signos de alarma y de efectividad.
+Realizar con el paciente lo más sentado posible. El protocolo indica administrar progresivamente pequeñas cantidades de <strong>5 ml, 10 ml y 15 ml</strong> y vigilar los signos de alarma y de efectividad.
 <div class="ne-dys-alerts">
 <div class="ne-dys-alert alarm"><strong>⚠️ Signos de alarma</strong><br>Tos, cambios de voz y desaturación.</div>
 <div class="ne-dys-alert effective"><strong>✓ Signos de efectividad</strong><br>Restos orales, salida de contenido alimenticio por boca y trabajo deglutorio.</div>
@@ -2428,7 +2428,7 @@ Realizar con el paciente lo más sentado posible. El protocolo indica administra
 <button type="button" class="ne-dys-start" id="ne-dys-start">▶ Iniciar test de disfagia</button>
 <div id="ne-dys-test-area" hidden>
 <div class="ne-dys-warning"><strong>⚠️ Importante:</strong> Este test interactivo es solo una guía para la aplicación del test. <strong>No sustituye a la HOJA DE REGISTRO DEL TEST DE VISCOSIDAD Y VOLUMEN</strong>, que debe cumplimentarse y conservarse en la historia clínica del paciente.</div>
-<div class="ne-dys-flow"><strong>Secuencia:</strong> néctar → líquido → pudin. En cada textura se prueban 5 ml, 10 ml y 20 ml de forma progresiva.</div>
+<div class="ne-dys-flow"><strong>Secuencia:</strong> néctar → pudin → líquido. En cada textura se prueban 5 ml, 10 ml y 15 ml de forma progresiva.</div>
 <div id="ne-dys-steps"></div>
 <div id="ne-dys-result" class="ne-dys-result" aria-live="polite"></div>
 <button type="button" class="ne-dys-reset" id="ne-dys-reset">↻ Reiniciar test</button>
@@ -2577,10 +2577,10 @@ Realizar con el paciente lo más sentado posible. El protocolo indica administra
   if(!start||!area||!steps||!result||!reset)return;
   const textures=[
     {name:'NÉCTAR',example:'zumo de melocotón'},
-    {name:'LÍQUIDO',example:'agua'},
-    {name:'PUDIN',example:'yogur'}
+    {name:'PUDIN',example:'yogur'},
+    {name:'LÍQUIDO',example:'agua'}
   ];
-  const volumes=[5,10,20];
+  const volumes=[5,10,15];
   let current=0, failed=false;
   function render(){
     steps.innerHTML=textures.map((t,ti)=>`<div class="ne-dys-step" data-step="${ti}" ${ti>0?'hidden':''}>
@@ -2599,12 +2599,14 @@ Realizar con el paciente lo más sentado posible. El protocolo indica administra
       const ok=btn.dataset.ok==='1';
       if(!ok){
         failed=true;
+        card.querySelectorAll('button').forEach(button=>button.disabled=true);
         if(ti===0){
-          showResult('bad','🔴 Problemas de seguridad en néctar.','Según el protocolo, si no tolera alguna de las texturas, debe valorarse la complicación/duda y derivarse al médico para la actuación correspondiente.');
-        }else if(ti===1){
-          showResult('bad','🔴 Problemas de seguridad en líquido.','Según el protocolo, si no tolera alguna de las texturas, debe valorarse la complicación/duda y derivarse al médico para la actuación correspondiente.');
+          showResult('bad','Néctar no tolerado.','Continuar con textura pudin, empezando por 5 ml, según el algoritmo.');
+          current=1;
+          const next=steps.querySelector(`[data-step="${current}"]`);
+          if(next){next.hidden=false; next.scrollIntoView({behavior:'smooth',block:'nearest'}); bindStep(current);}
         }else{
-          showResult('bad','🔴 Problemas de seguridad en pudin.','Según el protocolo, si no tolera alguna de las texturas, debe valorarse la complicación/duda y derivarse al médico para la actuación correspondiente.');
+          showResult('bad',`Final del test: ${textures[ti].name.toLowerCase()} no tolerado.`,'Según el protocolo, si no tolera alguna de las texturas, debe valorarse la complicación/duda y derivarse al médico para la actuación correspondiente.');
         }
         return;
       }
@@ -2612,13 +2614,18 @@ Realizar con el paciente lo más sentado posible. El protocolo indica administra
       const volumeButtons=[...card.querySelectorAll('.ne-dys-volume')];
       const idx=volumeButtons.findIndex(x=>x.dataset.volume===volume);
       volumeButtons.forEach((x,i)=>{if(i<idx+1)x.style.opacity='.65';});
-      if(vol===20){
+      if(vol===15){
+        card.querySelectorAll('button').forEach(button=>button.disabled=true);
         if(ti<textures.length-1){
           current=ti+1;
           const next=steps.querySelector(`[data-step="${current}"]`);
           if(next){next.hidden=false; next.scrollIntoView({behavior:'smooth',block:'nearest'}); bindStep(current);}
         }else{
+          if(failed){
+            showResult('bad','Final del test.','Néctar no tolerado; pudin y líquido tolerados. Registrar los resultados y valorar la actuación correspondiente.');
+          }else{
           showResult('good','🟢 Tolera las 3 texturas.','El protocolo indica continuar con dieta de disfagia. El requerimiento nutricional se ajusta según la tolerancia de la dieta oral: >50% de D.O. → mantener 1 NE; >75% de D.O. durante 3 días → suspender NE.');
+          }
         }
       }
     }));
