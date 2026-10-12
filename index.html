@@ -632,6 +632,7 @@ header{z-index:1000!important}
 .uci-search-icon.drive,.uci-search-badge.drive{background:#eaf2f6;color:#35677b}
 .uci-search-icon.video,.uci-search-badge.video{background:#fff1e6;color:#875328}
 .uci-search-icon.compatibility,.uci-search-badge.compatibility{background:#eeedf9;color:#615487}
+.uci-search-icon.objective,.uci-search-badge.objective{background:#e7f3f1;color:#246b63}
 .uci-search-copy{flex:1;min-width:0}
 .uci-search-title-row{display:flex;flex-wrap:wrap;gap:5px 13px;align-items:baseline}
 .uci-search-title{font-size:14px;font-weight:750;line-height:1.4;overflow-wrap:anywhere}
@@ -688,6 +689,7 @@ body.v35-drug-list.uci-drug-search-compact > header #allBtn{flex:0 0 auto;min-he
 <button type="button" data-category="all" aria-pressed="true">Todos</button>
 <button type="button" data-category="drug" aria-pressed="false">Fármacos</button>
 <button type="button" data-category="compatibility" aria-pressed="false">Compatibilidad en Y</button>
+<button type="button" data-category="objective" aria-pressed="false">Objetivos asistenciales</button>
 <button type="button" data-category="antibiotic" aria-pressed="false">Antibióticos</button>
 <button type="button" data-category="nutrition" aria-pressed="false">Nutriciones</button>
 <button type="button" data-category="phone" aria-pressed="false">Teléfonos</button>
@@ -754,7 +756,7 @@ body.v35-drug-list.uci-drug-search-compact > header #allBtn{flex:0 0 auto;min-he
   &lt;meta charset=&quot;utf-8&quot;&gt;
   &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1&quot;&gt;
   &lt;meta name=&quot;theme-color&quot; content=&quot;#123b43&quot;&gt;
-  &lt;title&gt;Objetivos asistenciales 2026 &#183; Recursos UCI HUVM&lt;/title&gt;
+  &lt;title&gt;Objetivos asistenciales 2026 · Recursos UCI HUVM&lt;/title&gt;
   &lt;style&gt;
     :root {
       color-scheme: light;
@@ -883,19 +885,19 @@ body.v35-drug-list.uci-drug-search-compact > header #allBtn{flex:0 0 auto;min-he
     @media (prefers-reduced-motion: reduce) { *, *::before, *::after { scroll-behavior: auto !important; transition: none !important; } }
   &lt;/style&gt;
   &lt;style&gt;
-    @import url(&#39;https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&amp;family=Manrope:wght@400;500;600;700;800&amp;display=swap&#39;);
+    @import url(&#x27;https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&amp;family=Manrope:wght@400;500;600;700;800&amp;display=swap&#x27;);
     :root {
       --ink: #202a38; --muted: #788394; --line: #e8ebef; --paper: #fff; --canvas: #f5f6f8;
       --teal: #4d6fed; --teal-dark: #202d40; --mint: #e7f5ef; --blue: #4d6fed;
       --blue-p: #eef1ff; --amber: #be7c18; --amber-p: #fff4dd; --plum: #eef1ff;
       --shadow: 0 3px 14px #1d29390c;
-      font-family: &#39;DM Sans&#39;, sans-serif;
+      font-family: &#x27;DM Sans&#x27;, sans-serif;
     }
-    body { background: var(--canvas); color: var(--ink); font: 14px &#39;DM Sans&#39;, sans-serif; }
+    body { background: var(--canvas); color: var(--ink); font: 14px &#x27;DM Sans&#x27;, sans-serif; }
     .topbar { min-height: 64px; height: 64px; padding: 0 clamp(18px, 4vw, 56px); background: #ffffffd9; color: var(--ink); border-bottom: 1px solid var(--line); position: sticky; top: 0; z-index: 3; backdrop-filter: blur(12px); }
     .brand-mark { border: 0; border-radius: 10px; background: #546eef; color: #fff; font-size: 10px; font-weight: 800; }
     .brand-name { color: var(--ink); font: 800 16px Manrope, sans-serif; letter-spacing: -.4px; }
-    .brand-name small { color: #8490a0; font: 400 10px &#39;DM Sans&#39;, sans-serif; letter-spacing: .3px; }
+    .brand-name small { color: #8490a0; font: 400 10px &#x27;DM Sans&#x27;, sans-serif; letter-spacing: .3px; }
     .top-meta { color: var(--muted); font-size: 12px; }
     .meta-dot { background: #526bef; box-shadow: 0 0 0 4px #526bef18; }
     main { max-width: 1240px; padding: 31px clamp(18px, 4vw, 56px) 52px; }
@@ -1032,7 +1034,7 @@ body.v35-drug-list.uci-drug-search-compact > header #allBtn{flex:0 0 auto;min-he
     .card-chevron { flex: 0 0 auto; margin-left: auto; color: #8792a0; font-size: 18px; line-height: 1; transition: transform .18s ease; }
     .card.expanded .card-chevron { transform: rotate(180deg); }
     .card-details { padding: 0 12px 12px 54px; background: #fff; }
-    .card-details > .type { display: block; margin: 0 0 7px; padding: 0; color: #64728a; font-size: 9px; }
+    .card-details &gt; .type { display: block; margin: 0 0 7px; padding: 0; color: #64728a; font-size: 9px; }
     .card-details p { margin: 0 0 10px; color: var(--muted); font-size: 12px; line-height: 1.5; }
     .card-details .card-bottom { margin: 0; padding: 9px 0 0; border-top: 1px solid var(--line); }
     .cart-card .card-summary { min-height: 54px; }
@@ -1045,6 +1047,7 @@ body.v35-drug-list.uci-drug-search-compact > header #allBtn{flex:0 0 auto;min-he
     .cart-drive-link:hover { background: #e9edff; }
     .cart-drive-link:focus-visible { outline: 2px solid #526bef; outline-offset: 2px; }
     &lt;/style&gt;
+&lt;style&gt;.objective-search-destination{outline:3px solid #7cb8ac;outline-offset:3px}&lt;/style&gt;
 &lt;/head&gt;
 &lt;body&gt;
   &lt;div class=&quot;shell&quot;&gt;
@@ -1053,20 +1056,20 @@ body.v35-drug-list.uci-drug-search-compact > header #allBtn{flex:0 0 auto;min-he
         &lt;div class=&quot;brand-mark&quot; aria-hidden=&quot;true&quot;&gt;UCI&lt;/div&gt;
         &lt;div class=&quot;brand-name&quot;&gt;Recursos UCI HUVM&lt;small&gt;Unidad de Cuidados Intensivos&lt;/small&gt;&lt;/div&gt;
       &lt;/div&gt;
-      &lt;div class=&quot;top-meta&quot;&gt;&lt;span class=&quot;meta-dot&quot; aria-hidden=&quot;true&quot;&gt;&lt;/span&gt; Gu&#237;a r&#225;pida de turno&lt;/div&gt;
+      &lt;div class=&quot;top-meta&quot;&gt;&lt;span class=&quot;meta-dot&quot; aria-hidden=&quot;true&quot;&gt;&lt;/span&gt; Guía rápida de turno&lt;/div&gt;
     &lt;/header&gt;
 
     &lt;main&gt;
       &lt;nav class=&quot;role-tabs&quot; role=&quot;tablist&quot; aria-label=&quot;Profesional&quot;&gt;
-        &lt;button class=&quot;role-tab active&quot; id=&quot;role-tab-enfermeria&quot; type=&quot;button&quot; role=&quot;tab&quot; aria-selected=&quot;true&quot; aria-controls=&quot;nurse-panel&quot;&gt;Enfermer&#237;a&lt;/button&gt;
+        &lt;button class=&quot;role-tab active&quot; id=&quot;role-tab-enfermeria&quot; type=&quot;button&quot; role=&quot;tab&quot; aria-selected=&quot;true&quot; aria-controls=&quot;nurse-panel&quot;&gt;Enfermería&lt;/button&gt;
         &lt;button class=&quot;role-tab&quot; id=&quot;role-tab-tcae&quot; type=&quot;button&quot; role=&quot;tab&quot; aria-selected=&quot;false&quot; aria-controls=&quot;tcae-panel&quot;&gt;TCAEs&lt;/button&gt;
       &lt;/nav&gt;
       &lt;section class=&quot;role-panel&quot; id=&quot;nurse-panel&quot;&gt;
-      &lt;div class=&quot;breadcrumbs&quot;&gt;Recursos UCI &lt;span&gt;/&lt;/span&gt; Objetivos asistenciales &lt;span&gt;/&lt;/span&gt; Objetivos de Enfermer&#237;a&lt;/div&gt;
+      &lt;div class=&quot;breadcrumbs&quot;&gt;Recursos UCI &lt;span&gt;/&lt;/span&gt; Objetivos asistenciales &lt;span&gt;/&lt;/span&gt; Objetivos de Enfermería&lt;/div&gt;
       &lt;section class=&quot;hero&quot; aria-labelledby=&quot;page-title&quot;&gt;
         &lt;div&gt;
-          &lt;div class=&quot;eyebrow&quot;&gt;Objetivos asistenciales &#183; Enfermer&#237;a&lt;/div&gt;
-          &lt;h1 id=&quot;page-title&quot;&gt;Objetivos de Enfermer&#237;a&lt;/h1&gt;
+          &lt;div class=&quot;eyebrow&quot;&gt;Objetivos asistenciales · Enfermería&lt;/div&gt;
+          &lt;h1 id=&quot;page-title&quot;&gt;Objetivos de Enfermería&lt;/h1&gt;
           &lt;p&gt;Consulta las escalas y los objetivos asistenciales por frecuencia, junto con los recordatorios de los proyectos ZERO y de la unidad.&lt;/p&gt;
         &lt;/div&gt;
         &lt;div class=&quot;year-tag&quot;&gt;Objetivos 2026&lt;/div&gt;
@@ -1076,7 +1079,7 @@ body.v35-drug-list.uci-drug-search-compact > header #allBtn{flex:0 0 auto;min-he
         &lt;nav class=&quot;frequency-nav&quot; aria-label=&quot;Filtrar por momento&quot;&gt;
           &lt;button class=&quot;filter-chip active&quot; type=&quot;button&quot; data-filter=&quot;all&quot; aria-pressed=&quot;true&quot;&gt;Ver todo&lt;/button&gt;
           &lt;button class=&quot;filter-chip&quot; type=&quot;button&quot; data-filter=&quot;turno&quot; aria-pressed=&quot;false&quot;&gt;En cada turno&lt;/button&gt;
-          &lt;button class=&quot;filter-chip&quot; type=&quot;button&quot; data-filter=&quot;diario&quot; aria-pressed=&quot;false&quot;&gt;Cada d&#237;a&lt;/button&gt;
+          &lt;button class=&quot;filter-chip&quot; type=&quot;button&quot; data-filter=&quot;diario&quot; aria-pressed=&quot;false&quot;&gt;Cada día&lt;/button&gt;
           &lt;button class=&quot;filter-chip&quot; type=&quot;button&quot; data-filter=&quot;oportunidad&quot; aria-pressed=&quot;false&quot;&gt;Cuando corresponda&lt;/button&gt;
           &lt;button class=&quot;filter-chip&quot; type=&quot;button&quot; data-filter=&quot;unidad&quot; aria-pressed=&quot;false&quot;&gt;Objetivos de unidad&lt;/button&gt;
         &lt;/nav&gt;
@@ -1085,9 +1088,9 @@ body.v35-drug-list.uci-drug-search-compact > header #allBtn{flex:0 0 auto;min-he
       &lt;section class=&quot;section zero-section&quot; id=&quot;zero-section&quot; data-section=&quot;unidad&quot; aria-labelledby=&quot;zero-title&quot;&gt;
         &lt;div class=&quot;section-head&quot;&gt;&lt;span class=&quot;section-num&quot;&gt;OBJETIVOS DE UNIDAD&lt;/span&gt;&lt;div class=&quot;section-title-wrap&quot;&gt;&lt;h2 id=&quot;zero-title&quot;&gt;Proyectos ZERO&lt;/h2&gt;&lt;span class=&quot;section-sub&quot;&gt;Medidas de seguridad, separadas por proyecto&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;section-rule&quot;&gt;&lt;/div&gt;&lt;/div&gt;
         &lt;div class=&quot;cards zero-cards&quot;&gt;
-          &lt;article class=&quot;card zero-card&quot; data-search=&quot;BZ bacteriemia zero checklist mantenimiento v&#237;as s p bioconectores acceso vascular ap&#243;sitos llaves conexiones cat&#233;teres l&#237;neas perfusi&#243;n sistemas infusi&#243;n curas central perif&#233;rico PICC l&#237;nea media&quot;&gt;
+          &lt;article class=&quot;card zero-card&quot; data-search=&quot;BZ bacteriemia zero checklist mantenimiento vías s p bioconectores acceso vascular apósitos llaves conexiones catéteres líneas perfusión sistemas infusión curas central periférico PICC línea media&quot;&gt;
             &lt;div class=&quot;card-top&quot;&gt;&lt;div class=&quot;icon blue&quot; aria-hidden=&quot;true&quot;&gt;BZ&lt;/div&gt;&lt;/div&gt;
-            &lt;h3&gt;Bacteriemia ZERO &#183; BZ&lt;/h3&gt;
+            &lt;h3&gt;Bacteriemia ZERO · BZ&lt;/h3&gt;
             &lt;div class=&quot;zero-indicators&quot;&gt;
   &lt;ul class=&quot;zero-indicator-list&quot;&gt;
       &lt;li&gt;Comprobar que el acceso vascular venoso o arterial está disponible; colocar apósito transparente si está indicado y mantenerlo limpio y adherido. Registrar la cura y verificar que la fecha del apósito coincide con la registrada en gráfica.&lt;/li&gt;
@@ -1096,13 +1099,13 @@ body.v35-drug-list.uci-drug-search-compact > header #allBtn{flex:0 0 auto;min-he
       &lt;li&gt;Realizar desinfección del bioconector con toallitas alcohólicas (&lt;strong&gt;limpieza vigorosa por 15-30 segundos + esperar secado&lt;/strong&gt;).&lt;/li&gt;
       &lt;li&gt;Registrar los catéteres e identificar el tipo de acceso: central (CVC), periférico, PICC o línea media.&lt;/li&gt;
       &lt;li&gt;Identificar las líneas de perfusión con el nombre del fármaco y la vía/acceso; comprobarlo cada turno y en el traspaso.&lt;/li&gt;
-      &lt;li&gt;&lt;span class=&quot;zero-priority-mark&quot;&gt;A reforzar&lt;/span&gt;Cambiar los sistemas de infusión venosos cada 5 d&#237;as; identificarlos con fecha y hora de montaje y registrar el cambio en gr&#225;fica. Frecuencias espec&#237;ficas: nutrici&#243;n parenteral con l&#237;pidos cada 24 h; propofol y clevidipino cada 6-12 h, al cambiar el vial.&lt;/li&gt;
+      &lt;li&gt;&lt;span class=&quot;zero-priority-mark&quot;&gt;A reforzar&lt;/span&gt;Cambiar los sistemas de infusión venosos cada 5 días; identificarlos con fecha y hora de montaje y registrar el cambio en gráfica. Frecuencias específicas: nutrición parenteral con lípidos cada 24 h; propofol y clevidipino cada 6-12 h, al cambiar el vial.&lt;/li&gt;
   &lt;/ul&gt;
 &lt;/div&gt;
           &lt;/article&gt;
-          &lt;article class=&quot;card zero-card&quot; data-search=&quot;NZ neumon&#237;a zero neumotaponamiento cabecero elevaci&#243;n aspiraci&#243;n secreciones higiene bucal clorhexidina ventilaci&#243;n mec&#225;nica presi&#243;n cuff&quot;&gt;
+          &lt;article class=&quot;card zero-card&quot; data-search=&quot;NZ neumonía zero neumotaponamiento cabecero elevación aspiración secreciones higiene bucal clorhexidina ventilación mecánica presión cuff&quot;&gt;
             &lt;div class=&quot;card-top&quot;&gt;&lt;div class=&quot;icon mint&quot; aria-hidden=&quot;true&quot;&gt;NZ&lt;/div&gt;&lt;/div&gt;
-            &lt;h3&gt;Neumon&#237;a ZERO &#183; NZ&lt;/h3&gt;
+            &lt;h3&gt;Neumonía ZERO · NZ&lt;/h3&gt;
             &lt;div class=&quot;zero-indicators&quot;&gt;
   &lt;ul class=&quot;zero-indicator-list&quot;&gt;
       &lt;li&gt;&lt;span class=&quot;zero-priority-mark&quot;&gt;A reforzar&lt;/span&gt;Realizar higiene oral con clorhexidina cada 6-8 h a todo paciente con ventilación mecánica invasiva y registrarla en gráfica; comprobar la presión del neumotaponamiento antes de la higiene.&lt;/li&gt;
@@ -1111,9 +1114,9 @@ body.v35-drug-list.uci-drug-search-compact > header #allBtn{flex:0 0 auto;min-he
   &lt;/ul&gt;
 &lt;/div&gt;
           &lt;/article&gt;
-          &lt;article class=&quot;card zero-card&quot; data-search=&quot;ITUZ infecci&#243;n tracto urinario zero medidas prevenci&#243;n sonda vesical pertinencia retirada precoz&quot;&gt;
+          &lt;article class=&quot;card zero-card&quot; data-search=&quot;ITUZ infección tracto urinario zero medidas prevención sonda vesical pertinencia retirada precoz&quot;&gt;
             &lt;div class=&quot;card-top&quot;&gt;&lt;div class=&quot;icon plum&quot; aria-hidden=&quot;true&quot;&gt;ITUZ&lt;/div&gt;&lt;/div&gt;
-            &lt;h3&gt;ITU ZERO &#183; ITUZ&lt;/h3&gt;
+            &lt;h3&gt;ITU ZERO · ITUZ&lt;/h3&gt;
             &lt;div class=&quot;zero-indicators&quot;&gt;
   &lt;ul class=&quot;zero-indicator-list&quot;&gt;
       &lt;li&gt;Revisar la pertinencia de mantener la sonda vesical y valorar su retirada precoz.&lt;/li&gt;
@@ -1124,132 +1127,132 @@ body.v35-drug-list.uci-drug-search-compact > header #allBtn{flex:0 0 auto;min-he
       &lt;/section&gt;
 
       &lt;section class=&quot;section&quot; data-section=&quot;turno&quot; aria-labelledby=&quot;turno-title&quot;&gt;
-        &lt;div class=&quot;section-head&quot;&gt;&lt;span class=&quot;section-num&quot;&gt;01&lt;/span&gt;&lt;div class=&quot;section-title-wrap&quot;&gt;&lt;h2 id=&quot;turno-title&quot;&gt;En cada turno&lt;/h2&gt;&lt;span class=&quot;section-sub&quot;&gt;Valoraci&#243;n y seguridad del paciente&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;section-rule&quot;&gt;&lt;/div&gt;&lt;/div&gt;
+        &lt;div class=&quot;section-head&quot;&gt;&lt;span class=&quot;section-num&quot;&gt;01&lt;/span&gt;&lt;div class=&quot;section-title-wrap&quot;&gt;&lt;h2 id=&quot;turno-title&quot;&gt;En cada turno&lt;/h2&gt;&lt;span class=&quot;section-sub&quot;&gt;Valoración y seguridad del paciente&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;section-rule&quot;&gt;&lt;/div&gt;&lt;/div&gt;
         &lt;div class=&quot;cards&quot;&gt;
-          &lt;article class=&quot;card&quot; data-search=&quot;dolor escala dolor EVN ESCID escalas estaci&#243;n de cuidados registro&quot;&gt;
-            &lt;div class=&quot;card-top&quot;&gt;&lt;div class=&quot;icon mint&quot; aria-hidden=&quot;true&quot;&gt;◉&lt;/div&gt;&lt;span class=&quot;type&quot;&gt;Escala &#183; objetivo 100 %&lt;/span&gt;&lt;/div&gt;
-            &lt;h3&gt;Dolor &#183; EVN / ESCID&lt;/h3&gt;
-            &lt;p&gt;Valora el dolor con EVN/ESCID al menos dos veces por turno y registra el resultado en Estaci&#243;n de Cuidados.&lt;/p&gt;
-            &lt;div class=&quot;card-bottom&quot;&gt;&lt;span class=&quot;system-hint&quot;&gt;Resultado: Estaci&#243;n de Cuidados&lt;/span&gt;&lt;button class=&quot;action&quot; type=&quot;button&quot; data-parent-tool=&quot;scale-pain&quot; data-title=&quot;Dolor &#183; EVN / ESCID&quot; data-destination=&quot;Escalas → Dolor (EVN / ESCID)&quot; data-detail=&quot;Escala para la valoraci&#243;n del dolor.&quot;&gt;Abrir escala &lt;span class=&quot;arrow&quot;&gt;›&lt;/span&gt;&lt;/button&gt;&lt;/div&gt;
+          &lt;article class=&quot;card&quot; data-search=&quot;dolor escala dolor EVN ESCID escalas estación de cuidados registro&quot;&gt;
+            &lt;div class=&quot;card-top&quot;&gt;&lt;div class=&quot;icon mint&quot; aria-hidden=&quot;true&quot;&gt;◉&lt;/div&gt;&lt;span class=&quot;type&quot;&gt;Escala · objetivo 100 %&lt;/span&gt;&lt;/div&gt;
+            &lt;h3&gt;Dolor · EVN / ESCID&lt;/h3&gt;
+            &lt;p&gt;Valora el dolor con EVN/ESCID al menos dos veces por turno y registra el resultado en Estación de Cuidados.&lt;/p&gt;
+            &lt;div class=&quot;card-bottom&quot;&gt;&lt;span class=&quot;system-hint&quot;&gt;Resultado: Estación de Cuidados&lt;/span&gt;&lt;button class=&quot;action&quot; type=&quot;button&quot; data-parent-tool=&quot;scale-pain&quot; data-title=&quot;Dolor · EVN / ESCID&quot; data-destination=&quot;Escalas → Dolor (EVN / ESCID)&quot; data-detail=&quot;Escala para la valoración del dolor.&quot;&gt;Abrir escala &lt;span class=&quot;arrow&quot;&gt;›&lt;/span&gt;&lt;/button&gt;&lt;/div&gt;
           &lt;/article&gt;
-          &lt;article class=&quot;card&quot; data-search=&quot;rass sedaci&#243;n escala estaci&#243;n cuidados registro&quot;&gt;
-            &lt;div class=&quot;card-top&quot;&gt;&lt;div class=&quot;icon blue&quot; aria-hidden=&quot;true&quot;&gt;◌&lt;/div&gt;&lt;span class=&quot;type&quot;&gt;Escala &#183; objetivo 100 %&lt;/span&gt;&lt;/div&gt;
-            &lt;h3&gt;Sedaci&#243;n &#183; RASS&lt;/h3&gt;
-            &lt;p&gt;Valora la sedaci&#243;n con RASS al menos dos veces por turno y registra el resultado en Estaci&#243;n de Cuidados.&lt;/p&gt;
-            &lt;div class=&quot;card-bottom&quot;&gt;&lt;span class=&quot;system-hint&quot;&gt;Resultado: Estaci&#243;n de Cuidados&lt;/span&gt;&lt;button class=&quot;action&quot; type=&quot;button&quot; data-parent-tool=&quot;scale-rass&quot; data-title=&quot;Sedaci&#243;n &#183; RASS&quot; data-destination=&quot;Escalas → RASS&quot; data-detail=&quot;Escala para la valoraci&#243;n de sedaci&#243;n.&quot;&gt;Abrir escala &lt;span class=&quot;arrow&quot;&gt;›&lt;/span&gt;&lt;/button&gt;&lt;/div&gt;
+          &lt;article class=&quot;card&quot; data-search=&quot;rass sedación escala estación cuidados registro&quot;&gt;
+            &lt;div class=&quot;card-top&quot;&gt;&lt;div class=&quot;icon blue&quot; aria-hidden=&quot;true&quot;&gt;◌&lt;/div&gt;&lt;span class=&quot;type&quot;&gt;Escala · objetivo 100 %&lt;/span&gt;&lt;/div&gt;
+            &lt;h3&gt;Sedación · RASS&lt;/h3&gt;
+            &lt;p&gt;Valora la sedación con RASS al menos dos veces por turno y registra el resultado en Estación de Cuidados.&lt;/p&gt;
+            &lt;div class=&quot;card-bottom&quot;&gt;&lt;span class=&quot;system-hint&quot;&gt;Resultado: Estación de Cuidados&lt;/span&gt;&lt;button class=&quot;action&quot; type=&quot;button&quot; data-parent-tool=&quot;scale-rass&quot; data-title=&quot;Sedación · RASS&quot; data-destination=&quot;Escalas → RASS&quot; data-detail=&quot;Escala para la valoración de sedación.&quot;&gt;Abrir escala &lt;span class=&quot;arrow&quot;&gt;›&lt;/span&gt;&lt;/button&gt;&lt;/div&gt;
           &lt;/article&gt;
-          &lt;article class=&quot;card&quot; data-priority=&quot;refuerzo&quot; data-search=&quot;delirio cam-icu cam icu escala estaci&#243;n cuidados registro&quot;&gt;
-            &lt;div class=&quot;card-top&quot;&gt;&lt;div class=&quot;icon plum&quot; aria-hidden=&quot;true&quot;&gt;✳&lt;/div&gt;&lt;span class=&quot;type&quot;&gt;Escala &#183; objetivo 100 %&lt;/span&gt;&lt;/div&gt;
-            &lt;h3&gt;Delirio &#183; CAM-ICU&lt;/h3&gt;
-            &lt;p&gt;Realiza CAM-ICU al menos una vez por turno en pacientes con factores de riesgo de delirio y nivel de consciencia adecuado (RASS entre -2 y +4). Registra el resultado en Estaci&#243;n de Cuidados y en gr&#225;fica, en el apartado de la escala Glasgow.&lt;/p&gt;
-            &lt;div class=&quot;card-bottom&quot;&gt;&lt;span class=&quot;system-hint&quot;&gt;Registrar en Estaci&#243;n de Cuidados y en gr&#225;fica (apartado Glasgow)&lt;/span&gt;&lt;button class=&quot;action&quot; type=&quot;button&quot; data-parent-tool=&quot;scale-cam&quot; data-title=&quot;Delirio &#183; CAM-ICU&quot; data-destination=&quot;Escalas → CAM-ICU&quot; data-detail=&quot;Escala para la valoraci&#243;n del delirio.&quot;&gt;Abrir escala &lt;span class=&quot;arrow&quot;&gt;›&lt;/span&gt;&lt;/button&gt;&lt;/div&gt;
+          &lt;article class=&quot;card&quot; data-priority=&quot;refuerzo&quot; data-search=&quot;delirio cam-icu cam icu escala estación cuidados registro&quot;&gt;
+            &lt;div class=&quot;card-top&quot;&gt;&lt;div class=&quot;icon plum&quot; aria-hidden=&quot;true&quot;&gt;✳&lt;/div&gt;&lt;span class=&quot;type&quot;&gt;Escala · objetivo 100 %&lt;/span&gt;&lt;/div&gt;
+            &lt;h3&gt;Delirio · CAM-ICU&lt;/h3&gt;
+            &lt;p&gt;Realiza CAM-ICU al menos una vez por turno en pacientes con factores de riesgo de delirio y nivel de consciencia adecuado (RASS entre -2 y +4). Registra el resultado en Estación de Cuidados y en gráfica, en el apartado de la escala Glasgow.&lt;/p&gt;
+            &lt;div class=&quot;card-bottom&quot;&gt;&lt;span class=&quot;system-hint&quot;&gt;Registrar en Estación de Cuidados y en gráfica (apartado Glasgow)&lt;/span&gt;&lt;button class=&quot;action&quot; type=&quot;button&quot; data-parent-tool=&quot;scale-cam&quot; data-title=&quot;Delirio · CAM-ICU&quot; data-destination=&quot;Escalas → CAM-ICU&quot; data-detail=&quot;Escala para la valoración del delirio.&quot;&gt;Abrir escala &lt;span class=&quot;arrow&quot;&gt;›&lt;/span&gt;&lt;/button&gt;&lt;/div&gt;
           &lt;/article&gt;
-          &lt;article class=&quot;card&quot; data-priority=&quot;refuerzo&quot; data-search=&quot;l&#237;mites alarmas alarma gr&#225;fica revisar registrar turno&quot;&gt;
-            &lt;div class=&quot;card-top&quot;&gt;&lt;div class=&quot;icon amber&quot; aria-hidden=&quot;true&quot;&gt;⌁&lt;/div&gt;&lt;span class=&quot;type&quot;&gt;Seguridad &#183; en gr&#225;fica&lt;/span&gt;&lt;/div&gt;
-            &lt;h3&gt;L&#237;mites de alarma&lt;/h3&gt;
-            &lt;p&gt;Revisa los l&#237;mites de alarma y registra la revisi&#243;n en la gr&#225;fica en cada turno.&lt;/p&gt;
-            &lt;div class=&quot;card-bottom&quot;&gt;&lt;span class=&quot;system-hint&quot;&gt;Registrar la revisi&#243;n en gr&#225;fica&lt;/span&gt;&lt;/div&gt;
+          &lt;article class=&quot;card&quot; data-priority=&quot;refuerzo&quot; data-search=&quot;límites alarmas alarma gráfica revisar registrar turno&quot;&gt;
+            &lt;div class=&quot;card-top&quot;&gt;&lt;div class=&quot;icon amber&quot; aria-hidden=&quot;true&quot;&gt;⌁&lt;/div&gt;&lt;span class=&quot;type&quot;&gt;Seguridad · en gráfica&lt;/span&gt;&lt;/div&gt;
+            &lt;h3&gt;Límites de alarma&lt;/h3&gt;
+            &lt;p&gt;Revisa los límites de alarma y registra la revisión en la gráfica en cada turno.&lt;/p&gt;
+            &lt;div class=&quot;card-bottom&quot;&gt;&lt;span class=&quot;system-hint&quot;&gt;Registrar la revisión en gráfica&lt;/span&gt;&lt;/div&gt;
           &lt;/article&gt;
-          &lt;article class=&quot;card&quot; data-priority=&quot;refuerzo&quot; data-search=&quot;cambios posturales movilizaci&#243;n giro cada cuatro horas gr&#225;fica registro&quot;&gt;
-            &lt;div class=&quot;card-top&quot;&gt;&lt;div class=&quot;icon blue&quot; aria-hidden=&quot;true&quot;&gt;↻&lt;/div&gt;&lt;span class=&quot;type&quot;&gt;Seg&#250;n pauta&lt;/span&gt;&lt;/div&gt;
+          &lt;article class=&quot;card&quot; data-priority=&quot;refuerzo&quot; data-search=&quot;cambios posturales movilización giro cada cuatro horas gráfica registro&quot;&gt;
+            &lt;div class=&quot;card-top&quot;&gt;&lt;div class=&quot;icon blue&quot; aria-hidden=&quot;true&quot;&gt;↻&lt;/div&gt;&lt;span class=&quot;type&quot;&gt;Según pauta&lt;/span&gt;&lt;/div&gt;
             &lt;h3&gt;Cambios posturales&lt;/h3&gt;
-            &lt;p&gt;Realiza y registra en gr&#225;fica los cambios posturales con la frecuencia pautada (m&#237;nimo cada 4 h) en los pacientes que los precisen.&lt;/p&gt;
-            &lt;div class=&quot;card-bottom&quot;&gt;&lt;span class=&quot;system-hint&quot;&gt;Registrar en gr&#225;fica&lt;/span&gt;&lt;/div&gt;
+            &lt;p&gt;Realiza y registra en gráfica los cambios posturales con la frecuencia pautada (mínimo cada 4 h) en los pacientes que los precisen.&lt;/p&gt;
+            &lt;div class=&quot;card-bottom&quot;&gt;&lt;span class=&quot;system-hint&quot;&gt;Registrar en gráfica&lt;/span&gt;&lt;/div&gt;
           &lt;/article&gt;
-          &lt;article class=&quot;card&quot; data-priority=&quot;tolerancia&quot; data-search=&quot;identificaci&#243;n inequ&#237;voca paciente registros identificaci&#243;n alergias gr&#225;fica seguridad&quot;&gt;
-            &lt;div class=&quot;card-top&quot;&gt;&lt;div class=&quot;icon mint&quot; aria-hidden=&quot;true&quot;&gt;⌖&lt;/div&gt;&lt;span class=&quot;type&quot;&gt;Seguridad &#183; identificaci&#243;n&lt;/span&gt;&lt;/div&gt;
-            &lt;h3&gt;Identificaci&#243;n y alergias&lt;/h3&gt;
-            &lt;p&gt;Comprueba la identificaci&#243;n inequ&#237;voca del paciente y sus registros. En cada turno, verifica que la pulsera est&#233; colocada y registrada; anota en gr&#225;fica las alergias del paciente o su ausencia.&lt;/p&gt;
-            &lt;div class=&quot;card-bottom&quot;&gt;&lt;span class=&quot;system-hint&quot;&gt;Identidad &#183; alergias en gr&#225;fica&lt;/span&gt;&lt;/div&gt;
+          &lt;article class=&quot;card&quot; data-priority=&quot;tolerancia&quot; data-search=&quot;identificación inequívoca paciente registros identificación alergias gráfica seguridad&quot;&gt;
+            &lt;div class=&quot;card-top&quot;&gt;&lt;div class=&quot;icon mint&quot; aria-hidden=&quot;true&quot;&gt;⌖&lt;/div&gt;&lt;span class=&quot;type&quot;&gt;Seguridad · identificación&lt;/span&gt;&lt;/div&gt;
+            &lt;h3&gt;Identificación y alergias&lt;/h3&gt;
+            &lt;p&gt;Comprueba la identificación inequívoca del paciente y sus registros. En cada turno, verifica que la pulsera esté colocada y registrada; anota en gráfica las alergias del paciente o su ausencia.&lt;/p&gt;
+            &lt;div class=&quot;card-bottom&quot;&gt;&lt;span class=&quot;system-hint&quot;&gt;Identidad · alergias en gráfica&lt;/span&gt;&lt;/div&gt;
           &lt;/article&gt;
         &lt;/div&gt;
       &lt;/section&gt;
 
       &lt;section class=&quot;section&quot; data-section=&quot;diario&quot; aria-labelledby=&quot;diario-title&quot;&gt;
-        &lt;div class=&quot;section-head&quot;&gt;&lt;span class=&quot;section-num&quot;&gt;02&lt;/span&gt;&lt;div class=&quot;section-title-wrap&quot;&gt;&lt;h2 id=&quot;diario-title&quot;&gt;Cada d&#237;a&lt;/h2&gt;&lt;span class=&quot;section-sub&quot;&gt;Actualizaci&#243;n en la gr&#225;fica&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;section-rule&quot;&gt;&lt;/div&gt;&lt;/div&gt;
+        &lt;div class=&quot;section-head&quot;&gt;&lt;span class=&quot;section-num&quot;&gt;02&lt;/span&gt;&lt;div class=&quot;section-title-wrap&quot;&gt;&lt;h2 id=&quot;diario-title&quot;&gt;Cada día&lt;/h2&gt;&lt;span class=&quot;section-sub&quot;&gt;Actualización en la gráfica&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;section-rule&quot;&gt;&lt;/div&gt;&lt;/div&gt;
         &lt;div class=&quot;cards&quot;&gt;
-          &lt;article class=&quot;card&quot; data-search=&quot;peso diario actualizar gr&#225;fica paciente registro&quot;&gt;
+          &lt;article class=&quot;card&quot; data-search=&quot;peso diario actualizar gráfica paciente registro&quot;&gt;
             &lt;div class=&quot;card-top&quot;&gt;&lt;div class=&quot;icon blue&quot; aria-hidden=&quot;true&quot;&gt;↗&lt;/div&gt;&lt;span class=&quot;type&quot;&gt;Registro diario&lt;/span&gt;&lt;/div&gt;
             &lt;h3&gt;Peso diario&lt;/h3&gt;
-            &lt;p&gt;Registra y actualiza el peso de cada paciente en la gr&#225;fica.&lt;/p&gt;
-            &lt;div class=&quot;card-bottom&quot;&gt;&lt;span class=&quot;system-hint&quot;&gt;Registrar / actualizar en gr&#225;fica&lt;/span&gt;&lt;/div&gt;
+            &lt;p&gt;Registra y actualiza el peso de cada paciente en la gráfica.&lt;/p&gt;
+            &lt;div class=&quot;card-bottom&quot;&gt;&lt;span class=&quot;system-hint&quot;&gt;Registrar / actualizar en gráfica&lt;/span&gt;&lt;/div&gt;
           &lt;/article&gt;
-          &lt;article class=&quot;card&quot; data-search=&quot;patr&#243;n intestinal eliminaci&#243;n intestinal gr&#225;fica valoraci&#243;n registro diario&quot;&gt;
-            &lt;div class=&quot;card-top&quot;&gt;&lt;div class=&quot;icon amber&quot; aria-hidden=&quot;true&quot;&gt;⌁&lt;/div&gt;&lt;span class=&quot;type&quot;&gt;Valoraci&#243;n diaria&lt;/span&gt;&lt;/div&gt;
-            &lt;h3&gt;Patr&#243;n intestinal&lt;/h3&gt;
-            &lt;p&gt;Valora y registra a diario la eliminaci&#243;n intestinal en la gr&#225;fica.&lt;/p&gt;
-            &lt;div class=&quot;card-bottom&quot;&gt;&lt;span class=&quot;system-hint&quot;&gt;Registrar en gr&#225;fica&lt;/span&gt;&lt;/div&gt;
+          &lt;article class=&quot;card&quot; data-search=&quot;patrón intestinal eliminación intestinal gráfica valoración registro diario&quot;&gt;
+            &lt;div class=&quot;card-top&quot;&gt;&lt;div class=&quot;icon amber&quot; aria-hidden=&quot;true&quot;&gt;⌁&lt;/div&gt;&lt;span class=&quot;type&quot;&gt;Valoración diaria&lt;/span&gt;&lt;/div&gt;
+            &lt;h3&gt;Patrón intestinal&lt;/h3&gt;
+            &lt;p&gt;Valora y registra a diario la eliminación intestinal en la gráfica.&lt;/p&gt;
+            &lt;div class=&quot;card-bottom&quot;&gt;&lt;span class=&quot;system-hint&quot;&gt;Registrar en gráfica&lt;/span&gt;&lt;/div&gt;
           &lt;/article&gt;
         &lt;/div&gt;
       &lt;/section&gt;
 
       &lt;section class=&quot;section&quot; data-section=&quot;oportunidad&quot; aria-labelledby=&quot;oportunidad-title&quot;&gt;
-        &lt;div class=&quot;section-head&quot;&gt;&lt;span class=&quot;section-num&quot;&gt;03&lt;/span&gt;&lt;div class=&quot;section-title-wrap&quot;&gt;&lt;h2 id=&quot;oportunidad-title&quot;&gt;Cuando corresponda&lt;/h2&gt;&lt;span class=&quot;section-sub&quot;&gt;Seg&#250;n evoluci&#243;n, procedimiento u oportunidad&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;section-rule&quot;&gt;&lt;/div&gt;&lt;/div&gt;
+        &lt;div class=&quot;section-head&quot;&gt;&lt;span class=&quot;section-num&quot;&gt;03&lt;/span&gt;&lt;div class=&quot;section-title-wrap&quot;&gt;&lt;h2 id=&quot;oportunidad-title&quot;&gt;Cuando corresponda&lt;/h2&gt;&lt;span class=&quot;section-sub&quot;&gt;Según evolución, procedimiento u oportunidad&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;section-rule&quot;&gt;&lt;/div&gt;&lt;/div&gt;
         &lt;div class=&quot;cards&quot;&gt;
-          &lt;article class=&quot;card&quot; data-search=&quot;retirada cat&#233;ter venoso central cvc perif&#233;rico maddox registro&quot;&gt;
+          &lt;article class=&quot;card&quot; data-search=&quot;retirada catéter venoso central cvc periférico maddox registro&quot;&gt;
             &lt;div class=&quot;card-top&quot;&gt;&lt;div class=&quot;icon plum&quot; aria-hidden=&quot;true&quot;&gt;⌁&lt;/div&gt;&lt;span class=&quot;type&quot;&gt;Registro de retirada&lt;/span&gt;&lt;/div&gt;
-            &lt;h3&gt;Retirada de cat&#233;ter&lt;/h3&gt;
-            &lt;p&gt;Registra la retirada de cat&#233;ter venoso central y perif&#233;rico (escala Maddox).&lt;/p&gt;
-            &lt;div class=&quot;card-bottom&quot;&gt;&lt;span class=&quot;system-hint&quot;&gt;Registrar en Estaci&#243;n de Cuidados&lt;/span&gt;&lt;button class=&quot;action maddox-open&quot; type=&quot;button&quot;&gt;Ver escala Maddox &lt;span class=&quot;arrow&quot;&gt;›&lt;/span&gt;&lt;/button&gt;&lt;/div&gt;
+            &lt;h3&gt;Retirada de catéter&lt;/h3&gt;
+            &lt;p&gt;Registra la retirada de catéter venoso central y periférico (escala Maddox).&lt;/p&gt;
+            &lt;div class=&quot;card-bottom&quot;&gt;&lt;span class=&quot;system-hint&quot;&gt;Registrar en Estación de Cuidados&lt;/span&gt;&lt;button class=&quot;action maddox-open&quot; type=&quot;button&quot;&gt;Ver escala Maddox &lt;span class=&quot;arrow&quot;&gt;›&lt;/span&gt;&lt;/button&gt;&lt;/div&gt;
           &lt;/article&gt;
-          &lt;article class=&quot;card&quot; data-search=&quot;historia enfermer&#237;a inicial plan cuidados ICC DAE posterior transferencia&quot;&gt;
-            &lt;div class=&quot;card-top&quot;&gt;&lt;div class=&quot;icon mint&quot; aria-hidden=&quot;true&quot;&gt;▤&lt;/div&gt;&lt;span class=&quot;type&quot;&gt;Historia de enfermer&#237;a&lt;/span&gt;&lt;/div&gt;
+          &lt;article class=&quot;card&quot; data-search=&quot;historia enfermería inicial plan cuidados ICC DAE posterior transferencia&quot;&gt;
+            &lt;div class=&quot;card-top&quot;&gt;&lt;div class=&quot;icon mint&quot; aria-hidden=&quot;true&quot;&gt;▤&lt;/div&gt;&lt;span class=&quot;type&quot;&gt;Historia de enfermería&lt;/span&gt;&lt;/div&gt;
             &lt;h3&gt;Historia y continuidad de cuidados&lt;/h3&gt;
-            &lt;p&gt;Completa en Estaci&#243;n de Cuidados la valoraci&#243;n inicial, el plan de cuidados, ICC cuando corresponda, DAE, la valoraci&#243;n posterior y el informe de transferencia.&lt;/p&gt;
-            &lt;div class=&quot;card-bottom&quot;&gt;&lt;span class=&quot;system-hint&quot;&gt;Completar en Estaci&#243;n de Cuidados &#183; DAE&lt;/span&gt;&lt;/div&gt;
+            &lt;p&gt;Completa en Estación de Cuidados la valoración inicial, el plan de cuidados, ICC cuando corresponda, DAE, la valoración posterior y el informe de transferencia.&lt;/p&gt;
+            &lt;div class=&quot;card-bottom&quot;&gt;&lt;span class=&quot;system-hint&quot;&gt;Completar en Estación de Cuidados · DAE&lt;/span&gt;&lt;/div&gt;
           &lt;/article&gt;
-          &lt;article class=&quot;card&quot; data-search=&quot;evoluci&#243;n LPP lesiones por presi&#243;n COMHON escala&quot;&gt;
+          &lt;article class=&quot;card&quot; data-search=&quot;evolución LPP lesiones por presión COMHON escala&quot;&gt;
             &lt;div class=&quot;card-top&quot;&gt;&lt;div class=&quot;icon amber&quot; aria-hidden=&quot;true&quot;&gt;◈&lt;/div&gt;&lt;span class=&quot;type&quot;&gt;Pacientes con LPP&lt;/span&gt;&lt;/div&gt;
-            &lt;h3&gt;Lesiones por presi&#243;n (LPP) y escala COMHON&lt;/h3&gt;
-            &lt;p&gt;Registra las lesiones por presi&#243;n (LPP) y su evoluci&#243;n en el Nuevo Portal de Heridas de Diraya. Completa la escala COMHON en Estaci&#243;n de Cuidados (DAE).&lt;/p&gt;
-            &lt;div class=&quot;card-bottom&quot;&gt;&lt;span class=&quot;system-hint&quot;&gt;LPP: Nuevo Portal de Heridas de Diraya &#183; Escala COMHON: DAE&lt;/span&gt;&lt;/div&gt;
+            &lt;h3&gt;Lesiones por presión (LPP) y escala COMHON&lt;/h3&gt;
+            &lt;p&gt;Registra las lesiones por presión (LPP) y su evolución en el Nuevo Portal de Heridas de Diraya. Completa la escala COMHON en Estación de Cuidados (DAE).&lt;/p&gt;
+            &lt;div class=&quot;card-bottom&quot;&gt;&lt;span class=&quot;system-hint&quot;&gt;LPP: Nuevo Portal de Heridas de Diraya · Escala COMHON: DAE&lt;/span&gt;&lt;/div&gt;
           &lt;/article&gt;
-          &lt;article class=&quot;card&quot; data-search=&quot;ca&#237;das caida mayores 65 a&#241;os registro oportunidad&quot;&gt;
+          &lt;article class=&quot;card&quot; data-search=&quot;caídas caida mayores 65 años registro oportunidad&quot;&gt;
             &lt;div class=&quot;card-top&quot;&gt;&lt;div class=&quot;icon blue&quot; aria-hidden=&quot;true&quot;&gt;＋&lt;/div&gt;&lt;/div&gt;
-            &lt;h3&gt;Registro de ca&#237;das &#183; mayores de 65&lt;/h3&gt;
-            &lt;p&gt;Realizar Test de Cribado para la detecci&#243;n del riesgo de ca&#237;das en pacientes mayores de 65 a&#241;os&lt;/p&gt;
+            &lt;h3&gt;Registro de caídas · mayores de 65&lt;/h3&gt;
+            &lt;p&gt;Realizar Test de Cribado para la detección del riesgo de caídas en pacientes mayores de 65 años&lt;/p&gt;
             &lt;div class=&quot;card-bottom&quot;&gt;&lt;span class=&quot;system-hint&quot;&gt;Registrar en el sistema habitual&lt;/span&gt;&lt;/div&gt;
           &lt;/article&gt;
-          &lt;article class=&quot;card&quot; data-search=&quot;gasometr&#237;a gasometr&#237;as POCT ATOM gas&#243;metro EKG ECG electrocardiograma identificaci&#243;n muestra dos datos paciente&quot;&gt;
+          &lt;article class=&quot;card&quot; data-search=&quot;gasometría gasometrías POCT ATOM gasómetro EKG ECG electrocardiograma identificación muestra dos datos paciente&quot;&gt;
             &lt;div class=&quot;card-top&quot;&gt;&lt;div class=&quot;icon plum&quot; aria-hidden=&quot;true&quot;&gt;◉&lt;/div&gt;&lt;span class=&quot;type&quot;&gt;Al realizar una POCT&lt;/span&gt;&lt;/div&gt;
-            &lt;h3&gt;Identificaci&#243;n de gasometr&#237;as y EKG&lt;/h3&gt;
-            &lt;p&gt;Identifica en el gas&#243;metro las muestras de gasometr&#237;as realizadas por POCT y disponibles en ATOM. Comprueba que gasometr&#237;as y electrocardiogramas est&#233;n identificados con al menos dos datos del paciente.&lt;/p&gt;
-            &lt;div class=&quot;card-bottom&quot;&gt;&lt;span class=&quot;system-hint&quot;&gt;Identificar muestra en gas&#243;metro / ATOM&lt;/span&gt;&lt;/div&gt;
+            &lt;h3&gt;Identificación de gasometrías y EKG&lt;/h3&gt;
+            &lt;p&gt;Identifica en el gasómetro las muestras de gasometrías realizadas por POCT y disponibles en ATOM. Comprueba que gasometrías y electrocardiogramas estén identificados con al menos dos datos del paciente.&lt;/p&gt;
+            &lt;div class=&quot;card-bottom&quot;&gt;&lt;span class=&quot;system-hint&quot;&gt;Identificar muestra en gasómetro / ATOM&lt;/span&gt;&lt;/div&gt;
           &lt;/article&gt;
-          &lt;article class=&quot;card&quot; data-drive-url=&quot;https://drive.google.com/open?id=11YbbxNmaN4yH8_1B_4IGNE79jwc04KOi&quot; data-search=&quot;contenci&#243;n mec&#225;nica prescripci&#243;n facultativo firmada control protocolo&quot;&gt;
+          &lt;article class=&quot;card&quot; data-drive-url=&quot;https://drive.google.com/open?id=11YbbxNmaN4yH8_1B_4IGNE79jwc04KOi&quot; data-search=&quot;contención mecánica prescripción facultativo firmada control protocolo&quot;&gt;
             &lt;div class=&quot;card-top&quot;&gt;&lt;div class=&quot;icon amber&quot; aria-hidden=&quot;true&quot;&gt;!&lt;/div&gt;&lt;span class=&quot;type&quot;&gt;Cuando se utilicen&lt;/span&gt;&lt;/div&gt;
-            &lt;h3&gt;Contenciones mec&#225;nicas&lt;/h3&gt;
-            &lt;p&gt;Comprueba que exista prescripci&#243;n m&#233;dica firmada y realiza los controles seg&#250;n el protocolo vigente.&lt;/p&gt;
-            &lt;div class=&quot;card-bottom&quot;&gt;&lt;span class=&quot;system-hint&quot;&gt;Prescripci&#243;n firmada &#183; controles seg&#250;n protocolo&lt;/span&gt;&lt;/div&gt;
+            &lt;h3&gt;Contenciones mecánicas&lt;/h3&gt;
+            &lt;p&gt;Comprueba que exista prescripción médica firmada y realiza los controles según el protocolo vigente.&lt;/p&gt;
+            &lt;div class=&quot;card-bottom&quot;&gt;&lt;span class=&quot;system-hint&quot;&gt;Prescripción firmada · controles según protocolo&lt;/span&gt;&lt;/div&gt;
           &lt;/article&gt;
-          &lt;article class=&quot;card&quot; data-search=&quot;interconsulta EPA traqueotom&#237;a traqueo ostom&#237;as oncolog&#237;a necesidad&quot;&gt;
-            &lt;div class=&quot;card-top&quot;&gt;&lt;div class=&quot;icon mint&quot; aria-hidden=&quot;true&quot;&gt;↗&lt;/div&gt;&lt;span class=&quot;type&quot;&gt;Seg&#250;n necesidad&lt;/span&gt;&lt;/div&gt;
+          &lt;article class=&quot;card&quot; data-search=&quot;interconsulta EPA traqueotomía traqueo ostomías oncología necesidad&quot;&gt;
+            &lt;div class=&quot;card-top&quot;&gt;&lt;div class=&quot;icon mint&quot; aria-hidden=&quot;true&quot;&gt;↗&lt;/div&gt;&lt;span class=&quot;type&quot;&gt;Según necesidad&lt;/span&gt;&lt;/div&gt;
             &lt;h3&gt;Interconsultas EPA&lt;/h3&gt;
-            &lt;p&gt;Antes del alta, valora si procede interconsulta a EPA en pacientes traqueostomizados (especialmente si pasan a planta), oncol&#243;gicos, ostomizados o con curas complejas.&lt;/p&gt;
+            &lt;p&gt;Antes del alta, valora si procede interconsulta a EPA en pacientes traqueostomizados (especialmente si pasan a planta), oncológicos, ostomizados o con curas complejas.&lt;/p&gt;
             &lt;div class=&quot;card-bottom&quot;&gt;&lt;span class=&quot;system-hint&quot;&gt;Seguir circuito de interconsulta&lt;/span&gt;&lt;/div&gt;
           &lt;/article&gt;
         &lt;/div&gt;
       &lt;/section&gt;
 
       &lt;section class=&quot;section&quot; data-section=&quot;unidad&quot; aria-labelledby=&quot;carros-title&quot;&gt;
-        &lt;div class=&quot;section-head&quot;&gt;&lt;span class=&quot;section-num&quot;&gt;OBJETIVOS DE UNIDAD&lt;/span&gt;&lt;div class=&quot;section-title-wrap&quot;&gt;&lt;h2 id=&quot;carros-title&quot;&gt;Revisi&#243;n de carros&lt;/h2&gt;&lt;span class=&quot;section-sub&quot;&gt;Ubicaci&#243;n, periodicidad y responsables&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;section-rule&quot;&gt;&lt;/div&gt;&lt;/div&gt;
+        &lt;div class=&quot;section-head&quot;&gt;&lt;span class=&quot;section-num&quot;&gt;OBJETIVOS DE UNIDAD&lt;/span&gt;&lt;div class=&quot;section-title-wrap&quot;&gt;&lt;h2 id=&quot;carros-title&quot;&gt;Revisión de carros&lt;/h2&gt;&lt;span class=&quot;section-sub&quot;&gt;Ubicación, periodicidad y responsables&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;section-rule&quot;&gt;&lt;/div&gt;&lt;/div&gt;
         &lt;div class=&quot;cards&quot;&gt;
-          &lt;article class=&quot;card cart-card&quot; data-drive-url=&quot;https://drive.google.com/open?id=1SFBRDj3rLNHUH2tKvUD9bRvHmHPm17iw&quot; data-search=&quot;carro de parada paradas cada unidad noche uso box 1 enfermero TCAE revisi&#243;n&quot;&gt;
-            &lt;div class=&quot;card-top&quot;&gt;&lt;div class=&quot;icon amber&quot; aria-hidden=&quot;true&quot;&gt;↻&lt;/div&gt;&lt;span class=&quot;type&quot;&gt;Cada noche &#183; despu&#233;s de cada uso&lt;/span&gt;&lt;/div&gt;
+          &lt;article class=&quot;card cart-card&quot; data-drive-url=&quot;https://drive.google.com/open?id=1SFBRDj3rLNHUH2tKvUD9bRvHmHPm17iw&quot; data-search=&quot;carro de parada paradas cada unidad noche uso box 1 enfermero TCAE revisión&quot;&gt;
+            &lt;div class=&quot;card-top&quot;&gt;&lt;div class=&quot;icon amber&quot; aria-hidden=&quot;true&quot;&gt;↻&lt;/div&gt;&lt;span class=&quot;type&quot;&gt;Cada noche · después de cada uso&lt;/span&gt;&lt;/div&gt;
             &lt;h3&gt;Carro de paradas&lt;/h3&gt;
-            &lt;p&gt;Ubicaci&#243;n: un carro en cada unidad.&lt;/p&gt;
+            &lt;p&gt;Ubicación: un carro en cada unidad.&lt;/p&gt;
             &lt;div class=&quot;card-bottom&quot;&gt;&lt;span class=&quot;system-hint&quot;&gt;Responsables: enfermero/a y TCAE asignados al box 1 de cada unidad&lt;/span&gt;&lt;/div&gt;
           &lt;/article&gt;
-          &lt;article class=&quot;card cart-card&quot; data-drive-url=&quot;https://drive.google.com/open?id=13z9K-e3Y18MMnlzpt7zrJB6vLkw11rCr&quot; data-search=&quot;carro esternotom&#237;a esternotomia cada domingo box ingreso P UCP box 6 enfermero TCAE revisi&#243;n&quot;&gt;
+          &lt;article class=&quot;card cart-card&quot; data-drive-url=&quot;https://drive.google.com/open?id=13z9K-e3Y18MMnlzpt7zrJB6vLkw11rCr&quot; data-search=&quot;carro esternotomía esternotomia cada domingo box ingreso P UCP box 6 enfermero TCAE revisión&quot;&gt;
             &lt;div class=&quot;card-top&quot;&gt;&lt;div class=&quot;icon blue&quot; aria-hidden=&quot;true&quot;&gt;↻&lt;/div&gt;&lt;span class=&quot;type&quot;&gt;Cada domingo&lt;/span&gt;&lt;/div&gt;
-            &lt;h3&gt;Carro de esternotom&#237;a&lt;/h3&gt;
-            &lt;p&gt;Ubicaci&#243;n: box de ingreso de la P.&lt;/p&gt;
+            &lt;h3&gt;Carro de esternotomía&lt;/h3&gt;
+            &lt;p&gt;Ubicación: box de ingreso de la P.&lt;/p&gt;
             &lt;div class=&quot;card-bottom&quot;&gt;&lt;span class=&quot;system-hint&quot;&gt;Responsables: enfermero/a y TCAE del box 6 de la UCP&lt;/span&gt;&lt;/div&gt;
           &lt;/article&gt;
-          &lt;article class=&quot;card cart-card&quot; data-drive-url=&quot;https://drive.google.com/open?id=1cE69iHdXARj8HSdN0dW087MJDvYZ2wP6&quot; data-search=&quot;carro v&#237;a a&#233;rea dif&#237;cil via aerea dificil cada domingo UCI B cama 4 enfermer&#237;a TCAE revisi&#243;n&quot;&gt;
+          &lt;article class=&quot;card cart-card&quot; data-drive-url=&quot;https://drive.google.com/open?id=1cE69iHdXARj8HSdN0dW087MJDvYZ2wP6&quot; data-search=&quot;carro vía aérea difícil via aerea dificil cada domingo UCI B cama 4 enfermería TCAE revisión&quot;&gt;
             &lt;div class=&quot;card-top&quot;&gt;&lt;div class=&quot;icon plum&quot; aria-hidden=&quot;true&quot;&gt;↻&lt;/div&gt;&lt;span class=&quot;type&quot;&gt;Cada domingo&lt;/span&gt;&lt;/div&gt;
-            &lt;h3&gt;Carro de v&#237;a a&#233;rea dif&#237;cil&lt;/h3&gt;
-            &lt;p&gt;Ubicaci&#243;n: UCI B.&lt;/p&gt;
+            &lt;h3&gt;Carro de vía aérea difícil&lt;/h3&gt;
+            &lt;p&gt;Ubicación: UCI B.&lt;/p&gt;
             &lt;div class=&quot;card-bottom&quot;&gt;&lt;span class=&quot;system-hint&quot;&gt;Responsables: enfermero/a y TCAE responsables de la cama 4 de UCI B&lt;/span&gt;&lt;/div&gt;
           &lt;/article&gt;
         &lt;/div&gt;
@@ -1260,19 +1263,19 @@ body.v35-drug-list.uci-drug-search-compact > header #allBtn{flex:0 0 auto;min-he
         &lt;div class=&quot;breadcrumbs&quot;&gt;Recursos UCI &lt;span&gt;/&lt;/span&gt; Objetivos asistenciales &lt;span&gt;/&lt;/span&gt; Objetivos de TCAE&lt;/div&gt;
         &lt;section class=&quot;hero&quot; aria-labelledby=&quot;tcae-page-title&quot;&gt;
           &lt;div&gt;
-            &lt;div class=&quot;eyebrow&quot;&gt;Objetivos asistenciales &#183; TCAE&lt;/div&gt;
+            &lt;div class=&quot;eyebrow&quot;&gt;Objetivos asistenciales · TCAE&lt;/div&gt;
             &lt;h1 id=&quot;tcae-page-title&quot;&gt;Objetivos de TCAE&lt;/h1&gt;
-            &lt;p&gt;Objetivos del TCAE organizados seg&#250;n el momento de la asistencia.&lt;/p&gt;
+            &lt;p&gt;Objetivos del TCAE organizados según el momento de la asistencia.&lt;/p&gt;
           &lt;/div&gt;
           &lt;div class=&quot;year-tag&quot;&gt;Objetivos 2026&lt;/div&gt;
         &lt;/section&gt;
         &lt;div class=&quot;tcae-outline&quot; aria-label=&quot;Frecuencia de los objetivos&quot;&gt;
           &lt;article&gt;&lt;span class=&quot;section-num&quot;&gt;01&lt;/span&gt;&lt;h2&gt;En cada turno&lt;/h2&gt;&lt;p&gt;Objetivos para consultar durante cada turno.&lt;/p&gt;&lt;/article&gt;
-          &lt;article&gt;&lt;span class=&quot;section-num&quot;&gt;02&lt;/span&gt;&lt;h2&gt;Cada d&#237;a&lt;/h2&gt;&lt;p&gt;Objetivos que se revisan diariamente.&lt;/p&gt;&lt;/article&gt;
-          &lt;article&gt;&lt;span class=&quot;section-num&quot;&gt;03&lt;/span&gt;&lt;h2&gt;Cuando corresponda&lt;/h2&gt;&lt;p&gt;Objetivos vinculados a la situaci&#243;n asistencial.&lt;/p&gt;&lt;/article&gt;
+          &lt;article&gt;&lt;span class=&quot;section-num&quot;&gt;02&lt;/span&gt;&lt;h2&gt;Cada día&lt;/h2&gt;&lt;p&gt;Objetivos que se revisan diariamente.&lt;/p&gt;&lt;/article&gt;
+          &lt;article&gt;&lt;span class=&quot;section-num&quot;&gt;03&lt;/span&gt;&lt;h2&gt;Cuando corresponda&lt;/h2&gt;&lt;p&gt;Objetivos vinculados a la situación asistencial.&lt;/p&gt;&lt;/article&gt;
         &lt;/div&gt;
       &lt;/section&gt;
-      &lt;footer&gt;&lt;span&gt;Recursos UCI HUVM&lt;/span&gt;&lt;span&gt;Objetivos asistenciales &#183; 2026&lt;/span&gt;&lt;/footer&gt;
+      &lt;footer&gt;&lt;span&gt;Recursos UCI HUVM&lt;/span&gt;&lt;span&gt;Objetivos asistenciales · 2026&lt;/span&gt;&lt;/footer&gt;
     &lt;/main&gt;
   &lt;/div&gt;
 
@@ -1282,26 +1285,26 @@ body.v35-drug-list.uci-drug-search-compact > header #allBtn{flex:0 0 auto;min-he
       &lt;div class=&quot;eyebrow&quot;&gt;Recursos UCI HUVM&lt;/div&gt;
       &lt;h2 id=&quot;dialog-title&quot;&gt;Herramienta&lt;/h2&gt;
       &lt;p id=&quot;dialog-detail&quot;&gt;&lt;/p&gt;
-      &lt;div class=&quot;destination&quot;&gt;&lt;strong&gt;Secci&#243;n&lt;/strong&gt;&lt;span id=&quot;dialog-destination&quot;&gt;&lt;/span&gt;&lt;/div&gt;
+      &lt;div class=&quot;destination&quot;&gt;&lt;strong&gt;Sección&lt;/strong&gt;&lt;span id=&quot;dialog-destination&quot;&gt;&lt;/span&gt;&lt;/div&gt;
       &lt;div class=&quot;dialog-actions&quot;&gt;&lt;button type=&quot;button&quot; id=&quot;close-dialog&quot;&gt;Entendido&lt;/button&gt;&lt;/div&gt;
     &lt;/div&gt;
   &lt;/dialog&gt;
 
   &lt;dialog id=&quot;maddox-dialog&quot; aria-labelledby=&quot;maddox-title&quot;&gt;
     &lt;div class=&quot;maddox-head&quot;&gt;
-      &lt;div&gt;&lt;h2 id=&quot;maddox-title&quot;&gt;Escala Maddox&lt;/h2&gt;&lt;p&gt;Criterios de valoraci&#243;n &#183; Grados 0 a 5&lt;/p&gt;&lt;/div&gt;
-      &lt;button class=&quot;x&quot; type=&quot;button&quot; id=&quot;maddox-close&quot; aria-label=&quot;Cerrar&quot;&gt;&#215;&lt;/button&gt;
+      &lt;div&gt;&lt;h2 id=&quot;maddox-title&quot;&gt;Escala Maddox&lt;/h2&gt;&lt;p&gt;Criterios de valoración · Grados 0 a 5&lt;/p&gt;&lt;/div&gt;
+      &lt;button class=&quot;x&quot; type=&quot;button&quot; id=&quot;maddox-close&quot; aria-label=&quot;Cerrar&quot;&gt;×&lt;/button&gt;
     &lt;/div&gt;
     &lt;div class=&quot;maddox-body&quot;&gt;
       &lt;table class=&quot;maddox-table&quot;&gt;
         &lt;thead&gt;&lt;tr&gt;&lt;th&gt;Grado&lt;/th&gt;&lt;th&gt;Criterio&lt;/th&gt;&lt;/tr&gt;&lt;/thead&gt;
         &lt;tbody&gt;
-          &lt;tr&gt;&lt;td&gt;0&lt;/td&gt;&lt;td&gt;No dolor, eritema, tumefacci&#243;n ni induraci&#243;n de un cord&#243;n venoso.&lt;/td&gt;&lt;/tr&gt;
-          &lt;tr&gt;&lt;td&gt;1&lt;/td&gt;&lt;td&gt;Dolor en el punto de inserci&#243;n, sin signos de eritema, tumefacci&#243;n o palpaci&#243;n de un cord&#243;n venoso.&lt;/td&gt;&lt;/tr&gt;
-          &lt;tr&gt;&lt;td&gt;2&lt;/td&gt;&lt;td&gt;Cierto grado de eritema, tumefacci&#243;n o ambos a la vez. No induraci&#243;n ni cord&#243;n venoso.&lt;/td&gt;&lt;/tr&gt;
-          &lt;tr&gt;&lt;td&gt;3&lt;/td&gt;&lt;td&gt;Eritema, tumefacci&#243;n en el punto de inserci&#243;n y cord&#243;n venoso palpable, de 5–6 cm por encima del punto de inserci&#243;n. Fiebre.&lt;/td&gt;&lt;/tr&gt;
-          &lt;tr&gt;&lt;td&gt;4&lt;/td&gt;&lt;td&gt;Eritema, tumefacci&#243;n en la zona de inserci&#243;n y cord&#243;n venoso palpable en la zona, superior a 5–6 cm. Fiebre.&lt;/td&gt;&lt;/tr&gt;
-          &lt;tr&gt;&lt;td&gt;5&lt;/td&gt;&lt;td&gt;Trombosis venosa franca con todos los signos anteriores y dificultad o detenci&#243;n de la perfusi&#243;n.&lt;/td&gt;&lt;/tr&gt;
+          &lt;tr&gt;&lt;td&gt;0&lt;/td&gt;&lt;td&gt;No dolor, eritema, tumefacción ni induración de un cordón venoso.&lt;/td&gt;&lt;/tr&gt;
+          &lt;tr&gt;&lt;td&gt;1&lt;/td&gt;&lt;td&gt;Dolor en el punto de inserción, sin signos de eritema, tumefacción o palpación de un cordón venoso.&lt;/td&gt;&lt;/tr&gt;
+          &lt;tr&gt;&lt;td&gt;2&lt;/td&gt;&lt;td&gt;Cierto grado de eritema, tumefacción o ambos a la vez. No induración ni cordón venoso.&lt;/td&gt;&lt;/tr&gt;
+          &lt;tr&gt;&lt;td&gt;3&lt;/td&gt;&lt;td&gt;Eritema, tumefacción en el punto de inserción y cordón venoso palpable, de 5–6 cm por encima del punto de inserción. Fiebre.&lt;/td&gt;&lt;/tr&gt;
+          &lt;tr&gt;&lt;td&gt;4&lt;/td&gt;&lt;td&gt;Eritema, tumefacción en la zona de inserción y cordón venoso palpable en la zona, superior a 5–6 cm. Fiebre.&lt;/td&gt;&lt;/tr&gt;
+          &lt;tr&gt;&lt;td&gt;5&lt;/td&gt;&lt;td&gt;Trombosis venosa franca con todos los signos anteriores y dificultad o detención de la perfusión.&lt;/td&gt;&lt;/tr&gt;
         &lt;/tbody&gt;
       &lt;/table&gt;
     &lt;/div&gt;
@@ -1309,15 +1312,15 @@ body.v35-drug-list.uci-drug-search-compact > header #allBtn{flex:0 0 auto;min-he
   &lt;/dialog&gt;
 
   &lt;script&gt;
-    const chips = [...document.querySelectorAll(&#39;.filter-chip&#39;)];
-    const sections = [...document.querySelectorAll(&#39;.section[data-section]&#39;)];
-    let activeFilter = &#39;all&#39;;
+    const chips = [...document.querySelectorAll(&#x27;.filter-chip&#x27;)];
+    const sections = [...document.querySelectorAll(&#x27;.section[data-section]&#x27;)];
+    let activeFilter = &#x27;all&#x27;;
 
     function updateView() {
       sections.forEach(section =&gt; {
         let sectionHasVisible = false;
-        const matchesFilter = activeFilter === &#39;all&#39; || section.dataset.section === activeFilter;
-        section.querySelectorAll(&#39;.card&#39;).forEach(card =&gt; {
+        const matchesFilter = activeFilter === &#x27;all&#x27; || section.dataset.section === activeFilter;
+        section.querySelectorAll(&#x27;.card&#x27;).forEach(card =&gt; {
           const visible = matchesFilter;
           card.hidden = !visible;
           if (visible) sectionHasVisible = true;
@@ -1326,74 +1329,74 @@ body.v35-drug-list.uci-drug-search-compact > header #allBtn{flex:0 0 auto;min-he
       });
     }
 
-    chips.forEach(chip =&gt; chip.addEventListener(&#39;click&#39;, () =&gt; {
+    chips.forEach(chip =&gt; chip.addEventListener(&#x27;click&#x27;, () =&gt; {
       activeFilter = chip.dataset.filter;
       chips.forEach(item =&gt; {
         const selected = item === chip;
-        item.classList.toggle(&#39;active&#39;, selected);
-        item.setAttribute(&#39;aria-pressed&#39;, String(selected));
+        item.classList.toggle(&#x27;active&#x27;, selected);
+        item.setAttribute(&#x27;aria-pressed&#x27;, String(selected));
       });
       updateView();
     }));
 
-    document.querySelectorAll(&#39;.card&#39;).forEach((card, index) =&gt; {
-      const top = card.querySelector(&#39;.card-top&#39;);
-      const title = Array.from(card.children).find(child =&gt; child.matches(&#39;h3&#39;));
-      const description = Array.from(card.children).find(child =&gt; child.matches(&#39;p&#39;));
-      const bottom = Array.from(card.children).find(child =&gt; child.classList.contains(&#39;card-bottom&#39;));
+    document.querySelectorAll(&#x27;.card&#x27;).forEach((card, index) =&gt; {
+      const top = card.querySelector(&#x27;.card-top&#x27;);
+      const title = Array.from(card.children).find(child =&gt; child.matches(&#x27;h3&#x27;));
+      const description = Array.from(card.children).find(child =&gt; child.matches(&#x27;p&#x27;));
+      const bottom = Array.from(card.children).find(child =&gt; child.classList.contains(&#x27;card-bottom&#x27;));
       const extraContent = Array.from(card.children).filter(child =&gt; ![top, title, description, bottom].includes(child));
       if (!top || !title) return;
 
-      const icon = top.querySelector(&#39;.icon&#39;);
-      const type = top.querySelector(&#39;.type&#39;);
-      const summary = document.createElement(&#39;button&#39;);
-      summary.type = &#39;button&#39;;
-      summary.className = &#39;card-summary&#39;;
-      summary.setAttribute(&#39;aria-expanded&#39;, &#39;false&#39;);
-      const details = document.createElement(&#39;div&#39;);
-      details.className = &#39;card-details&#39;;
-      details.id = &#39;task-detail-&#39; + index;
+      const icon = top.querySelector(&#x27;.icon&#x27;);
+      const type = top.querySelector(&#x27;.type&#x27;);
+      const summary = document.createElement(&#x27;button&#x27;);
+      summary.type = &#x27;button&#x27;;
+      summary.className = &#x27;card-summary&#x27;;
+      summary.setAttribute(&#x27;aria-expanded&#x27;, &#x27;false&#x27;);
+      const details = document.createElement(&#x27;div&#x27;);
+      details.className = &#x27;card-details&#x27;;
+      details.id = &#x27;task-detail-&#x27; + index;
       details.hidden = true;
-      summary.setAttribute(&#39;aria-controls&#39;, details.id);
+      summary.setAttribute(&#x27;aria-controls&#x27;, details.id);
 
       if (icon) summary.append(icon);
-      const summaryTitle = document.createElement(&#39;span&#39;);
-      summaryTitle.className = &#39;card-title&#39;;
+      const summaryTitle = document.createElement(&#x27;span&#x27;);
+      summaryTitle.className = &#x27;card-title&#x27;;
       summaryTitle.textContent = title.textContent;
-      if (card.classList.contains(&#39;cart-card&#39;)) {
-        const heading = document.createElement(&#39;span&#39;);
-        heading.className = &#39;card-heading&#39;;
+      if (card.classList.contains(&#x27;cart-card&#x27;)) {
+        const heading = document.createElement(&#x27;span&#x27;);
+        heading.className = &#x27;card-heading&#x27;;
         heading.append(summaryTitle);
-        const responsibleText = bottom &amp;&amp; bottom.querySelector(&#39;.system-hint&#39;);
+        const responsibleText = bottom &amp;&amp; bottom.querySelector(&#x27;.system-hint&#x27;);
         summary.append(heading);
         if (type) {
-          const schedule = document.createElement(&#39;span&#39;);
-          schedule.className = &#39;cart-schedule&#39;;
-          schedule.textContent = &#39;Revisi&#243;n: &#39; + type.textContent;
+          const schedule = document.createElement(&#x27;span&#x27;);
+          schedule.className = &#x27;cart-schedule&#x27;;
+          schedule.textContent = &#x27;Revisión: &#x27; + type.textContent;
           details.append(schedule);
         }
         if (responsibleText) {
-          const responsible = document.createElement(&#39;span&#39;);
-          responsible.className = &#39;cart-responsible&#39;;
+          const responsible = document.createElement(&#x27;span&#x27;);
+          responsible.className = &#x27;cart-responsible&#x27;;
           responsible.textContent = responsibleText.textContent;
           details.append(responsible);
         }
         if (description) {
-          description.classList.add(&#39;cart-location&#39;);
+          description.classList.add(&#x27;cart-location&#x27;);
           details.append(description);
         }
         if (card.dataset.driveUrl) {
-          const driveLink = document.createElement(&#39;a&#39;);
-          driveLink.className = &#39;cart-drive-link&#39;;
+          const driveLink = document.createElement(&#x27;a&#x27;);
+          driveLink.className = &#x27;cart-drive-link&#x27;;
           driveLink.href = card.dataset.driveUrl;
-          driveLink.target = &#39;_blank&#39;;
-          driveLink.rel = &#39;noopener noreferrer&#39;;
-          driveLink.textContent = &#39;Ver protocolo&#39;;
+          driveLink.target = &#x27;_blank&#x27;;
+          driveLink.rel = &#x27;noopener noreferrer&#x27;;
+          driveLink.textContent = &#x27;Ver protocolo&#x27;;
           details.append(driveLink);
         }
       } else {
         summary.append(summaryTitle);
-        if (card.classList.contains(&#39;zero-card&#39;)) {
+        if (card.classList.contains(&#x27;zero-card&#x27;)) {
           extraContent.forEach(child =&gt; details.append(child));
         } else {
           if (type) details.append(type);
@@ -1401,51 +1404,51 @@ body.v35-drug-list.uci-drug-search-compact > header #allBtn{flex:0 0 auto;min-he
           if (bottom) details.append(bottom);
           extraContent.forEach(child =&gt; details.append(child));
           if (card.dataset.driveUrl) {
-            const driveLink = document.createElement(&#39;a&#39;);
-            driveLink.className = &#39;cart-drive-link&#39;;
+            const driveLink = document.createElement(&#x27;a&#x27;);
+            driveLink.className = &#x27;cart-drive-link&#x27;;
             driveLink.href = card.dataset.driveUrl;
-            driveLink.target = &#39;_blank&#39;;
-            driveLink.rel = &#39;noopener noreferrer&#39;;
-            driveLink.textContent = &#39;Ver protocolo&#39;;
+            driveLink.target = &#x27;_blank&#x27;;
+            driveLink.rel = &#x27;noopener noreferrer&#x27;;
+            driveLink.textContent = &#x27;Ver protocolo&#x27;;
             details.append(driveLink);
           }
         }
       }
       if (card.dataset.priority) {
-        const priorityBadge = document.createElement(&#39;span&#39;);
-        priorityBadge.className = &#39;priority-badge&#39;;
-        if (card.dataset.priority === &#39;tolerancia&#39;) {
-          priorityBadge.classList.add(&#39;tolerance&#39;);
-          priorityBadge.textContent = &#39;Tolerancia cero&#39;;
+        const priorityBadge = document.createElement(&#x27;span&#x27;);
+        priorityBadge.className = &#x27;priority-badge&#x27;;
+        if (card.dataset.priority === &#x27;tolerancia&#x27;) {
+          priorityBadge.classList.add(&#x27;tolerance&#x27;);
+          priorityBadge.textContent = &#x27;Tolerancia cero&#x27;;
         } else {
-          priorityBadge.textContent = &#39;A reforzar&#39;;
+          priorityBadge.textContent = &#x27;A reforzar&#x27;;
         }
         summary.append(priorityBadge);
       }
-      const chevron = document.createElement(&#39;span&#39;);
-      chevron.className = &#39;card-chevron&#39;;
-      chevron.setAttribute(&#39;aria-hidden&#39;, &#39;true&#39;);
-      chevron.textContent = &#39;⌄&#39;;
+      const chevron = document.createElement(&#x27;span&#x27;);
+      chevron.className = &#x27;card-chevron&#x27;;
+      chevron.setAttribute(&#x27;aria-hidden&#x27;, &#x27;true&#x27;);
+      chevron.textContent = &#x27;⌄&#x27;;
       summary.append(chevron);
 
       top.remove();
       card.replaceChildren(summary, details);
-      card.classList.add(&#39;accordion-card&#39;);
-      summary.addEventListener(&#39;click&#39;, () =&gt; {
-        const expanded = summary.getAttribute(&#39;aria-expanded&#39;) !== &#39;true&#39;;
-        summary.setAttribute(&#39;aria-expanded&#39;, String(expanded));
+      card.classList.add(&#x27;accordion-card&#x27;);
+      summary.addEventListener(&#x27;click&#x27;, () =&gt; {
+        const expanded = summary.getAttribute(&#x27;aria-expanded&#x27;) !== &#x27;true&#x27;;
+        summary.setAttribute(&#x27;aria-expanded&#x27;, String(expanded));
         details.hidden = !expanded;
-        card.classList.toggle(&#39;expanded&#39;, expanded);
+        card.classList.toggle(&#x27;expanded&#x27;, expanded);
       });
     });
 
-    const dialog = document.getElementById(&#39;action-dialog&#39;);
-    const dialogTitle = document.getElementById(&#39;dialog-title&#39;);
-    const dialogDetail = document.getElementById(&#39;dialog-detail&#39;);
-    const dialogDestination = document.getElementById(&#39;dialog-destination&#39;);
-    document.querySelectorAll(&#39;.action:not(.maddox-open)&#39;).forEach(button =&gt; button.addEventListener(&#39;click&#39;, () =&gt; {
+    const dialog = document.getElementById(&#x27;action-dialog&#x27;);
+    const dialogTitle = document.getElementById(&#x27;dialog-title&#x27;);
+    const dialogDetail = document.getElementById(&#x27;dialog-detail&#x27;);
+    const dialogDestination = document.getElementById(&#x27;dialog-destination&#x27;);
+    document.querySelectorAll(&#x27;.action:not(.maddox-open)&#x27;).forEach(button =&gt; button.addEventListener(&#x27;click&#x27;, () =&gt; {
       if (button.dataset.parentTool) {
-        window.parent.postMessage({ type: &#39;mi-turno-action&#39;, action: button.dataset.parentTool }, &#39;*&#39;);
+        window.parent.postMessage({ type: &#x27;mi-turno-action&#x27;, action: button.dataset.parentTool }, &#x27;*&#x27;);
         return;
       }
       dialogTitle.textContent = button.dataset.title;
@@ -1453,33 +1456,61 @@ body.v35-drug-list.uci-drug-search-compact > header #allBtn{flex:0 0 auto;min-he
       dialogDestination.textContent = button.dataset.destination;
       dialog.showModal();
     }));
-    document.getElementById(&#39;close-dialog&#39;).addEventListener(&#39;click&#39;, () =&gt; dialog.close());
-    dialog.addEventListener(&#39;click&#39;, event =&gt; { if (event.target === dialog) dialog.close(); });
-    const maddoxDialog = document.getElementById(&#39;maddox-dialog&#39;);
-    document.querySelector(&#39;.maddox-open&#39;).addEventListener(&#39;click&#39;, () =&gt; window.parent.postMessage({ type: &#39;mi-turno-action&#39;, action: &#39;scale-maddox&#39; }, &#39;*&#39;));
-    document.getElementById(&#39;maddox-close&#39;).addEventListener(&#39;click&#39;, () =&gt; maddoxDialog.close());
-    document.getElementById(&#39;maddox-done&#39;).addEventListener(&#39;click&#39;, () =&gt; maddoxDialog.close());
-    maddoxDialog.addEventListener(&#39;click&#39;, event =&gt; { if (event.target === maddoxDialog) maddoxDialog.close(); });
+    document.getElementById(&#x27;close-dialog&#x27;).addEventListener(&#x27;click&#x27;, () =&gt; dialog.close());
+    dialog.addEventListener(&#x27;click&#x27;, event =&gt; { if (event.target === dialog) dialog.close(); });
+    const maddoxDialog = document.getElementById(&#x27;maddox-dialog&#x27;);
+    document.querySelector(&#x27;.maddox-open&#x27;).addEventListener(&#x27;click&#x27;, () =&gt; window.parent.postMessage({ type: &#x27;mi-turno-action&#x27;, action: &#x27;scale-maddox&#x27; }, &#x27;*&#x27;));
+    document.getElementById(&#x27;maddox-close&#x27;).addEventListener(&#x27;click&#x27;, () =&gt; maddoxDialog.close());
+    document.getElementById(&#x27;maddox-done&#x27;).addEventListener(&#x27;click&#x27;, () =&gt; maddoxDialog.close());
+    maddoxDialog.addEventListener(&#x27;click&#x27;, event =&gt; { if (event.target === maddoxDialog) maddoxDialog.close(); });
   &lt;/script&gt;
   &lt;script id=&quot;mi-turno-integrated-bridge&quot;&gt;
-    const roleTabs = [...document.querySelectorAll(&#39;.role-tab&#39;)];
-    const rolePanels = [...document.querySelectorAll(&#39;.role-panel&#39;)];
+    const roleTabs = [...document.querySelectorAll(&#x27;.role-tab&#x27;)];
+    const rolePanels = [...document.querySelectorAll(&#x27;.role-panel&#x27;)];
     function reportFrameHeight() {
-      window.parent.postMessage({ type: &#39;mi-turno-resize&#39;, height: document.documentElement.scrollHeight }, &#39;*&#39;);
+      window.parent.postMessage({ type: &#x27;mi-turno-resize&#x27;, height: document.documentElement.scrollHeight }, &#x27;*&#x27;);
     }
-    roleTabs.forEach(tab =&gt; tab.addEventListener(&#39;click&#39;, () =&gt; {
+    roleTabs.forEach(tab =&gt; tab.addEventListener(&#x27;click&#x27;, () =&gt; {
       roleTabs.forEach(item =&gt; {
         const selected = item === tab;
-        item.classList.toggle(&#39;active&#39;, selected);
-        item.setAttribute(&#39;aria-selected&#39;, String(selected));
+        item.classList.toggle(&#x27;active&#x27;, selected);
+        item.setAttribute(&#x27;aria-selected&#x27;, String(selected));
       });
-      rolePanels.forEach(panel =&gt; { panel.hidden = panel.id !== tab.getAttribute(&#39;aria-controls&#39;); });
+      rolePanels.forEach(panel =&gt; { panel.hidden = panel.id !== tab.getAttribute(&#x27;aria-controls&#x27;); });
       reportFrameHeight();
     }));
-    if (&#39;ResizeObserver&#39; in window) new ResizeObserver(reportFrameHeight).observe(document.documentElement);
-    window.addEventListener(&#39;load&#39;, reportFrameHeight);
+    if (&#x27;ResizeObserver&#x27; in window) new ResizeObserver(reportFrameHeight).observe(document.documentElement);
+    window.addEventListener(&#x27;load&#x27;, reportFrameHeight);
     setTimeout(reportFrameHeight, 80);
   &lt;/script&gt;
+&lt;script id=&quot;objectives-search-bridge&quot;&gt;
+(function(){
+  window.openObjectiveItem=function(index){
+    const cards=Array.from(document.querySelectorAll(&#x27;.card&#x27;));
+    if(!Number.isInteger(index)||index&lt;0||index&gt;=cards.length)return;
+    const card=cards[index];
+    const panel=card.closest(&#x27;.role-panel&#x27;);
+    const summary=card.querySelector(&#x27;.card-summary&#x27;);
+    if(!panel||!summary)return;
+    const tab=document.querySelector(&#x27;.role-tab[aria-controls=&quot;&#x27;+panel.id+&#x27;&quot;]&#x27;);
+    if(tab)tab.click();
+    const all=panel.querySelector(&#x27;.filter-chip[data-filter=&quot;all&quot;]&#x27;);
+    if(all)all.click();
+    document.querySelectorAll(&#x27;.objective-search-destination&#x27;).forEach(item=&gt;item.classList.remove(&#x27;objective-search-destination&#x27;));
+    if(summary.getAttribute(&#x27;aria-expanded&#x27;)!==&#x27;true&#x27;)summary.click();
+    card.classList.add(&#x27;objective-search-destination&#x27;);
+    requestAnimationFrame(()=&gt;requestAnimationFrame(()=&gt;{
+      summary.focus({preventScroll:true});
+      window.parent.postMessage({
+        type:&#x27;mi-turno-search-position&#x27;,
+        top:Math.max(0,card.getBoundingClientRect().top+window.scrollY),
+        height:document.documentElement.scrollHeight
+      },&#x27;*&#x27;);
+    }));
+  };
+})();
+
+&lt;/script&gt;
 &lt;/body&gt;
 &lt;/html&gt;
 "></iframe>
@@ -4297,6 +4328,17 @@ window.addEventListener('message',event=>{
     if(Number.isFinite(height)) frame.style.height=Math.max(700,Math.min(7000,Math.ceil(height)))+'px';
     return;
   }
+  if(event.data.type==='mi-turno-search-position'){
+    if(document.getElementById('mi-turno-view').style.display!=='block')return;
+    const height=Number(event.data.height), top=Number(event.data.top);
+    if(!Number.isFinite(height)||!Number.isFinite(top)||height<=0||top<0)return;
+    frame.style.height=Math.max(700,Math.min(7000,Math.ceil(height)))+'px';
+    requestAnimationFrame(()=>{
+      if(document.getElementById('mi-turno-view').style.display!=='block')return;
+      window.scrollTo({top:Math.max(0,frame.getBoundingClientRect().top+window.scrollY+top-16),behavior:'smooth'});
+    });
+    return;
+  }
   if(event.data.type!=='mi-turno-action') return;
   if(event.data.action==='scale-rass' || event.data.action==='scale-pain' || event.data.action==='scale-cam'){
     const tabs={'scale-rass':'rass','scale-pain':'pain','scale-cam':'cam'};
@@ -4421,7 +4463,8 @@ window.addEventListener('message',event=>{
     phone:{label:'Teléfono',icon:'☎',terms:'telefono telefonos extension extensiones'},
     drive:{label:'Carpeta del Drive',icon:'📁',terms:'carpeta carpetas drive documentos'},
     video:{label:'Vídeo del Drive',icon:'🎥',terms:'video videos drive'},
-    compatibility:{label:'Compatibilidad en Y',icon:'🔗',terms:'compatibilidad compatibilidades en y farmaco farmacos'}
+    compatibility:{label:'Compatibilidad en Y',icon:'🔗',terms:'compatibilidad compatibilidades en y farmaco farmacos'},
+    objective:{label:'Objetivos asistenciales',icon:'📋',terms:'objetivo objetivos asistenciales tareas'}
   };
   const singulars={celadores:'celador',farmacos:'farmaco',antibioticos:'antibiotico',nutriciones:'nutricion',telefonos:'telefono',carpetas:'carpeta',extensiones:'extension',suplementos:'suplemento'};
   function normalize(value){
@@ -4434,7 +4477,7 @@ window.addEventListener('message',event=>{
   const unique=new Map();
   function add(entry){
     if(!entry.title)return;
-    const key=entry.kind+':'+normalize(entry.title)+(entry.number?':'+entry.number:'');
+    const key=entry.kind+':'+normalize(entry.title)+(entry.number?':'+entry.number:'')+(entry.kind==='objective'?':'+entry.role:'');
     if(unique.has(key)){
       const existing=unique.get(key);
       existing.searchText=normalize(existing.searchText+' '+(entry.detail||'')+' '+(entry.aliases||''));
@@ -4443,8 +4486,7 @@ window.addEventListener('message',event=>{
     entry.id=entries.length;
     entry.titleText=normalize(entry.title);
     entry.aliasText=normalize((entry.aliases||'')+' '+categories[entry.kind].terms+' '+(entry.number||''));
-    // Only nutrition descriptions are searched as content: names identify the other resources.
-    entry.searchText=normalize(entry.titleText+' '+entry.aliasText+' '+(entry.kind==='nutrition'?entry.detail:''));
+    entry.searchText=normalize(entry.titleText+' '+entry.aliasText+' '+(entry.kind==='nutrition'?entry.detail:'')+' '+(entry.bodyText||''));
     entries.push(entry); unique.set(key,entry);
   }
 
@@ -4491,6 +4533,34 @@ window.addEventListener('message',event=>{
     add({kind:'drive',title:text(link.querySelector('.drive-name')),aliases:link.dataset.name||'',detail:'Abrir carpeta en Google Drive',url:link.href});
   });
 
+  const objectiveFrame=document.getElementById('mi-turno-frame');
+  if(objectiveFrame){
+    const objectiveSource=new DOMParser().parseFromString(objectiveFrame.getAttribute('srcdoc')||'','text/html');
+    objectiveSource.querySelectorAll('.card').forEach((card,index)=>{
+      const title=text(card.querySelector('h3'));
+      const rolePanel=card.closest('.role-panel');
+      if(!title||!rolePanel)return;
+      const role=rolePanel.id==='tcae-panel'?'TCAEs':'Enfermería';
+      const section=card.closest('.section');
+      const sectionTitle=section?text(section.querySelector('.section-head h2')):'';
+      add({kind:'objective',title,role,aliases:(card.dataset.search||'')+' '+role,bodyText:text(card),detail:[role,sectionTitle].filter(Boolean).join(' · '),objectiveIndex:index});
+    });
+  }
+  let pendingObjective=null;
+  function selectObjective(index){
+    pendingObjective=index;
+    const child=objectiveFrame&&objectiveFrame.contentWindow;
+    if(child&&typeof child.openObjectiveItem==='function'){
+      child.openObjectiveItem(index);
+      pendingObjective=null;
+    }
+  }
+  if(objectiveFrame)objectiveFrame.addEventListener('load',()=>{
+    if(pendingObjective===null)return;
+    if(document.getElementById('mi-turno-view').style.display==='block')selectObjective(pendingObjective);
+    else pendingObjective=null;
+  });
+
   let category='all', limit=8, matches=[];
   function score(entry,query){
     const tokens=query.split(' ');
@@ -4532,6 +4602,10 @@ window.addEventListener('message',event=>{
     document.querySelectorAll('.uci-search-destination').forEach(element=>element.classList.remove('uci-search-destination'));
     document.querySelectorAll('body > main').forEach(main=>main.style.display='none');
     if(entry.kind==='drug')window.openRecord(entry.recordIndex);
+    else if(entry.kind==='objective'){
+      window.showMiTurno();
+      selectObjective(entry.objectiveIndex);
+    }
     else if(entry.kind==='compatibility'){
       window.showCompatibilityFromLanding();
       window.selectCompatibilityDrug(entry.compatibilityIndex);
