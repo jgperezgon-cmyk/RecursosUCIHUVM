@@ -644,6 +644,16 @@ header{z-index:1000!important}
 @media(max-width:600px){#uci-home-search{margin-bottom:12px}#uci-search-panel{padding:10px}.uci-search-field{padding:0 10px;gap:8px}.uci-search-result{padding:11px 9px;gap:9px}.uci-search-icon{width:32px;height:32px;flex-basis:32px;font-size:17px}.uci-search-meta{font-size:11px}.uci-search-filters button{padding:8px 10px}}
 
 </style>
+<style id="uci-drug-search-compact-css">
+body.v35-drug-list.uci-drug-search-compact > header{padding:7px 12px;box-shadow:0 3px 12px rgba(22,58,74,.12)}
+body.v35-drug-list.uci-drug-search-compact > header > h1,
+body.v35-drug-list.uci-drug-search-compact > header > .subtitle{display:none}
+body.v35-drug-list.uci-drug-search-compact > header .toolbar{margin-top:0;flex-wrap:nowrap;align-items:center;gap:8px}
+body.v35-drug-list.uci-drug-search-compact > header .search-wrap{flex:1 1 0;min-width:0}
+body.v35-drug-list.uci-drug-search-compact > header #q{flex:1 1 0;min-width:0;min-height:44px;padding:9px 12px;font-size:16px;line-height:1.4}
+body.v35-drug-list.uci-drug-search-compact > header #allBtn{flex:0 0 auto;min-height:44px;padding:9px 12px}
+
+</style>
 </head>
 <body>
 <header>
@@ -1727,11 +1737,6 @@ header{z-index:1000!important}
   <main id="home">
 <button type="button" class="back v35-cover-back" onclick="showLanding()" style="display:inline-block!important;visibility:visible!important;">← Portada</button>
 <div class="notice"><strong>Importante:</strong> esta web reproduce el contenido del protocolo proporcionado. La página original del protocolo se muestra en cada ficha como referencia. Para uso asistencial, la página original sigue siendo la referencia.</div>
-<div class="v35-band">
-<div class="v35-accent"><b>Referencia</b><span>Protocolo de Fármacos · Hospital Universitario Virgen Macarena</span></div>
-<div><b>Versión</b><span>Revisada · febrero 2026</span></div>
-<div><b>Uso</b><span>Consulta clínica rápida</span></div>
-</div>
 <div class="alpha" id="alpha"></div>
 <div id="results" class="grid"></div>
 </main>
@@ -4588,6 +4593,44 @@ window.addEventListener('message',event=>{
     else if(event.key==='ArrowUp'){event.preventDefault();(controls[index-1]||search).focus();}
   });
   render();
+})();
+
+</script>
+<script id="uci-drug-search-compact-js">
+(function(){
+  const header=document.querySelector('body > header');
+  const home=document.getElementById('home');
+  const input=document.getElementById('q');
+  if(!header||!home||!input)return;
+  const compactClass='uci-drug-search-compact';
+  const fullPlaceholder=input.getAttribute('placeholder');
+  let expandedHeight=header.offsetHeight, scheduled=false;
+  function setCompact(compact){
+    if(document.body.classList.contains(compactClass)===compact)return;
+    document.body.classList.toggle(compactClass,compact);
+    input.setAttribute('placeholder',compact?'Buscar fármaco…':fullPlaceholder);
+  }
+  function update(){
+    scheduled=false;
+    const active=document.body.classList.contains('v35-drug-list')&&getComputedStyle(home).display!=='none';
+    if(!active){setCompact(false);return;}
+    const compact=document.body.classList.contains(compactClass);
+    if(!compact)expandedHeight=header.offsetHeight;
+    const scrollTop=Math.max(0,window.scrollY||document.documentElement.scrollTop||0);
+    // Distinct thresholds avoid repeated resizing when the sticky header gets shorter.
+    if(scrollTop<=20)setCompact(false);
+    else if(!compact&&scrollTop>Math.max(160,expandedHeight+24))setCompact(true);
+  }
+  function schedule(){
+    if(scheduled)return;
+    scheduled=true;requestAnimationFrame(update);
+  }
+  window.addEventListener('scroll',schedule,{passive:true});
+  window.addEventListener('resize',schedule,{passive:true});
+  const observer=new MutationObserver(schedule);
+  observer.observe(document.body,{attributes:true,attributeFilter:['class']});
+  observer.observe(home,{attributes:true,attributeFilter:['style']});
+  update();
 })();
 
 </script>
