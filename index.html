@@ -4466,6 +4466,44 @@ window.addEventListener('message',event=>{
   }
 });
 </script>
+<script id="uci-tab-usage-analytics">
+(function(){
+  // Track published, top-level app navigation using only fixed section names.
+  if(!/^https?:$/.test(window.location.protocol)||window.top!==window.self)return;
+  const tabs={
+    'mi-turno':{event:'uci_tab_objetivos',name:'Objetivos asistenciales 2026'},
+    analgosedacion:{event:'uci_tab_analgosedacion',name:'Escalas de Analgosedación'},
+    drugs:{event:'uci_tab_farmacos',name:'Fármacos'},
+    compatibility:{event:'uci_tab_compatibilidad_y',name:'Compatibilidad en Y'},
+    antibioticos:{event:'uci_tab_antibioticos',name:'Antibióticos'},
+    limpieza:{event:'uci_tab_limpieza',name:'Limpieza y preparación'},
+    tcrr:{event:'uci_tab_tcrr',name:'TCRR'},
+    insulinizacion:{event:'uci_tab_insulinizacion',name:'Insulinización'},
+    ne:{event:'uci_tab_nutricion_disfagia',name:'Test de Disfagia - Minivademecum de NE'},
+    telefonos:{event:'uci_tab_telefonos',name:'Teléfonos'},
+    drive:{event:'uci_tab_drive',name:'Contenidos del Drive'}
+  };
+  let activeTab='landing';
+  window.addEventListener('uci-view-change',function(event){
+    const view=event.detail&&event.detail.view;
+    if(!view)return;
+    // A direct search result for a drug belongs to the Fármacos section.
+    // Moving between its list and fiches does not count as another tab entry.
+    const tabId=view==='record'?'drugs':view;
+    if(tabId===activeTab)return;
+    activeTab=tabId;
+    const tab=tabs[tabId];
+    if(!tab||document.visibilityState==='hidden'||typeof window.gtag!=='function')return;
+    try{
+      window.gtag('event',tab.event,{
+        send_to:'G-92M6NTD2MH',
+        app_name:'UCI HUVM',
+        tab_name:tab.name
+      });
+    }catch{}
+  });
+})();
+</script>
 <script id="uci-app-browser-back-js">
 (function(){
   const stateKey='uciHuVmView';
@@ -4491,7 +4529,9 @@ window.addEventListener('message',event=>{
     if(typeof original!=='function'||original.__uciHistoryWrapped)return;
     function wrapped(){
       const result=original.apply(this,arguments);
-      rememberView(viewForArgs(Array.from(arguments)));
+      const view=viewForArgs(Array.from(arguments));
+      rememberView(view);
+      window.dispatchEvent(new CustomEvent('uci-view-change',{detail:{view:view.view}}));
       return result;
     }
     wrapped.__uciHistoryWrapped=true;
