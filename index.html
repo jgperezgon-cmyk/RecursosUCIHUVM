@@ -21,6 +21,93 @@
   gtag('js', new Date());
   gtag('config', 'G-92M6NTD2MH');
 </script>
+<script id="uci-app-lifecycle-analytics">
+(function(){
+  // Local previews do not contribute to the published app's usage counts.
+  if(!/^https?:$/.test(window.location.protocol)||window.top!==window.self)return;
+  if(window.__uciAppLifecycleAnalytics)return;
+  window.__uciAppLifecycleAnalytics=true;
+
+  const measurementId='G-92M6NTD2MH';
+  const firstInstalledOpenKey='uci-huvm.analytics.first-installed-open';
+  let hasOpened=false,wasHidden=document.visibilityState==='hidden';
+  let lastOpenAt=-Infinity,lastInstallAt=-Infinity;
+
+  function displayMode(){
+    if(window.navigator.standalone===true)return 'standalone';
+    if(typeof window.matchMedia==='function'){
+      for(const mode of ['standalone','minimal-ui','fullscreen','window-controls-overlay']){
+        if(window.matchMedia('(display-mode: '+mode+')').matches)return mode;
+      }
+    }
+    return 'browser';
+  }
+  function sendEvent(name,parameters){
+    if(typeof window.gtag!=='function')return false;
+    const mode=displayMode();
+    try{
+      window.gtag('event',name,{
+        send_to:measurementId,
+        app_name:'UCI HUVM',
+        display_mode:mode,
+        launch_mode:mode==='browser'?'browser':'installed',
+        ...parameters
+      });
+      return true;
+    }catch{return false;}
+  }
+  function firstInstalledOpen(){
+    if(displayMode()==='browser')return;
+    // This is first observed installed use, not a confirmed installation date.
+    // If storage is unavailable, skip this once-only metric to avoid overcounting.
+    try{
+      if(window.localStorage.getItem(firstInstalledOpenKey))return;
+      window.localStorage.setItem(firstInstalledOpenKey,'1');
+      if(!sendEvent('uci_app_first_installed_open',{detection_method:'first_observed_standalone_use'})){
+        window.localStorage.removeItem(firstInstalledOpenKey);
+      }
+    }catch{}
+  }
+  function opened(reason){
+    if(document.visibilityState==='hidden')return;
+    const now=Date.now();
+    // pageshow and visibilitychange may describe the same restored opening.
+    if(hasOpened&&now-lastOpenAt<1000)return;
+    if(sendEvent('uci_app_open',{open_type:hasOpened?reason:'launch'})){
+      lastOpenAt=now;hasOpened=true;wasHidden=false;
+      firstInstalledOpen();
+    }
+  }
+
+  document.addEventListener('visibilitychange',()=>{
+    if(document.visibilityState==='hidden'){wasHidden=true;return;}
+    if(!hasOpened||wasHidden)opened('resume');
+  });
+  window.addEventListener('pagehide',()=>{wasHidden=true;});
+  window.addEventListener('pageshow',event=>{
+    if(event.persisted)opened('restore');
+    else if(!hasOpened)opened('launch');
+  });
+  window.addEventListener('appinstalled',()=>{
+    const now=Date.now();
+    if(now-lastInstallAt<1000)return;
+    if(sendEvent('uci_app_install',{detection_method:'browser_appinstalled'}))lastInstallAt=now;
+  });
+  if(typeof window.matchMedia==='function'){
+    const installedMode=window.matchMedia('(display-mode: standalone), (display-mode: minimal-ui), (display-mode: fullscreen), (display-mode: window-controls-overlay)');
+    const modeChanged=()=>{
+      if(installedMode.matches&&document.visibilityState!=='hidden'){
+        opened('mode_change');
+        firstInstalledOpen();
+      }
+    };
+    if(typeof installedMode.addEventListener==='function')installedMode.addEventListener('change',modeChanged);
+    else if(typeof installedMode.addListener==='function')installedMode.addListener(modeChanged);
+  }
+  opened('launch');
+})();
+
+</script>
 <style>
 :root{--bg:#f5f7fa;--card:#fff;--text:#17202a;--muted:#667085;--line:#d9dee7;--accent:#075985;--warn:#fff4cc;--warnline:#e0a100;--danger:#ffe7e7;--dangerline:#c62828}
 *{box-sizing:border-box}body{margin:0;font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;background:var(--bg);color:var(--text)}
