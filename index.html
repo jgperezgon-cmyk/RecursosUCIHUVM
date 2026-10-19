@@ -743,6 +743,35 @@ body.v35-drug-list.uci-drug-search-compact > header #allBtn{flex:0 0 auto;min-he
 
 </style>
 <style id="compatibility-evidence-review-css">.compat-pair-status.review{white-space:normal;max-width:180px;line-height:1.35;text-align:center}</style>
+<style id="ne-care-diagrams-css">
+#ne-view .ne-navigation{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:6px;padding:5px;margin:0 0 20px;background:#eaf0f7;border:1px solid #d7e2ef;border-radius:14px}
+#ne-view .ne-navigation button{min-height:54px;padding:10px 8px;border:0;background:transparent;border-radius:10px;color:#526781;font-size:14px;line-height:1.35;font-weight:750}
+#ne-view .ne-navigation button[aria-selected=true]{background:#fff;color:#1456a0;box-shadow:0 2px 7px #17375e12}
+#ne-view .ne-navigation button:focus-visible,#ne-view .ne-care-diagram>summary:focus-visible{outline:3px solid #75acd8;outline-offset:2px}
+#ne-view .ne-panel[hidden]{display:none!important}
+.ne-care-heading{margin:20px 2px 12px}.ne-care-heading h3{margin:0;color:#173b65;font-size:19px}.ne-care-heading p{margin:5px 0 0;color:#66788e;font-size:14px;line-height:1.5}
+.ne-care-diagram{margin:0 0 10px;border:1px solid #d4e1ec;border-radius:13px;background:#fff;overflow:hidden;box-shadow:0 3px 12px #17375e05}
+.ne-care-diagram>summary{display:flex;align-items:center;gap:12px;padding:15px 16px;min-height:76px;list-style:none;cursor:pointer}
+.ne-care-diagram>summary::-webkit-details-marker{display:none}.ne-care-diagram>summary:hover{background:#f8fbfe}
+.ne-care-symbol{display:flex;align-items:center;justify-content:center;flex:0 0 40px;height:40px;background:#edf4fc;border:1px solid #e0eaf6;border-radius:11px;color:#2d659d;font-size:12px;font-weight:800}
+.ne-care-summary{display:flex;flex:1;min-width:0;flex-direction:column;gap:4px}.ne-care-summary>strong{color:#24405c;font-size:16px;line-height:1.4}.ne-care-summary>span{color:#6c7d91;font-size:13px;line-height:1.4}
+.ne-care-chevron{margin-left:auto;font-size:21px;color:#71849a;transition:transform .15s}.ne-care-diagram[open]>.ne-care-diagram-summary,.ne-care-diagram[open]>summary{border-bottom:1px solid #e1e9f0;background:#f8fbfe}.ne-care-diagram[open] .ne-care-chevron{transform:rotate(180deg)}
+.ne-care-body{padding:22px clamp(12px,3vw,30px);background:#fbfcfe}.ne-flow{list-style:none;display:grid;gap:27px;margin:0;padding:0}.ne-flow>li{position:relative;min-width:0}.ne-flow>li+li:before{content:'↓';position:absolute;left:50%;top:-25px;transform:translateX(-50%);color:#7c9aba;font-size:22px;line-height:23px}
+.ne-flow-node{padding:14px 16px;border:1px solid #cddfec;border-radius:11px;background:#fff;color:#53667a;font-size:15px;line-height:1.6;overflow-wrap:anywhere}.ne-flow-node>strong{display:block;color:#233e59;font-size:16px;line-height:1.45}.ne-flow-node>div{margin-top:6px}.ne-flow-node b{color:#244d71}.ne-flow-label{display:block;margin:0 0 5px;color:#497baa;font-size:11px;font-weight:800;letter-spacing:.035em;text-transform:uppercase}
+.ne-flow-node.start{background:#eaf3fc;border-color:#a9c7e4;text-align:center}.ne-flow-node.attention{background:#fff6ed;border-color:#ebcfae}.ne-flow-node.attention>strong{color:#845724}.ne-flow-node.success{background:#edf7f2;border-color:#badaca}.ne-flow-node.success>strong{color:#2c6551}.ne-flow-node.question{margin-top:24px;background:#edf2fc;border-color:#c1cfe9;text-align:center}.ne-flow>li>.ne-flow-node.question{margin-top:0}
+.ne-flow-branches{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px;margin-top:14px;align-items:start}.ne-flow-branch{min-width:0;padding:13px;border:1px solid #dce5ee;border-top:3px solid #9bb8d3;border-radius:10px;background:#f2f6fa}.ne-flow-branch>h5{margin:0 0 12px;color:#355e84;font-size:13px;line-height:1.5;font-weight:800}.ne-flow-branch .ne-flow-node{padding:12px;font-size:14px}.ne-flow-branch .ne-flow-node>strong{font-size:15px}.ne-flow-branch .ne-flow-branches{grid-template-columns:1fr}.ne-flow-branch>.ne-flow-node+.ne-flow-node{margin-top:12px}
+.ne-flow-branch>h5{display:table;padding:4px 10px;border-radius:6px;background:#e1ebf5;color:#315a80}
+.ne-flow-branch>.ne-flow-node.question{margin-left:16px;border-color:#d4c8e4;background:#f2eef8;text-align:left}
+.ne-flow-branch .ne-flow-branches{margin:12px 0 0 16px;padding-left:15px;border-left:2px solid #c5b6d8;gap:12px}
+.ne-flow-branch .ne-flow-branch{position:relative;padding:12px;border:1px solid #dfd6ea;border-left:3px solid #baa3d1;background:#fff}
+.ne-flow-branch .ne-flow-branch:before{content:'';position:absolute;left:-18px;top:23px;width:15px;border-top:2px solid #c5b6d8}
+.ne-flow-branch .ne-flow-branch>h5{background:#f0eaf7;color:#70518f}
+.ne-flow-branch .ne-flow-branch>h5:before{content:'↳ ';font-weight:800}
+.ne-care-note{margin:18px 0 0;padding:12px 14px;border-left:3px solid #a7c2da;background:#f0f5fa;color:#52677d;font-size:14px;line-height:1.6}.ne-care-source{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;margin-top:22px;padding-top:12px;border-top:1px solid #dce6ee;font-size:12px;color:#748397}.ne-care-source a{margin-left:auto;color:#27649b;font-weight:750;text-decoration:none;padding:9px 11px;border:1px solid #d0e1f0;border-radius:8px;background:#fff}
+.ne-care-schedule{margin-bottom:24px;padding:15px;border:1px solid #d3e1ef;border-radius:12px;background:#fff}.ne-care-schedule h4{margin:0 0 10px;color:#234864;font-size:16px}.ne-care-schedule dl{margin:0}.ne-care-schedule dl>div{display:grid;grid-template-columns:minmax(90px,1fr) 3fr;gap:14px;padding:10px 0;border-top:1px solid #e7edf3;font-size:14px;line-height:1.5}.ne-care-schedule dt{font-weight:750;color:#405c77}.ne-care-schedule dd{margin:0;color:#586c7f}
+@media(max-width:650px){#ne-view .ne-navigation{gap:4px;padding:4px}#ne-view .ne-navigation button{min-height:58px;font-size:13px;padding:9px 5px}.ne-care-diagram>summary{padding:13px 12px;gap:10px}.ne-care-summary>strong{font-size:15px}.ne-care-symbol{flex-basis:34px;height:36px;font-size:11px}.ne-care-summary>span{font-size:12px}.ne-flow-branches{grid-template-columns:1fr}.ne-care-body{padding:18px 12px}.ne-flow-node{font-size:15px;padding:13px}.ne-care-schedule dl>div{grid-template-columns:95px 1fr}}
+@media(max-width:650px){.ne-flow-branch{padding:11px}.ne-flow-branch>.ne-flow-node.question{margin-left:8px}.ne-flow-branch .ne-flow-branches{margin-left:8px;padding-left:10px}.ne-flow-branch .ne-flow-branch{padding:10px}.ne-flow-branch .ne-flow-branch:before{left:-13px;width:10px}}
+</style>
 </head>
 <body>
 <header>
@@ -824,7 +853,7 @@ body.v35-drug-list.uci-drug-search-compact > header #allBtn{flex:0 0 auto;min-he
 </a>
 <a class="v35-tile" href="#" onclick="showNE();return false;">
 <div class="v35-icon" aria-hidden="true">🥤</div>
-<div><strong>Test de Disfagia - Minivademecum de NE</strong><span>Test de disfagia, tipos de nutrición enteral, equivalencias e indicaciones.</span></div>
+<div><strong>Nutrición Enteral</strong><span>Cuidados, complicaciones, test de disfagia y minivademécum.</span></div>
 </a>
 <a class="v35-tile" href="#" onclick="showTelefonos();return false;">
 <div class="v35-icon" aria-hidden="true">☎️</div>
@@ -1395,7 +1424,7 @@ body.v35-drug-list.uci-drug-search-compact > header #allBtn{flex:0 0 auto;min-he
   &lt;div class=&quot;card-top&quot;&gt;&lt;div class=&quot;icon plum&quot; aria-hidden=&quot;true&quot;&gt;◌&lt;/div&gt;&lt;span class=&quot;type&quot;&gt;Junto con el enfermero/a&lt;/span&gt;&lt;/div&gt;
   &lt;h3&gt;Test de disfagia&lt;/h3&gt;
   &lt;p&gt;Participa en la realización del test de disfagia junto con el enfermero/a.&lt;/p&gt;
-  &lt;div class=&quot;card-bottom&quot;&gt;&lt;button class=&quot;action&quot; type=&quot;button&quot; data-parent-tool=&quot;tcae-nutrition&quot;&gt;Ver test de disfagia &lt;span class=&quot;arrow&quot;&gt;›&lt;/span&gt;&lt;/button&gt;&lt;/div&gt;
+  &lt;div class=&quot;card-bottom&quot;&gt;&lt;button class=&quot;action&quot; type=&quot;button&quot; data-parent-tool=&quot;tcae-dysphagia&quot;&gt;Ver test de disfagia &lt;span class=&quot;arrow&quot;&gt;›&lt;/span&gt;&lt;/button&gt;&lt;/div&gt;
 &lt;/article&gt;&lt;article class=&quot;card&quot; data-search=&quot;Participación de la familia Según la situación del paciente humanización familiares&quot;&gt;
   &lt;div class=&quot;card-top&quot;&gt;&lt;div class=&quot;icon mint&quot; aria-hidden=&quot;true&quot;&gt;＋&lt;/div&gt;&lt;span class=&quot;type&quot;&gt;Según la situación del paciente&lt;/span&gt;&lt;/div&gt;
   &lt;h3&gt;Participación de la familia&lt;/h3&gt;
@@ -2691,13 +2720,42 @@ renderRass();renderPain();renderCam();calcEva();selectMainTab('rass');summary();
 
 <main id="ne-view">
 <button type="button" class="back v35-cover-back" onclick="showLanding()">← Portada</button>
-<section class="ne-hero">
-<h2>Test de Disfagia</h2>
-<p><strong>Evaluación de la tolerancia a diferentes texturas y volúmenes</strong></p>
-</section>
-
-
-
+<section class="ne-hero"><h2>Nutrición Enteral</h2><p>Cuidados de las sondas, complicaciones, test de disfagia y minivademécum.</p></section>
+<nav class="ne-navigation" role="tablist" aria-label="Nutrición enteral">
+<button type="button" id="ne-tab-cuidados" role="tab" aria-selected="true" aria-controls="ne-panel-cuidados" data-ne-panel="cuidados">Cuidados y complicaciones</button>
+<button type="button" id="ne-tab-disfagia" role="tab" aria-selected="false" aria-controls="ne-panel-disfagia" data-ne-panel="disfagia" tabindex="-1">Test de disfagia</button>
+<button type="button" id="ne-tab-nutriciones" role="tab" aria-selected="false" aria-controls="ne-panel-nutriciones" data-ne-panel="nutriciones" tabindex="-1">Minivademécum</button>
+</nav>
+<section class="ne-panel" id="ne-panel-cuidados" role="tabpanel" aria-labelledby="ne-tab-cuidados">
+<div class="ne-care-heading"><h3>Cuidados de las sondas</h3><p>Selecciona el tipo de acceso para consultar sus cuidados.</p></div><details class="ne-care-diagram" id="ne-care-sng">
+<summary><span class="ne-care-symbol" aria-hidden="true">SNG</span><span class="ne-care-summary"><strong>Sonda nasogástrica · SNG</strong><span>Posición, fijación, lavados y sistema de administración</span></span><span class="ne-care-chevron" aria-hidden="true">⌄</span></summary>
+<div class="ne-care-body"><ol class="ne-flow"><li><div class="ne-flow-node "><span class=ne-flow-label>Tras la colocación</span><strong>Confirmar la colocación</strong><div>Antes de iniciar la NE, radiografía revisada por el médico. No retirar la guía hasta la comprobación radiológica; no reintroducirla.</div></div></li><li><div class="ne-flow-node "><span class=ne-flow-label>En cada turno</span><strong>Comprobar la posición y los centímetros</strong><div>Registrar tipo, calibre y centímetros de inserción. Revisar también antes de iniciar alimentación o administrar medicación, tras traslados, vómitos, tos, disnea o molestias.</div></div></li><li><div class="ne-flow-node "><span class=ne-flow-label>Cada día</span><strong>Cuidar la fijación, la piel y las mucosas</strong><div>Cambiar la fijación diariamente y si se despega; rotar el punto de apoyo. Limpiar la parte externa de la sonda y cuidar nariz y boca.</div></div></li><li><div class="ne-flow-node "><span class=ne-flow-label>Lavados</span><strong>Mantener la permeabilidad</strong><div>Lavados con <b>30–40 ml de agua cada 6–8 h</b>, en cada cambio de bote y después de la medicación, siguiendo las recomendaciones farmacéuticas.</div></div></li><li><div class="ne-flow-node "><span class=ne-flow-label>Durante la NE</span><strong>Administrar y registrar</strong><div>Cabecero <b>&gt;30°</b>. Cambiar el sistema cada <b>24 h</b>. Registrar fórmula, ritmo, volumen administrado y motivo y duración de las interrupciones.</div></div></li></ol><div class="ne-care-source"><span>Protocolo de NE de la unidad · págs. 20–22</span><a href="https://drive.google.com/open?id=1k5vW36p9N0Veyg9em0xR5fdOQsPS3Shy" target="_blank" rel="noopener noreferrer">Ver protocolo completo ↗</a></div></div>
+</details><details class="ne-care-diagram" id="ne-care-peg">
+<summary><span class="ne-care-symbol" aria-hidden="true">PEG</span><span class="ne-care-summary"><strong>Gastrostomía · PEG</strong><span>Marca de referencia, piel, giro y lavados</span></span><span class="ne-care-chevron" aria-hidden="true">⌄</span></summary>
+<div class="ne-care-body"><ol class="ne-flow"><li><div class="ne-flow-node "><span class=ne-flow-label>Tras la colocación</span><strong>Anotar la posición de referencia</strong><div>Registrar las marcas de fijación respecto a la pared abdominal tras la colocación.</div></div></li><li><div class="ne-flow-node "><span class=ne-flow-label>Cada día</span><strong>Comprobar la marca y cuidar la piel</strong><div>Mantener la zona limpia y aséptica. Si cambia la posición de referencia, <b>notificarlo al médico</b>.</div></div></li><li><div class="ne-flow-node "><span class=ne-flow-label>En cada turno</span><strong>Girar la sonda una vez por turno</strong></div></li><li><div class="ne-flow-node "><span class=ne-flow-label>Lavados</span><strong>Lavar con 100 ml de agua cada 6 h</strong></div></li><li><div class="ne-flow-node attention"><strong>No colocar bolsa de drenaje</strong></div></li></ol><div class="ne-care-source"><span>Protocolo de NE de la unidad · págs. 37</span><a href="https://drive.google.com/open?id=1k5vW36p9N0Veyg9em0xR5fdOQsPS3Shy" target="_blank" rel="noopener noreferrer">Ver protocolo completo ↗</a></div></div>
+</details><details class="ne-care-diagram" id="ne-care-yeyunostomia">
+<summary><span class="ne-care-symbol" aria-hidden="true">Y</span><span class="ne-care-summary"><strong>Yeyunostomía</strong><span>Cuidados de la sonda y mantenimiento de la permeabilidad</span></span><span class="ne-care-chevron" aria-hidden="true">⌄</span></summary>
+<div class="ne-care-body"><ol class="ne-flow"><li><div class="ne-flow-node "><span class=ne-flow-label>Al ingreso</span><strong>Anotar la posición de referencia</strong><div>Al ingreso, registrar la posición de la sonda respecto a la pared abdominal.</div></div></li><li><div class="ne-flow-node "><span class=ne-flow-label>Cada día</span><strong>Comprobar la marca y cuidar la piel</strong><div>Mantener la zona limpia y aséptica. Si cambia la marca, <b>notificarlo al médico</b>.</div></div></li><li><div class="ne-flow-node "><span class=ne-flow-label>Lavados</span><strong>Lavar con 100 ml de agua cada 6 h</strong><div>Mantener la pauta desde el ingreso, <b>aunque no se esté administrando dieta</b>.</div></div></li><li><div class="ne-flow-node "><span class=ne-flow-label>Inicio de alimentación</span><strong>Iniciar la dieta por orden médica</strong></div></li><li><div class="ne-flow-node attention"><strong>No conectar la vía yeyunal a bolsa de drenaje</strong></div></li></ol><div class="ne-care-source"><span>Protocolo de NE de la unidad · págs. 37–38</span><a href="https://drive.google.com/open?id=1k5vW36p9N0Veyg9em0xR5fdOQsPS3Shy" target="_blank" rel="noopener noreferrer">Ver protocolo completo ↗</a></div></div>
+</details><details class="ne-care-diagram" id="ne-care-doble-luz">
+<summary><span class="ne-care-symbol" aria-hidden="true">2</span><span class="ne-care-summary"><strong>Sonda nasogastroyeyunal de doble luz</strong><span>Diferenciar los cuidados de la vía gástrica y la yeyunal</span></span><span class="ne-care-chevron" aria-hidden="true">⌄</span></summary>
+<div class="ne-care-body"><div class="ne-flow-node "><strong>Identificar las dos luces</strong><div>Luz gástrica: <b>18 F · azul</b>. Luz yeyunal: <b>7 F · roja</b>.</div></div><div class="ne-flow-branches"><section class="ne-flow-branch"><h5>Vía yeyunal</h5><ol class="ne-flow"><li><div class="ne-flow-node "><strong>Dieta por bomba, continua durante 24 h</strong><div>Manipulación con técnica aséptica. Uso exclusivo para dieta, salvo inmunosupresión en trasplante hepático.</div></div></li><li><div class="ne-flow-node "><strong>Lavados: 100 ml de agua cada 6 h</strong></div></li><li><div class="ne-flow-node attention"><strong>No aspirar ni conectar a bolsa de drenaje</strong></div></li></ol></section><section class="ne-flow-branch"><h5>Vía gástrica</h5><ol class="ne-flow"><li><div class="ne-flow-node "><strong>Administrar la medicación pautada por sonda</strong><div>Excepto la inmunosupresión del trasplante hepático, que se administra por la vía yeyunal.</div></div></li><li><div class="ne-flow-node "><strong>Mantener conectada a bolsa de drenaje</strong><div>Pinzar durante los <b>20 min siguientes a la medicación</b>.</div></div></li><li><div class="ne-flow-node "><strong>Valorar el aspecto del drenado</strong><div>Suspender la dieta si hay líquido fecaloideo, sangre o <b>≥300 ml con aspecto de dieta</b>. El volumen gástrico elevado, por sí solo, no es criterio de suspensión.</div></div></li></ol></section></div><div class="ne-care-source"><span>Protocolo de NE de la unidad · págs. 36–37</span><a href="https://drive.google.com/open?id=1k5vW36p9N0Veyg9em0xR5fdOQsPS3Shy" target="_blank" rel="noopener noreferrer">Ver protocolo completo ↗</a></div></div>
+</details><div class="ne-care-heading"><h3>Tolerancia y complicaciones</h3><p>Diagramas de actuación según el protocolo de la unidad.</p></div><details class="ne-care-diagram" id="ne-care-residuos">
+<summary><span class="ne-care-symbol" aria-hidden="true">RG</span><span class="ne-care-summary"><strong>Aumento del residuo gástrico</strong><span>Frecuencia de medición y algoritmo de actuación</span></span><span class="ne-care-chevron" aria-hidden="true">⌄</span></summary>
+<div class="ne-care-body"><div class="ne-care-schedule"><h4>Cuándo medir los residuos</h4><dl><div><dt>Día 1</dt><dd>Sin medición de residuos.</dd></div><div><dt>Día 2</dt><dd>Cada 12 h: 7:00 y 19:00.</dd></div><div><dt>Día 3</dt><dd>Cada 12 h, salvo otra indicación médica.</dd></div><div><dt>Día 4</dt><dd>Solo durante el aseo.</dd></div><div><dt>Prono y relajación</dt><dd>Cada 12 h.</dd></div></dl></div><ol class="ne-flow"><li><div class="ne-flow-node start"><strong>Aumento del residuo gástrico</strong><div>Volumen <b>&gt;500 ml</b> en cada valoración. En prono y sedorrelajación, el protocolo establece un umbral de <b>300 ml</b>.</div></div></li><li><div class="ne-flow-node "><span class=ne-flow-label>Según prescripción</span><strong>Suspender la dieta 6 h y añadir procinético</strong><div>SNG a bolsa durante <b>1 h</b> y después pinzada durante <b>5 h</b>.</div></div></li><li><div class="ne-flow-node "><strong>Reiniciar la infusión de dieta</strong></div></li></ol><div class="ne-flow-node question"><strong>¿Persisten episodios de aumento del residuo?</strong></div><div class="ne-flow-branches"><section class="ne-flow-branch"><h5>No</h5><div class="ne-flow-node success"><strong>Continuar la infusión</strong></div></section><section class="ne-flow-branch"><h5>Sí</h5><ol class="ne-flow"><li><div class="ne-flow-node "><span class=ne-flow-label>Según prescripción</span><strong>Reducir el ritmo al 50 %</strong><div>Valorar cambio o asociación de procinético.</div></div></li></ol><div class="ne-flow-node question"><strong>¿Persisten 6 h después?</strong></div><div class="ne-flow-branches"><section class="ne-flow-branch"><h5>Sí</h5><div class="ne-flow-node attention"><span class=ne-flow-label>Decisión médica</span><strong>Suspender 24 h y valorar sonda transpilórica</strong><div>El algoritmo contempla sonda de descompresión gástrica asociada.</div></div></section><section class="ne-flow-branch"><h5>No</h5><div class="ne-flow-node success"><strong>Reinstaurar la dieta completa</strong></div></section></div></section></div><div class="ne-care-source"><span>Protocolo de NE de la unidad · págs. 22–24</span><a href="https://drive.google.com/open?id=1k5vW36p9N0Veyg9em0xR5fdOQsPS3Shy" target="_blank" rel="noopener noreferrer">Ver protocolo completo ↗</a></div></div>
+</details><details class="ne-care-diagram" id="ne-care-vomitos">
+<summary><span class="ne-care-symbol" aria-hidden="true">↗</span><span class="ne-care-summary"><strong>Vómitos y regurgitación</strong><span>Valoración, posición de la sonda y evolución</span></span><span class="ne-care-chevron" aria-hidden="true">⌄</span></summary>
+<div class="ne-care-body"><ol class="ne-flow"><li><div class="ne-flow-node start"><strong>Vómitos o regurgitación</strong><div>Regurgitación: dieta que aparece de forma pasiva en la boca u orofaringe.</div></div></li><li><div class="ne-flow-node attention"><strong>Suspensión transitoria de la dieta y valoración clínica</strong></div></li></ol><div class="ne-flow-node question"><strong>¿Se detectan problemas en la valoración clínica?</strong></div><div class="ne-flow-branches"><section class="ne-flow-branch"><h5>Sí</h5><div class="ne-flow-node attention"><strong>Mantener suspendida la NE hasta normalizar la situación</strong></div></section><section class="ne-flow-branch"><h5>No</h5><div class="ne-flow-node question"><strong>¿Está la sonda gástrica correctamente colocada?</strong></div><div class="ne-flow-branches"><section class="ne-flow-branch"><h5>No</h5><div class="ne-flow-node "><span class=ne-flow-label>Tras comprobación de la posición</span><strong>Recolocar la sonda y reinstaurar la dieta</strong></div></section><section class="ne-flow-branch"><h5>Sí</h5><div class="ne-flow-node "><span class=ne-flow-label>Según prescripción</span><strong>Procinéticos y reinstauración de la dieta</strong></div></section></div><div class="ne-flow-node question"><strong>¿Persisten los vómitos o la regurgitación?</strong></div><div class="ne-flow-branches"><section class="ne-flow-branch"><h5>Sí</h5><div class="ne-flow-node "><span class=ne-flow-label>Decisión médica</span><strong>Nueva valoración clínica y sonda yeyunal</strong></div></section><section class="ne-flow-branch"><h5>No</h5><div class="ne-flow-node success"><strong>Mantener la dieta completa</strong></div></section></div></section></div><div class="ne-care-source"><span>Protocolo de NE de la unidad · págs. 25–26</span><a href="https://drive.google.com/open?id=1k5vW36p9N0Veyg9em0xR5fdOQsPS3Shy" target="_blank" rel="noopener noreferrer">Ver protocolo completo ↗</a></div></div>
+</details><details class="ne-care-diagram" id="ne-care-diarrea">
+<summary><span class="ne-care-symbol" aria-hidden="true">D</span><span class="ne-care-summary"><strong>Diarrea</strong><span>Valoración y ramas de diarrea inicial o tardía</span></span><span class="ne-care-chevron" aria-hidden="true">⌄</span></summary>
+<div class="ne-care-body"><ol class="ne-flow"><li><div class="ne-flow-node start"><strong>Diarrea asociada a NE</strong><div>El protocolo la define como <b>≥5 deposiciones líquidas en 24 h</b> o más de dos deposiciones de más de 1.000 ml cada una en 24 h.</div></div></li><li><div class="ne-flow-node "><strong>Valoración clínica</strong></div></li></ol><div class="ne-flow-node question"><strong>¿Se detectan otros problemas?</strong></div><div class="ne-flow-branches"><section class="ne-flow-branch"><h5>Sí</h5><div class="ne-flow-node attention"><strong>Suspensión transitoria de la NE</strong></div></section><section class="ne-flow-branch"><h5>No</h5><div class="ne-flow-node "><strong>Investigar C. difficile y revisar la medicación</strong></div><div class="ne-flow-node question"><strong>Tipo de diarrea</strong></div><div class="ne-flow-branches"><section class="ne-flow-branch"><h5>Inicial · días 1–4</h5><ol class="ne-flow"><li><div class="ne-flow-node "><span class=ne-flow-label>Según prescripción</span><strong>Reducir el ritmo de perfusión al 50 %</strong></div></li><li><div class="ne-flow-node "><span class=ne-flow-label>Según prescripción</span><strong>Si persiste a las 8 h: cambiar el tipo de dieta</strong></div></li><li><div class="ne-flow-node attention"><span class=ne-flow-label>Según prescripción</span><strong>Si persiste otras 8 h: suspender la dieta y medicación antidiarreica</strong></div></li></ol></section><section class="ne-flow-branch"><h5>Tardía · días 4 a final</h5><div class="ne-flow-node question"><strong>¿La dieta contiene fibra?</strong></div><div class="ne-flow-branches"><section class="ne-flow-branch"><h5>Sí</h5><div class="ne-flow-node "><span class=ne-flow-label>Según prescripción</span><strong>Reducir el ritmo de perfusión al 50 %</strong></div></section><section class="ne-flow-branch"><h5>No</h5><div class="ne-flow-node "><span class=ne-flow-label>Según prescripción</span><strong>Añadir dieta con fibra</strong></div></section></div><ol class="ne-flow"><li><div class="ne-flow-node "><span class=ne-flow-label>Según el algoritmo y prescripción</span><strong>Si persiste a las 8 h: mantener dieta con fibra (500 ml)</strong></div></li><li><div class="ne-flow-node attention"><span class=ne-flow-label>Según prescripción</span><strong>Si persiste otras 8 h: suspender la dieta y medicación antidiarreica</strong></div></li></ol></section></div></section></div><div class="ne-flow-node success"><strong>Si en las reevaluaciones no persiste la diarrea</strong><div>Mantener la pauta durante <b>12 h</b> y volver a la pauta inicial.</div></div><p class="ne-care-note">Fórmulas: valorar fibra soluble o fermentable, osmolaridad y tipo de proteína. Revisar la antibioterapia de amplio espectro en la valoración médica.</p><div class="ne-care-source"><span>Protocolo de NE de la unidad · págs. 26–27</span><a href="https://drive.google.com/open?id=1k5vW36p9N0Veyg9em0xR5fdOQsPS3Shy" target="_blank" rel="noopener noreferrer">Ver protocolo completo ↗</a></div></div>
+</details><details class="ne-care-diagram" id="ne-care-distension">
+<summary><span class="ne-care-symbol" aria-hidden="true">DA</span><span class="ne-care-summary"><strong>Distensión abdominal</strong><span>Valoración y reevaluación a las 12 horas</span></span><span class="ne-care-chevron" aria-hidden="true">⌄</span></summary>
+<div class="ne-care-body"><ol class="ne-flow"><li><div class="ne-flow-node start"><strong>Distensión abdominal</strong></div></li><li><div class="ne-flow-node attention"><strong>Suspensión transitoria de la dieta, valoración clínica y medición de PIA</strong><div>PIA: presión intraabdominal.</div></div></li></ol><div class="ne-flow-node question"><strong>¿Se detectan problemas?</strong></div><div class="ne-flow-branches"><section class="ne-flow-branch"><h5>Sí</h5><div class="ne-flow-node attention"><strong>Suspender la NE hasta normalizar la situación</strong></div></section><section class="ne-flow-branch"><h5>No</h5><div class="ne-flow-node "><span class=ne-flow-label>Según prescripción</span><strong>Reducir el ritmo al 50 % y procinéticos</strong></div><div class="ne-flow-node question"><strong>¿Se controla la distensión a las 12 h?</strong></div><div class="ne-flow-branches"><section class="ne-flow-branch"><h5>Sí</h5><div class="ne-flow-node success"><strong>Reinstaurar la dieta completa</strong></div></section><section class="ne-flow-branch"><h5>No</h5><div class="ne-flow-node attention"><span class=ne-flow-label>Decisión médica</span><strong>Mantener suspendida la dieta y nutrición parenteral</strong></div></section></div></section></div><div class="ne-care-source"><span>Protocolo de NE de la unidad · págs. 24–25</span><a href="https://drive.google.com/open?id=1k5vW36p9N0Veyg9em0xR5fdOQsPS3Shy" target="_blank" rel="noopener noreferrer">Ver protocolo completo ↗</a></div></div>
+</details><details class="ne-care-diagram" id="ne-care-estrenimiento">
+<summary><span class="ne-care-symbol" aria-hidden="true">E</span><span class="ne-care-summary"><strong>Estreñimiento</strong><span>Detección y secuencia de actuación</span></span><span class="ne-care-chevron" aria-hidden="true">⌄</span></summary>
+<div class="ne-care-body"><ol class="ne-flow"><li><div class="ne-flow-node start"><strong>Ausencia de deposiciones</strong><div>En ausencia de patología digestiva: <b>5 días desde el inicio de NE</b>, o <b>3 días consecutivos desde la segunda semana</b>.</div></div></li><li><div class="ne-flow-node "><span class=ne-flow-label>Valoración clínica</span><strong>Valorar la presencia de fecalomas mediante tacto rectal</strong></div></li><li><div class="ne-flow-node "><span class=ne-flow-label>Según indicación</span><strong>Enema de limpieza</strong><div>El protocolo especifica enema jabonoso de al menos 1 litro.</div></div></li><li><div class="ne-flow-node "><span class=ne-flow-label>Decisión médica</span><strong>Prescripción de laxantes</strong><div>Valorar dieta con fibra no fermentable o insoluble e hidratación adecuada.</div></div></li></ol><div class="ne-care-source"><span>Protocolo de NE de la unidad · págs. 27–28</span><a href="https://drive.google.com/open?id=1k5vW36p9N0Veyg9em0xR5fdOQsPS3Shy" target="_blank" rel="noopener noreferrer">Ver protocolo completo ↗</a></div></div>
+</details></section>
+<section class="ne-panel" id="ne-panel-disfagia" role="tabpanel" aria-labelledby="ne-tab-disfagia" hidden>
 <section class="ne-card ne-dys-test">
 <h3>Test de Disfagia</h3>
 <div class="ne-dys-intro">
@@ -2745,7 +2803,8 @@ Realizar con el paciente lo más sentado posible. El protocolo indica administra
 <button type="button" class="ne-dys-reset" id="ne-dys-reset">↻ Reiniciar test</button>
 </div>
 </section>
-
+</section>
+<section class="ne-panel" id="ne-panel-nutriciones" role="tabpanel" aria-labelledby="ne-tab-nutriciones" hidden>
 <section class="ne-hero ne-hero-secondary">
 <h2>Minivademecum de Nutriciones Enterales</h2>
 <p><strong>Tipos de NE, equivalencias e indicaciones</strong></p>
@@ -2876,7 +2935,38 @@ Realizar con el paciente lo más sentado posible. El protocolo indica administra
 <ul class="ne-list"><li class="ne-noalt">Vital 1.5 (vainilla)</li></ul>
 <div class="ne-source">Fuente: <strong>Minivademecum de Nutriciones Enterales</strong> proporcionado por la unidad. Fdo. Ascensión González García.</div>
 </section>
+</section>
 </main>
+<script id="ne-care-navigation-js">
+(function(){
+  const root=document.getElementById('ne-view');
+  if(!root)return;
+  const tabs=Array.from(root.querySelectorAll('[data-ne-panel]'));
+  window.selectNEPanel=function(name){
+    const selected=tabs.find(tab=>tab.dataset.nePanel===name);
+    if(!selected)return;
+    tabs.forEach(tab=>{
+      const active=tab===selected;
+      tab.setAttribute('aria-selected',String(active));
+      tab.tabIndex=active?0:-1;
+      document.getElementById(tab.getAttribute('aria-controls')).hidden=!active;
+    });
+  };
+  tabs.forEach((tab,index)=>{
+    tab.addEventListener('click',()=>window.selectNEPanel(tab.dataset.nePanel));
+    tab.addEventListener('keydown',event=>{
+      let next;
+      if(event.key==='ArrowRight')next=(index+1)%tabs.length;
+      else if(event.key==='ArrowLeft')next=(index+tabs.length-1)%tabs.length;
+      else if(event.key==='Home')next=0;
+      else if(event.key==='End')next=tabs.length-1;
+      else return;
+      event.preventDefault();
+      tabs[next].click();tabs[next].focus();
+    });
+  });
+})();
+</script>
 
 <script id="ne-dys-test-js">
 (function(){
@@ -4335,6 +4425,7 @@ initCompatibility();initCompatibilityDirectory();renderAlpha();render();
     document.getElementById('insulinizacion-view').style.display='none';
     document.getElementById('tcrr-view').style.display='none';
     document.getElementById('ne-view').style.display='block';
+    if(typeof window.selectNEPanel==='function')window.selectNEPanel('cuidados');
     document.body.classList.remove('v35-drug-list');
     window.scrollTo(0,0);
   };
@@ -4571,7 +4662,9 @@ window.addEventListener('message',event=>{
     const search=document.getElementById('drive-search');
     if(search){ search.value='preparación box e ingreso check list'; updateDriveContents(); }
   } else if(event.data.action==='tcae-nutrition'){
-    window.showNE();
+    window.showNE();window.selectNEPanel('nutriciones');
+  } else if(event.data.action==='tcae-dysphagia'){
+    window.showNE();window.selectNEPanel('disfagia');
   } else if(event.data.action==='tcae-cleaning'){
     window.showLimpieza();
   } else if(event.data.action==='scale-maddox'){
@@ -4603,7 +4696,7 @@ window.addEventListener('message',event=>{
     limpieza:{event:'uci_tab_limpieza',name:'Limpieza y preparación'},
     tcrr:{event:'uci_tab_tcrr',name:'TCRR'},
     insulinizacion:{event:'uci_tab_insulinizacion',name:'Insulinización'},
-    ne:{event:'uci_tab_nutricion_disfagia',name:'Test de Disfagia - Minivademecum de NE'},
+    ne:{event:'uci_tab_nutricion_disfagia',name:'Nutrición enteral'},
     telefonos:{event:'uci_tab_telefonos',name:'Teléfonos'},
     drive:{event:'uci_tab_drive',name:'Contenidos del Drive'}
   };
@@ -4880,7 +4973,7 @@ window.addEventListener('message',event=>{
       window.showAntibioticos();
       const all=document.querySelector('#antibioticos-view .ab-letter-btn[data-letter="all"]');
       if(all)all.click();
-    }else if(entry.kind==='nutrition')window.showNE();
+    }else if(entry.kind==='nutrition'){window.showNE();window.selectNEPanel('nutriciones');}
     else if(entry.kind==='phone')window.showTelefonos();
     if(entry.target){
       entry.target.classList.add('uci-search-destination');
