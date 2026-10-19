@@ -1136,6 +1136,17 @@ body.v35-drug-list.uci-drug-search-compact > header #allBtn{flex:0 0 auto;min-he
     .cart-drive-link:focus-visible { outline: 2px solid #526bef; outline-offset: 2px; }
     &lt;/style&gt;
 &lt;style&gt;.objective-search-destination{outline:3px solid #7cb8ac;outline-offset:3px}&lt;/style&gt;
+&lt;style id=&quot;tcae-objectives-style&quot;&gt;
+  #tcae-panel .tcae-card-heading { display: flex; flex: 1; min-width: 0; flex-direction: column; gap: 4px; }
+  #tcae-panel .card-summary { min-height: 64px; }
+  #tcae-panel .card-title { flex: none; font-size: 14px; line-height: 1.4; }
+  #tcae-panel .tcae-timing { color: #596a9b; font-size: 12px; line-height: 1.4; font-weight: 600; }
+  #tcae-panel .card-details p { font-size: 14px; line-height: 1.6; }
+  #tcae-panel .cart-schedule, #tcae-panel .cart-responsible { font-size: 14px; line-height: 1.5; }
+  #tcae-panel .cart-drive-link, #tcae-panel .action { font-size: 12px; }
+  #tcae-panel .section-sub { line-height: 1.5; }
+  @media (max-width: 600px) { #tcae-panel .card-details { padding-left: 16px; padding-right: 16px; } }
+&lt;/style&gt;
 &lt;/head&gt;
 &lt;body&gt;
   &lt;div class=&quot;shell&quot;&gt;
@@ -1348,21 +1359,119 @@ body.v35-drug-list.uci-drug-search-compact > header #allBtn{flex:0 0 auto;min-he
 
       &lt;/section&gt;
       &lt;section class=&quot;role-panel&quot; id=&quot;tcae-panel&quot; hidden&gt;
-        &lt;div class=&quot;breadcrumbs&quot;&gt;Recursos UCI &lt;span&gt;/&lt;/span&gt; Objetivos asistenciales &lt;span&gt;/&lt;/span&gt; Objetivos de TCAE&lt;/div&gt;
-        &lt;section class=&quot;hero&quot; aria-labelledby=&quot;tcae-page-title&quot;&gt;
-          &lt;div&gt;
-            &lt;div class=&quot;eyebrow&quot;&gt;Objetivos asistenciales · TCAE&lt;/div&gt;
-            &lt;h1 id=&quot;tcae-page-title&quot;&gt;Objetivos de TCAE&lt;/h1&gt;
-            &lt;p&gt;Objetivos del TCAE organizados según el momento de la asistencia.&lt;/p&gt;
-          &lt;/div&gt;
-          &lt;div class=&quot;year-tag&quot;&gt;Objetivos 2026&lt;/div&gt;
-        &lt;/section&gt;
-        &lt;div class=&quot;tcae-outline&quot; aria-label=&quot;Frecuencia de los objetivos&quot;&gt;
-          &lt;article&gt;&lt;span class=&quot;section-num&quot;&gt;01&lt;/span&gt;&lt;h2&gt;En cada turno&lt;/h2&gt;&lt;p&gt;Objetivos para consultar durante cada turno.&lt;/p&gt;&lt;/article&gt;
-          &lt;article&gt;&lt;span class=&quot;section-num&quot;&gt;02&lt;/span&gt;&lt;h2&gt;Cada día&lt;/h2&gt;&lt;p&gt;Objetivos que se revisan diariamente.&lt;/p&gt;&lt;/article&gt;
-          &lt;article&gt;&lt;span class=&quot;section-num&quot;&gt;03&lt;/span&gt;&lt;h2&gt;Cuando corresponda&lt;/h2&gt;&lt;p&gt;Objetivos vinculados a la situación asistencial.&lt;/p&gt;&lt;/article&gt;
+  &lt;div class=&quot;breadcrumbs&quot;&gt;Recursos UCI &lt;span&gt;/&lt;/span&gt; Objetivos asistenciales &lt;span&gt;/&lt;/span&gt; Objetivos de TCAEs&lt;/div&gt;
+  &lt;section class=&quot;hero&quot; aria-labelledby=&quot;tcae-page-title&quot;&gt;
+    &lt;div&gt;&lt;div class=&quot;eyebrow&quot;&gt;Objetivos asistenciales · TCAEs&lt;/div&gt;&lt;h1 id=&quot;tcae-page-title&quot;&gt;Objetivos de TCAEs&lt;/h1&gt;&lt;p&gt;Cuidados, registros y tareas de la unidad, con el momento de realización de cada actividad.&lt;/p&gt;&lt;/div&gt;
+    &lt;div class=&quot;year-tag&quot;&gt;Objetivos 2026&lt;/div&gt;
+  &lt;/section&gt;
+&lt;section class=&quot;section&quot; aria-labelledby=&quot;tcae-cuidados-title&quot;&gt;
+  &lt;div class=&quot;section-head&quot;&gt;&lt;span class=&quot;section-num&quot;&gt;01&lt;/span&gt;&lt;div class=&quot;section-title-wrap&quot;&gt;&lt;h2 id=&quot;tcae-cuidados-title&quot;&gt;Durante los cuidados&lt;/h2&gt;&lt;span class=&quot;section-sub&quot;&gt;Atención al paciente y participación de la familia&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;section-rule&quot;&gt;&lt;/div&gt;&lt;/div&gt;
+  &lt;div class=&quot;cards&quot;&gt;&lt;article class=&quot;card&quot; data-search=&quot;Identificación del paciente Durante la asistencia seguridad identidad pulsera&quot;&gt;
+  &lt;div class=&quot;card-top&quot;&gt;&lt;div class=&quot;icon mint&quot; aria-hidden=&quot;true&quot;&gt;⌖&lt;/div&gt;&lt;span class=&quot;type&quot;&gt;Durante la asistencia&lt;/span&gt;&lt;/div&gt;
+  &lt;h3&gt;Identificación del paciente&lt;/h3&gt;
+  &lt;p&gt;Comprueba que cada paciente porta pulsera identificativa y que esta es legible.&lt;/p&gt;
+  
+&lt;/article&gt;&lt;article class=&quot;card&quot; data-search=&quot;Cambios posturales y prevención de LPP Según los cuidados pautados movilización indicadores calidad&quot;&gt;
+  &lt;div class=&quot;card-top&quot;&gt;&lt;div class=&quot;icon blue&quot; aria-hidden=&quot;true&quot;&gt;↻&lt;/div&gt;&lt;span class=&quot;type&quot;&gt;Según pauta · mínimo cada 4 h&lt;/span&gt;&lt;/div&gt;
+  &lt;h3&gt;Cambios posturales y prevención de LPP&lt;/h3&gt;
+  &lt;p&gt;Participa en los cambios posturales con la frecuencia pautada (mínimo cada 4 h) en los pacientes que los precisen, y en el seguimiento de las medidas de prevención de lesiones por presión (LPP).&lt;/p&gt;
+  
+&lt;/article&gt;&lt;article class=&quot;card&quot; data-search=&quot;Higiene y cuidados del paciente Durante los cuidados aseo boca ojos ocular baño&quot; data-drive-url=&quot;https://drive.google.com/open?id=1opDLvbkj24m65CkdPcoiJfQbKVwKl0ws&quot;&gt;
+  &lt;div class=&quot;card-top&quot;&gt;&lt;div class=&quot;icon mint&quot; aria-hidden=&quot;true&quot;&gt;✧&lt;/div&gt;&lt;span class=&quot;type&quot;&gt;Durante los cuidados&lt;/span&gt;&lt;/div&gt;
+  &lt;h3&gt;Higiene y cuidados del paciente&lt;/h3&gt;
+  &lt;p&gt;Realiza la higiene completa del paciente, incluida la higiene bucal y ocular según el protocolo de cuidados de los ojos. Registra la higiene en gráfica y facilita el uso del baño asistido cuando corresponda.&lt;/p&gt;
+  
+&lt;/article&gt;&lt;article class=&quot;card&quot; data-search=&quot;Dieta, nutrición enteral y balance Según la dieta prescrita alimentación balance NE ingesta&quot;&gt;
+  &lt;div class=&quot;card-top&quot;&gt;&lt;div class=&quot;icon amber&quot; aria-hidden=&quot;true&quot;&gt;◉&lt;/div&gt;&lt;span class=&quot;type&quot;&gt;Según la dieta prescrita&lt;/span&gt;&lt;/div&gt;
+  &lt;h3&gt;Dieta, nutrición enteral y balance&lt;/h3&gt;
+  &lt;p&gt;Registra las entradas y salidas y la dieta prescrita por el facultativo. Cumplimenta correctamente las solicitudes de víveres, nutrición enteral (NE) y dietas.&lt;/p&gt;
+  &lt;div class=&quot;card-bottom&quot;&gt;&lt;button class=&quot;action&quot; type=&quot;button&quot; data-parent-tool=&quot;tcae-nutrition&quot;&gt;Ver nutriciones &lt;span class=&quot;arrow&quot;&gt;›&lt;/span&gt;&lt;/button&gt;&lt;/div&gt;
+&lt;/article&gt;&lt;article class=&quot;card&quot; data-search=&quot;Cuidados de la sonda nasogástrica residuos gástricos cada 12 h SNG nutrición enteral aspiración lavado&quot; data-drive-url=&quot;https://drive.google.com/open?id=1k5vW36p9N0Veyg9em0xR5fdOQsPS3Shy&quot; data-drive-label=&quot;Ver protocolo de nutrición enteral&quot;&gt;
+  &lt;div class=&quot;card-top&quot;&gt;&lt;div class=&quot;icon blue&quot; aria-hidden=&quot;true&quot;&gt;◈&lt;/div&gt;&lt;span class=&quot;type&quot;&gt;Residuos cada 12 h&lt;/span&gt;&lt;/div&gt;
+  &lt;h3&gt;Cuidados de la sonda nasogástrica&lt;/h3&gt;
+  &lt;p&gt;Mide los residuos gástricos cada 12 h. Realiza la aspiración y el lavado de la sonda nasogástrica (SNG) según el protocolo de nutrición enteral.&lt;/p&gt;
+  
+&lt;/article&gt;&lt;article class=&quot;card&quot; data-search=&quot;Test de disfagia Junto con el enfermero/a deglución alimentación&quot;&gt;
+  &lt;div class=&quot;card-top&quot;&gt;&lt;div class=&quot;icon plum&quot; aria-hidden=&quot;true&quot;&gt;◌&lt;/div&gt;&lt;span class=&quot;type&quot;&gt;Junto con el enfermero/a&lt;/span&gt;&lt;/div&gt;
+  &lt;h3&gt;Test de disfagia&lt;/h3&gt;
+  &lt;p&gt;Participa en la realización del test de disfagia junto con el enfermero/a.&lt;/p&gt;
+  &lt;div class=&quot;card-bottom&quot;&gt;&lt;button class=&quot;action&quot; type=&quot;button&quot; data-parent-tool=&quot;tcae-nutrition&quot;&gt;Ver test de disfagia &lt;span class=&quot;arrow&quot;&gt;›&lt;/span&gt;&lt;/button&gt;&lt;/div&gt;
+&lt;/article&gt;&lt;article class=&quot;card&quot; data-search=&quot;Participación de la familia Según la situación del paciente humanización familiares&quot;&gt;
+  &lt;div class=&quot;card-top&quot;&gt;&lt;div class=&quot;icon mint&quot; aria-hidden=&quot;true&quot;&gt;＋&lt;/div&gt;&lt;span class=&quot;type&quot;&gt;Según la situación del paciente&lt;/span&gt;&lt;/div&gt;
+  &lt;h3&gt;Participación de la familia&lt;/h3&gt;
+  &lt;p&gt;Facilita la incorporación progresiva de la familia a los cuidados del paciente y participa en la escuela de familias.&lt;/p&gt;
+  
+&lt;/article&gt;&lt;/div&gt;
+&lt;/section&gt;&lt;section class=&quot;section&quot; aria-labelledby=&quot;tcae-diario-title&quot;&gt;
+  &lt;div class=&quot;section-head&quot;&gt;&lt;span class=&quot;section-num&quot;&gt;02&lt;/span&gt;&lt;div class=&quot;section-title-wrap&quot;&gt;&lt;h2 id=&quot;tcae-diario-title&quot;&gt;Cada día&lt;/h2&gt;&lt;span class=&quot;section-sub&quot;&gt;Peso, limpieza y acondicionamiento de la unidad&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;section-rule&quot;&gt;&lt;/div&gt;&lt;/div&gt;
+  &lt;div class=&quot;cards&quot;&gt;&lt;article class=&quot;card&quot; data-search=&quot;Peso diario Cada día registro diario peso paciente&quot;&gt;
+  &lt;div class=&quot;card-top&quot;&gt;&lt;div class=&quot;icon blue&quot; aria-hidden=&quot;true&quot;&gt;↗&lt;/div&gt;&lt;span class=&quot;type&quot;&gt;Cada día&lt;/span&gt;&lt;/div&gt;
+  &lt;h3&gt;Peso diario&lt;/h3&gt;
+  &lt;p&gt;Registra diariamente el peso del paciente.&lt;/p&gt;
+  
+&lt;/article&gt;&lt;article class=&quot;card&quot; data-search=&quot;Limpieza, orden y material del box Limpieza y orden diarios reposición fungible acondicionamiento sistemática aparataje&quot;&gt;
+  &lt;div class=&quot;card-top&quot;&gt;&lt;div class=&quot;icon mint&quot; aria-hidden=&quot;true&quot;&gt;✧&lt;/div&gt;&lt;span class=&quot;type&quot;&gt;Limpieza y orden diarios&lt;/span&gt;&lt;/div&gt;
+  &lt;h3&gt;Limpieza, orden y material del box&lt;/h3&gt;
+  &lt;p&gt;Mantén la limpieza y el orden diarios del box y de la unidad, y limpia el aparataje común. Repón el material fungible y completa las tareas asignadas en la sistemática de TCAE.&lt;/p&gt;
+  &lt;div class=&quot;card-bottom&quot;&gt;&lt;button class=&quot;action&quot; type=&quot;button&quot; data-parent-tool=&quot;tcae-cleaning&quot;&gt;Ver limpieza y preparación &lt;span class=&quot;arrow&quot;&gt;›&lt;/span&gt;&lt;/button&gt;&lt;/div&gt;
+&lt;/article&gt;&lt;/div&gt;
+&lt;/section&gt;&lt;section class=&quot;section&quot; aria-labelledby=&quot;tcae-corresponda-title&quot;&gt;
+  &lt;div class=&quot;section-head&quot;&gt;&lt;span class=&quot;section-num&quot;&gt;03&lt;/span&gt;&lt;div class=&quot;section-title-wrap&quot;&gt;&lt;h2 id=&quot;tcae-corresponda-title&quot;&gt;Cuando corresponda&lt;/h2&gt;&lt;span class=&quot;section-sub&quot;&gt;Tareas semanales, procedimientos y registros&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;section-rule&quot;&gt;&lt;/div&gt;&lt;/div&gt;
+  &lt;div class=&quot;cards&quot;&gt;&lt;article class=&quot;card&quot; data-search=&quot;Lavado de cabeza Los sábados higiene sábado semanal&quot;&gt;
+  &lt;div class=&quot;card-top&quot;&gt;&lt;div class=&quot;icon mint&quot; aria-hidden=&quot;true&quot;&gt;✧&lt;/div&gt;&lt;span class=&quot;type&quot;&gt;Los sábados&lt;/span&gt;&lt;/div&gt;
+  &lt;h3&gt;Lavado de cabeza&lt;/h3&gt;
+  &lt;p&gt;Realiza el lavado de cabeza los sábados y regístralo en gráfica.&lt;/p&gt;
+  
+&lt;/article&gt;&lt;article class=&quot;card&quot; data-search=&quot;Temperatura del frigorífico de fármacos Fines de semana y festivos nevera medicación temperatura control&quot;&gt;
+  &lt;div class=&quot;card-top&quot;&gt;&lt;div class=&quot;icon amber&quot; aria-hidden=&quot;true&quot;&gt;◌&lt;/div&gt;&lt;span class=&quot;type&quot;&gt;Fines de semana y festivos&lt;/span&gt;&lt;/div&gt;
+  &lt;h3&gt;Temperatura del frigorífico de fármacos&lt;/h3&gt;
+  &lt;p&gt;Controla la temperatura del frigorífico de fármacos los fines de semana y festivos y cumplimenta el registro correspondiente.&lt;/p&gt;
+  
+&lt;/article&gt;&lt;article class=&quot;card&quot; data-search=&quot;Verificación del box y acogida Al ingreso y al alta de UCI checklist preparación ingreso alta acogida&quot; data-drive-url=&quot;https://drive.google.com/open?id=1nK_fBFDFrDt_ljsXGA5NaVo7GVjOUIJZ&quot;&gt;
+  &lt;div class=&quot;card-top&quot;&gt;&lt;div class=&quot;icon mint&quot; aria-hidden=&quot;true&quot;&gt;▤&lt;/div&gt;&lt;span class=&quot;type&quot;&gt;Al ingreso y al alta de UCI&lt;/span&gt;&lt;/div&gt;
+  &lt;h3&gt;Verificación del box y acogida&lt;/h3&gt;
+  &lt;p&gt;Cumplimenta el listado de verificación del box al ingreso y al alta de UCI. Participa en el plan de acogida del paciente.&lt;/p&gt;
+  
+&lt;/article&gt;&lt;article class=&quot;card&quot; data-search=&quot;Checklist de canalización y proyectos ZERO Durante los procedimientos y cuidados vías acceso vascular neumonía infección urinaria resistencia zero&quot; data-drive-url=&quot;https://drive.google.com/open?id=1nzMRYrFUGF10v1B1TuFyghNJYArqgy3X&quot;&gt;
+  &lt;div class=&quot;card-top&quot;&gt;&lt;div class=&quot;icon blue&quot; aria-hidden=&quot;true&quot;&gt;BZ&lt;/div&gt;&lt;span class=&quot;type&quot;&gt;Durante los procedimientos y cuidados&lt;/span&gt;&lt;/div&gt;
+  &lt;h3&gt;Checklist de canalización y proyectos ZERO&lt;/h3&gt;
+  &lt;p&gt;Cumplimenta el checklist de canalización de vías de Bacteriemia ZERO (BZ). Aplica los protocolos de los proyectos BZ, NZ, ITZ y RZ de la unidad en las tareas que te correspondan.&lt;/p&gt;
+  
+&lt;/article&gt;&lt;article class=&quot;card&quot; data-search=&quot;Registros en Estación de Cuidados Cuando corresponda aplicación corporativa agenda observaciones registro&quot;&gt;
+  &lt;div class=&quot;card-top&quot;&gt;&lt;div class=&quot;icon plum&quot; aria-hidden=&quot;true&quot;&gt;▤&lt;/div&gt;&lt;span class=&quot;type&quot;&gt;Cuando corresponda&lt;/span&gt;&lt;/div&gt;
+  &lt;h3&gt;Registros en Estación de Cuidados&lt;/h3&gt;
+  &lt;p&gt;Utiliza los apartados de Agenda y Observaciones de Estación de Cuidados para los registros correspondientes a tu actividad asistencial.&lt;/p&gt;
+  
+&lt;/article&gt;&lt;article class=&quot;card&quot; data-search=&quot;Gestión de camas Cuando corresponda aplicación informática ingreso alta cama&quot;&gt;
+  &lt;div class=&quot;card-top&quot;&gt;&lt;div class=&quot;icon blue&quot; aria-hidden=&quot;true&quot;&gt;↔&lt;/div&gt;&lt;span class=&quot;type&quot;&gt;Cuando corresponda&lt;/span&gt;&lt;/div&gt;
+  &lt;h3&gt;Gestión de camas&lt;/h3&gt;
+  &lt;p&gt;Utiliza la aplicación corporativa de Gestión de Camas para las actuaciones que te correspondan.&lt;/p&gt;
+  
+&lt;/article&gt;&lt;/div&gt;
+&lt;/section&gt;&lt;section class=&quot;section&quot; aria-labelledby=&quot;tcae-carros-title&quot;&gt;
+        &lt;div class=&quot;section-head&quot;&gt;&lt;span class=&quot;section-num&quot;&gt;OBJETIVOS DE UNIDAD&lt;/span&gt;&lt;div class=&quot;section-title-wrap&quot;&gt;&lt;h2 id=&quot;tcae-carros-title&quot;&gt;Revisión de carros&lt;/h2&gt;&lt;span class=&quot;section-sub&quot;&gt;Ubicación, periodicidad y responsables&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;section-rule&quot;&gt;&lt;/div&gt;&lt;/div&gt;
+        &lt;div class=&quot;cards&quot;&gt;
+          &lt;article class=&quot;card cart-card&quot; data-drive-url=&quot;https://drive.google.com/open?id=1SFBRDj3rLNHUH2tKvUD9bRvHmHPm17iw&quot; data-search=&quot;carro de parada paradas cada unidad noche uso box 1 enfermero TCAE revisión&quot;&gt;
+            &lt;div class=&quot;card-top&quot;&gt;&lt;div class=&quot;icon amber&quot; aria-hidden=&quot;true&quot;&gt;↻&lt;/div&gt;&lt;span class=&quot;type&quot;&gt;Cada noche · después de cada uso&lt;/span&gt;&lt;/div&gt;
+            &lt;h3&gt;Carro de paradas&lt;/h3&gt;
+            &lt;p&gt;Ubicación: un carro en cada unidad.&lt;/p&gt;
+            &lt;div class=&quot;card-bottom&quot;&gt;&lt;span class=&quot;system-hint&quot;&gt;Responsables: enfermero/a y TCAE asignados al box 1 de cada unidad&lt;/span&gt;&lt;/div&gt;
+          &lt;/article&gt;
+          &lt;article class=&quot;card cart-card&quot; data-drive-url=&quot;https://drive.google.com/open?id=13z9K-e3Y18MMnlzpt7zrJB6vLkw11rCr&quot; data-search=&quot;carro esternotomía esternotomia cada domingo box ingreso P UCP box 6 enfermero TCAE revisión&quot;&gt;
+            &lt;div class=&quot;card-top&quot;&gt;&lt;div class=&quot;icon blue&quot; aria-hidden=&quot;true&quot;&gt;↻&lt;/div&gt;&lt;span class=&quot;type&quot;&gt;Cada domingo&lt;/span&gt;&lt;/div&gt;
+            &lt;h3&gt;Carro de esternotomía&lt;/h3&gt;
+            &lt;p&gt;Ubicación: box de ingreso de la P.&lt;/p&gt;
+            &lt;div class=&quot;card-bottom&quot;&gt;&lt;span class=&quot;system-hint&quot;&gt;Responsables: enfermero/a y TCAE del box 6 de la UCP&lt;/span&gt;&lt;/div&gt;
+          &lt;/article&gt;
+          &lt;article class=&quot;card cart-card&quot; data-drive-url=&quot;https://drive.google.com/open?id=1cE69iHdXARj8HSdN0dW087MJDvYZ2wP6&quot; data-search=&quot;carro vía aérea difícil via aerea dificil cada domingo UCI B cama 4 enfermería TCAE revisión&quot;&gt;
+            &lt;div class=&quot;card-top&quot;&gt;&lt;div class=&quot;icon plum&quot; aria-hidden=&quot;true&quot;&gt;↻&lt;/div&gt;&lt;span class=&quot;type&quot;&gt;Cada domingo&lt;/span&gt;&lt;/div&gt;
+            &lt;h3&gt;Carro de vía aérea difícil&lt;/h3&gt;
+            &lt;p&gt;Ubicación: UCI B.&lt;/p&gt;
+            &lt;div class=&quot;card-bottom&quot;&gt;&lt;span class=&quot;system-hint&quot;&gt;Responsables: enfermero/a y TCAE responsables de la cama 4 de UCI B&lt;/span&gt;&lt;/div&gt;
+          &lt;/article&gt;
         &lt;/div&gt;
       &lt;/section&gt;
+&lt;/section&gt;
       &lt;footer&gt;&lt;span&gt;Recursos UCI HUVM&lt;/span&gt;&lt;span&gt;Objetivos asistenciales · 2026&lt;/span&gt;&lt;/footer&gt;
     &lt;/main&gt;
   &lt;/div&gt;
@@ -1400,8 +1509,8 @@ body.v35-drug-list.uci-drug-search-compact > header #allBtn{flex:0 0 auto;min-he
   &lt;/dialog&gt;
 
   &lt;script&gt;
-    const chips = [...document.querySelectorAll(&#x27;.filter-chip&#x27;)];
-    const sections = [...document.querySelectorAll(&#x27;.section[data-section]&#x27;)];
+    const chips = [...document.querySelectorAll(&#x27;#nurse-panel .filter-chip&#x27;)];
+    const sections = [...document.querySelectorAll(&#x27;#nurse-panel .section[data-section]&#x27;)];
     let activeFilter = &#x27;all&#x27;;
 
     function updateView() {
@@ -1479,15 +1588,26 @@ body.v35-drug-list.uci-drug-search-compact > header #allBtn{flex:0 0 auto;min-he
           driveLink.href = card.dataset.driveUrl;
           driveLink.target = &#x27;_blank&#x27;;
           driveLink.rel = &#x27;noopener noreferrer&#x27;;
-          driveLink.textContent = &#x27;Ver protocolo&#x27;;
+          driveLink.textContent = card.dataset.driveLabel || &#x27;Ver protocolo&#x27;;
           details.append(driveLink);
         }
       } else {
-        summary.append(summaryTitle);
+        if (card.closest(&#x27;#tcae-panel&#x27;)) {
+          const heading = document.createElement(&#x27;span&#x27;);
+          heading.className = &#x27;tcae-card-heading&#x27;;
+          heading.append(summaryTitle);
+          if (type) {
+            const timing = document.createElement(&#x27;span&#x27;);
+            timing.className = &#x27;tcae-timing&#x27;;
+            timing.textContent = type.textContent;
+            heading.append(timing);
+          }
+          summary.append(heading);
+        } else summary.append(summaryTitle);
         if (card.classList.contains(&#x27;zero-card&#x27;)) {
           extraContent.forEach(child =&gt; details.append(child));
         } else {
-          if (type) details.append(type);
+          if (type &amp;&amp; !card.closest(&#x27;#tcae-panel&#x27;)) details.append(type);
           if (description) details.append(description);
           if (bottom) details.append(bottom);
           extraContent.forEach(child =&gt; details.append(child));
@@ -1497,7 +1617,7 @@ body.v35-drug-list.uci-drug-search-compact > header #allBtn{flex:0 0 auto;min-he
             driveLink.href = card.dataset.driveUrl;
             driveLink.target = &#x27;_blank&#x27;;
             driveLink.rel = &#x27;noopener noreferrer&#x27;;
-            driveLink.textContent = &#x27;Ver protocolo&#x27;;
+            driveLink.textContent = card.dataset.driveLabel || &#x27;Ver protocolo&#x27;;
             details.append(driveLink);
           }
         }
@@ -4450,6 +4570,10 @@ window.addEventListener('message',event=>{
     window.showDriveContents();
     const search=document.getElementById('drive-search');
     if(search){ search.value='preparación box e ingreso check list'; updateDriveContents(); }
+  } else if(event.data.action==='tcae-nutrition'){
+    window.showNE();
+  } else if(event.data.action==='tcae-cleaning'){
+    window.showLimpieza();
   } else if(event.data.action==='scale-maddox'){
     let dialog=document.getElementById('host-maddox-dialog');
     if(!dialog){
