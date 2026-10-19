@@ -1415,11 +1415,11 @@ body.v35-drug-list.uci-drug-search-compact > header #allBtn{flex:0 0 auto;min-he
   &lt;h3&gt;Dieta, nutrición enteral y balance&lt;/h3&gt;
   &lt;p&gt;Registra las entradas y salidas y la dieta prescrita por el facultativo. Cumplimenta correctamente las solicitudes de víveres, nutrición enteral (NE) y dietas.&lt;/p&gt;
   &lt;div class=&quot;card-bottom&quot;&gt;&lt;button class=&quot;action&quot; type=&quot;button&quot; data-parent-tool=&quot;tcae-nutrition&quot;&gt;Ver nutriciones &lt;span class=&quot;arrow&quot;&gt;›&lt;/span&gt;&lt;/button&gt;&lt;/div&gt;
-&lt;/article&gt;&lt;article class=&quot;card&quot; data-search=&quot;Cuidados de la sonda nasogástrica residuos gástricos cada 12 h SNG nutrición enteral aspiración lavado&quot; data-drive-url=&quot;https://drive.google.com/open?id=1k5vW36p9N0Veyg9em0xR5fdOQsPS3Shy&quot; data-drive-label=&quot;Ver protocolo de nutrición enteral&quot;&gt;
-  &lt;div class=&quot;card-top&quot;&gt;&lt;div class=&quot;icon blue&quot; aria-hidden=&quot;true&quot;&gt;◈&lt;/div&gt;&lt;span class=&quot;type&quot;&gt;Residuos cada 12 h&lt;/span&gt;&lt;/div&gt;
+&lt;/article&gt;&lt;article class=&quot;card&quot; data-search=&quot;Cuidados de la sonda nasogástrica según protocolo residuos gástricos SNG nutrición enteral aspiración lavado&quot;&gt;
+  &lt;div class=&quot;card-top&quot;&gt;&lt;div class=&quot;icon blue&quot; aria-hidden=&quot;true&quot;&gt;◈&lt;/div&gt;&lt;span class=&quot;type&quot;&gt;Según protocolo&lt;/span&gt;&lt;/div&gt;
   &lt;h3&gt;Cuidados de la sonda nasogástrica&lt;/h3&gt;
-  &lt;p&gt;Mide los residuos gástricos cada 12 h. Realiza la aspiración y el lavado de la sonda nasogástrica (SNG) según el protocolo de nutrición enteral.&lt;/p&gt;
-  
+  &lt;p&gt;Mide los residuos gástricos y realiza la aspiración y el lavado de la sonda nasogástrica (SNG) según el protocolo de nutrición enteral.&lt;/p&gt;
+  &lt;div class=&quot;card-bottom&quot;&gt;&lt;button class=&quot;action&quot; type=&quot;button&quot; style=&quot;margin-left:auto&quot; data-parent-tool=&quot;tcae-sng&quot;&gt;Ver protocolo &lt;span class=&quot;arrow&quot;&gt;›&lt;/span&gt;&lt;/button&gt;&lt;/div&gt;
 &lt;/article&gt;&lt;article class=&quot;card&quot; data-search=&quot;Test de disfagia Junto con el enfermero/a deglución alimentación&quot;&gt;
   &lt;div class=&quot;card-top&quot;&gt;&lt;div class=&quot;icon plum&quot; aria-hidden=&quot;true&quot;&gt;◌&lt;/div&gt;&lt;span class=&quot;type&quot;&gt;Junto con el enfermero/a&lt;/span&gt;&lt;/div&gt;
   &lt;h3&gt;Test de disfagia&lt;/h3&gt;
@@ -4591,7 +4591,7 @@ function showDriveContents(){hideMiTurnoView();
   document.body.classList.remove('v35-drug-list');
   window.scrollTo(0,0);
   const q=document.getElementById('drive-search');
-  if(q){ q.value=''; updateDriveContents(); setTimeout(()=>q.focus(),50); }
+  if(q){ q.value=''; updateDriveContents(); }
 }
 function updateDriveContents(){
   const q=document.getElementById('drive-search');
@@ -4663,6 +4663,17 @@ window.addEventListener('message',event=>{
     if(search){ search.value='preparación box e ingreso check list'; updateDriveContents(); }
   } else if(event.data.action==='tcae-nutrition'){
     window.showNE();window.selectNEPanel('nutriciones');
+  } else if(event.data.action==='tcae-sng'){
+    window.showNE();window.selectNEPanel('cuidados');
+    const diagram=document.getElementById('ne-care-sng');
+    if(diagram){
+      diagram.open=true;
+      requestAnimationFrame(()=>{
+        const summary=diagram.querySelector('summary');
+        if(summary)summary.focus({preventScroll:true});
+        diagram.scrollIntoView({behavior:'smooth',block:'start'});
+      });
+    }
   } else if(event.data.action==='tcae-dysphagia'){
     window.showNE();window.selectNEPanel('disfagia');
   } else if(event.data.action==='tcae-cleaning'){
