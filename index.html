@@ -689,6 +689,8 @@ header{z-index:1000!important}
 .clean-link:hover{background:#e1efe6}
 .clean-link:focus-visible{outline:2px solid #4c879b;outline-offset:2px}
 .clean-fibro-copy{margin:14px 0 0;color:#586b6c;font-size:15px;line-height:1.55}
+.clean-video{position:relative;width:100%;height:0;padding-bottom:56.25%;margin-top:14px;overflow:hidden;border:1px solid #dce5e3;border-radius:12px;background:#101820}
+.clean-video iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
 @media(max-width:700px){#limpieza-view{padding:0 12px 28px}.clean-hero{padding:20px 18px;border-radius:17px}.clean-summary{min-height:66px;padding:12px}.clean-footer{align-items:stretch;flex-direction:column}.clean-link{width:100%;box-sizing:border-box}.clean-footer-note{font-size:12px}}
 </style>
 <style id="uci-home-search-css">
@@ -772,6 +774,14 @@ body.v35-drug-list.uci-drug-search-compact > header #allBtn{flex:0 0 auto;min-he
 @media(max-width:650px){#ne-view .ne-navigation{gap:4px;padding:4px}#ne-view .ne-navigation button{min-height:58px;font-size:13px;padding:9px 5px}.ne-care-diagram>summary{padding:13px 12px;gap:10px}.ne-care-summary>strong{font-size:15px}.ne-care-symbol{flex-basis:34px;height:36px;font-size:11px}.ne-care-summary>span{font-size:12px}.ne-flow-branches{grid-template-columns:1fr}.ne-care-body{padding:18px 12px}.ne-flow-node{font-size:15px;padding:13px}.ne-care-schedule dl>div{grid-template-columns:95px 1fr}}
 @media(max-width:650px){.ne-flow-branch{padding:11px}.ne-flow-branch>.ne-flow-node.question{margin-left:8px}.ne-flow-branch .ne-flow-branches{margin-left:8px;padding-left:10px}.ne-flow-branch .ne-flow-branch{padding:10px}.ne-flow-branch .ne-flow-branch:before{left:-13px;width:10px}}
 </style>
+<style id="farmacos-hub-css">
+.farmacos-hub-head{display:flex;align-items:center;gap:16px;padding:22px;border:1px solid #d6e4ef;border-radius:17px;background:linear-gradient(120deg,#edf4fb,#f4f8fc);margin-bottom:18px}
+.farmacos-hub-icon{display:grid;place-items:center;flex:0 0 54px;height:54px;font-size:24px;background:#fff;border:1px solid #dce7f1;border-radius:15px}
+.farmacos-hub-head h2{margin:0;color:#244568;font-size:27px;line-height:1.25}.farmacos-hub-head p{margin:7px 0 0;color:#60768b;font-size:14px;line-height:1.5}
+.farmacos-hub-grid .v35-tile{align-items:center;min-height:130px}.farmacos-hub-copy{flex:1;min-width:0}.farmacos-hub-grid .v35-tile strong{font-size:16px;line-height:1.4}.farmacos-hub-grid .v35-tile .farmacos-hub-arrow{flex:0 0 auto;color:#7690a5;font-size:25px;line-height:1}
+.farmacos-hub-grid .v35-tile:focus-visible{outline:3px solid #82accb;outline-offset:3px}
+@media(max-width:760px){.farmacos-hub-head{padding:18px 15px;gap:12px}.farmacos-hub-head h2{font-size:25px}.farmacos-hub-head p{font-size:13px}.farmacos-hub-icon{flex-basis:46px;height:46px;font-size:21px}.farmacos-hub-grid .v35-tile{min-height:100px}.farmacos-hub-grid .v35-tile span{font-size:13px;line-height:1.5}}
+</style>
 </head>
 <body>
 <header>
@@ -827,17 +837,9 @@ body.v35-drug-list.uci-drug-search-compact > header #allBtn{flex:0 0 auto;min-he
 <div class="v35-icon" aria-hidden="true">🧠</div>
 <div><strong>Escalas de Analgosedación</strong><span>RASS, EVA/ESCID y CAM-ICU con calculadoras.</span></div>
 </a>
-<a class="v35-tile" href="#" onclick="showDrugsList();return false;">
+<a class="v35-tile" href="#" onclick="showFarmacos();return false;">
 <div class="v35-icon" aria-hidden="true">💊</div>
-<div><strong>Fármacos</strong><span>Listado, buscador, fichas completas y calculadora de dosis.</span></div>
-</a>
-<a class="v35-tile" href="#" onclick="showCompatibilityFromLanding();return false;">
-<div class="v35-icon" aria-hidden="true">⇄</div>
-<div><strong>Compatibilidad en Y</strong><span>Comprueba la compatibilidad entre dos fármacos.</span></div>
-</a>
-<a class="v35-tile" href="#" onclick="showAntibioticos();return false;">
-<div class="v35-icon" aria-hidden="true">🦠</div>
-<div><strong>Antibióticos</strong><span>Instrucciones de administración de antibióticos en perfusión intravenosa.</span></div>
+<div><strong>Fármacos</strong><span>Protocolo de fármacos, compatibilidad en Y y antibióticos.</span></div>
 </a>
 <a class="v35-tile" href="#" onclick="showLimpieza();return false;">
 <div class="v35-icon" aria-hidden="true">🧹</div>
@@ -864,6 +866,30 @@ body.v35-drug-list.uci-drug-search-compact > header #allBtn{flex:0 0 auto;min-he
 <div><strong>Contenidos del Drive</strong><span>Localiza y accede a las carpetas y documentos de la unidad.</span></div>
 </a>
 </div>
+</main>
+<main id="farmacos-view" class="v35-home" style="display:none" aria-labelledby="farmacos-hub-title">
+  <button type="button" class="back v35-cover-back" onclick="showLanding()">← Portada</button>
+  <section class="farmacos-hub-head">
+    <div class="farmacos-hub-icon" aria-hidden="true">💊</div>
+    <div><h2 id="farmacos-hub-title">Fármacos</h2><p>Protocolos, compatibilidad en Y y antibióticos.</p></div>
+  </section>
+  <nav class="v35-grid farmacos-hub-grid" aria-label="Recursos de fármacos">
+    <a class="v35-tile" href="#" onclick="showDrugsList();return false;">
+      <div class="v35-icon" aria-hidden="true">💊</div>
+      <div class="farmacos-hub-copy"><strong>Protocolo de fármacos</strong><span>Buscador, fichas de preparación y administración, y calculadoras de dosis.</span></div>
+      <span class="farmacos-hub-arrow" aria-hidden="true">›</span>
+    </a>
+    <a class="v35-tile" href="#" onclick="showCompatibilityFromLanding();return false;">
+      <div class="v35-icon" aria-hidden="true">⇄</div>
+      <div class="farmacos-hub-copy"><strong>Compatibilidad en Y</strong><span>Comparador de perfusiones y consulta de compatibilidad por fármaco.</span></div>
+      <span class="farmacos-hub-arrow" aria-hidden="true">›</span>
+    </a>
+    <a class="v35-tile" href="#" onclick="showAntibioticos();return false;">
+      <div class="v35-icon" aria-hidden="true">🦠</div>
+      <div class="farmacos-hub-copy"><strong>Antibióticos</strong><span>Indicaciones de administración de antibióticos en perfusión intravenosa.</span></div>
+      <span class="farmacos-hub-arrow" aria-hidden="true">›</span>
+    </a>
+  </nav>
 </main>
 <main id="mi-turno-view" aria-label="Objetivos asistenciales" style="display:none">
 <button type="button" class="back v35-cover-back" onclick="showLanding()" style="display:inline-block!important;visibility:visible!important;">← Portada</button>
@@ -1822,14 +1848,20 @@ body.v35-drug-list.uci-drug-search-compact > header #allBtn{flex:0 0 auto;min-he
     </div>
   </details>
 
-  <details class="clean-card fibro">
+  <details class="clean-card fibro" id="fibro-cleaning-video">
     <summary class="clean-summary">
       <span class="clean-icon" aria-hidden="true">〰</span>
       <span class="clean-summary-title">Limpieza del fibrobroncoscopio<small>Procedimiento de limpieza y desinfección</small></span>
       <span class="clean-chevron" aria-hidden="true">⌄</span>
     </summary>
     <div class="clean-details">
-      <p class="clean-fibro-copy">Este apartado reunirá los pasos y comprobaciones del procedimiento de limpieza del fibrobroncoscopio.</p>
+      <p class="clean-fibro-copy">Vídeo de limpieza y desinfección del fibrobroncoscopio.</p>
+      <div class="clean-video">
+        <iframe id="fibro-video-player" title="Vídeo de limpieza del fibrobroncoscopio" data-src="https://drive.google.com/file/d/1YlCcLWbTceYIUywlgh_fi1jVcr6KGqz5/preview" allow="autoplay; encrypted-media; fullscreen; picture-in-picture" allowfullscreen></iframe>
+      </div>
+      <div class="clean-footer">
+        <a class="clean-link" href="https://drive.google.com/file/d/1YlCcLWbTceYIUywlgh_fi1jVcr6KGqz5/view?usp=drive_link" target="_blank" rel="noopener noreferrer">Abrir vídeo en Drive <span aria-hidden="true">↗</span></a>
+      </div>
     </div>
   </details>
 </main>
@@ -2003,14 +2035,14 @@ body.v35-drug-list.uci-drug-search-compact > header #allBtn{flex:0 0 auto;min-he
 </main>
 
   <main id="home">
-<button type="button" class="back v35-cover-back" onclick="showLanding()" style="display:inline-block!important;visibility:visible!important;">← Portada</button>
+<button type="button" class="back v35-cover-back" onclick="showFarmacos()" style="display:inline-block!important;visibility:visible!important;">← Fármacos</button>
 <div class="notice"><strong>Importante:</strong> esta web reproduce el contenido del protocolo proporcionado. La página original del protocolo se muestra en cada ficha como referencia. Para uso asistencial, la página original sigue siendo la referencia.</div>
 <div class="alpha" id="alpha"></div>
 <div id="results" class="grid"></div>
 </main>
 
 <main id="compat-view" style="display:none">
-<button type="button" class="back v35-cover-back" onclick="showLanding()" style="display:inline-block!important;visibility:visible!important;">← Portada</button>
+<button type="button" class="back v35-cover-back" onclick="showFarmacos()" style="display:inline-block!important;visibility:visible!important;">← Fármacos</button>
 <button class="back" onclick="showHome()">← Volver al listado</button>
 <section class="compatibility" aria-labelledby="compat-title">
 <h2 id="compat-title">Compatibilidad de perfusiones</h2>
@@ -2057,7 +2089,7 @@ body.v35-drug-list.uci-drug-search-compact > header #allBtn{flex:0 0 auto;min-he
 </main>
 
 <main id="antibioticos-view" class="ab-view">
-<button type="button" class="back v35-cover-back" onclick="showLanding()">← Portada</button>
+<button type="button" class="back v35-cover-back" onclick="showFarmacos()">← Fármacos</button>
 <section class="ab-hero"><h2>Antibióticos</h2><p>Administración de antibióticos en perfusión según la tabla proporcionada.</p></section>
 <div class="ab-letter-filter" role="navigation" aria-label="Buscar antibiótico por letra">
   <span class="ab-letter-label">Buscar por letra:</span>
@@ -4328,6 +4360,13 @@ initCompatibility();initCompatibilityDirectory();renderAlpha();render();
   }
   window.showLanding=landing;
 
+  window.showFarmacos=function(){
+    document.querySelectorAll('body > main').forEach(view=>view.style.display='none');
+    document.getElementById('farmacos-view').style.display='block';
+    document.body.classList.remove('v35-drug-list');
+    window.scrollTo(0,0);
+  };
+
   window.showDrugsList=function(){
     document.getElementById('telefonos-view').style.display='none';
     document.getElementById('landing').style.display='none';
@@ -4582,6 +4621,24 @@ hook();setTimeout(hook,100);setTimeout(hook,500);setTimeout(hook,1500);
 })();
 </script>
 
+<script id="fibro-cleaning-video-js">
+(function(){
+  const section=document.getElementById('fibro-cleaning-video');
+  const player=document.getElementById('fibro-video-player');
+  const view=document.getElementById('limpieza-view');
+  if(!section||!player||!view)return;
+  function syncPlayer(){
+    if(section.open&&getComputedStyle(view).display!=='none'){
+      if(!player.getAttribute('src'))player.src=player.dataset.src;
+    }else if(player.hasAttribute('src')){
+      // Unload when closing or leaving the section to stop hidden playback.
+      player.removeAttribute('src');
+    }
+  }
+  section.addEventListener('toggle',syncPlayer);
+  window.addEventListener('uci-view-change',syncPlayer);
+})();
+</script>
 <script id="drive-contents-js">
 function showDriveContents(){hideMiTurnoView();
   document.getElementById('landing').style.display='none';
@@ -4701,7 +4758,8 @@ window.addEventListener('message',event=>{
   const tabs={
     'mi-turno':{event:'uci_tab_objetivos',name:'Objetivos asistenciales 2026'},
     analgosedacion:{event:'uci_tab_analgosedacion',name:'Escalas de Analgosedación'},
-    drugs:{event:'uci_tab_farmacos',name:'Fármacos'},
+    farmacos:{event:'uci_tab_farmacos_menu',name:'Fármacos · menú'},
+    drugs:{event:'uci_tab_farmacos',name:'Protocolo de fármacos'},
     compatibility:{event:'uci_tab_compatibilidad_y',name:'Compatibilidad en Y'},
     antibioticos:{event:'uci_tab_antibioticos',name:'Antibióticos'},
     limpieza:{event:'uci_tab_limpieza',name:'Limpieza y preparación'},
@@ -4756,6 +4814,8 @@ window.addEventListener('message',event=>{
     const original=window[name];
     if(typeof original!=='function'||original.__uciHistoryWrapped)return;
     function wrapped(){
+      const hub=document.getElementById('farmacos-view');
+      if(hub)hub.style.display='none';
       const result=original.apply(this,arguments);
       const view=viewForArgs(Array.from(arguments));
       rememberView(view);
@@ -4768,6 +4828,7 @@ window.addEventListener('message',event=>{
 
   [
     ['showLanding',()=>({view:'landing'})],
+    ['showFarmacos',()=>({view:'farmacos'})],
     ['showHome',()=>({view:'drugs'})],
     ['showDrugsList',()=>({view:'drugs'})],
     ['showCompatibility',()=>({view:'compatibility'})],
@@ -4791,6 +4852,7 @@ window.addEventListener('message',event=>{
     const mains=document.querySelectorAll('body > main');
     mains.forEach(main=>main.style.display='none');
     switch(view.view){
+      case 'farmacos': window.showFarmacos(); break;
       case 'drugs': window.showDrugsList(); break;
       case 'compatibility': window.showCompatibility(); break;
       case 'mi-turno': window.showMiTurno(); break;
