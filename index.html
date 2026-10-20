@@ -783,6 +783,16 @@ body.v35-drug-list.uci-drug-search-compact > header #allBtn{flex:0 0 auto;min-he
 .farmacos-hub-grid .v35-tile:focus-visible{outline:3px solid #82accb;outline-offset:3px}
 @media(max-width:760px){.farmacos-hub-head{padding:18px 15px;gap:12px}.farmacos-hub-head h2{font-size:25px}.farmacos-hub-head p{font-size:13px}.farmacos-hub-icon{flex-basis:46px;height:46px;font-size:21px}.farmacos-hub-grid .v35-tile{min-height:100px}.farmacos-hub-grid .v35-tile span{font-size:13px;line-height:1.5}}
 </style>
+<style id="objectives-home-roles-css">.home-nurse-objectives .v35-icon{background:#e7f3ee;color:#477267}.home-tcae-objectives .v35-icon{background:#eceefa;color:#596a9b;font-size:23px}</style>
+<style id="ne-entry-menu-css">
+.ne-entry-menu[hidden]{display:none!important}
+.ne-entry-menu .v35-tile{align-items:center;min-height:135px;text-align:left}
+.ne-entry-copy{flex:1;min-width:0}.ne-entry-menu .v35-tile strong{font-size:16px;line-height:1.4}.ne-entry-menu .v35-tile .ne-entry-arrow{flex:0 0 auto;margin-left:auto;color:#7f96ad;font-size:25px;line-height:1}
+.ne-entry-menu .v35-tile:focus-visible{outline:3px solid #82accb;outline-offset:3px}
+.ne-entry-menu .v35-tile:nth-child(1) .v35-icon{background:#e8f2fa;color:#49759b}.ne-entry-menu .v35-tile:nth-child(2) .v35-icon{background:#eeeaf8;color:#766293}.ne-entry-menu .v35-tile:nth-child(3) .v35-icon{background:#eaf4ec;color:#507b5c}
+#ne-panel-nutriciones>.ne-hero-secondary{display:none}
+@media(max-width:760px){.ne-entry-menu .v35-tile{min-height:100px}.ne-entry-menu .v35-tile span{font-size:13px;line-height:1.5}}
+</style>
 </head>
 <body>
 <header>
@@ -830,9 +840,13 @@ body.v35-drug-list.uci-drug-search-compact > header #allBtn{flex:0 0 auto;min-he
 </div>
 </section>
 <div class="v35-grid" aria-label="Accesos principales">
-<a class="v35-tile" href="#" onclick="showMiTurno();return false;">
+<a class="v35-tile home-nurse-objectives" href="#" onclick="showMiTurno('enfermeria');return false;">
 <div class="v35-icon" aria-hidden="true">📋</div>
-<div><strong>Objetivos asistenciales 2026</strong><span>Recordatorios por turno para Enfermería y TCAEs.</span></div>
+<div><strong>Objetivos de Enfermería</strong><span>Escalas, registros y recordatorios asistenciales de 2026.</span></div>
+</a>
+<a class="v35-tile home-tcae-objectives" href="#" onclick="showMiTurno('tcae');return false;">
+<div class="v35-icon" aria-hidden="true">▤</div>
+<div><strong>Objetivos y tareas TCAE</strong><span>Objetivos asistenciales, tareas por unidad y turno, y reposición de carros.</span></div>
 </a>
 <a class="v35-tile" href="#" onclick="showAnalgosedacion();return false;">
 <div class="v35-icon" aria-hidden="true">🧠</div>
@@ -893,7 +907,7 @@ body.v35-drug-list.uci-drug-search-compact > header #allBtn{flex:0 0 auto;min-he
   </nav>
 </main>
 <main id="mi-turno-view" aria-label="Objetivos asistenciales" style="display:none">
-<button type="button" class="back v35-cover-back" onclick="showLanding()" style="display:inline-block!important;visibility:visible!important;">← Portada</button>
+<button type="button" class="back v35-cover-back" onclick="backFromObjectives()" style="display:inline-block!important;visibility:visible!important;">← Portada</button>
 <iframe id="mi-turno-frame" title="Objetivos asistenciales 2026" scrolling="no" srcdoc="&lt;!doctype html&gt;
 &lt;html lang=&quot;es&quot;&gt;
 &lt;head&gt;
@@ -1203,6 +1217,50 @@ body.v35-drug-list.uci-drug-search-compact > header #allBtn{flex:0 0 auto;min-he
   #tcae-panel .section-sub { line-height: 1.5; }
   @media (max-width: 600px) { #tcae-panel .card-details { padding-left: 16px; padding-right: 16px; } }
 &lt;/style&gt;
+&lt;style id=&quot;tcae-unit-tasks-css&quot;&gt;
+.role-tabs{display:none!important}
+.tcae-content-tabs{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:5px;padding:5px;margin:0 0 20px;border:1px solid #dfe4ef;border-radius:12px;background:#edf0f7}
+.tcae-content-tabs button{min-height:55px;padding:10px 8px;border:0;border-radius:8px;background:transparent;color:#65738f;font-size:13px;font-weight:750;line-height:1.4}
+.tcae-content-tabs button[aria-selected=true]{background:#fff;color:#3b558e;box-shadow:0 2px 6px #27395512}
+.tcae-content-panel[hidden]{display:none!important}
+.tcae-unit-selectors{display:grid;grid-template-columns:2fr 1fr;gap:16px;margin:0 0 14px;padding:16px;border:1px solid #e0e6f0;border-radius:12px;background:#fff}
+.tcae-control-label{display:block;margin:0 0 8px;color:#637086;font-size:12px;font-weight:750}
+.tcae-unit-buttons,.tcae-shift-buttons{display:grid;gap:6px}.tcae-unit-buttons{grid-template-columns:repeat(3,minmax(0,1fr))}.tcae-shift-buttons{grid-template-columns:repeat(2,minmax(0,1fr))}
+.tcae-unit-selectors button{min-height:44px;padding:9px 6px;border:1px solid #dde4f0;border-radius:8px;background:#f7f9fc;color:#526782;font-size:14px;font-weight:750}
+.tcae-unit-selectors button[aria-pressed=true]{background:#e5ebfa;color:#354f87;border-color:#b6c6e5}
+.tcae-content-tabs button:focus-visible,.tcae-unit-selectors button:focus-visible,.tcae-common-tasks summary:focus-visible{outline:3px solid #8dadd4;outline-offset:2px}
+.tcae-assignment-note{margin:0 0 20px;color:#738094;font-size:13px;line-height:1.6}.tcae-assignment-note strong{color:#53657e;font-weight:650}
+.tcae-selection-title{margin:0 0 14px;color:#304969;font-size:20px;line-height:1.4}
+.tcae-task-grid{display:grid;grid-template-columns:1fr;gap:12px;margin:0 0 18px}
+.tcae-task-card{min-width:0;padding:17px;border:1px solid #e0e6ef;border-radius:12px;background:#fff}
+.tcae-task-card h3{display:flex;align-items:center;gap:9px;margin:0 0 12px;color:#3d5682;font-size:16px;line-height:1.5}
+.tcae-staff-icon{display:grid;place-items:center;flex:0 0 30px;height:30px;border:1px solid #dce5f5;border-radius:9px;background:#edf2fc;color:#526ca1;font-size:13px;font-weight:800}
+.tcae-task-list{display:grid;gap:11px;margin:0;padding:0;list-style:none}
+.tcae-task-list li{position:relative;display:flex;flex-direction:column;align-items:flex-start;gap:5px;padding-left:15px;color:#596c80;font-size:14px;line-height:1.65}
+.tcae-task-list li:before{content:&#x27;&#x27;;position:absolute;left:0;top:10px;width:5px;height:5px;border-radius:50%;background:#a1b4d1}
+.tcae-task-when{display:inline-block;padding:3px 8px;border:1px solid #e8dfcd;border-radius:7px;background:#fbf5e9;color:#8a6c3b;font-size:12px;line-height:1.5;font-weight:650}
+.tcae-common-tasks{margin:0 0 11px;border:1px solid #dfe6ef;border-radius:11px;background:#fff;overflow:hidden}
+.tcae-common-tasks&gt;summary{padding:15px 16px;cursor:pointer;color:#455f80;font-size:14px;font-weight:750;line-height:1.5}
+.tcae-common-tasks&gt;.tcae-task-list{padding:0 16px 17px}
+.tcae-sterile-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;padding:0 16px}.tcae-sterile-grid article{padding:13px;border:1px solid #e3e9f1;border-radius:10px;background:#f6f8fc}.tcae-sterile-grid h3{margin:0 0 5px;color:#486181;font-size:14px;line-height:1.4}.tcae-sterile-grid p,.tcae-rotation-copy{margin:0;color:#697b8f;font-size:14px;line-height:1.6}.tcae-rotation-copy{padding:13px 16px 17px}
+.tcae-cart-intro{margin:0 0 16px;color:#64778c;font-size:14px;line-height:1.6}.tcae-cart-facts{margin:0;display:grid;gap:10px}.tcae-cart-facts&gt;div{display:grid;grid-template-columns:125px 1fr;gap:10px;padding-top:10px;border-top:1px solid #edf0f5;font-size:14px;line-height:1.5}.tcae-cart-facts dt{color:#7a889a}.tcae-cart-facts dd{margin:0;color:#435d7c;font-weight:700}
+@media(max-width:600px){.tcae-content-tabs{gap:3px;padding:4px}.tcae-content-tabs button{font-size:12px;min-height:58px;padding:9px 5px}.tcae-unit-selectors{grid-template-columns:1fr;gap:13px;padding:13px}.tcae-task-card{padding:14px}.tcae-task-list li{font-size:14px}.tcae-sterile-grid{grid-template-columns:1fr}.tcae-cart-facts&gt;div{grid-template-columns:110px 1fr}}
+&lt;/style&gt;
+&lt;style id=&quot;tcae-entry-menu-css&quot;&gt;
+.tcae-menu{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px;margin:0 0 20px}
+.tcae-menu[hidden]{display:none!important}
+.tcae-menu-option{display:flex;align-items:center;gap:12px;min-height:142px;padding:18px;border:1px solid #dce4ef;border-radius:15px;background:#fff;box-shadow:0 5px 18px #203b6008;text-align:left;cursor:pointer;transition:border-color .15s,box-shadow .15s}
+.tcae-menu-option:hover{border-color:#aebed7;box-shadow:0 7px 22px #203b6010}
+.tcae-menu-option:focus-visible{outline:3px solid #8dadd4;outline-offset:3px}
+.tcae-menu-icon{display:grid;place-items:center;flex:0 0 40px;height:40px;border-radius:11px;background:#edf0fb;color:#5d6fa2;font-size:18px}
+.tcae-menu-option:nth-child(2) .tcae-menu-icon{background:#eaf4ef;color:#527a6b}
+.tcae-menu-option:nth-child(3) .tcae-menu-icon{background:#faf2e7;color:#9b7848}
+.tcae-menu-copy{display:flex;flex:1;min-width:0;flex-direction:column;gap:6px}
+.tcae-menu-copy&gt;strong{color:#334c71;font-size:15px;line-height:1.45;font-weight:750}
+.tcae-menu-copy&gt;span{color:#718094;font-size:12px;line-height:1.55;font-weight:500}
+.tcae-menu-arrow{flex:0 0 auto;margin-left:auto;color:#8395ab;font-size:24px;line-height:1}
+@media(max-width:760px){.tcae-menu{grid-template-columns:1fr;gap:11px}.tcae-menu-option{min-height:100px;padding:16px}.tcae-menu-copy&gt;strong{font-size:16px}.tcae-menu-copy&gt;span{font-size:13px}}
+&lt;/style&gt;
 &lt;/head&gt;
 &lt;body&gt;
   &lt;div class=&quot;shell&quot;&gt;
@@ -1415,12 +1473,23 @@ body.v35-drug-list.uci-drug-search-compact > header #allBtn{flex:0 0 auto;min-he
 
       &lt;/section&gt;
       &lt;section class=&quot;role-panel&quot; id=&quot;tcae-panel&quot; hidden&gt;
-  &lt;div class=&quot;breadcrumbs&quot;&gt;Recursos UCI &lt;span&gt;/&lt;/span&gt; Objetivos asistenciales &lt;span&gt;/&lt;/span&gt; Objetivos de TCAEs&lt;/div&gt;
+  &lt;div class=&quot;breadcrumbs&quot;&gt;Recursos UCI &lt;span&gt;/&lt;/span&gt; Objetivos asistenciales &lt;span&gt;/&lt;/span&gt; Objetivos y tareas TCAE&lt;/div&gt;
   &lt;section class=&quot;hero&quot; aria-labelledby=&quot;tcae-page-title&quot;&gt;
-    &lt;div&gt;&lt;div class=&quot;eyebrow&quot;&gt;Objetivos asistenciales · TCAEs&lt;/div&gt;&lt;h1 id=&quot;tcae-page-title&quot;&gt;Objetivos de TCAEs&lt;/h1&gt;&lt;p&gt;Cuidados, registros y tareas de la unidad, con el momento de realización de cada actividad.&lt;/p&gt;&lt;/div&gt;
+    &lt;div&gt;&lt;div class=&quot;eyebrow&quot;&gt;TCAEs · Objetivos y tareas&lt;/div&gt;&lt;h1 id=&quot;tcae-page-title&quot;&gt;Objetivos y tareas TCAE&lt;/h1&gt;&lt;p&gt;Consulta los objetivos asistenciales y las tareas de cada unidad y turno.&lt;/p&gt;&lt;/div&gt;
     &lt;div class=&quot;year-tag&quot;&gt;Objetivos 2026&lt;/div&gt;
   &lt;/section&gt;
-&lt;section class=&quot;section&quot; aria-labelledby=&quot;tcae-cuidados-title&quot;&gt;
+&lt;nav class=&quot;tcae-menu&quot; id=&quot;tcae-entry-menu&quot; aria-label=&quot;Elegir contenido TCAE&quot;&gt;
+  &lt;button class=&quot;tcae-menu-option&quot; type=&quot;button&quot; data-tcae-content=&quot;objetivos&quot;&gt;
+    &lt;span class=&quot;tcae-menu-icon&quot; aria-hidden=&quot;true&quot;&gt;📋&lt;/span&gt;&lt;span class=&quot;tcae-menu-copy&quot;&gt;&lt;strong&gt;Objetivos asistenciales&lt;/strong&gt;&lt;span&gt;Cuidados, registros y recordatorios asistenciales de 2026.&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;tcae-menu-arrow&quot; aria-hidden=&quot;true&quot;&gt;›&lt;/span&gt;
+  &lt;/button&gt;
+  &lt;button class=&quot;tcae-menu-option&quot; type=&quot;button&quot; data-tcae-content=&quot;tareas&quot;&gt;
+    &lt;span class=&quot;tcae-menu-icon&quot; aria-hidden=&quot;true&quot;&gt;▤&lt;/span&gt;&lt;span class=&quot;tcae-menu-copy&quot;&gt;&lt;strong&gt;Tareas por unidad y turno&lt;/strong&gt;&lt;span&gt;Asignaciones de UCI A, UCP y UCI B en D1 y D2.&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;tcae-menu-arrow&quot; aria-hidden=&quot;true&quot;&gt;›&lt;/span&gt;
+  &lt;/button&gt;
+  &lt;button class=&quot;tcae-menu-option&quot; type=&quot;button&quot; data-tcae-content=&quot;carros&quot;&gt;
+    &lt;span class=&quot;tcae-menu-icon&quot; aria-hidden=&quot;true&quot;&gt;↻&lt;/span&gt;&lt;span class=&quot;tcae-menu-copy&quot;&gt;&lt;strong&gt;Reposición de carros&lt;/strong&gt;&lt;span&gt;Responsables, revisión diaria y limpieza de los carros de curas y canalización.&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;tcae-menu-arrow&quot; aria-hidden=&quot;true&quot;&gt;›&lt;/span&gt;
+  &lt;/button&gt;
+&lt;/nav&gt;
+&lt;section class=&quot;tcae-content-panel&quot; id=&quot;tcae-content-objetivos&quot; role=&quot;region&quot; aria-label=&quot;Objetivos asistenciales TCAE&quot; hidden&gt;&lt;section class=&quot;section&quot; aria-labelledby=&quot;tcae-cuidados-title&quot;&gt;
   &lt;div class=&quot;section-head&quot;&gt;&lt;span class=&quot;section-num&quot;&gt;01&lt;/span&gt;&lt;div class=&quot;section-title-wrap&quot;&gt;&lt;h2 id=&quot;tcae-cuidados-title&quot;&gt;Durante los cuidados&lt;/h2&gt;&lt;span class=&quot;section-sub&quot;&gt;Atención al paciente y participación de la familia&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;section-rule&quot;&gt;&lt;/div&gt;&lt;/div&gt;
   &lt;div class=&quot;cards&quot;&gt;&lt;article class=&quot;card&quot; data-search=&quot;Identificación del paciente Durante la asistencia seguridad identidad pulsera&quot;&gt;
   &lt;div class=&quot;card-top&quot;&gt;&lt;div class=&quot;icon mint&quot; aria-hidden=&quot;true&quot;&gt;⌖&lt;/div&gt;&lt;span class=&quot;type&quot;&gt;Durante la asistencia&lt;/span&gt;&lt;/div&gt;
@@ -1527,6 +1596,29 @@ body.v35-drug-list.uci-drug-search-compact > header #allBtn{flex:0 0 auto;min-he
           &lt;/article&gt;
         &lt;/div&gt;
       &lt;/section&gt;
+&lt;/section&gt;&lt;section class=&quot;tcae-content-panel&quot; id=&quot;tcae-content-tareas&quot; role=&quot;region&quot; aria-label=&quot;Tareas por unidad y turno&quot; hidden&gt;&lt;div class=&quot;tcae-unit-selectors&quot;&gt;
+      &lt;div&gt;&lt;span class=&quot;tcae-control-label&quot; id=&quot;tcae-unit-label-tareas&quot;&gt;Unidad&lt;/span&gt;&lt;div class=&quot;tcae-unit-buttons&quot; role=&quot;group&quot; aria-labelledby=&quot;tcae-unit-label-tareas&quot;&gt;
+        &lt;button type=&quot;button&quot; data-tcae-unit=&quot;a&quot; aria-pressed=&quot;true&quot;&gt;UCI A&lt;/button&gt;&lt;button type=&quot;button&quot; data-tcae-unit=&quot;ucp&quot; aria-pressed=&quot;false&quot;&gt;UCP&lt;/button&gt;&lt;button type=&quot;button&quot; data-tcae-unit=&quot;b&quot; aria-pressed=&quot;false&quot;&gt;UCI B&lt;/button&gt;
+      &lt;/div&gt;&lt;/div&gt;
+      &lt;div&gt;&lt;span class=&quot;tcae-control-label&quot; id=&quot;tcae-shift-label-tareas&quot;&gt;Turno&lt;/span&gt;&lt;div class=&quot;tcae-shift-buttons&quot; role=&quot;group&quot; aria-labelledby=&quot;tcae-shift-label-tareas&quot;&gt;
+        &lt;button type=&quot;button&quot; data-tcae-shift=&quot;D1&quot; aria-pressed=&quot;true&quot;&gt;D1&lt;/button&gt;&lt;button type=&quot;button&quot; data-tcae-shift=&quot;D2&quot; aria-pressed=&quot;false&quot;&gt;D2&lt;/button&gt;
+      &lt;/div&gt;&lt;/div&gt;
+    &lt;/div&gt;&lt;p class=&quot;tcae-assignment-note&quot;&gt;La numeración TCAE 1, 2, 3… corresponde al &lt;strong&gt;orden establecido en la distribución diaria de Supervisión&lt;/strong&gt;.&lt;/p&gt;&lt;h2 class=&quot;tcae-selection-title&quot; id=&quot;tcae-tasks-title&quot;&gt;UCI A · D1&lt;/h2&gt;&lt;div class=&quot;tcae-task-grid&quot; id=&quot;tcae-unit-tasks&quot;&gt;&lt;/div&gt;&lt;details class=&quot;tcae-common-tasks&quot;&gt;&lt;summary&gt;Tareas comunes de la unidad&lt;/summary&gt;&lt;ul class=&quot;tcae-task-list&quot;&gt;
+&lt;li&gt;&lt;span&gt;Anotar en el libro de préstamos el material que soliciten otros servicios.&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span&gt;Controlar y colaborar en el orden de almacenes y vertedero.&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span&gt;Reponer fungibles y sueros al uso.&lt;/span&gt;&lt;span class=&quot;tcae-task-when&quot;&gt;Solo fines de semana&lt;/span&gt;&lt;/li&gt;
+&lt;/ul&gt;&lt;/details&gt;
+&lt;details class=&quot;tcae-common-tasks&quot;&gt;&lt;summary&gt;Rotación de esterilización · fines de semana y festivos&lt;/summary&gt;
+&lt;div class=&quot;tcae-sterile-grid&quot;&gt;&lt;article&gt;&lt;h3&gt;UCI A · TCAE 4 de D1&lt;/h3&gt;&lt;p&gt;Enero, marzo, mayo, julio, septiembre y noviembre.&lt;/p&gt;&lt;/article&gt;&lt;article&gt;&lt;h3&gt;UCP · TCAE 4 de D1&lt;/h3&gt;&lt;p&gt;Febrero, abril, junio, agosto, octubre y diciembre.&lt;/p&gt;&lt;/article&gt;&lt;/div&gt;
+&lt;p class=&quot;tcae-rotation-copy&quot;&gt;Preparar y entregar el material para esterilización los sábados, domingos y festivos; recoger el del día anterior, anotarlo en el libro de control y distribuirlo en las unidades.&lt;/p&gt;
+&lt;/details&gt;&lt;/section&gt;&lt;section class=&quot;tcae-content-panel&quot; id=&quot;tcae-content-carros&quot; role=&quot;region&quot; aria-label=&quot;Reposición de carros&quot; hidden&gt;&lt;div class=&quot;tcae-unit-selectors&quot;&gt;
+      &lt;div&gt;&lt;span class=&quot;tcae-control-label&quot; id=&quot;tcae-unit-label-carros&quot;&gt;Unidad&lt;/span&gt;&lt;div class=&quot;tcae-unit-buttons&quot; role=&quot;group&quot; aria-labelledby=&quot;tcae-unit-label-carros&quot;&gt;
+        &lt;button type=&quot;button&quot; data-tcae-unit=&quot;a&quot; aria-pressed=&quot;true&quot;&gt;UCI A&lt;/button&gt;&lt;button type=&quot;button&quot; data-tcae-unit=&quot;ucp&quot; aria-pressed=&quot;false&quot;&gt;UCP&lt;/button&gt;&lt;button type=&quot;button&quot; data-tcae-unit=&quot;b&quot; aria-pressed=&quot;false&quot;&gt;UCI B&lt;/button&gt;
+      &lt;/div&gt;&lt;/div&gt;
+      &lt;div&gt;&lt;span class=&quot;tcae-control-label&quot; id=&quot;tcae-shift-label-carros&quot;&gt;Turno&lt;/span&gt;&lt;div class=&quot;tcae-shift-buttons&quot; role=&quot;group&quot; aria-labelledby=&quot;tcae-shift-label-carros&quot;&gt;
+        &lt;button type=&quot;button&quot; data-tcae-shift=&quot;D1&quot; aria-pressed=&quot;true&quot;&gt;D1&lt;/button&gt;&lt;button type=&quot;button&quot; data-tcae-shift=&quot;D2&quot; aria-pressed=&quot;false&quot;&gt;D2&lt;/button&gt;
+      &lt;/div&gt;&lt;/div&gt;
+    &lt;/div&gt;&lt;p class=&quot;tcae-assignment-note&quot;&gt;La numeración TCAE 1, 2, 3… corresponde al &lt;strong&gt;orden establecido en la distribución diaria de Supervisión&lt;/strong&gt;.&lt;/p&gt;&lt;h2 class=&quot;tcae-selection-title&quot; id=&quot;tcae-carts-title&quot;&gt;UCI A · D1&lt;/h2&gt;&lt;p class=&quot;tcae-cart-intro&quot;&gt;Realizar diariamente una revisión y reposición exhaustiva de los carros de curas y canalización.&lt;/p&gt;&lt;div class=&quot;tcae-task-grid&quot; id=&quot;tcae-unit-carts&quot;&gt;&lt;/div&gt;&lt;/section&gt;
 &lt;/section&gt;
       &lt;footer&gt;&lt;span&gt;Recursos UCI HUVM&lt;/span&gt;&lt;span&gt;Objetivos asistenciales · 2026&lt;/span&gt;&lt;/footer&gt;
     &lt;/main&gt;
@@ -1732,7 +1824,9 @@ body.v35-drug-list.uci-drug-search-compact > header #allBtn{flex:0 0 auto;min-he
     const roleTabs = [...document.querySelectorAll(&#x27;.role-tab&#x27;)];
     const rolePanels = [...document.querySelectorAll(&#x27;.role-panel&#x27;)];
     function reportFrameHeight() {
-      window.parent.postMessage({ type: &#x27;mi-turno-resize&#x27;, height: document.documentElement.scrollHeight }, &#x27;*&#x27;);
+      const main=document.querySelector(&#x27;main&#x27;);
+      const height=Math.ceil(main.getBoundingClientRect().bottom+window.scrollY+20);
+      window.parent.postMessage({ type: &#x27;mi-turno-resize&#x27;, height }, &#x27;*&#x27;);
     }
     roleTabs.forEach(tab =&gt; tab.addEventListener(&#x27;click&#x27;, () =&gt; {
       roleTabs.forEach(item =&gt; {
@@ -1743,7 +1837,7 @@ body.v35-drug-list.uci-drug-search-compact > header #allBtn{flex:0 0 auto;min-he
       rolePanels.forEach(panel =&gt; { panel.hidden = panel.id !== tab.getAttribute(&#x27;aria-controls&#x27;); });
       reportFrameHeight();
     }));
-    if (&#x27;ResizeObserver&#x27; in window) new ResizeObserver(reportFrameHeight).observe(document.documentElement);
+    if (&#x27;ResizeObserver&#x27; in window) new ResizeObserver(reportFrameHeight).observe(document.querySelector(&#x27;main&#x27;));
     window.addEventListener(&#x27;load&#x27;, reportFrameHeight);
     setTimeout(reportFrameHeight, 80);
   &lt;/script&gt;
@@ -1758,6 +1852,7 @@ body.v35-drug-list.uci-drug-search-compact > header #allBtn{flex:0 0 auto;min-he
     if(!panel||!summary)return;
     const tab=document.querySelector(&#x27;.role-tab[aria-controls=&quot;&#x27;+panel.id+&#x27;&quot;]&#x27;);
     if(tab)tab.click();
+    if(panel.id===&#x27;tcae-panel&#x27;&amp;&amp;typeof window.selectTcaeContent===&#x27;function&#x27;)window.selectTcaeContent(&#x27;objetivos&#x27;);
     const all=panel.querySelector(&#x27;.filter-chip[data-filter=&quot;all&quot;]&#x27;);
     if(all)all.click();
     document.querySelectorAll(&#x27;.objective-search-destination&#x27;).forEach(item=&gt;item.classList.remove(&#x27;objective-search-destination&#x27;));
@@ -1774,6 +1869,62 @@ body.v35-drug-list.uci-drug-search-compact > header #allBtn{flex:0 0 auto;min-he
   };
 })();
 
+&lt;/script&gt;
+&lt;script id=&quot;tcae-unit-tasks-js&quot;&gt;
+(function(){
+  const units={&quot;a&quot;:{&quot;label&quot;:&quot;UCI A&quot;,&quot;shifts&quot;:{&quot;D1&quot;:[{&quot;name&quot;:&quot;TCAE 1&quot;,&quot;tasks&quot;:[{&quot;text&quot;:&quot;Registrar la temperatura del frigorífico de fármacos (Omnicell).&quot;,&quot;when&quot;:&quot;Fines de semana y festivos&quot;},{&quot;text&quot;:&quot;Revisar y reponer el carro de curas n.º 1.&quot;}]},{&quot;name&quot;:&quot;TCAE 2&quot;,&quot;tasks&quot;:[{&quot;text&quot;:&quot;Reponer el armario de lencería y mantener su orden.&quot;},{&quot;text&quot;:&quot;Revisar y reponer el carro de curas n.º 2.&quot;}]},{&quot;name&quot;:&quot;TCAE 3&quot;,&quot;tasks&quot;:[{&quot;text&quot;:&quot;Revisar y reponer diariamente el almacén del lavabo.&quot;},{&quot;text&quot;:&quot;Revisar y reponer el carro de canalización.&quot;}]},{&quot;name&quot;:&quot;TCAE 4&quot;,&quot;tasks&quot;:[{&quot;text&quot;:&quot;Recoger el sucio de la unidad.&quot;},{&quot;text&quot;:&quot;Preparar y entregar el material para esterilización; recoger el del día anterior, anotarlo en el libro de control y colocarlo en las unidades.&quot;,&quot;when&quot;:&quot;Sábados, domingos y festivos · enero, marzo, mayo, julio, septiembre y noviembre&quot;}]}],&quot;D2&quot;:[{&quot;name&quot;:&quot;TCAE 1&quot;,&quot;tasks&quot;:[{&quot;text&quot;:&quot;Reponer el armario de lencería y mantener su orden.&quot;},{&quot;text&quot;:&quot;Revisar y reponer el carro de curas n.º 1.&quot;,&quot;when&quot;:&quot;Limpieza: viernes&quot;}]},{&quot;name&quot;:&quot;TCAE 2&quot;,&quot;tasks&quot;:[{&quot;text&quot;:&quot;Revisar y reponer diariamente el almacén del lavabo.&quot;},{&quot;text&quot;:&quot;Revisar y reponer el carro de curas n.º 2.&quot;,&quot;when&quot;:&quot;Limpieza: viernes&quot;},{&quot;text&quot;:&quot;Realizar el pedido de dietas.&quot;}]},{&quot;name&quot;:&quot;TCAE 3&quot;,&quot;tasks&quot;:[{&quot;text&quot;:&quot;Recoger el sucio de la unidad.&quot;},{&quot;text&quot;:&quot;Revisar y reponer el carro de canalización.&quot;,&quot;when&quot;:&quot;Limpieza: sábados&quot;}]}]},&quot;carts&quot;:[{&quot;name&quot;:&quot;Carro de curas n.º 1&quot;,&quot;who&quot;:&quot;TCAE 1&quot;,&quot;clean&quot;:&quot;Viernes · D2&quot;},{&quot;name&quot;:&quot;Carro de curas n.º 2&quot;,&quot;who&quot;:&quot;TCAE 2&quot;,&quot;clean&quot;:&quot;Viernes · D2&quot;},{&quot;name&quot;:&quot;Carro de canalización&quot;,&quot;who&quot;:&quot;TCAE 3&quot;,&quot;clean&quot;:&quot;Sábados · D2&quot;}]},&quot;ucp&quot;:{&quot;label&quot;:&quot;UCP&quot;,&quot;shifts&quot;:{&quot;D1&quot;:[{&quot;name&quot;:&quot;TCAE 1&quot;,&quot;tasks&quot;:[{&quot;text&quot;:&quot;Registrar la temperatura del frigorífico de fármacos (Omnicell).&quot;,&quot;when&quot;:&quot;Fines de semana y festivos&quot;},{&quot;text&quot;:&quot;Revisar y reponer diariamente el carro de curas.&quot;}]},{&quot;name&quot;:&quot;TCAE 2&quot;,&quot;tasks&quot;:[{&quot;text&quot;:&quot;Reponer el armario de lencería y mantener su orden.&quot;},{&quot;text&quot;:&quot;Revisar y ordenar el baño asistido.&quot;}]},{&quot;name&quot;:&quot;TCAE 3&quot;,&quot;tasks&quot;:[{&quot;text&quot;:&quot;Revisar y reponer diariamente el almacén del lavabo.&quot;},{&quot;text&quot;:&quot;Revisar y reponer el carro de canalización.&quot;}]},{&quot;name&quot;:&quot;TCAE 4&quot;,&quot;tasks&quot;:[{&quot;text&quot;:&quot;Recoger el sucio de la unidad.&quot;},{&quot;text&quot;:&quot;Preparar y entregar el material para esterilización; recoger el del día anterior, anotarlo en el libro de control y colocarlo en las unidades.&quot;,&quot;when&quot;:&quot;Sábados, domingos y festivos · febrero, abril, junio, agosto, octubre y diciembre&quot;}]}],&quot;D2&quot;:[{&quot;name&quot;:&quot;TCAE 1&quot;,&quot;tasks&quot;:[{&quot;text&quot;:&quot;Reponer el armario de lencería y mantener su orden.&quot;},{&quot;text&quot;:&quot;Revisar y reponer el carro de curas.&quot;,&quot;when&quot;:&quot;Limpieza: viernes&quot;}]},{&quot;name&quot;:&quot;TCAE 2&quot;,&quot;tasks&quot;:[{&quot;text&quot;:&quot;Revisar y reponer diariamente el almacén del lavabo.&quot;},{&quot;text&quot;:&quot;Realizar el pedido de dietas.&quot;},{&quot;text&quot;:&quot;Revisar y ordenar el baño asistido.&quot;}]},{&quot;name&quot;:&quot;TCAE 3&quot;,&quot;tasks&quot;:[{&quot;text&quot;:&quot;Recoger el sucio de la unidad.&quot;},{&quot;text&quot;:&quot;Revisar y reponer el carro de canalización.&quot;,&quot;when&quot;:&quot;Limpieza: sábados&quot;}]}]},&quot;carts&quot;:[{&quot;name&quot;:&quot;Carro de curas&quot;,&quot;who&quot;:&quot;TCAE 1&quot;,&quot;clean&quot;:&quot;Viernes · D2&quot;},{&quot;name&quot;:&quot;Carro de canalización&quot;,&quot;who&quot;:&quot;TCAE 3&quot;,&quot;clean&quot;:&quot;Sábados · D2&quot;}]},&quot;b&quot;:{&quot;label&quot;:&quot;UCI B&quot;,&quot;shifts&quot;:{&quot;D1&quot;:[{&quot;name&quot;:&quot;TCAE 1&quot;,&quot;tasks&quot;:[{&quot;text&quot;:&quot;Registrar la temperatura del frigorífico de fármacos (Omnicell).&quot;,&quot;when&quot;:&quot;Fines de semana y festivos&quot;},{&quot;text&quot;:&quot;Revisar y reponer diariamente el almacén del lavabo.&quot;},{&quot;text&quot;:&quot;Revisar y reponer diariamente el carro de curas.&quot;}]},{&quot;name&quot;:&quot;TCAE 2&quot;,&quot;tasks&quot;:[{&quot;text&quot;:&quot;Recoger el sucio de la unidad.&quot;},{&quot;text&quot;:&quot;Reponer el armario de lencería y mantener su orden.&quot;},{&quot;text&quot;:&quot;Revisar y reponer diariamente el carro de canalización.&quot;}]}],&quot;D2&quot;:[{&quot;name&quot;:&quot;TCAE 1&quot;,&quot;tasks&quot;:[{&quot;text&quot;:&quot;Revisar y reponer diariamente el almacén del lavabo.&quot;},{&quot;text&quot;:&quot;Recoger el sucio de la unidad.&quot;},{&quot;text&quot;:&quot;Revisar y reponer el carro de curas.&quot;,&quot;when&quot;:&quot;Limpieza: viernes&quot;}]},{&quot;name&quot;:&quot;TCAE 2&quot;,&quot;tasks&quot;:[{&quot;text&quot;:&quot;Reponer el armario de lencería y mantener su orden.&quot;},{&quot;text&quot;:&quot;Realizar el pedido de dietas y víveres.&quot;},{&quot;text&quot;:&quot;Revisar y reponer el carro de canalización.&quot;,&quot;when&quot;:&quot;Limpieza: sábados&quot;}]}]},&quot;carts&quot;:[{&quot;name&quot;:&quot;Carro de curas&quot;,&quot;who&quot;:&quot;TCAE 1&quot;,&quot;clean&quot;:&quot;Viernes · D2&quot;},{&quot;name&quot;:&quot;Carro de canalización&quot;,&quot;who&quot;:&quot;TCAE 2&quot;,&quot;clean&quot;:&quot;Sábados · D2&quot;}]}};
+  const root=document.getElementById(&#x27;tcae-panel&#x27;);
+  const options=Array.from(root.querySelectorAll(&#x27;[data-tcae-content]&#x27;));
+  const menu=document.getElementById(&#x27;tcae-entry-menu&#x27;);
+  const panels=Array.from(root.querySelectorAll(&#x27;.tcae-content-panel&#x27;));
+  const pageTitle=document.getElementById(&#x27;tcae-page-title&#x27;);
+  const pageDescription=root.querySelector(&#x27;.hero p&#x27;);
+  const destinations={
+    menu:{title:&#x27;Objetivos y tareas TCAE&#x27;,description:&#x27;Selecciona el apartado que quieres consultar.&#x27;},
+    objetivos:{title:&#x27;Objetivos asistenciales TCAE&#x27;,description:&#x27;Cuidados, registros y recordatorios asistenciales de 2026.&#x27;},
+    tareas:{title:&#x27;Tareas por unidad y turno&#x27;,description:&#x27;Consulta las tareas asignadas según la unidad, el turno y la distribución diaria de Supervisión.&#x27;},
+    carros:{title:&#x27;Reposición de carros&#x27;,description:&#x27;Responsables y periodicidad de revisión, reposición y limpieza de los carros de curas y canalización.&#x27;}
+  };
+  let selectedUnit=&#x27;a&#x27;,selectedShift=&#x27;D1&#x27;;
+  const escape=value=&gt;String(value).replace(/[&amp;&lt;&gt;&quot;&#x27;]/g,c=&gt;({&#x27;&amp;&#x27;:&#x27;&amp;amp;&#x27;,&#x27;&lt;&#x27;:&#x27;&amp;lt;&#x27;,&#x27;&gt;&#x27;:&#x27;&amp;gt;&#x27;,&#x27;&quot;&#x27;:&#x27;&amp;quot;&#x27;,&quot;&#x27;&quot;:&#x27;&amp;#39;&#x27;}[c]));
+  function resize(){if(typeof reportFrameHeight===&#x27;function&#x27;)requestAnimationFrame(reportFrameHeight);}
+  window.selectTcaeContent=function(name){
+    const destination=destinations[name];
+    if(!destination)return;
+    menu.hidden=name!==&#x27;menu&#x27;;
+    panels.forEach(panel=&gt;{panel.hidden=panel.id!==&#x27;tcae-content-&#x27;+name;});
+    pageTitle.textContent=destination.title;
+    pageDescription.textContent=destination.description;
+    if(!root.hidden){pageTitle.tabIndex=-1;pageTitle.focus({preventScroll:true});}
+    resize();
+  };
+  options.forEach(button=&gt;button.addEventListener(&#x27;click&#x27;,()=&gt;{
+    window.parent.postMessage({type:&#x27;mi-turno-tcae-view&#x27;,content:button.dataset.tcaeContent},&#x27;*&#x27;);
+  }));
+  function render(){
+    const unit=units[selectedUnit];
+    root.querySelectorAll(&#x27;[data-tcae-unit]&#x27;).forEach(button=&gt;button.setAttribute(&#x27;aria-pressed&#x27;,String(button.dataset.tcaeUnit===selectedUnit)));
+    root.querySelectorAll(&#x27;[data-tcae-shift]&#x27;).forEach(button=&gt;button.setAttribute(&#x27;aria-pressed&#x27;,String(button.dataset.tcaeShift===selectedShift)));
+    document.getElementById(&#x27;tcae-tasks-title&#x27;).textContent=unit.label+&#x27; · &#x27;+selectedShift;
+    document.getElementById(&#x27;tcae-carts-title&#x27;).textContent=unit.label+&#x27; · &#x27;+selectedShift;
+    document.getElementById(&#x27;tcae-unit-tasks&#x27;).innerHTML=unit.shifts[selectedShift].map((person,index)=&gt;&#x27;&lt;article class=&quot;tcae-task-card&quot;&gt;&lt;h3&gt;&lt;span class=&quot;tcae-staff-icon&quot; aria-hidden=&quot;true&quot;&gt;&#x27;+(index+1)+&#x27;&lt;/span&gt;&#x27;+escape(person.name)+&#x27;&lt;/h3&gt;&lt;ul class=&quot;tcae-task-list&quot;&gt;&#x27;+person.tasks.map(task=&gt;&#x27;&lt;li&gt;&lt;span&gt;&#x27;+escape(task.text)+&#x27;&lt;/span&gt;&#x27;+(task.when?&#x27;&lt;span class=&quot;tcae-task-when&quot;&gt;&#x27;+escape(task.when)+&#x27;&lt;/span&gt;&#x27;:&#x27;&#x27;)+&#x27;&lt;/li&gt;&#x27;).join(&#x27;&#x27;)+&#x27;&lt;/ul&gt;&lt;/article&gt;&#x27;).join(&#x27;&#x27;);
+    document.getElementById(&#x27;tcae-unit-carts&#x27;).innerHTML=unit.carts.map(cart=&gt;&#x27;&lt;article class=&quot;tcae-task-card&quot;&gt;&lt;h3&gt;&#x27;+escape(cart.name)+&#x27;&lt;/h3&gt;&lt;dl class=&quot;tcae-cart-facts&quot;&gt;&lt;div&gt;&lt;dt&gt;Responsable&lt;/dt&gt;&lt;dd&gt;&#x27;+escape(cart.who)+&#x27; · &#x27;+escape(selectedShift)+&#x27;&lt;/dd&gt;&lt;/div&gt;&lt;div&gt;&lt;dt&gt;Revisión y reposición&lt;/dt&gt;&lt;dd&gt;Diaria&lt;/dd&gt;&lt;/div&gt;&lt;div&gt;&lt;dt&gt;Limpieza semanal&lt;/dt&gt;&lt;dd&gt;&#x27;+escape(cart.clean)+&#x27;&lt;/dd&gt;&lt;/div&gt;&lt;/dl&gt;&lt;/article&gt;&#x27;).join(&#x27;&#x27;);
+    resize();
+  }
+  root.addEventListener(&#x27;click&#x27;,event=&gt;{
+    const unitButton=event.target.closest(&#x27;button[data-tcae-unit]&#x27;);
+    const shiftButton=event.target.closest(&#x27;button[data-tcae-shift]&#x27;);
+    if(unitButton&amp;&amp;units[unitButton.dataset.tcaeUnit]){selectedUnit=unitButton.dataset.tcaeUnit;render();}
+    else if(shiftButton&amp;&amp;[&#x27;D1&#x27;,&#x27;D2&#x27;].includes(shiftButton.dataset.tcaeShift)){selectedShift=shiftButton.dataset.tcaeShift;render();}
+  });
+  root.querySelectorAll(&#x27;.tcae-common-tasks&#x27;).forEach(details=&gt;details.addEventListener(&#x27;toggle&#x27;,resize));
+  window.selectObjectivesRole=function(role){
+    const tab=document.getElementById(role===&#x27;tcae&#x27;?&#x27;role-tab-tcae&#x27;:&#x27;role-tab-enfermeria&#x27;);
+    if(tab)tab.click();
+  };
+  window.selectTcaeContent(&#x27;menu&#x27;);
+  render();
+})();
 &lt;/script&gt;
 &lt;/body&gt;
 &lt;/html&gt;
@@ -1856,7 +2007,8 @@ body.v35-drug-list.uci-drug-search-compact > header #allBtn{flex:0 0 auto;min-he
       <span class="clean-chevron" aria-hidden="true">⌄</span>
     </summary>
     <div class="clean-details">
-      <p class="clean-fibro-copy">Vídeo de limpieza y desinfección del fibrobroncoscopio.</p>
+      
+      <p class="clean-fibro-copy"><strong>Vídeo del procedimiento</strong></p>
       <div class="clean-video">
         <iframe id="fibro-video-player" title="Vídeo de limpieza del fibrobroncoscopio" data-src="https://drive.google.com/file/d/1YlCcLWbTceYIUywlgh_fi1jVcr6KGqz5/preview" allow="autoplay; encrypted-media; fullscreen; picture-in-picture" allowfullscreen></iframe>
       </div>
@@ -2752,14 +2904,20 @@ renderRass();renderPain();renderCam();calcEva();selectMainTab('rass');summary();
 </main>
 
 <main id="ne-view">
-<button type="button" class="back v35-cover-back" onclick="showLanding()">← Portada</button>
+<button type="button" class="back v35-cover-back" onclick="backFromNutrition()">← Portada</button>
 <section class="ne-hero"><h2>Nutrición Enteral</h2><p>Cuidados de las sondas, complicaciones, test de disfagia y minivademécum.</p></section>
-<nav class="ne-navigation" role="tablist" aria-label="Nutrición enteral">
-<button type="button" id="ne-tab-cuidados" role="tab" aria-selected="true" aria-controls="ne-panel-cuidados" data-ne-panel="cuidados">Cuidados y complicaciones</button>
-<button type="button" id="ne-tab-disfagia" role="tab" aria-selected="false" aria-controls="ne-panel-disfagia" data-ne-panel="disfagia" tabindex="-1">Test de disfagia</button>
-<button type="button" id="ne-tab-nutriciones" role="tab" aria-selected="false" aria-controls="ne-panel-nutriciones" data-ne-panel="nutriciones" tabindex="-1">Minivademécum</button>
+<nav class="v35-grid ne-entry-menu" id="ne-entry-menu" aria-label="Elegir contenido de Nutrición Enteral">
+  <button class="v35-tile" type="button" data-ne-panel="cuidados">
+    <div class="v35-icon" aria-hidden="true">↻</div><div class="ne-entry-copy"><strong>Cuidados y complicaciones</strong><span>Diagramas de cuidados de las sondas y actuación ante complicaciones.</span></div><span class="ne-entry-arrow" aria-hidden="true">›</span>
+  </button>
+  <button class="v35-tile" type="button" data-ne-panel="disfagia">
+    <div class="v35-icon" aria-hidden="true">◉</div><div class="ne-entry-copy"><strong>Test de disfagia</strong><span>Valoración de la tolerancia a diferentes texturas y volúmenes.</span></div><span class="ne-entry-arrow" aria-hidden="true">›</span>
+  </button>
+  <button class="v35-tile" type="button" data-ne-panel="nutriciones">
+    <div class="v35-icon" aria-hidden="true">🥣</div><div class="ne-entry-copy"><strong>Minivademécum</strong><span>Tipos de nutrición enteral, equivalencias e indicaciones.</span></div><span class="ne-entry-arrow" aria-hidden="true">›</span>
+  </button>
 </nav>
-<section class="ne-panel" id="ne-panel-cuidados" role="tabpanel" aria-labelledby="ne-tab-cuidados">
+<section class="ne-panel" id="ne-panel-cuidados" role="region" aria-label="Cuidados y complicaciones" hidden>
 <div class="ne-care-heading"><h3>Cuidados de las sondas</h3><p>Selecciona el tipo de acceso para consultar sus cuidados.</p></div><details class="ne-care-diagram" id="ne-care-sng">
 <summary><span class="ne-care-symbol" aria-hidden="true">SNG</span><span class="ne-care-summary"><strong>Sonda nasogástrica · SNG</strong><span>Posición, fijación, lavados y sistema de administración</span></span><span class="ne-care-chevron" aria-hidden="true">⌄</span></summary>
 <div class="ne-care-body"><ol class="ne-flow"><li><div class="ne-flow-node "><span class=ne-flow-label>Tras la colocación</span><strong>Confirmar la colocación</strong><div>Antes de iniciar la NE, radiografía revisada por el médico. No retirar la guía hasta la comprobación radiológica; no reintroducirla.</div></div></li><li><div class="ne-flow-node "><span class=ne-flow-label>En cada turno</span><strong>Comprobar la posición y los centímetros</strong><div>Registrar tipo, calibre y centímetros de inserción. Revisar también antes de iniciar alimentación o administrar medicación, tras traslados, vómitos, tos, disnea o molestias.</div></div></li><li><div class="ne-flow-node "><span class=ne-flow-label>Cada día</span><strong>Cuidar la fijación, la piel y las mucosas</strong><div>Cambiar la fijación diariamente y si se despega; rotar el punto de apoyo. Limpiar la parte externa de la sonda y cuidar nariz y boca.</div></div></li><li><div class="ne-flow-node "><span class=ne-flow-label>Lavados</span><strong>Mantener la permeabilidad</strong><div>Lavados con <b>30–40 ml de agua cada 6–8 h</b>, en cada cambio de bote y después de la medicación, siguiendo las recomendaciones farmacéuticas.</div></div></li><li><div class="ne-flow-node "><span class=ne-flow-label>Durante la NE</span><strong>Administrar y registrar</strong><div>Cabecero <b>&gt;30°</b>. Cambiar el sistema cada <b>24 h</b>. Registrar fórmula, ritmo, volumen administrado y motivo y duración de las interrupciones.</div></div></li></ol><div class="ne-care-source"><span>Protocolo de NE de la unidad · págs. 20–22</span><a href="https://drive.google.com/open?id=1k5vW36p9N0Veyg9em0xR5fdOQsPS3Shy" target="_blank" rel="noopener noreferrer">Ver protocolo completo ↗</a></div></div>
@@ -2788,7 +2946,7 @@ renderRass();renderPain();renderCam();calcEva();selectMainTab('rass');summary();
 <summary><span class="ne-care-symbol" aria-hidden="true">E</span><span class="ne-care-summary"><strong>Estreñimiento</strong><span>Detección y secuencia de actuación</span></span><span class="ne-care-chevron" aria-hidden="true">⌄</span></summary>
 <div class="ne-care-body"><ol class="ne-flow"><li><div class="ne-flow-node start"><strong>Ausencia de deposiciones</strong><div>En ausencia de patología digestiva: <b>5 días desde el inicio de NE</b>, o <b>3 días consecutivos desde la segunda semana</b>.</div></div></li><li><div class="ne-flow-node "><span class=ne-flow-label>Valoración clínica</span><strong>Valorar la presencia de fecalomas mediante tacto rectal</strong></div></li><li><div class="ne-flow-node "><span class=ne-flow-label>Según indicación</span><strong>Enema de limpieza</strong><div>El protocolo especifica enema jabonoso de al menos 1 litro.</div></div></li><li><div class="ne-flow-node "><span class=ne-flow-label>Decisión médica</span><strong>Prescripción de laxantes</strong><div>Valorar dieta con fibra no fermentable o insoluble e hidratación adecuada.</div></div></li></ol><div class="ne-care-source"><span>Protocolo de NE de la unidad · págs. 27–28</span><a href="https://drive.google.com/open?id=1k5vW36p9N0Veyg9em0xR5fdOQsPS3Shy" target="_blank" rel="noopener noreferrer">Ver protocolo completo ↗</a></div></div>
 </details></section>
-<section class="ne-panel" id="ne-panel-disfagia" role="tabpanel" aria-labelledby="ne-tab-disfagia" hidden>
+<section class="ne-panel" id="ne-panel-disfagia" role="region" aria-label="Test de disfagia" hidden>
 <section class="ne-card ne-dys-test">
 <h3>Test de Disfagia</h3>
 <div class="ne-dys-intro">
@@ -2837,7 +2995,7 @@ Realizar con el paciente lo más sentado posible. El protocolo indica administra
 </div>
 </section>
 </section>
-<section class="ne-panel" id="ne-panel-nutriciones" role="tabpanel" aria-labelledby="ne-tab-nutriciones" hidden>
+<section class="ne-panel" id="ne-panel-nutriciones" role="region" aria-label="Minivademécum" hidden>
 <section class="ne-hero ne-hero-secondary">
 <h2>Minivademecum de Nutriciones Enterales</h2>
 <p><strong>Tipos de NE, equivalencias e indicaciones</strong></p>
@@ -2974,30 +3132,37 @@ Realizar con el paciente lo más sentado posible. El protocolo indica administra
 (function(){
   const root=document.getElementById('ne-view');
   if(!root)return;
-  const tabs=Array.from(root.querySelectorAll('[data-ne-panel]'));
-  window.selectNEPanel=function(name){
-    const selected=tabs.find(tab=>tab.dataset.nePanel===name);
-    if(!selected)return;
-    tabs.forEach(tab=>{
-      const active=tab===selected;
-      tab.setAttribute('aria-selected',String(active));
-      tab.tabIndex=active?0:-1;
-      document.getElementById(tab.getAttribute('aria-controls')).hidden=!active;
-    });
+  const menu=document.getElementById('ne-entry-menu');
+  const panels=Array.from(root.querySelectorAll('.ne-panel'));
+  const options=Array.from(menu.querySelectorAll('[data-ne-panel]'));
+  const title=root.querySelector(':scope > .ne-hero h2');
+  const description=root.querySelector(':scope > .ne-hero p');
+  const back=root.querySelector(':scope > .back');
+  const destinations={
+    menu:{title:'Nutrición Enteral',description:'Selecciona el apartado que quieres consultar.'},
+    cuidados:{title:'Cuidados y complicaciones',description:'Diagramas de cuidados de las sondas y actuación ante complicaciones.'},
+    disfagia:{title:'Test de disfagia',description:'Evaluación de la tolerancia a diferentes texturas y volúmenes.'},
+    nutriciones:{title:'Minivademécum',description:'Tipos de nutrición enteral, equivalencias e indicaciones.'}
   };
-  tabs.forEach((tab,index)=>{
-    tab.addEventListener('click',()=>window.selectNEPanel(tab.dataset.nePanel));
-    tab.addEventListener('keydown',event=>{
-      let next;
-      if(event.key==='ArrowRight')next=(index+1)%tabs.length;
-      else if(event.key==='ArrowLeft')next=(index+tabs.length-1)%tabs.length;
-      else if(event.key==='Home')next=0;
-      else if(event.key==='End')next=tabs.length-1;
-      else return;
-      event.preventDefault();
-      tabs[next].click();tabs[next].focus();
-    });
-  });
+  window.selectNEPanel=function(name){
+    const destination=destinations[name];
+    if(!destination)return;
+    window.uciNEPanel=name;
+    menu.hidden=name!=='menu';
+    panels.forEach(panel=>{panel.hidden=panel.id!=='ne-panel-'+name;});
+    title.textContent=destination.title;
+    description.textContent=destination.description;
+    back.textContent=name==='menu'?'← Portada':'← Nutrición Enteral';
+    if(getComputedStyle(root).display!=='none'){
+      title.tabIndex=-1;title.focus({preventScroll:true});
+    }
+  };
+  window.backFromNutrition=function(){
+    if(window.uciNEPanel&&window.uciNEPanel!=='menu')window.showNE('menu');
+    else window.showLanding();
+  };
+  options.forEach(button=>button.addEventListener('click',()=>window.showNE(button.dataset.nePanel)));
+  window.selectNEPanel('menu');
 })();
 </script>
 
@@ -4453,7 +4618,7 @@ initCompatibility();initCompatibilityDirectory();renderAlpha();render();
     window.scrollTo(0,0);
   };
 
-  window.showNE=function(){
+  window.showNE=function(panel){
     hideMiTurnoView();
     document.getElementById('landing').style.display='none';
     document.getElementById('home').style.display='none';
@@ -4465,7 +4630,7 @@ initCompatibility();initCompatibilityDirectory();renderAlpha();render();
     document.getElementById('insulinizacion-view').style.display='none';
     document.getElementById('tcrr-view').style.display='none';
     document.getElementById('ne-view').style.display='block';
-    if(typeof window.selectNEPanel==='function')window.selectNEPanel('cuidados');
+    if(typeof window.selectNEPanel==='function')window.selectNEPanel(['cuidados','disfagia','nutriciones'].includes(panel)?panel:'menu');
     document.body.classList.remove('v35-drug-list');
     window.scrollTo(0,0);
   };
@@ -4685,15 +4850,39 @@ function showLimpieza(){
   window.scrollTo(0,0);
 }
 window.showLimpieza=showLimpieza;
-function showMiTurno(){
+function applyObjectivesRole(){
+  const frame=document.getElementById('mi-turno-frame');
+  const role=window.uciObjectivesRole==='tcae'?'tcae':'enfermeria';
+  const content=window.uciTcaeContent||'menu';
+  frame.title=role==='tcae'?'Objetivos y tareas TCAE':'Objetivos de Enfermería';
+  const back=document.querySelector('#mi-turno-view > .back');
+  if(back)back.textContent=role==='tcae'&&content!=='menu'?'← Objetivos y tareas TCAE':'← Portada';
+  if(frame.contentWindow&&typeof frame.contentWindow.selectObjectivesRole==='function'){
+    frame.contentWindow.selectObjectivesRole(role);
+    if(role==='tcae'&&typeof frame.contentWindow.selectTcaeContent==='function')frame.contentWindow.selectTcaeContent(content);
+  }
+}
+function backFromObjectives(){
+  if(window.uciObjectivesRole==='tcae'&&window.uciTcaeContent!=='menu')window.showMiTurno('tcae','menu');
+  else window.showLanding();
+}
+function showMiTurno(role,content){
+  window.uciObjectivesRole=role==='tcae'?'tcae':'enfermeria';
+  window.uciTcaeContent=['objetivos','tareas','carros'].includes(content)?content:'menu';
   document.querySelectorAll('body > main').forEach(view=>view.style.display='none');
   document.getElementById('mi-turno-view').style.display='block';
   document.body.classList.remove('v35-drug-list');
+  applyObjectivesRole();
   window.scrollTo(0,0);
 }
+document.getElementById('mi-turno-frame').addEventListener('load',applyObjectivesRole);
 window.addEventListener('message',event=>{
   const frame=document.getElementById('mi-turno-frame');
   if(!frame || event.source!==frame.contentWindow || !event.data) return;
+  if(event.data.type==='mi-turno-tcae-view'){
+    if(window.uciObjectivesRole==='tcae'&&['objetivos','tareas','carros'].includes(event.data.content))window.showMiTurno('tcae',event.data.content);
+    return;
+  }
   if(event.data.type==='mi-turno-resize'){
     const height=Number(event.data.height);
     if(Number.isFinite(height)) frame.style.height=Math.max(700,Math.min(7000,Math.ceil(height)))+'px';
@@ -4720,9 +4909,9 @@ window.addEventListener('message',event=>{
     const search=document.getElementById('drive-search');
     if(search){ search.value='preparación box e ingreso check list'; updateDriveContents(); }
   } else if(event.data.action==='tcae-nutrition'){
-    window.showNE();window.selectNEPanel('nutriciones');
+    window.showNE('nutriciones');
   } else if(event.data.action==='tcae-sng'){
-    window.showNE();window.selectNEPanel('cuidados');
+    window.showNE('cuidados');
     const diagram=document.getElementById('ne-care-sng');
     if(diagram){
       diagram.open=true;
@@ -4733,7 +4922,7 @@ window.addEventListener('message',event=>{
       });
     }
   } else if(event.data.action==='tcae-dysphagia'){
-    window.showNE();window.selectNEPanel('disfagia');
+    window.showNE('disfagia');
   } else if(event.data.action==='tcae-cleaning'){
     window.showLimpieza();
   } else if(event.data.action==='scale-maddox'){
@@ -4757,7 +4946,8 @@ window.addEventListener('message',event=>{
   // Track published, top-level app navigation using only fixed section names.
   if(!/^https?:$/.test(window.location.protocol)||window.top!==window.self)return;
   const tabs={
-    'mi-turno':{event:'uci_tab_objetivos',name:'Objetivos asistenciales 2026'},
+    'mi-turno':{event:'uci_tab_objetivos',name:'Objetivos de Enfermería'},
+    'tcae-objectives':{event:'uci_tab_objetivos_tcae',name:'Objetivos y tareas TCAE'},
     analgosedacion:{event:'uci_tab_analgosedacion',name:'Escalas de Analgosedación'},
     farmacos:{event:'uci_tab_farmacos_menu',name:'Fármacos · menú'},
     drugs:{event:'uci_tab_farmacos',name:'Protocolo de fármacos'},
@@ -4776,7 +4966,7 @@ window.addEventListener('message',event=>{
     if(!view)return;
     // A direct search result for a drug belongs to the Fármacos section.
     // Moving between its list and fiches does not count as another tab entry.
-    const tabId=view==='record'?'drugs':view;
+    const tabId=view==='record'?'drugs':view==='mi-turno'&&event.detail.role==='tcae'?'tcae-objectives':view;
     if(tabId===activeTab)return;
     activeTab=tabId;
     const tab=tabs[tabId];
@@ -4802,7 +4992,7 @@ window.addEventListener('message',event=>{
   }
 
   function sameView(a,b){
-    return a.view===b.view&&(a.view!=='record'||Number(a.recordIndex)===Number(b.recordIndex));
+    return a.view===b.view&&(a.view!=='record'||Number(a.recordIndex)===Number(b.recordIndex))&&(a.view!=='mi-turno'||((a.role||'enfermeria')===(b.role||'enfermeria')&&(a.role!=='tcae'||(a.tcaeContent||'menu')===(b.tcaeContent||'menu'))))&&(a.view!=='ne'||(a.panel||'menu')===(b.panel||'menu'));
   }
 
   function rememberView(view){
@@ -4820,7 +5010,7 @@ window.addEventListener('message',event=>{
       const result=original.apply(this,arguments);
       const view=viewForArgs(Array.from(arguments));
       rememberView(view);
-      window.dispatchEvent(new CustomEvent('uci-view-change',{detail:{view:view.view}}));
+      window.dispatchEvent(new CustomEvent('uci-view-change',{detail:{view:view.view,role:view.role}}));
       return result;
     }
     wrapped.__uciHistoryWrapped=true;
@@ -4834,12 +5024,12 @@ window.addEventListener('message',event=>{
     ['showDrugsList',()=>({view:'drugs'})],
     ['showCompatibility',()=>({view:'compatibility'})],
     ['showCompatibilityFromLanding',()=>({view:'compatibility'})],
-    ['showMiTurno',()=>({view:'mi-turno'})],
+    ['showMiTurno',args=>({view:'mi-turno',role:args[0]==='tcae'?'tcae':'enfermeria',tcaeContent:['objetivos','tareas','carros'].includes(args[1])?args[1]:'menu'})],
     ['showLimpieza',()=>({view:'limpieza'})],
     ['showAnalgosedacion',()=>({view:'analgosedacion'})],
     ['showAntibioticos',()=>({view:'antibioticos'})],
     ['showTcrr',()=>({view:'tcrr'})],
-    ['showNE',()=>({view:'ne'})],
+    ['showNE',args=>({view:'ne',panel:['cuidados','disfagia','nutriciones'].includes(args[0])?args[0]:'menu'})],
     ['showInsulinizacion',()=>({view:'insulinizacion'})],
     ['showTelefonos',()=>({view:'telefonos'})],
     ['showDriveContents',()=>({view:'drive'})],
@@ -4856,12 +5046,12 @@ window.addEventListener('message',event=>{
       case 'farmacos': window.showFarmacos(); break;
       case 'drugs': window.showDrugsList(); break;
       case 'compatibility': window.showCompatibility(); break;
-      case 'mi-turno': window.showMiTurno(); break;
+      case 'mi-turno': window.showMiTurno(view.role,view.tcaeContent); break;
       case 'limpieza': window.showLimpieza(); break;
       case 'analgosedacion': window.showAnalgosedacion(); break;
       case 'antibioticos': window.showAntibioticos(); break;
       case 'tcrr': window.showTcrr(); break;
-      case 'ne': window.showNE(); break;
+      case 'ne': window.showNE(view.panel); break;
       case 'insulinizacion': window.showInsulinizacion(); break;
       case 'telefonos': window.showTelefonos(); break;
       case 'drive': window.showDriveContents(); break;
@@ -5036,7 +5226,7 @@ window.addEventListener('message',event=>{
     document.querySelectorAll('body > main').forEach(main=>main.style.display='none');
     if(entry.kind==='drug')window.openRecord(entry.recordIndex);
     else if(entry.kind==='objective'){
-      window.showMiTurno();
+      window.showMiTurno(entry.role==='TCAEs'?'tcae':'enfermeria','objetivos');
       selectObjective(entry.objectiveIndex);
     }
     else if(entry.kind==='compatibility'){
@@ -5047,7 +5237,7 @@ window.addEventListener('message',event=>{
       window.showAntibioticos();
       const all=document.querySelector('#antibioticos-view .ab-letter-btn[data-letter="all"]');
       if(all)all.click();
-    }else if(entry.kind==='nutrition'){window.showNE();window.selectNEPanel('nutriciones');}
+    }else if(entry.kind==='nutrition'){window.showNE('nutriciones');}
     else if(entry.kind==='phone')window.showTelefonos();
     if(entry.target){
       entry.target.classList.add('uci-search-destination');
