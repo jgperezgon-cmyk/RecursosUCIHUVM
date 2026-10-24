@@ -706,14 +706,11 @@ header{z-index:1000!important}
 #uci-search-clear{display:grid;place-items:center;flex:0 0 40px;width:40px;height:42px;border:0;background:transparent;border-radius:8px;color:#647c83;font-size:25px;cursor:pointer;padding:0}
 #uci-search-clear:hover{background:#eaf2f3}
 #uci-search-panel{margin-top:8px;padding:12px;background:#fff;border:1px solid #dce7e8;border-radius:12px;box-shadow:0 3px 14px rgba(20,55,60,.035)}
-.uci-search-filters{display:flex;flex-wrap:wrap;gap:6px;padding:0 0 3px}
-.uci-search-filters button{border:1px solid #d5e3e6;border-radius:999px;padding:8px 11px;background:#f7fafb;font-size:12px;font-weight:650;color:#49616b;min-height:36px;cursor:pointer}
-.uci-search-filters button[aria-pressed="true"]{background:#e2f1ec;border-color:#9fcbbd;color:#1b6257}
 .uci-search-status{font-size:12px;line-height:1.5;color:#627a82;margin:10px 0}
 .uci-search-results{margin:0;padding:0;list-style:none;display:grid;gap:7px}
 .uci-search-result{width:100%;display:flex;align-items:center;gap:11px;padding:12px;border:1px solid #dce7ea;border-radius:11px;background:#fff;color:#213d48;text-decoration:none;text-align:left;font:inherit;cursor:pointer;box-sizing:border-box}
 .uci-search-result:hover{background:#f7fbfa;border-color:#aacbc4}
-.uci-search-result:focus-visible,.uci-search-filters button:focus-visible,#uci-search-clear:focus-visible,#uci-search-more:focus-visible{outline:3px solid #74b6ad;outline-offset:2px}
+.uci-search-result:focus-visible,#uci-search-clear:focus-visible,#uci-search-more:focus-visible{outline:3px solid #74b6ad;outline-offset:2px}
 .uci-search-icon{display:grid;place-items:center;flex:0 0 36px;width:36px;height:36px;border-radius:10px;font-size:19px;background:#edf4f5}
 .uci-search-icon.drug,.uci-search-badge.drug{background:#e9f4ee;color:#21664e}
 .uci-search-icon.antibiotic,.uci-search-badge.antibiotic{background:#edf3fc;color:#375b8e}
@@ -732,7 +729,7 @@ header{z-index:1000!important}
 .uci-search-arrow{font-size:18px;color:#64868b;flex:0 0 auto}
 #uci-search-more{display:block;margin:12px auto 0;border:1px solid #bfd4d7;border-radius:9px;background:#f5faf9;color:#286a66;padding:10px 18px;min-height:42px;font-size:13px;font-weight:700;cursor:pointer}
 .uci-search-destination{outline:3px solid #7cb8ac!important;outline-offset:5px;border-radius:9px;scroll-margin-top:20px}
-@media(max-width:600px){#uci-home-search{margin-bottom:12px}#uci-search-panel{padding:10px}.uci-search-field{padding:0 10px;gap:8px}.uci-search-result{padding:11px 9px;gap:9px}.uci-search-icon{width:32px;height:32px;flex-basis:32px;font-size:17px}.uci-search-meta{font-size:11px}.uci-search-filters button{padding:8px 10px}}
+@media(max-width:600px){#uci-home-search{margin-bottom:12px}#uci-search-panel{padding:10px}.uci-search-field{padding:0 10px;gap:8px}.uci-search-result{padding:11px 9px;gap:9px}.uci-search-icon{width:32px;height:32px;flex-basis:32px;font-size:17px}.uci-search-meta{font-size:11px}}
 
 </style>
 <style id="uci-drug-search-compact-css">
@@ -823,17 +820,6 @@ body.v35-drug-list.uci-drug-search-compact > header #allBtn{flex:0 0 auto;min-he
 </div>
 </form>
 <div id="uci-search-panel" hidden>
-<div id="uci-search-filters" class="uci-search-filters" role="group" aria-label="Filtrar resultados">
-<button type="button" data-category="all" aria-pressed="true">Todos</button>
-<button type="button" data-category="drug" aria-pressed="false">Fármacos</button>
-<button type="button" data-category="compatibility" aria-pressed="false">Compatibilidad en Y</button>
-<button type="button" data-category="objective" aria-pressed="false">Objetivos asistenciales</button>
-<button type="button" data-category="antibiotic" aria-pressed="false">Antibióticos</button>
-<button type="button" data-category="nutrition" aria-pressed="false">Nutriciones</button>
-<button type="button" data-category="phone" aria-pressed="false">Teléfonos</button>
-<button type="button" data-category="drive" aria-pressed="false">Carpetas</button>
-<button type="button" data-category="video" aria-pressed="false">Vídeos</button>
-</div>
 <p id="uci-search-status" class="uci-search-status" role="status" aria-live="polite"></p>
 <ul id="uci-search-results" class="uci-search-results" aria-label="Resultados de búsqueda"></ul>
 <button id="uci-search-more" type="button" hidden>Ver más resultados</button>
@@ -5072,11 +5058,10 @@ window.addEventListener('message',event=>{
   const form=document.getElementById('uci-search-form');
   const clear=document.getElementById('uci-search-clear');
   const panel=document.getElementById('uci-search-panel');
-  const filters=document.getElementById('uci-search-filters');
   const status=document.getElementById('uci-search-status');
   const list=document.getElementById('uci-search-results');
   const more=document.getElementById('uci-search-more');
-  if(!search||!form||!clear||!panel||!filters||!status||!list||!more)return;
+  if(!search||!form||!clear||!panel||!status||!list||!more)return;
 
   const categories={
     drug:{label:'Fármaco',icon:'💊',terms:'farmaco farmacos medicacion'},
@@ -5183,7 +5168,7 @@ window.addEventListener('message',event=>{
     else pendingObjective=null;
   });
 
-  let category='all', limit=8, matches=[];
+  let limit=8, matches=[];
   function score(entry,query){
     const tokens=query.split(' ');
     if(!tokens.every(token=>entry.searchText.includes(token)))return 0;
@@ -5198,13 +5183,12 @@ window.addEventListener('message',event=>{
     const query=normalize(search.value);
     clear.hidden=!search.value;
     panel.hidden=!search.value.trim();
-    filters.querySelectorAll('button').forEach(button=>button.setAttribute('aria-pressed',String(button.dataset.category===category)));
     if(query.length<2){
       status.textContent=query?'Escribe al menos 2 caracteres.':'';
       list.innerHTML=''; more.hidden=true; matches=[]; return;
     }
     matches=entries.map(entry=>({entry,score:score(entry,query)}))
-      .filter(item=>item.score>0&&(category==='all'||item.entry.kind===category))
+      .filter(item=>item.score>0)
       .sort((a,b)=>b.score-a.score||a.entry.title.localeCompare(b.entry.title,'es'));
     const shown=matches.slice(0,limit);
     status.textContent=matches.length
@@ -5248,15 +5232,10 @@ window.addEventListener('message',event=>{
     }
   }
   function reset(){
-    search.value='';category='all';limit=8;render();search.focus();
+    search.value='';limit=8;render();search.focus();
   }
   search.addEventListener('input',()=>{limit=8;render();});
   clear.addEventListener('click',reset);
-  filters.addEventListener('click',event=>{
-    const button=event.target.closest('button[data-category]');
-    if(!button)return;
-    category=button.dataset.category;limit=8;render();
-  });
   more.addEventListener('click',()=>{
     const previous=limit;limit+=8;render();
     const controls=list.querySelectorAll('.uci-search-result');
