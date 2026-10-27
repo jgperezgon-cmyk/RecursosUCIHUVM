@@ -5107,13 +5107,25 @@ window.addEventListener('message',event=>{
     entries.push(entry); unique.set(key,entry);
   }
 
-  (window.ECMO_PANELS||[]).forEach(panel=>panel.cards.forEach(card=>{
-    const tableText=card.table?card.table.rows.flat().join(' '):'';
-    add({kind:'ecmo',title:card.title,detail:'ECMO · '+panel.title,
-      aliases:card.subtitle+' '+card.tag,
-      bodyText:(card.items.join(' ')+' '+tableText).replace(/<[^>]*>/g,' '),
-      ecmoPanel:panel.id,ecmoCard:card.id});
-  }));
+  const ecmoMachineAliases={
+    cardiohelp:'cardiohelp cardio help',
+    ecmolife:'ecmolife ecmo life',
+    centrimag:'centrimag centri mag'
+  };
+  (window.ECMO_PANELS||[]).filter(panel=>panel.id==='maquinas').forEach(panel=>{
+    panel.cards.filter(card=>Object.prototype.hasOwnProperty.call(ecmoMachineAliases,card.id)).forEach(card=>{
+      add({kind:'ecmo',title:card.title,detail:'ECMO · Máquinas y respaldo',
+        aliases:ecmoMachineAliases[card.id]+' maquina maquinas consola '+card.subtitle+' '+card.tag,
+        bodyText:card.items.join(' ').replace(/<[^>]*>/g,' '),
+        ecmoPanel:panel.id,ecmoCard:card.id});
+    });
+  });
+  const pafiPanel=(window.ECMO_PANELS||[]).find(panel=>panel.id==='incidencias');
+  const pafiCard=pafiPanel&&pafiPanel.cards.find(card=>card.calculator==='pafi');
+  if(pafiCard)add({kind:'ecmo',title:'Calculadora PAFI',
+    detail:'ECMO · Cociente PaO₂/FiO₂',
+    aliases:'pafi pa fi pao2 fio2 pao2 fio2 calculadora oxigenacion oxigenador gasometria',
+    ecmoPanel:pafiPanel.id,ecmoCard:pafiCard.id,ecmoModal:'pafi'});
   if(typeof records!=='undefined')records.forEach((record,index)=>{
     if(/BOMBAS DE PCA/i.test(record.heading))return;
     const title=typeof displayName==='function'?displayName(record):record.heading;
@@ -5224,7 +5236,7 @@ window.addEventListener('message',event=>{
   function open(entry){
     document.querySelectorAll('.uci-search-destination').forEach(element=>element.classList.remove('uci-search-destination'));
     document.querySelectorAll('body > main').forEach(main=>main.style.display='none');
-    if(entry.kind==='ecmo')window.openECMOCard(entry.ecmoPanel,entry.ecmoCard);
+    if(entry.kind==='ecmo')window.showECMO(entry.ecmoPanel,entry.ecmoCard,entry.ecmoModal);
     else if(entry.kind==='drug')window.openRecord(entry.recordIndex);
     else if(entry.kind==='objective'){
       window.showMiTurno(entry.role==='TCAEs'?'tcae':'enfermeria','objetivos');
