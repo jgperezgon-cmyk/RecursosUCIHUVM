@@ -11,7 +11,6 @@ window.ECMO_PANELS=[
         "tag": "NEUROLÓGICO",
         "items": [
           "Vigilar dolor, agitación y asincronía con el respirador.",
-          "Si la situación lo permite, preparar y aprovechar la ventana diaria de sedación acordada por el equipo para valorar al paciente.",
           "Registrar tamaño y reactividad pupilar, RASS, respuesta a estímulos y dolor; hacerlo cada hora si hay sangrado o anticoagulación fuera de rango, y anotar BIS y NIRS cuando estén disponibles.",
           "Avisar de inmediato ante anisocoria, pupilas no reactivas, cambio neurológico nuevo o descenso brusco de la respuesta."
         ],
