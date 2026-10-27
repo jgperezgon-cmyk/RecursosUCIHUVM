@@ -164,7 +164,7 @@
   const machineBackupKeys={cardiohelp:'cardiohelp',centrimag:'centrimag',ecmolife:'ecmolife'};
   const machineBackups=card=>{
     const backup=backups[machineBackupKeys[card.id]];
-    return backup?`<section class="ecmo-machine-backups"><b>RESPALDO DE EMERGENCIA</b><p>${backup.title}.</p>${backupSteps(backup)}</section>`:'';
+    return backup?`<details class="ecmo-machine-backups"><summary><span><b>Respaldo de emergencia</b><small>${escape(backup.title)}</small></span><span class="ecmo-chevron" aria-hidden="true">+</span></summary><div class="ecmo-machine-backup-body">${backupSteps(backup)}<div class="ecmo-card-source">${sourceLink('general',backup.page)}</div></div></details>`:'';
   };
   root.querySelector('.ecmo-nav').innerHTML=tabs.map(([id,label])=>`<button type="button" data-ecmo-panel="${id}" aria-pressed="${id===selected}" aria-controls="ecmo-cards">${label}</button>`).join('');
   root.querySelector('#ecmo-docs').innerHTML=Object.entries(docs).map(([id,d])=>`<a href="documentos/${d.file}" target="_blank" rel="noopener"><span class="ecmo-pdf-icon" aria-hidden="true">PDF</span><span><b>${d.name}</b><small>${d.version}</small></span><span aria-hidden="true">↗</span></a>`).join('');
