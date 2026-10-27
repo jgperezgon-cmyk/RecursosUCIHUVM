@@ -1,0 +1,13 @@
+Recursos UCI HUVM · Integración ECMO · 27/10/2026
+
+La carpeta recursos-uci-huvm-integrada contiene la web actualizada.
+Abrir index.html para consultar la copia local.
+
+Para actualizar GitHub:
+1. Subir el contenido de esta carpeta a la raíz del repositorio RecursosUCIHUVM.
+2. Incluir index.html, ecmo.css, ecmo.js, ecmo-data.js y las carpetas assets y documentos.
+3. Mantener el resto de archivos y recursos que ya existen en GitHub.
+
+No basta con subir solo index.html: ECMO utiliza los archivos adicionales incluidos.
+Los documentos y contenidos clínicos proceden de la versión ECMO aportada.
+No se ha publicado la actualización ni realizado pruebas en navegador o dispositivos.

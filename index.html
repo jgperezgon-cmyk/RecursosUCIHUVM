@@ -712,6 +712,7 @@ header{z-index:1000!important}
 .uci-search-result:hover{background:#f7fbfa;border-color:#aacbc4}
 .uci-search-result:focus-visible,#uci-search-clear:focus-visible,#uci-search-more:focus-visible{outline:3px solid #74b6ad;outline-offset:2px}
 .uci-search-icon{display:grid;place-items:center;flex:0 0 36px;width:36px;height:36px;border-radius:10px;font-size:19px;background:#edf4f5}
+.uci-search-icon.ecmo,.uci-search-badge.ecmo{background:#e7f0fb;color:#255b9b}
 .uci-search-icon.drug,.uci-search-badge.drug{background:#e9f4ee;color:#21664e}
 .uci-search-icon.antibiotic,.uci-search-badge.antibiotic{background:#edf3fc;color:#375b8e}
 .uci-search-icon.nutrition,.uci-search-badge.nutrition{background:#fcf3e5;color:#836024}
@@ -790,6 +791,7 @@ body.v35-drug-list.uci-drug-search-compact > header #allBtn{flex:0 0 auto;min-he
 #ne-panel-nutriciones>.ne-hero-secondary{display:none}
 @media(max-width:760px){.ne-entry-menu .v35-tile{min-height:100px}.ne-entry-menu .v35-tile span{font-size:13px;line-height:1.5}}
 </style>
+<link rel="stylesheet" href="ecmo.css?v=20261027-integrada">
 </head>
 <body>
 <header>
@@ -846,6 +848,8 @@ body.v35-drug-list.uci-drug-search-compact > header #allBtn{flex:0 0 auto;min-he
 <div class="v35-icon" aria-hidden="true">🧹</div>
 <div><strong>Limpieza y preparación</strong><span>Limpieza del box y preparación para el siguiente ingreso.</span></div>
 </a>
+<a class="v35-tile ecmo-home-tile" href="#" onclick="showECMO();return false;">
+<div class="v35-icon" aria-hidden="true"><svg width="31" height="31" viewBox="0 0 80 80" fill="none" aria-hidden="true"><path d="M17 30V20a7 7 0 0 1 7-7h32a7 7 0 0 1 7 7v10" stroke="#255b9b" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/><path d="M14 30v33a8 8 0 0 0 8 8h36a8 8 0 0 0 8-8V30" stroke="#255b9b" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/><path d="M20 28h40a5 5 0 0 1 5 5v26a6 6 0 0 1-6 6H21a6 6 0 0 1-6-6V33a5 5 0 0 1 5-5Z" fill="#f8fafc" stroke="#a9b8c7" stroke-width="2"/><rect x="23" y="35" width="27" height="17" rx="2.5" fill="#173f73"/><path d="M27 43.5h12" stroke="#e7f1ff" stroke-width="2.5" stroke-linecap="round"/><circle cx="56" cy="48" r="7" fill="#e5eef8" stroke="#255b9b" stroke-width="2"/><circle cx="56" cy="48" r="2" fill="#255b9b"/><path d="M25 59h16" stroke="#a9b8c7" stroke-width="2" stroke-linecap="round"/><circle cx="52" cy="59" r="2.5" fill="#d95362"/><circle cx="60" cy="59" r="2.5" fill="#72849a"/></svg></div><div><strong>ECMO</strong><span>Cuidados, revisión del turno y recordatorios de enfermería.</span></div></a>
 <a class="v35-tile" href="#" onclick="showTcrr();return false;">
 <div class="v35-icon" aria-hidden="true">🩺</div>
 <div><strong>TCRR</strong><span>Terapias continuas de Reemplazo Renal · HDFVVC con Citrato en PRISMAFLEX.</span></div>
@@ -4926,6 +4930,8 @@ window.addEventListener('message',event=>{
   }
 });
 </script>
+<script src="ecmo-data.js?v=20261027-integrada"></script>
+<script src="ecmo.js?v=20261027-integrada"></script>
 <script id="uci-tab-usage-analytics">
 (function(){
   // Track published, top-level app navigation using only fixed section names.
@@ -4939,6 +4945,7 @@ window.addEventListener('message',event=>{
     compatibility:{event:'uci_tab_compatibilidad_y',name:'Compatibilidad en Y'},
     antibioticos:{event:'uci_tab_antibioticos',name:'Antibióticos'},
     limpieza:{event:'uci_tab_limpieza',name:'Limpieza y preparación'},
+    ecmo:{event:'uci_tab_ecmo',name:'ECMO'},
     tcrr:{event:'uci_tab_tcrr',name:'TCRR'},
     insulinizacion:{event:'uci_tab_insulinizacion',name:'Insulinización'},
     ne:{event:'uci_tab_nutricion_disfagia',name:'Nutrición enteral'},
@@ -4977,7 +4984,7 @@ window.addEventListener('message',event=>{
   }
 
   function sameView(a,b){
-    return a.view===b.view&&(a.view!=='record'||Number(a.recordIndex)===Number(b.recordIndex))&&(a.view!=='mi-turno'||((a.role||'enfermeria')===(b.role||'enfermeria')&&(a.role!=='tcae'||(a.tcaeContent||'menu')===(b.tcaeContent||'menu'))))&&(a.view!=='ne'||(a.panel||'menu')===(b.panel||'menu'));
+    return a.view===b.view&&(a.view!=='record'||Number(a.recordIndex)===Number(b.recordIndex))&&(a.view!=='mi-turno'||((a.role||'enfermeria')===(b.role||'enfermeria')&&(a.role!=='tcae'||(a.tcaeContent||'menu')===(b.tcaeContent||'menu'))))&&(a.view!=='ne'||(a.panel||'menu')===(b.panel||'menu'))&&(a.view!=='ecmo'||((a.panel||'cuidados')===(b.panel||'cuidados')&&(a.cardId||null)===(b.cardId||null)&&(a.modal||null)===(b.modal||null)));
   }
 
   function rememberView(view){
@@ -5013,6 +5020,7 @@ window.addEventListener('message',event=>{
     ['showLimpieza',()=>({view:'limpieza'})],
     ['showAnalgosedacion',()=>({view:'analgosedacion'})],
     ['showAntibioticos',()=>({view:'antibioticos'})],
+    ['showECMO',()=>({view:'ecmo',...window.getECMOViewState()})],
     ['showTcrr',()=>({view:'tcrr'})],
     ['showNE',args=>({view:'ne',panel:['cuidados','disfagia','nutriciones'].includes(args[0])?args[0]:'menu'})],
     ['showInsulinizacion',()=>({view:'insulinizacion'})],
@@ -5035,6 +5043,7 @@ window.addEventListener('message',event=>{
       case 'limpieza': window.showLimpieza(); break;
       case 'analgosedacion': window.showAnalgosedacion(); break;
       case 'antibioticos': window.showAntibioticos(); break;
+      case 'ecmo': window.showECMO(view.panel,view.cardId,view.modal); break;
       case 'tcrr': window.showTcrr(); break;
       case 'ne': window.showNE(view.panel); break;
       case 'insulinizacion': window.showInsulinizacion(); break;
@@ -5071,7 +5080,8 @@ window.addEventListener('message',event=>{
     drive:{label:'Carpeta del Drive',icon:'📁',terms:'carpeta carpetas drive documentos'},
     video:{label:'Vídeo del Drive',icon:'🎥',terms:'video videos drive'},
     compatibility:{label:'Compatibilidad en Y',icon:'🔗',terms:'compatibilidad compatibilidades en y farmaco farmacos'},
-    objective:{label:'Objetivos asistenciales',icon:'📋',terms:'objetivo objetivos asistenciales tareas'}
+    objective:{label:'Objetivos asistenciales',icon:'📋',terms:'objetivo objetivos asistenciales tareas'},
+    ecmo:{label:'ECMO',icon:'↻',terms:'ecmo enfermeria'}
   };
   const singulars={celadores:'celador',farmacos:'farmaco',antibioticos:'antibiotico',nutriciones:'nutricion',telefonos:'telefono',carpetas:'carpeta',extensiones:'extension',suplementos:'suplemento'};
   function normalize(value){
@@ -5097,6 +5107,13 @@ window.addEventListener('message',event=>{
     entries.push(entry); unique.set(key,entry);
   }
 
+  (window.ECMO_PANELS||[]).forEach(panel=>panel.cards.forEach(card=>{
+    const tableText=card.table?card.table.rows.flat().join(' '):'';
+    add({kind:'ecmo',title:card.title,detail:'ECMO · '+panel.title,
+      aliases:card.subtitle+' '+card.tag,
+      bodyText:(card.items.join(' ')+' '+tableText).replace(/<[^>]*>/g,' '),
+      ecmoPanel:panel.id,ecmoCard:card.id});
+  }));
   if(typeof records!=='undefined')records.forEach((record,index)=>{
     if(/BOMBAS DE PCA/i.test(record.heading))return;
     const title=typeof displayName==='function'?displayName(record):record.heading;
@@ -5207,7 +5224,8 @@ window.addEventListener('message',event=>{
   function open(entry){
     document.querySelectorAll('.uci-search-destination').forEach(element=>element.classList.remove('uci-search-destination'));
     document.querySelectorAll('body > main').forEach(main=>main.style.display='none');
-    if(entry.kind==='drug')window.openRecord(entry.recordIndex);
+    if(entry.kind==='ecmo')window.openECMOCard(entry.ecmoPanel,entry.ecmoCard);
+    else if(entry.kind==='drug')window.openRecord(entry.recordIndex);
     else if(entry.kind==='objective'){
       window.showMiTurno(entry.role==='TCAEs'?'tcae':'enfermeria','objetivos');
       selectObjective(entry.objectiveIndex);
