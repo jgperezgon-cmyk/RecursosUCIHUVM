@@ -214,11 +214,25 @@
   root.querySelector('#ecmo-clear').addEventListener('click',()=>{root.querySelector('#ecmo-search').value='';render();root.querySelector('#ecmo-search').focus();});
   const dialogs={emergencias:dialog,pafi:pafiDialog,hemofiltro:hemofilterDialog};
   const transferPlayer=root.querySelector('#ecmo-transfer-video iframe');
+  let transferLoadFrame=0;
   function syncTransferVideo(){
-    const visible=root.style.display==='block'&&!root.querySelector('#ecmo-transfer-video').hidden;
-    if(visible){
-      if(!transferPlayer.hasAttribute('src'))transferPlayer.src=transferPlayer.dataset.src;
-    }else if(transferPlayer.hasAttribute('src'))transferPlayer.removeAttribute('src');
+    if(transferLoadFrame){cancelAnimationFrame(transferLoadFrame);transferLoadFrame=0;}
+    const section=root.querySelector('#ecmo-transfer-video');
+    const visible=root.style.display==='block'&&!section.hidden;
+    if(!visible){
+      if(transferPlayer.hasAttribute('src'))transferPlayer.removeAttribute('src');
+      return;
+    }
+    if(transferPlayer.hasAttribute('src'))return;
+    // Let the visible container reach its final dimensions before Drive initializes.
+    transferLoadFrame=requestAnimationFrame(()=>{
+      transferLoadFrame=0;
+      if(root.style.display!=='block'||section.hidden)return;
+      const box=transferPlayer.parentElement.getBoundingClientRect();
+      if(box.width>0&&box.height>0&&!transferPlayer.hasAttribute('src')){
+        transferPlayer.src=transferPlayer.dataset.src;
+      }
+    });
   }
   function applyModal(name){
     activeModal=Object.prototype.hasOwnProperty.call(dialogs,name)?name:null;

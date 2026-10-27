@@ -98,7 +98,7 @@
 @media(max-width:720px){.ecmo-machine-photo{min-height:130px;margin-bottom:10px;padding:7px}.ecmo-machine-photo img{height:124px}}
 
 /* Vídeo de apoyo para el procedimiento de traslado. */
-.ecmo-transfer-video{margin:0 0 18px;padding:17px 18px;background:#f0f5fa;border:1px solid #d7e4ef;border-radius:14px}.ecmo-transfer-video-heading{display:flex;align-items:center;justify-content:space-between;gap:16px;margin-bottom:13px}.ecmo-transfer-video-heading small{display:block;font-size:8px;letter-spacing:.1em;font-weight:700;color:#7e94aa;margin-bottom:4px}.ecmo-transfer-video-heading h4{margin:0;color:#3b5f82;font-size:15px;line-height:1.4}.ecmo-transfer-video-heading a{font-size:10px;white-space:nowrap;color:#537da8;text-decoration:none}.ecmo-transfer-video-heading a:hover{text-decoration:underline}.ecmo-transfer-video-frame{overflow:hidden;aspect-ratio:16/9;border:1px solid #d5e0ea;border-radius:10px;background:#e5eef6}.ecmo-transfer-video-frame iframe{display:block;width:100%;height:100%;border:0}
+.ecmo-transfer-video{margin:0 0 18px;padding:17px 18px;background:#f0f5fa;border:1px solid #d7e4ef;border-radius:14px}.ecmo-transfer-video-heading{display:flex;align-items:center;justify-content:space-between;gap:16px;margin-bottom:13px}.ecmo-transfer-video-heading small{display:block;font-size:8px;letter-spacing:.1em;font-weight:700;color:#7e94aa;margin-bottom:4px}.ecmo-transfer-video-heading h4{margin:0;color:#3b5f82;font-size:15px;line-height:1.4}.ecmo-transfer-video-heading a{font-size:10px;white-space:nowrap;color:#537da8;text-decoration:none}.ecmo-transfer-video-heading a:hover{text-decoration:underline}
 @media(max-width:720px){.ecmo-transfer-video{padding:15px 13px}.ecmo-transfer-video-heading{align-items:flex-start;margin-bottom:10px}.ecmo-transfer-video-heading h4{font-size:14px}.ecmo-transfer-video-heading a{font-size:9px;padding-top:4px}}
 
 .ecmo-pafi{display:grid;grid-template-columns:minmax(122px,1fr) minmax(104px,.78fr) minmax(104px,.78fr) auto;gap:9px;align-items:end;margin:13px 0 4px;padding:12px;background:#eff6fb;border:1px solid #d5e4ef;border-radius:10px}.ecmo-pafi-heading{align-self:center}.ecmo-pafi-heading b,.ecmo-pafi-heading small{display:block}.ecmo-pafi-heading b{font-size:11px;color:#355d7a}.ecmo-pafi-heading small,.ecmo-pafi>p{font-size:9px;line-height:1.45;color:#70899d}.ecmo-pafi label{display:grid;grid-template-columns:1fr auto;gap:3px;font-size:9px;font-weight:750;color:#58768f}.ecmo-pafi label span{font-size:8px;font-weight:600;color:#839aa9}.ecmo-pafi input{grid-column:1/-1;width:100%;min-width:0;box-sizing:border-box;padding:8px;border:1px solid #bed2e1;border-radius:7px;background:#fff;color:#294e69;font:inherit;font-size:12px}.ecmo-pafi-result{display:grid;place-items:center;min-width:76px;padding:9px 8px;border-radius:7px;background:#dcecf7;color:#2d6088;font-size:12px;font-weight:800;white-space:nowrap}.ecmo-pafi>p{grid-column:1/-1;margin:0}@media(max-width:720px){.ecmo-pafi{grid-template-columns:1fr 1fr}.ecmo-pafi-heading,.ecmo-pafi>p{grid-column:1/-1}.ecmo-pafi-result{min-width:0}}
@@ -154,11 +154,10 @@
 .ecmo-transfer-video{width:100%;max-width:100%;min-width:0;box-sizing:border-box}
 .ecmo-transfer-video-heading{min-width:0;flex-wrap:wrap}
 .ecmo-transfer-video-heading>div{flex:1 1 180px;min-width:0}
-.ecmo-transfer-video-frame{position:relative;width:100%;max-width:100%;min-width:0;min-height:0;aspect-ratio:16/9;box-sizing:border-box}
-.ecmo-transfer-video-frame iframe{position:absolute;inset:0;display:block;width:100%;max-width:100%;min-width:0;height:100%;border:0;box-sizing:border-box}
+.ecmo-transfer-video-frame{position:relative;display:block;width:100%;max-width:100%;min-width:0;height:0;min-height:0;padding:56.25% 0 0;aspect-ratio:auto;margin:0 auto;overflow:hidden;border:0;border-radius:10px;background:#000;box-shadow:0 0 0 1px #d5e0ea;box-sizing:border-box}
+.ecmo-transfer-video-frame iframe{position:absolute;inset:0;display:block;width:100%;max-width:100%;min-width:0;height:100%;margin:0;padding:0;border:0;transform:none;box-sizing:border-box}
 @media(max-width:720px){
   .ecmo-transfer-video{padding:14px 10px}
   .ecmo-transfer-video-heading{gap:8px}
   .ecmo-transfer-video-heading>a{flex:0 0 auto;white-space:normal;font-size:11px}
-  .ecmo-transfer-video-frame{height:clamp(260px,78vw,360px);min-height:0;aspect-ratio:auto}
 }
