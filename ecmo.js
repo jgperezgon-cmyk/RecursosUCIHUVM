@@ -60,7 +60,8 @@
 
     <section class="ecmo-transfer-video" id="ecmo-transfer-video" aria-labelledby="ecmo-transfer-video-title" hidden>
       <div class="ecmo-transfer-video-heading"><div><small>VÍDEO · TRASLADO</small><h4 id="ecmo-transfer-video-title">Procedimiento de traslado ECMO</h4></div><a href="https://drive.google.com/file/d/19Otm-bzQlQOjnPl7fsGJDa2SqV7FBp5l/view?usp=drive_link" target="_blank" rel="noopener">Abrir en Drive ↗</a></div>
-      <div class="ecmo-transfer-video-frame"><iframe data-src="https://drive.google.com/file/d/19Otm-bzQlQOjnPl7fsGJDa2SqV7FBp5l/preview" title="Vídeo del procedimiento de traslado ECMO" loading="lazy" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen referrerpolicy="strict-origin-when-cross-origin"></iframe></div>
+      <div class="ecmo-transfer-video-frame ecmo-transfer-inline"><iframe data-src="https://drive.google.com/file/d/19Otm-bzQlQOjnPl7fsGJDa2SqV7FBp5l/preview" title="Vídeo del procedimiento de traslado ECMO" loading="lazy" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen referrerpolicy="strict-origin-when-cross-origin"></iframe></div>
+      <button type="button" class="ecmo-transfer-mobile" data-transfer-open aria-label="Abrir el vídeo de traslado ECMO"><img src="assets/traslado-ecmo-poster.jpg" width="960" height="540" alt="" loading="lazy"><span class="ecmo-transfer-play" aria-hidden="true">▶</span><span class="ecmo-transfer-play-label">Reproducir vídeo</span></button>
     </section>
     <div class="ecmo-cards" id="ecmo-cards"></div>
     <p class="ecmo-no-results" id="ecmo-no-results" hidden>No hay recordatorios con esa búsqueda. Prueba «cánula», «sangrado» o «control».</p>
@@ -80,6 +81,10 @@
   hemofilterDialog.setAttribute('aria-labelledby','ecmo-hemofilter-title');
   hemofilterDialog.innerHTML=`<div class="ecmo-hemofilter-dialog-head"><div><p class="ecmo-eyebrow">ESQUEMA DE APOYO</p><h2 id="ecmo-hemofilter-title">Conexión de hemofiltro</h2></div><button type="button" data-hemofilter-close aria-label="Cerrar esquema">×</button></div><p class="ecmo-hemofilter-dialog-intro">Entrada y retorno señalados en el circuito ECMO.</p><figure><img src="assets/hemofiltro-conexion.png" alt="Esquema de conexión del hemofiltro al sistema ECMO, con los puntos de entrada y retorno señalados."><figcaption>La imagen muestra los puntos de conexión de entrada y retorno.</figcaption></figure>`;
   document.body.append(hemofilterDialog);
+  const transferDialog=document.createElement('dialog');transferDialog.id='ecmo-transfer-dialog';
+  transferDialog.setAttribute('aria-labelledby','ecmo-transfer-dialog-title');
+  transferDialog.innerHTML=`<div class="ecmo-transfer-dialog-head"><h2 id="ecmo-transfer-dialog-title">Traslado ECMO</h2><button type="button" data-transfer-close aria-label="Cerrar vídeo">Cerrar <span aria-hidden="true">×</span></button></div><div class="ecmo-transfer-dialog-player"><iframe data-src="https://drive.google.com/file/d/19Otm-bzQlQOjnPl7fsGJDa2SqV7FBp5l/preview" title="Vídeo del procedimiento de traslado ECMO en Drive" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen referrerpolicy="strict-origin-when-cross-origin"></iframe></div>`;
+  document.body.append(transferDialog);
   let selected='cuidados', selectedCard=null, activeModal=null;
   const tabs=[['cuidados','Cuidados','CUIDADOS DE ENFERMERÍA'],['maquinas','Máquinas','CONOCER LAS MÁQUINAS'],['incidencias','Incidencias','COMPLICACIONES DEL SISTEMA'],['traslado','Traslado','ANTES DE SALIR']];
   const escape=s=>String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
@@ -194,6 +199,8 @@
     syncTransferVideo();
   }
   root.addEventListener('click',event=>{
+    const transferOpen=event.target.closest('[data-transfer-open]');
+    if(transferOpen){transferReturnScroll=window.scrollY;window.showECMO('traslado',selectedCard,'video');return;}
     const pafiOpen=event.target.closest('[data-pafi-open]');
     if(pafiOpen){window.showECMO(selected,pafiOpen.closest('.ecmo-card').id.slice(10),'pafi');return;}
     const hemofilterOpen=event.target.closest('[data-hemofilter-open]');
@@ -212,30 +219,38 @@
   pafiDialog.addEventListener('submit',event=>{if(event.target.matches('[data-pafi-calculator]'))event.preventDefault();});
   root.querySelector('#ecmo-search').addEventListener('input',render);
   root.querySelector('#ecmo-clear').addEventListener('click',()=>{root.querySelector('#ecmo-search').value='';render();root.querySelector('#ecmo-search').focus();});
-  const dialogs={emergencias:dialog,pafi:pafiDialog,hemofiltro:hemofilterDialog};
+  const dialogs={emergencias:dialog,pafi:pafiDialog,hemofiltro:hemofilterDialog,video:transferDialog};
   const transferPlayer=root.querySelector('#ecmo-transfer-video iframe');
-  let transferLoadFrame=0;
+  const dialogTransferPlayer=transferDialog.querySelector('iframe');
+  const transferViewport=window.matchMedia('(max-width:720px)');
+  let transferLoadFrame=0, transferReturnScroll=0;
   function syncTransferVideo(){
     if(transferLoadFrame){cancelAnimationFrame(transferLoadFrame);transferLoadFrame=0;}
     const section=root.querySelector('#ecmo-transfer-video');
     const visible=root.style.display==='block'&&!section.hidden;
-    if(!visible){
-      if(transferPlayer.hasAttribute('src'))transferPlayer.removeAttribute('src');
-      return;
-    }
-    if(transferPlayer.hasAttribute('src'))return;
-    // Let the visible container reach its final dimensions before Drive initializes.
+    const players=[
+      {element:transferPlayer,active:visible&&!transferViewport.matches&&!activeModal},
+      {element:dialogTransferPlayer,active:visible&&activeModal==='video'&&transferDialog.open}
+    ];
+    players.forEach(({element,active})=>{if(!active&&element.hasAttribute('src'))element.removeAttribute('src');});
+    const pending=players.filter(({element,active})=>active&&!element.hasAttribute('src'));
+    if(!pending.length)return;
     transferLoadFrame=requestAnimationFrame(()=>{
       transferLoadFrame=0;
-      if(root.style.display!=='block'||section.hidden)return;
-      const box=transferPlayer.parentElement.getBoundingClientRect();
-      if(box.width>0&&box.height>0&&!transferPlayer.hasAttribute('src')){
-        transferPlayer.src=transferPlayer.dataset.src;
-      }
+      pending.forEach(({element})=>{
+        const current=element===dialogTransferPlayer
+          ? root.style.display==='block'&&!section.hidden&&activeModal==='video'&&transferDialog.open
+          : root.style.display==='block'&&!section.hidden&&!transferViewport.matches&&!activeModal;
+        const box=element.getBoundingClientRect();
+        if(current&&box.width>0&&box.height>0&&!element.hasAttribute('src'))element.src=element.dataset.src;
+      });
     });
   }
+  if(typeof transferViewport.addEventListener==='function')transferViewport.addEventListener('change',syncTransferVideo);
+  else if(typeof transferViewport.addListener==='function')transferViewport.addListener(syncTransferVideo);
   function applyModal(name){
     activeModal=Object.prototype.hasOwnProperty.call(dialogs,name)?name:null;
+    document.documentElement.classList.toggle('ecmo-transfer-playing',activeModal==='video');
     Object.entries(dialogs).forEach(([key,element])=>{
       if(key!==activeModal&&element.open)element.close();
     });
@@ -250,13 +265,14 @@
   function closeModal(){
     const view=window.history.state&&window.history.state.uciHuVmView;
     if(view&&view.view==='ecmo'&&view.modal){window.history.back();return;}
-    applyModal(null);
+    applyModal(null);syncTransferVideo();
   }
   root.querySelector('#ecmo-emergency-open').addEventListener('click',()=>window.showECMO(selected,selectedCard,'emergencias'));
   root.querySelector('#ecmo-quick-emergency').addEventListener('click',()=>window.showECMO(selected,selectedCard,'emergencias'));
   dialog.querySelector('#ecmo-emergency-close').addEventListener('click',closeModal);
   pafiDialog.querySelector('[data-pafi-close]').addEventListener('click',closeModal);
   hemofilterDialog.querySelector('[data-hemofilter-close]').addEventListener('click',closeModal);
+  transferDialog.querySelector('[data-transfer-close]').addEventListener('click',closeModal);
   Object.values(dialogs).forEach(element=>{
     element.addEventListener('cancel',event=>{event.preventDefault();closeModal();});
     element.addEventListener('click',event=>{
@@ -272,6 +288,7 @@
   });
   window.getECMOViewState=()=>({panel:selected,cardId:selectedCard,modal:activeModal});
   window.showECMO=function(panel,cardId,modal){
+    const returningFromVideo=activeModal==='video'&&modal!=='video';
     const nextPanel=window.ECMO_PANELS.find(item=>item.id===panel)||window.ECMO_PANELS[0];
     const nextCard=nextPanel.cards.some(card=>card.id===cardId)?cardId:null;
     const alreadyVisible=root.style.display==='block';
@@ -285,7 +302,8 @@
     if(card)card.open=true;
     applyModal(modal);syncTransferVideo();
     if(!activeModal){
-      if(card){card.scrollIntoView({block:'center'});card.querySelector('summary').focus({preventScroll:true});}
+      if(returningFromVideo)window.scrollTo(0,transferReturnScroll);
+      else if(card){card.scrollIntoView({block:'center'});card.querySelector('summary').focus({preventScroll:true});}
       else window.scrollTo(0,0);
     }
   };
