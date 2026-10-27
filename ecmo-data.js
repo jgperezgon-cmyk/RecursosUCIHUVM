@@ -10,7 +10,7 @@ window.ECMO_PANELS=[
         "subtitle": "Sedoanalgesia · relajación · neuromonitorización",
         "tag": "NEUROLÓGICO",
         "items": [
-          "Confirmar la pauta prescrita de sedoanalgesia y, si procede, de relajación; vigilar dolor, agitación y asincronía con el respirador.",
+          "Vigilar dolor, agitación y asincronía con el respirador.",
           "Si la situación lo permite, preparar y aprovechar la ventana diaria de sedación acordada por el equipo para valorar al paciente.",
           "Registrar tamaño y reactividad pupilar, RASS, respuesta a estímulos y dolor; hacerlo cada hora si hay sangrado o anticoagulación fuera de rango, y anotar BIS y NIRS cuando estén disponibles.",
           "Avisar de inmediato ante anisocoria, pupilas no reactivas, cambio neurológico nuevo o descenso brusco de la respuesta."
@@ -72,8 +72,7 @@ window.ECMO_PANELS=[
         "tag": "FAMILIA",
         "items": [
           "Ofrecer una actitud abierta y tranquila, explicar qué se está haciendo con un lenguaje comprensible y mantener mensajes coherentes entre profesionales.",
-          "Facilitar que la familia comunique dudas y preocupaciones, trasladándolas al profesional responsable cuando sea necesario.",
-          "Registrar y comunicar las necesidades de apoyo detectadas durante el turno."
+          "Facilitar que la familia comunique dudas y preocupaciones, trasladándolas al profesional responsable cuando sea necesario."
         ],
         "doc": "general",
         "page": 56
