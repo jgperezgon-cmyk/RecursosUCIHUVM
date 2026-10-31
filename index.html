@@ -877,10 +877,27 @@ html.uci-halloween-searching .uci-halloween-scene *{animation-play-state:paused!
 </style>
 <script id="uci-halloween-decoration-js">
 (function(){
-  const now=new Date();
-  const begins=new Date(2026,9,31);
-  const ends=new Date(2026,10,2);
-  document.documentElement.classList.toggle('uci-halloween',now>=begins&&now<ends);
+  // Every year: 25 October through 1 November at 11:00, Europe/Madrid.
+  // Decorations stay hidden by default until this calendar enables them.
+  const seasonalClock=new Intl.DateTimeFormat('en-GB',{
+    timeZone:'Europe/Madrid',month:'numeric',day:'numeric',hour:'numeric',hourCycle:'h23'
+  });
+  let seasonalTimer;
+  function syncHalloweenSeason(){
+    clearTimeout(seasonalTimer);
+    const parts=Object.fromEntries(seasonalClock.formatToParts(new Date())
+      .filter(part=>part.type!=='literal').map(part=>[part.type,Number(part.value)]));
+    const visible=(parts.month===10&&parts.day>=25)
+      ||(parts.month===11&&parts.day===1&&parts.hour<11);
+    document.documentElement.classList.toggle('uci-halloween',visible);
+    // Recheck at the next minute boundary so an open app also hides at 11:00.
+    seasonalTimer=setTimeout(syncHalloweenSeason,60000-(Date.now()%60000));
+  }
+  syncHalloweenSeason();
+  document.addEventListener('visibilitychange',()=>{
+    if(!document.hidden)syncHalloweenSeason();
+  });
+  window.addEventListener('pageshow',syncHalloweenSeason);
   document.addEventListener('DOMContentLoaded',()=>{
     const search=document.getElementById('uci-search-input');
     if(!search)return;
