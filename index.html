@@ -799,6 +799,98 @@ body.v35-drug-list.uci-drug-search-compact > header #allBtn{flex:0 0 auto;min-he
 #insulina-protocol-link:focus-visible{outline:3px solid #74b6ad;outline-offset:3px}
 .uci-search-icon.insulinizacion,.uci-search-badge.insulinizacion{background:#edf7f3;color:#246454}
 </style>
+<style id="uci-halloween-decoration-css">
+.uci-halloween-decoration{display:none}
+html.uci-halloween #landing>.v35-hero{border-color:#e7c9aa;box-shadow:0 10px 30px #9d622c12,0 0 0 2px #fff7ed}
+html.uci-halloween .uci-halloween-decoration{display:block;position:absolute;inset:0;z-index:3;pointer-events:none;user-select:none;overflow:hidden;border-radius:inherit}
+.uci-halloween-pumpkins{position:absolute;right:17px;bottom:22px;width:90px;height:65px;filter:drop-shadow(0 3px 3px #75411915)}
+@media(max-width:700px){
+  .uci-halloween-pumpkins{right:10px;bottom:auto;top:calc(57% - 41px);width:64px;height:43px}
+}
+
+/* Halloween extends around the homepage, with gentle movement in the margins. */
+.uci-halloween-scene{display:none}
+html.uci-halloween #landing{position:relative;background:linear-gradient(155deg,#fff8ee45,#f5f3fb25 70%);border-radius:26px}
+html.uci-halloween #landing>.v35-grid>.v35-tile{border-color:#e6d6c8;box-shadow:0 3px 15px #9c70350b}
+html.uci-halloween #landing>.v35-grid>.v35-tile:nth-child(3n){border-color:#dfd8e9}
+html.uci-halloween .uci-halloween-scene{display:block;position:fixed;inset:0;z-index:14;overflow:hidden;pointer-events:none;user-select:none;transition:opacity .25s ease}
+.uci-halloween-scene svg{display:block;overflow:visible}
+.uci-halloween-corner{position:absolute;top:0;left:0;width:180px;height:232px;color:#82778f;opacity:.58}
+.uci-halloween-corner-right{left:auto;right:0;width:154px;height:198px;transform:scaleX(-1);opacity:.43;color:#9b806c}
+.uci-halloween-spider{transform-origin:116px 48px;animation:uci-spider-sway 8s ease-in-out infinite}
+.uci-halloween-ghost{position:absolute;left:max(10px,calc((100vw - 1100px)/4 - 38px));top:52%;width:77px;filter:drop-shadow(0 8px 9px #6258701c);animation:uci-ghost-float 10s ease-in-out infinite;will-change:transform}
+.uci-halloween-ghost-small{left:auto;right:max(10px,calc((100vw - 1100px)/4 - 25px));top:28%;width:53px;opacity:.83;animation:uci-ghost-float-other 12s ease-in-out -4s infinite}
+.uci-halloween-moon{position:absolute;right:max(26px,calc((100vw - 1100px)/4 - 18px));top:83px;width:45px;opacity:.76}
+html.uci-halloween-searching .uci-halloween-scene{opacity:0}
+html.uci-halloween-searching .uci-halloween-scene *{animation-play-state:paused!important}
+@keyframes uci-ghost-float{0%,100%{transform:translateY(0) rotate(-6deg)}35%{transform:translateY(-23px) rotate(4deg)}70%{transform:translateY(-9px) rotate(-2deg)}}
+@keyframes uci-ghost-float-other{0%,100%{transform:translateY(-10px) rotate(5deg)}50%{transform:translateY(16px) rotate(-5deg)}}
+@keyframes uci-spider-sway{0%,100%{transform:rotate(-3deg)}50%{transform:rotate(3deg)}}
+@media(max-width:1250px){
+  .uci-halloween-ghost{left:2px;right:auto;width:44px;opacity:.8}
+  .uci-halloween-ghost-small{left:auto;right:2px;width:36px;opacity:.65}
+  .uci-halloween-corner{width:120px;height:155px;opacity:.45}
+  .uci-halloween-corner-right{width:106px;height:137px;opacity:.36}
+  .uci-halloween-moon{right:12px;width:31px;top:108px;opacity:.6}
+}
+@media(max-width:700px){
+  .uci-halloween-corner{width:86px;height:111px;opacity:.48}
+  .uci-halloween-corner-right{width:78px;height:101px;opacity:.4}
+  .uci-halloween-ghost{left:0;right:auto;top:70%;width:32px;opacity:.72;animation-name:uci-ghost-mobile-float}
+  .uci-halloween-ghost-small{left:auto;right:0;top:32%;width:28px;opacity:.68;animation-name:uci-ghost-mobile-float-other}
+  .uci-halloween-moon{right:10px;top:89px;width:24px;opacity:.58}
+}
+/* Small flying bats, with wingbeats and separate flight paths. */
+.uci-halloween-flying-bat{position:absolute;width:34px;color:#655d78;opacity:.73;filter:drop-shadow(0 2px 2px #49435e12);animation:uci-bat-orbit 17s ease-in-out infinite;will-change:transform}
+.uci-halloween-flying-bat svg{width:100%;height:auto;overflow:visible}
+.uci-halloween-bat-wing{transform-origin:42px 21px;animation:uci-bat-wingbeat .95s ease-in-out infinite}
+.uci-halloween-bat-wing-right{animation-delay:-.08s}
+.uci-halloween-flight-1{left:max(5px,calc((100vw - 1100px)/4 - 19px));top:20%;width:42px;animation-duration:19s;animation-delay:-6s}
+.uci-halloween-flight-2{right:max(8px,calc((100vw - 1100px)/4 - 13px));top:76%;width:31px;animation-direction:reverse;animation-duration:16s;animation-delay:-11s;opacity:.58}
+.uci-halloween-flight-3{left:23%;top:16px;width:29px;animation:uci-bat-sky-flight 25s ease-in-out -8s infinite;opacity:.66}
+.uci-halloween-flight-4{right:max(2px,calc((100vw - 1100px)/4 - 15px));top:52%;width:27px;animation-duration:22s;animation-delay:-3s;opacity:.55}
+.uci-halloween-flight-5{left:max(3px,calc((100vw - 1100px)/4 - 12px));top:85%;width:25px;animation-duration:15s;animation-delay:-9s;opacity:.55}
+@keyframes uci-bat-orbit{0%,100%{transform:translate3d(0,0,0) rotate(-10deg)}30%{transform:translate3d(6px,-30px,0) rotate(8deg)}65%{transform:translate3d(-3px,19px,0) rotate(-3deg)}}
+@keyframes uci-bat-sky-flight{0%,100%{transform:translate3d(0,0,0) rotate(-8deg)}32%{transform:translate3d(17vw,17px,0) rotate(9deg)}67%{transform:translate3d(39vw,3px,0) rotate(-5deg)}}
+@keyframes uci-bat-wingbeat{0%,100%{transform:scale(1,1)}50%{transform:scale(.78,.48)}}
+@media(max-width:1250px){
+  .uci-halloween-flight-1{left:1px;width:28px}
+  .uci-halloween-flight-2{right:2px;width:25px}
+  .uci-halloween-flight-4{right:2px;width:23px}
+  .uci-halloween-flight-5{left:2px;width:22px}
+}
+@media(max-width:700px){
+  .uci-halloween-flight-1{left:0;top:18%;width:23px}
+  .uci-halloween-flight-2{right:0;top:83%;width:22px}
+  .uci-halloween-flight-3{left:17%;top:12px;width:23px}
+  .uci-halloween-flight-4{right:0;top:57%;width:21px}
+  .uci-halloween-flight-5{left:0;top:43%;width:20px}
+  .uci-halloween-flying-bat:not(.uci-halloween-flight-3){animation-name:uci-bat-mobile-orbit}
+}
+@keyframes uci-ghost-mobile-float{0%,100%{transform:translateY(0) rotate(-3deg)}50%{transform:translateY(-12px) rotate(3deg)}}
+@keyframes uci-ghost-mobile-float-other{0%,100%{transform:translateY(-6px) rotate(3deg)}50%{transform:translateY(8px) rotate(-3deg)}}
+@keyframes uci-bat-mobile-orbit{0%,100%{transform:translateY(0) rotate(-7deg)}35%{transform:translateY(-8px) rotate(6deg)}70%{transform:translateY(7px) rotate(-3deg)}}
+@media(prefers-reduced-motion:reduce){
+  .uci-halloween-scene,.uci-halloween-scene *{animation:none!important;transition:none!important;will-change:auto!important}
+}
+@media print{.uci-halloween-scene,.uci-halloween-decoration{display:none!important}}
+</style>
+<script id="uci-halloween-decoration-js">
+(function(){
+  const now=new Date();
+  const begins=new Date(2026,9,31);
+  const ends=new Date(2026,10,2);
+  document.documentElement.classList.toggle('uci-halloween',now>=begins&&now<ends);
+  document.addEventListener('DOMContentLoaded',()=>{
+    const search=document.getElementById('uci-search-input');
+    if(!search)return;
+    function sync(){document.documentElement.classList.toggle('uci-halloween-searching',document.activeElement===search||!!search.value.trim());}
+    ['focus','blur','input'].forEach(event=>search.addEventListener(event,sync));
+    document.getElementById('uci-search-clear').addEventListener('click',()=>requestAnimationFrame(sync));
+    sync();
+  });
+})();
+</script>
 </head>
 <body>
 <header>
@@ -811,7 +903,32 @@ body.v35-drug-list.uci-drug-search-compact > header #allBtn{flex:0 0 auto;min-he
 </header>
 
 <main id="landing" class="v35-home">
+<div id="uci-halloween-scene" class="uci-halloween-scene" aria-hidden="true">
+  <svg class="uci-halloween-corner" viewBox="0 0 180 232" focusable="false"><g fill="none" stroke="currentColor" stroke-width="1.2"><path d="M0 0H180M0 0 180 72M0 0 140 140M0 0 72 180M0 0v180"/><path d="M30 0c0 17-13 30-30 30M60 0c0 33-27 60-60 60M90 0c0 50-40 90-90 90M120 0C120 66 66 120 0 120M150 0c0 83-67 150-150 150M180 0c0 99-81 180-180 180"/></g><g class="uci-halloween-spider"><path d="M116 48v143" stroke="currentColor" stroke-width="1"/><g stroke="currentColor" stroke-width="1.6" stroke-linecap="round" fill="none"><path d="m113 196-9-5-5 3m14 7-12-1-4 5m17 0-9 5-2 6m17-20 9-5 5 3m-14 7 12-1 4 5m-17 0 9 5 2 6"/></g><ellipse cx="116" cy="201" rx="5.5" ry="8" fill="currentColor"/></g></svg>
+  <svg class="uci-halloween-corner uci-halloween-corner-right" viewBox="0 0 180 232" focusable="false"><g fill="none" stroke="currentColor" stroke-width="1.2"><path d="M0 0H180M0 0 180 72M0 0 140 140M0 0 72 180M0 0v180"/><path d="M30 0c0 17-13 30-30 30M60 0c0 33-27 60-60 60M90 0c0 50-40 90-90 90M120 0C120 66 66 120 0 120M150 0c0 83-67 150-150 150M180 0c0 99-81 180-180 180"/></g><g class="uci-halloween-spider"><path d="M116 48v143" stroke="currentColor" stroke-width="1"/><g stroke="currentColor" stroke-width="1.6" stroke-linecap="round" fill="none"><path d="m113 196-9-5-5 3m14 7-12-1-4 5m17 0-9 5-2 6m17-20 9-5 5 3m-14 7 12-1 4 5m-17 0 9 5 2 6"/></g><ellipse cx="116" cy="201" rx="5.5" ry="8" fill="currentColor"/></g></svg>
+  <div class="uci-halloween-ghost"><svg viewBox="0 0 100 125" fill="none" focusable="false"><path d="M18 66C2 60 0 84 17 84m65-18c16-6 18 18 1 18" fill="#fffefa" stroke="#c6bed5" stroke-width="1.7"/><path d="M16 108V49C16 6 84 6 84 49v59L72 98l-12 12-12-12-11 12-11-12-10 10Z" fill="#fffefa" stroke="#c6bed5" stroke-width="1.8" stroke-linejoin="round"/><path d="M22 48c0-14 7-25 17-28" stroke="#fff" stroke-width="5" stroke-linecap="round"/><ellipse cx="36" cy="55" rx="4.7" ry="6.5" fill="#5e5571"/><ellipse cx="65" cy="55" rx="4.7" ry="6.5" fill="#5e5571"/><circle cx="37" cy="53" r="1.5" fill="#fff"/><circle cx="66" cy="53" r="1.5" fill="#fff"/><ellipse cx="26" cy="70" rx="7" ry="3.7" fill="#f1d3ce" opacity=".8"/><ellipse cx="75" cy="70" rx="7" ry="3.7" fill="#f1d3ce" opacity=".8"/><path d="M44 71c4 5 9 5 13 0" stroke="#7a6b88" stroke-width="2" stroke-linecap="round"/></svg></div>
+  <div class="uci-halloween-ghost uci-halloween-ghost-small"><svg viewBox="0 0 100 125" fill="none" focusable="false"><path d="M18 66C2 60 0 84 17 84m65-18c16-6 18 18 1 18" fill="#fffefa" stroke="#c6bed5" stroke-width="1.7"/><path d="M16 108V49C16 6 84 6 84 49v59L72 98l-12 12-12-12-11 12-11-12-10 10Z" fill="#fffefa" stroke="#c6bed5" stroke-width="1.8" stroke-linejoin="round"/><path d="M22 48c0-14 7-25 17-28" stroke="#fff" stroke-width="5" stroke-linecap="round"/><ellipse cx="36" cy="55" rx="4.7" ry="6.5" fill="#5e5571"/><ellipse cx="65" cy="55" rx="4.7" ry="6.5" fill="#5e5571"/><circle cx="37" cy="53" r="1.5" fill="#fff"/><circle cx="66" cy="53" r="1.5" fill="#fff"/><ellipse cx="26" cy="70" rx="7" ry="3.7" fill="#f1d3ce" opacity=".8"/><ellipse cx="75" cy="70" rx="7" ry="3.7" fill="#f1d3ce" opacity=".8"/><path d="M44 71c4 5 9 5 13 0" stroke="#7a6b88" stroke-width="2" stroke-linecap="round"/></svg></div>
+  <div class="uci-halloween-flying-bat uci-halloween-flight-1"><svg viewBox="0 0 84 42" fill="currentColor" focusable="false"><g class="uci-halloween-bat-wing"><path d="M39 22C28 11 15 7 2 9c7 8 9 16 10 24 8-6 16-5 27 1Z"/></g><g class="uci-halloween-bat-wing uci-halloween-bat-wing-right"><path d="M45 22C56 11 69 7 82 9c-7 8-9 16-10 24-8-6-16-5-27 1Z"/></g><ellipse cx="42" cy="26" rx="6" ry="9"/><path d="m36 22 1-11 5 7 5-7 1 11Z"/><circle cx="40" cy="22" r=".9" fill="#fff4d8"/><circle cx="44" cy="22" r=".9" fill="#fff4d8"/></svg></div>
+  <div class="uci-halloween-flying-bat uci-halloween-flight-2"><svg viewBox="0 0 84 42" fill="currentColor" focusable="false"><g class="uci-halloween-bat-wing"><path d="M39 22C28 11 15 7 2 9c7 8 9 16 10 24 8-6 16-5 27 1Z"/></g><g class="uci-halloween-bat-wing uci-halloween-bat-wing-right"><path d="M45 22C56 11 69 7 82 9c-7 8-9 16-10 24-8-6-16-5-27 1Z"/></g><ellipse cx="42" cy="26" rx="6" ry="9"/><path d="m36 22 1-11 5 7 5-7 1 11Z"/><circle cx="40" cy="22" r=".9" fill="#fff4d8"/><circle cx="44" cy="22" r=".9" fill="#fff4d8"/></svg></div>
+  <div class="uci-halloween-flying-bat uci-halloween-flight-3"><svg viewBox="0 0 84 42" fill="currentColor" focusable="false"><g class="uci-halloween-bat-wing"><path d="M39 22C28 11 15 7 2 9c7 8 9 16 10 24 8-6 16-5 27 1Z"/></g><g class="uci-halloween-bat-wing uci-halloween-bat-wing-right"><path d="M45 22C56 11 69 7 82 9c-7 8-9 16-10 24-8-6-16-5-27 1Z"/></g><ellipse cx="42" cy="26" rx="6" ry="9"/><path d="m36 22 1-11 5 7 5-7 1 11Z"/><circle cx="40" cy="22" r=".9" fill="#fff4d8"/><circle cx="44" cy="22" r=".9" fill="#fff4d8"/></svg></div>
+  <div class="uci-halloween-flying-bat uci-halloween-flight-4"><svg viewBox="0 0 84 42" fill="currentColor" focusable="false"><g class="uci-halloween-bat-wing"><path d="M39 22C28 11 15 7 2 9c7 8 9 16 10 24 8-6 16-5 27 1Z"/></g><g class="uci-halloween-bat-wing uci-halloween-bat-wing-right"><path d="M45 22C56 11 69 7 82 9c-7 8-9 16-10 24-8-6-16-5-27 1Z"/></g><ellipse cx="42" cy="26" rx="6" ry="9"/><path d="m36 22 1-11 5 7 5-7 1 11Z"/><circle cx="40" cy="22" r=".9" fill="#fff4d8"/><circle cx="44" cy="22" r=".9" fill="#fff4d8"/></svg></div>
+  <div class="uci-halloween-flying-bat uci-halloween-flight-5"><svg viewBox="0 0 84 42" fill="currentColor" focusable="false"><g class="uci-halloween-bat-wing"><path d="M39 22C28 11 15 7 2 9c7 8 9 16 10 24 8-6 16-5 27 1Z"/></g><g class="uci-halloween-bat-wing uci-halloween-bat-wing-right"><path d="M45 22C56 11 69 7 82 9c-7 8-9 16-10 24-8-6-16-5-27 1Z"/></g><ellipse cx="42" cy="26" rx="6" ry="9"/><path d="m36 22 1-11 5 7 5-7 1 11Z"/><circle cx="40" cy="22" r=".9" fill="#fff4d8"/><circle cx="44" cy="22" r=".9" fill="#fff4d8"/></svg></div>
+  <svg class="uci-halloween-moon" viewBox="0 0 60 65" fill="none" focusable="false"><path d="M40 5c-16 4-23 24-13 37 5 7 13 9 22 7C33 68 3 57 3 34 3 16 20 2 40 5Z" fill="#e4c28c"/><path d="m49 5 2 5 5 2-5 2-2 5-2-5-5-2 5-2Zm3 26 1 3 3 1-3 1-1 3-1-3-3-1 3-1Z" fill="#b8a1c1"/></svg>
+</div>
 <section class="v35-hero" aria-label="Recursos UCI HUVM">
+<div class="uci-halloween-decoration" aria-hidden="true">
+  <svg class="uci-halloween-pumpkins" viewBox="0 0 104 75" fill="none" focusable="false">
+    <path d="M64 24c-1-9 0-14 5-18" stroke="#647f60" stroke-width="5" stroke-linecap="round"/>
+    <path d="M67 14c6-8 16-7 19-4-5 6-11 9-19 4Z" fill="#9ca66b"/>
+    <ellipse cx="53" cy="46" rx="22" ry="25" fill="#dc8b48"/><ellipse cx="78" cy="46" rx="22" ry="25" fill="#e39b56"/>
+    <ellipse cx="65" cy="46" rx="18" ry="26" fill="#efa95e"/><ellipse cx="65" cy="46" rx="7" ry="25" stroke="#cd7e3c" stroke-width="1.6" opacity=".45"/>
+    <path d="m48 40 9-7 3 9Zm23 2 3-9 9 7Z" fill="#805037"/><path d="M49 51c9 13 24 13 33-1-11 5-22 5-33 1Z" fill="#805037"/><path d="M61 53v5h6v-5" fill="#efb065"/>
+    <path d="M26 42c-1-6 0-9 3-12" stroke="#617c5b" stroke-width="3.5" stroke-linecap="round"/>
+    <ellipse cx="18" cy="58" rx="14" ry="15" fill="#cf7a3b"/><ellipse cx="34" cy="58" rx="14" ry="15" fill="#df9049"/><ellipse cx="26" cy="58" rx="11" ry="16" fill="#eba15b"/>
+    <path d="m16 55 5-4 2 5Zm13 1 2-5 5 4Z" fill="#815035"/><path d="M17 62c5 6 13 6 18-1" stroke="#815035" stroke-width="2.1" stroke-linecap="round"/>
+    <path d="M3 73c5-8 13-8 16-5-5 5-10 7-16 5Z" fill="#a98b57" opacity=".75"/>
+  </svg>
+</div>
 <picture class="v40-header-picture"><source media="(max-width: 700px)" srcset="assets/header-uci-huVM-mobile.png"><img class="v40-header-image" src="assets/header-uci-huVM.png" alt="Recursos UCI HUVM — Hospital Universitario Virgen Macarena, con monitor de UCI y fachada del hospital"></picture>
 <div class="v40-header-credit">Fotografía: Hospital Universitario Virgen Macarena</div>
 </section>
