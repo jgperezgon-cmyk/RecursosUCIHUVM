@@ -818,8 +818,8 @@ html.uci-halloween .uci-halloween-scene{display:block;position:fixed;inset:0;z-i
 .uci-halloween-corner{position:absolute;top:0;left:0;width:180px;height:232px;color:#82778f;opacity:.58}
 .uci-halloween-corner-right{left:auto;right:0;width:154px;height:198px;transform:scaleX(-1);opacity:.43;color:#9b806c}
 .uci-halloween-spider{transform-origin:116px 48px;animation:uci-spider-sway 8s ease-in-out infinite}
-.uci-halloween-ghost{position:absolute;left:max(10px,calc((100vw - 1100px)/4 - 38px));top:52%;width:77px;filter:drop-shadow(0 8px 9px #6258701c);animation:uci-ghost-float 10s ease-in-out infinite;will-change:transform}
-.uci-halloween-ghost-small{left:auto;right:max(10px,calc((100vw - 1100px)/4 - 25px));top:28%;width:53px;opacity:.83;animation:uci-ghost-float-other 12s ease-in-out -4s infinite}
+.uci-halloween-ghost{position:absolute;left:max(10px,calc((100vw - 1100px)/4 - 53px));top:52%;width:106px;filter:drop-shadow(0 6px 8px #53476b35);animation:uci-ghost-float 10s ease-in-out infinite;will-change:transform;opacity:1}
+.uci-halloween-ghost-small{left:auto;right:max(10px,calc((100vw - 1100px)/4 - 39px));top:28%;width:78px;opacity:.97;animation:uci-ghost-float-other 12s ease-in-out -4s infinite}
 .uci-halloween-moon{position:absolute;right:max(26px,calc((100vw - 1100px)/4 - 18px));top:83px;width:45px;opacity:.76}
 html.uci-halloween-searching .uci-halloween-scene{opacity:0}
 html.uci-halloween-searching .uci-halloween-scene *{animation-play-state:paused!important}
@@ -827,8 +827,8 @@ html.uci-halloween-searching .uci-halloween-scene *{animation-play-state:paused!
 @keyframes uci-ghost-float-other{0%,100%{transform:translateY(-10px) rotate(5deg)}50%{transform:translateY(16px) rotate(-5deg)}}
 @keyframes uci-spider-sway{0%,100%{transform:rotate(-3deg)}50%{transform:rotate(3deg)}}
 @media(max-width:1250px){
-  .uci-halloween-ghost{left:2px;right:auto;width:44px;opacity:.8}
-  .uci-halloween-ghost-small{left:auto;right:2px;width:36px;opacity:.65}
+  .uci-halloween-ghost{left:2px;right:auto;width:66px;opacity:1}
+  .uci-halloween-ghost-small{left:auto;right:2px;width:58px;opacity:.97}
   .uci-halloween-corner{width:120px;height:155px;opacity:.45}
   .uci-halloween-corner-right{width:106px;height:137px;opacity:.36}
   .uci-halloween-moon{right:12px;width:31px;top:108px;opacity:.6}
@@ -836,36 +836,44 @@ html.uci-halloween-searching .uci-halloween-scene *{animation-play-state:paused!
 @media(max-width:700px){
   .uci-halloween-corner{width:86px;height:111px;opacity:.48}
   .uci-halloween-corner-right{width:78px;height:101px;opacity:.4}
-  .uci-halloween-ghost{left:0;right:auto;top:70%;width:32px;opacity:.72;animation-name:uci-ghost-mobile-float}
-  .uci-halloween-ghost-small{left:auto;right:0;top:32%;width:28px;opacity:.68;animation-name:uci-ghost-mobile-float-other}
+  .uci-halloween-ghost{left:0;right:auto;top:70%;width:60px;opacity:1;animation-name:uci-ghost-mobile-float}
+  .uci-halloween-ghost-small{left:auto;right:0;top:32%;width:52px;opacity:.97;animation-name:uci-ghost-mobile-float-other}
   .uci-halloween-moon{right:10px;top:89px;width:24px;opacity:.58}
 }
 /* Small flying bats, with wingbeats and separate flight paths. */
-.uci-halloween-flying-bat{position:absolute;width:34px;color:#655d78;opacity:.73;filter:drop-shadow(0 2px 2px #49435e12);animation:uci-bat-orbit 17s ease-in-out infinite;will-change:transform}
+.uci-halloween-flying-bat{position:absolute;width:56px;color:#51465f;opacity:.94;filter:drop-shadow(0 2px 2px #49435e12);animation:uci-bat-orbit 17s ease-in-out infinite;will-change:transform}
 .uci-halloween-flying-bat svg{width:100%;height:auto;overflow:visible}
 .uci-halloween-bat-wing{transform-origin:42px 21px;animation:uci-bat-wingbeat .95s ease-in-out infinite}
 .uci-halloween-bat-wing-right{animation-delay:-.08s}
-.uci-halloween-flight-1{left:max(5px,calc((100vw - 1100px)/4 - 19px));top:20%;width:42px;animation-duration:19s;animation-delay:-6s}
-.uci-halloween-flight-2{right:max(8px,calc((100vw - 1100px)/4 - 13px));top:76%;width:31px;animation-direction:reverse;animation-duration:16s;animation-delay:-11s;opacity:.58}
-.uci-halloween-flight-3{left:23%;top:16px;width:29px;animation:uci-bat-sky-flight 25s ease-in-out -8s infinite;opacity:.66}
-.uci-halloween-flight-4{right:max(2px,calc((100vw - 1100px)/4 - 15px));top:52%;width:27px;animation-duration:22s;animation-delay:-3s;opacity:.55}
-.uci-halloween-flight-5{left:max(3px,calc((100vw - 1100px)/4 - 12px));top:85%;width:25px;animation-duration:15s;animation-delay:-9s;opacity:.55}
+.uci-halloween-flight-1{left:max(5px,calc((100vw - 1100px)/4 - 34px));top:20%;width:68px;animation-duration:19s;animation-delay:-6s}
+.uci-halloween-flight-2{right:max(8px,calc((100vw - 1100px)/4 - 27px));top:76%;width:53px;animation-direction:reverse;animation-duration:16s;animation-delay:-11s;opacity:.9}
+.uci-halloween-flight-3{left:23%;top:16px;width:50px;animation:uci-bat-sky-flight 25s ease-in-out -8s infinite;opacity:.9}
+.uci-halloween-flight-4{right:max(2px,calc((100vw - 1100px)/4 - 24px));top:52%;width:48px;animation-duration:22s;animation-delay:-3s;opacity:.9}
+.uci-halloween-flight-5{left:max(3px,calc((100vw - 1100px)/4 - 22px));top:85%;width:44px;animation-duration:15s;animation-delay:-9s;opacity:.9}
 @keyframes uci-bat-orbit{0%,100%{transform:translate3d(0,0,0) rotate(-10deg)}30%{transform:translate3d(6px,-30px,0) rotate(8deg)}65%{transform:translate3d(-3px,19px,0) rotate(-3deg)}}
 @keyframes uci-bat-sky-flight{0%,100%{transform:translate3d(0,0,0) rotate(-8deg)}32%{transform:translate3d(17vw,17px,0) rotate(9deg)}67%{transform:translate3d(39vw,3px,0) rotate(-5deg)}}
 @keyframes uci-bat-wingbeat{0%,100%{transform:scale(1,1)}50%{transform:scale(.78,.48)}}
 @media(max-width:1250px){
-  .uci-halloween-flight-1{left:1px;width:28px}
-  .uci-halloween-flight-2{right:2px;width:25px}
-  .uci-halloween-flight-4{right:2px;width:23px}
-  .uci-halloween-flight-5{left:2px;width:22px}
+  .uci-halloween-flight-1{left:1px;width:48px}
+  .uci-halloween-flight-2{right:2px;width:44px}
+  .uci-halloween-flight-4{right:2px;width:42px}
+  .uci-halloween-flight-5{left:2px;width:41px}
 }
 @media(max-width:700px){
-  .uci-halloween-flight-1{left:0;top:18%;width:23px}
-  .uci-halloween-flight-2{right:0;top:83%;width:22px}
-  .uci-halloween-flight-3{left:17%;top:12px;width:23px}
-  .uci-halloween-flight-4{right:0;top:57%;width:21px}
-  .uci-halloween-flight-5{left:0;top:43%;width:20px}
+  .uci-halloween-flight-1{left:0;top:18%;width:46px}
+  .uci-halloween-flight-2{right:0;top:83%;width:42px}
+  .uci-halloween-flight-3{left:17%;top:12px;width:44px}
+  .uci-halloween-flight-4{right:0;top:57%;width:40px}
+  .uci-halloween-flight-5{left:0;top:43%;width:39px}
   .uci-halloween-flying-bat:not(.uci-halloween-flight-3){animation-name:uci-bat-mobile-orbit}
+}
+@media(max-width:700px) and (max-height:480px){
+  .uci-halloween-ghost{top:64%;width:52px}
+  .uci-halloween-ghost-small{top:22%;width:44px}
+  .uci-halloween-flight-1{top:17%}
+  .uci-halloween-flight-2{top:89%}
+  .uci-halloween-flight-4{top:66%}
+  .uci-halloween-flight-5{top:36%}
 }
 @keyframes uci-ghost-mobile-float{0%,100%{transform:translateY(0) rotate(-3deg)}50%{transform:translateY(-12px) rotate(3deg)}}
 @keyframes uci-ghost-mobile-float-other{0%,100%{transform:translateY(-6px) rotate(3deg)}50%{transform:translateY(8px) rotate(-3deg)}}
@@ -923,8 +931,8 @@ html.uci-halloween-searching .uci-halloween-scene *{animation-play-state:paused!
 <div id="uci-halloween-scene" class="uci-halloween-scene" aria-hidden="true">
   <svg class="uci-halloween-corner" viewBox="0 0 180 232" focusable="false"><g fill="none" stroke="currentColor" stroke-width="1.2"><path d="M0 0H180M0 0 180 72M0 0 140 140M0 0 72 180M0 0v180"/><path d="M30 0c0 17-13 30-30 30M60 0c0 33-27 60-60 60M90 0c0 50-40 90-90 90M120 0C120 66 66 120 0 120M150 0c0 83-67 150-150 150M180 0c0 99-81 180-180 180"/></g><g class="uci-halloween-spider"><path d="M116 48v143" stroke="currentColor" stroke-width="1"/><g stroke="currentColor" stroke-width="1.6" stroke-linecap="round" fill="none"><path d="m113 196-9-5-5 3m14 7-12-1-4 5m17 0-9 5-2 6m17-20 9-5 5 3m-14 7 12-1 4 5m-17 0 9 5 2 6"/></g><ellipse cx="116" cy="201" rx="5.5" ry="8" fill="currentColor"/></g></svg>
   <svg class="uci-halloween-corner uci-halloween-corner-right" viewBox="0 0 180 232" focusable="false"><g fill="none" stroke="currentColor" stroke-width="1.2"><path d="M0 0H180M0 0 180 72M0 0 140 140M0 0 72 180M0 0v180"/><path d="M30 0c0 17-13 30-30 30M60 0c0 33-27 60-60 60M90 0c0 50-40 90-90 90M120 0C120 66 66 120 0 120M150 0c0 83-67 150-150 150M180 0c0 99-81 180-180 180"/></g><g class="uci-halloween-spider"><path d="M116 48v143" stroke="currentColor" stroke-width="1"/><g stroke="currentColor" stroke-width="1.6" stroke-linecap="round" fill="none"><path d="m113 196-9-5-5 3m14 7-12-1-4 5m17 0-9 5-2 6m17-20 9-5 5 3m-14 7 12-1 4 5m-17 0 9 5 2 6"/></g><ellipse cx="116" cy="201" rx="5.5" ry="8" fill="currentColor"/></g></svg>
-  <div class="uci-halloween-ghost"><svg viewBox="0 0 100 125" fill="none" focusable="false"><path d="M18 66C2 60 0 84 17 84m65-18c16-6 18 18 1 18" fill="#fffefa" stroke="#c6bed5" stroke-width="1.7"/><path d="M16 108V49C16 6 84 6 84 49v59L72 98l-12 12-12-12-11 12-11-12-10 10Z" fill="#fffefa" stroke="#c6bed5" stroke-width="1.8" stroke-linejoin="round"/><path d="M22 48c0-14 7-25 17-28" stroke="#fff" stroke-width="5" stroke-linecap="round"/><ellipse cx="36" cy="55" rx="4.7" ry="6.5" fill="#5e5571"/><ellipse cx="65" cy="55" rx="4.7" ry="6.5" fill="#5e5571"/><circle cx="37" cy="53" r="1.5" fill="#fff"/><circle cx="66" cy="53" r="1.5" fill="#fff"/><ellipse cx="26" cy="70" rx="7" ry="3.7" fill="#f1d3ce" opacity=".8"/><ellipse cx="75" cy="70" rx="7" ry="3.7" fill="#f1d3ce" opacity=".8"/><path d="M44 71c4 5 9 5 13 0" stroke="#7a6b88" stroke-width="2" stroke-linecap="round"/></svg></div>
-  <div class="uci-halloween-ghost uci-halloween-ghost-small"><svg viewBox="0 0 100 125" fill="none" focusable="false"><path d="M18 66C2 60 0 84 17 84m65-18c16-6 18 18 1 18" fill="#fffefa" stroke="#c6bed5" stroke-width="1.7"/><path d="M16 108V49C16 6 84 6 84 49v59L72 98l-12 12-12-12-11 12-11-12-10 10Z" fill="#fffefa" stroke="#c6bed5" stroke-width="1.8" stroke-linejoin="round"/><path d="M22 48c0-14 7-25 17-28" stroke="#fff" stroke-width="5" stroke-linecap="round"/><ellipse cx="36" cy="55" rx="4.7" ry="6.5" fill="#5e5571"/><ellipse cx="65" cy="55" rx="4.7" ry="6.5" fill="#5e5571"/><circle cx="37" cy="53" r="1.5" fill="#fff"/><circle cx="66" cy="53" r="1.5" fill="#fff"/><ellipse cx="26" cy="70" rx="7" ry="3.7" fill="#f1d3ce" opacity=".8"/><ellipse cx="75" cy="70" rx="7" ry="3.7" fill="#f1d3ce" opacity=".8"/><path d="M44 71c4 5 9 5 13 0" stroke="#7a6b88" stroke-width="2" stroke-linecap="round"/></svg></div>
+  <div class="uci-halloween-ghost"><svg viewBox="0 0 100 125" fill="none" focusable="false"><path d="M18 66C2 60 0 84 17 84m65-18c16-6 18 18 1 18" fill="#fffefa" stroke="#a99bbd" stroke-width="2.2"/><path d="M16 108V49C16 6 84 6 84 49v59L72 98l-12 12-12-12-11 12-11-12-10 10Z" fill="#fffefa" stroke="#a99bbd" stroke-width="2.3" stroke-linejoin="round"/><path d="M22 48c0-14 7-25 17-28" stroke="#fff" stroke-width="5" stroke-linecap="round"/><ellipse cx="36" cy="55" rx="4.7" ry="6.5" fill="#5e5571"/><ellipse cx="65" cy="55" rx="4.7" ry="6.5" fill="#5e5571"/><circle cx="37" cy="53" r="1.5" fill="#fff"/><circle cx="66" cy="53" r="1.5" fill="#fff"/><ellipse cx="26" cy="70" rx="7" ry="3.7" fill="#f1d3ce" opacity=".8"/><ellipse cx="75" cy="70" rx="7" ry="3.7" fill="#f1d3ce" opacity=".8"/><path d="M44 71c4 5 9 5 13 0" stroke="#7a6b88" stroke-width="2" stroke-linecap="round"/></svg></div>
+  <div class="uci-halloween-ghost uci-halloween-ghost-small"><svg viewBox="0 0 100 125" fill="none" focusable="false"><path d="M18 66C2 60 0 84 17 84m65-18c16-6 18 18 1 18" fill="#fffefa" stroke="#a99bbd" stroke-width="2.2"/><path d="M16 108V49C16 6 84 6 84 49v59L72 98l-12 12-12-12-11 12-11-12-10 10Z" fill="#fffefa" stroke="#a99bbd" stroke-width="2.3" stroke-linejoin="round"/><path d="M22 48c0-14 7-25 17-28" stroke="#fff" stroke-width="5" stroke-linecap="round"/><ellipse cx="36" cy="55" rx="4.7" ry="6.5" fill="#5e5571"/><ellipse cx="65" cy="55" rx="4.7" ry="6.5" fill="#5e5571"/><circle cx="37" cy="53" r="1.5" fill="#fff"/><circle cx="66" cy="53" r="1.5" fill="#fff"/><ellipse cx="26" cy="70" rx="7" ry="3.7" fill="#f1d3ce" opacity=".8"/><ellipse cx="75" cy="70" rx="7" ry="3.7" fill="#f1d3ce" opacity=".8"/><path d="M44 71c4 5 9 5 13 0" stroke="#7a6b88" stroke-width="2" stroke-linecap="round"/></svg></div>
   <div class="uci-halloween-flying-bat uci-halloween-flight-1"><svg viewBox="0 0 84 42" fill="currentColor" focusable="false"><g class="uci-halloween-bat-wing"><path d="M39 22C28 11 15 7 2 9c7 8 9 16 10 24 8-6 16-5 27 1Z"/></g><g class="uci-halloween-bat-wing uci-halloween-bat-wing-right"><path d="M45 22C56 11 69 7 82 9c-7 8-9 16-10 24-8-6-16-5-27 1Z"/></g><ellipse cx="42" cy="26" rx="6" ry="9"/><path d="m36 22 1-11 5 7 5-7 1 11Z"/><circle cx="40" cy="22" r=".9" fill="#fff4d8"/><circle cx="44" cy="22" r=".9" fill="#fff4d8"/></svg></div>
   <div class="uci-halloween-flying-bat uci-halloween-flight-2"><svg viewBox="0 0 84 42" fill="currentColor" focusable="false"><g class="uci-halloween-bat-wing"><path d="M39 22C28 11 15 7 2 9c7 8 9 16 10 24 8-6 16-5 27 1Z"/></g><g class="uci-halloween-bat-wing uci-halloween-bat-wing-right"><path d="M45 22C56 11 69 7 82 9c-7 8-9 16-10 24-8-6-16-5-27 1Z"/></g><ellipse cx="42" cy="26" rx="6" ry="9"/><path d="m36 22 1-11 5 7 5-7 1 11Z"/><circle cx="40" cy="22" r=".9" fill="#fff4d8"/><circle cx="44" cy="22" r=".9" fill="#fff4d8"/></svg></div>
   <div class="uci-halloween-flying-bat uci-halloween-flight-3"><svg viewBox="0 0 84 42" fill="currentColor" focusable="false"><g class="uci-halloween-bat-wing"><path d="M39 22C28 11 15 7 2 9c7 8 9 16 10 24 8-6 16-5 27 1Z"/></g><g class="uci-halloween-bat-wing uci-halloween-bat-wing-right"><path d="M45 22C56 11 69 7 82 9c-7 8-9 16-10 24-8-6-16-5-27 1Z"/></g><ellipse cx="42" cy="26" rx="6" ry="9"/><path d="m36 22 1-11 5 7 5-7 1 11Z"/><circle cx="40" cy="22" r=".9" fill="#fff4d8"/><circle cx="44" cy="22" r=".9" fill="#fff4d8"/></svg></div>
