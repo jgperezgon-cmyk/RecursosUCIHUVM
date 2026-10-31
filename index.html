@@ -792,6 +792,13 @@ body.v35-drug-list.uci-drug-search-compact > header #allBtn{flex:0 0 auto;min-he
 @media(max-width:760px){.ne-entry-menu .v35-tile{min-height:100px}.ne-entry-menu .v35-tile span{font-size:13px;line-height:1.5}}
 </style>
 <link rel="stylesheet" href="ecmo.css?v=20261027-integrada-v4-drive">
+<style id="uci-insulina-protocol-access-css">
+#insulina-protocol-link{display:inline-flex;align-items:center;justify-content:center;gap:10px;max-width:100%;min-height:44px;margin:12px 0 0;padding:10px 14px;border:1px solid #aacdc4;border-radius:9px;background:#edf7f3;color:#246454;font:700 14px/1.4 system-ui,sans-serif;text-align:left;white-space:normal}
+#insulina-protocol-link[hidden]{display:none!important}
+#insulina-protocol-link:hover{background:#dfefe8;border-color:#7cac9e}
+#insulina-protocol-link:focus-visible{outline:3px solid #74b6ad;outline-offset:3px}
+.uci-search-icon.insulinizacion,.uci-search-badge.insulinizacion{background:#edf7f3;color:#246454}
+</style>
 </head>
 <body>
 <header>
@@ -2116,6 +2123,7 @@ body.v35-drug-list.uci-drug-search-compact > header #allBtn{flex:0 0 auto;min-he
     <a class="drive-item" href="https://drive.google.com/open?id=18Iu5NKVUaRYmO1LxtC0-xvweu0eN2npz&amp;usp=drive_copy" target="_blank" rel="noopener noreferrer" data-name="materiales para técnicas en UCI"><span class="drive-folder" aria-hidden="true">📁</span><span class="drive-name">Materiales para Técnicas en UCI</span><span class="drive-open">ABRIR →</span></a>
     <a class="drive-item" href="https://drive.google.com/open?id=15PDypZm2Fy340bhn9KcmQ2OqKI-0wVyx&amp;usp=drive_copy" target="_blank" rel="noopener noreferrer" data-name="Medela video"><span class="drive-video" aria-label="Vídeo" title="Vídeo">🎥</span><span class="drive-name">Medela</span><span class="drive-open">VER VÍDEO →</span></a>
     <a class="drive-item" href="https://drive.google.com/open?id=1_RVF5Q7f41xOzZijqa4dG0MKM4HCCrzz&amp;usp=drive_copy" target="_blank" rel="noopener noreferrer" data-name="módulo de cuidados"><span class="drive-folder" aria-hidden="true">📁</span><span class="drive-name">Módulo de Cuidados</span><span class="drive-open">ABRIR →</span></a>
+    <a class="drive-item" href="https://drive.google.com/drive/folders/1NJdTz7AhE-1Q9aOW3eIQtillW7ZvYJAH?usp=drive_link" target="_blank" rel="noopener noreferrer" data-name="módulo de heridas"><span class="drive-folder" aria-hidden="true">📁</span><span class="drive-name">Módulo de heridas</span><span class="drive-open">ABRIR →</span></a>
     <a class="drive-item" href="https://drive.google.com/open?id=1b6GHrFOsqCKj1TmfIQJU_mmbkJivrtW0&amp;usp=drive_copy" target="_blank" rel="noopener noreferrer" data-name="Monitor Philips video"><span class="drive-video" aria-label="Vídeo" title="Vídeo">🎥</span><span class="drive-name">Monitor Philips</span><span class="drive-open">VER VÍDEO →</span></a>
     <a class="drive-item" href="https://drive.google.com/open?id=1AcVSI4dHjzHxCQWvx0uycsJewHF7JSG0&amp;usp=drive_copy" target="_blank" rel="noopener noreferrer" data-name="monitores"><span class="drive-folder" aria-hidden="true">📁</span><span class="drive-name">Monitores</span><span class="drive-open">ABRIR →</span></a>
     <a class="drive-item" href="https://drive.google.com/open?id=1mdakuzQgemGBxAEFddQhWSFejvklI3AM&amp;usp=drive_copy" target="_blank" rel="noopener noreferrer" data-name="monitorización hemodinámica"><span class="drive-folder" aria-hidden="true">📁</span><span class="drive-name">Monitorización Hemodinámica</span><span class="drive-open">ABRIR →</span></a>
@@ -2215,7 +2223,7 @@ body.v35-drug-list.uci-drug-search-compact > header #allBtn{flex:0 0 auto;min-he
 </main>
 <main id="viewer">
 <button class="back" onclick="showHome()">← Volver al listado</button>
-<div class="viewer-head"><h2 id="vtitle"></h2><div class="source" id="vsource"></div><div id="vflags" class="flags"></div><div id="calc" style="display:none"></div></div>
+<div class="viewer-head"><h2 id="vtitle"></h2><div class="source" id="vsource"></div><button type="button" id="insulina-protocol-link" onclick="showInsulinizacion()" hidden>Ver protocolo de insulinización <span aria-hidden="true">→</span></button><div id="vflags" class="flags"></div><div id="calc" style="display:none"></div></div>
 <div class="viewer-grid">
 <section class="textbox"><div id="vtext" class="protocol-text"></div><div id="protocol-incompat-section" class="protocol-incompat-section" style="display:none">
 <button type="button" id="protocol-incompat-toggle" class="protocol-incompat-toggle"><span>⚠</span><span>Ver incompatibilidades</span><span id="protocol-incompat-count" class="protocol-incompat-count"></span></button>
@@ -3742,6 +3750,8 @@ function openRecord(i){hideMiTurnoView();
   document.getElementById('home').style.display='none';
   document.getElementById('viewer').style.display='block';
   document.getElementById('vtitle').textContent=displayName(r);
+  const insulinProtocolLink=document.getElementById('insulina-protocol-link');
+  if(insulinProtocolLink)insulinProtocolLink.hidden=!/^INSULINA\b/i.test(r.heading);
   document.getElementById('vsource').textContent='Página original: '+r.pages.join(', ');
   const cleaned=normalizeDisplayFormatting(stripDrugTables(r,cleanProtocolText(r.text)));
 
@@ -5081,7 +5091,8 @@ window.addEventListener('message',event=>{
     video:{label:'Vídeo del Drive',icon:'🎥',terms:'video videos drive'},
     compatibility:{label:'Compatibilidad en Y',icon:'🔗',terms:'compatibilidad compatibilidades en y farmaco farmacos'},
     objective:{label:'Objetivos asistenciales',icon:'📋',terms:'objetivo objetivos asistenciales tareas'},
-    ecmo:{label:'ECMO',icon:'↻',terms:'ecmo enfermeria'}
+    ecmo:{label:'ECMO',icon:'↻',terms:'ecmo enfermeria'},
+    insulinizacion:{label:'Protocolo',icon:'💉',terms:'insulina insulinizacion insulinoterapia'}
   };
   const singulars={celadores:'celador',farmacos:'farmaco',antibioticos:'antibiotico',nutriciones:'nutricion',telefonos:'telefono',carpetas:'carpeta',extensiones:'extension',suplementos:'suplemento'};
   function normalize(value){
@@ -5106,6 +5117,10 @@ window.addEventListener('message',event=>{
     entry.searchText=normalize(entry.titleText+' '+entry.aliasText+' '+(entry.kind==='nutrition'?entry.detail:'')+' '+(entry.bodyText||''));
     entries.push(entry); unique.set(key,entry);
   }
+
+  add({kind:'insulinizacion',title:'Insulinización',
+    detail:'Protocolo de insulina intravenosa y calculadora de ajuste',
+    aliases:'insulina insulinas insulinoterapia actrapid regular glucemia glucemias hiperglucemia insulina intravenosa calculadora ajuste'});
 
   const ecmoMachineAliases={
     cardiohelp:'cardiohelp cardio help',
@@ -5238,6 +5253,7 @@ window.addEventListener('message',event=>{
     document.querySelectorAll('body > main').forEach(main=>main.style.display='none');
     if(entry.kind==='ecmo')window.showECMO(entry.ecmoPanel,entry.ecmoCard,entry.ecmoModal);
     else if(entry.kind==='drug')window.openRecord(entry.recordIndex);
+    else if(entry.kind==='insulinizacion')window.showInsulinizacion();
     else if(entry.kind==='objective'){
       window.showMiTurno(entry.role==='TCAEs'?'tcae':'enfermeria','objetivos');
       selectObjective(entry.objectiveIndex);
