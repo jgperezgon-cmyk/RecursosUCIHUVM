@@ -21,6 +21,23 @@
   gtag('js', new Date());
   gtag('config', 'G-92M6NTD2MH');
 </script>
+<!-- GoatCounter: contador de visitas sin cookies. Panel privado en https://cterhode.goatcounter.com -->
+<script data-goatcounter="https://cterhode.goatcounter.com/count" async src="https://gc.zgo.at/count.js"></script>
+<script id="uci-goatcounter-secciones">
+/* Cuenta también cada sección que se abre (la web no cambia de dirección al navegar). */
+(function(){
+  let ultima='';
+  window.addEventListener('uci-view-change',function(event){
+    const d=event.detail||{};
+    if(!d.view||d.view==='landing'){ultima='';return;}
+    const nombres={drugs:'lista-farmacos',record:'ficha-farmaco',compatibility:'compatibilidades',ne:'nutricion-enteral',drive:'contenidos-drive',tcrr:'tcrr'};
+    const ruta='seccion/'+(nombres[d.view]||d.view)+(d.view==='mi-turno'&&d.role?'-'+d.role:'');
+    if(ruta===ultima)return;
+    ultima=ruta;
+    try{if(window.goatcounter&&typeof window.goatcounter.count==='function')window.goatcounter.count({path:ruta,title:ruta,event:false});}catch(e){}
+  });
+})();
+</script>
 <script id="uci-app-lifecycle-analytics">
 (function(){
   // Local previews do not contribute to the published app's usage counts.
