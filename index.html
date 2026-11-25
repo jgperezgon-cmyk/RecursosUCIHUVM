@@ -948,7 +948,7 @@ html.uci-halloween-searching .uci-halloween-scene *{animation-play-state:paused!
   <button type="button" class="back v35-cover-back" onclick="showLanding()">← Portada</button>
   <section class="farmacos-hub-head">
     <div class="farmacos-hub-icon" aria-hidden="true">💊</div>
-    <div><h2 id="farmacos-hub-title">Fármacos</h2><p>Protocolos, compatibilidad en Y y antibióticos.</p></div>
+    <div><h2 id="farmacos-hub-title">Fármacos</h2><p>Protocolos, compatibilidad en Y, vía periférica o central y antibióticos.</p></div>
   </section>
   <nav class="v35-grid farmacos-hub-grid" aria-label="Recursos de fármacos">
     <a class="v35-tile" href="#" onclick="showDrugsList();return false;">
@@ -959,6 +959,11 @@ html.uci-halloween-searching .uci-halloween-scene *{animation-play-state:paused!
     <a class="v35-tile" href="#" onclick="showCompatibilityFromLanding();return false;">
       <div class="v35-icon" aria-hidden="true">⇄</div>
       <div class="farmacos-hub-copy"><strong>Compatibilidad en Y</strong><span>Comparador de perfusiones y consulta de compatibilidad por fármaco.</span></div>
+      <span class="farmacos-hub-arrow" aria-hidden="true">›</span>
+    </a>
+    <a class="v35-tile" href="#" onclick="showViaAcceso();return false;">
+      <div class="v35-icon" aria-hidden="true">🩸</div>
+      <div class="farmacos-hub-copy"><strong>¿Periférica o central? <small class="ecmo-new">Novedad</small></strong><span>Riesgo para la vena de cada dilución según pH, osmolaridad y carácter vesicante.</span></div>
       <span class="farmacos-hub-arrow" aria-hidden="true">›</span>
     </a>
     <a class="v35-tile" href="#" onclick="showAntibioticos();return false;">
@@ -5008,6 +5013,8 @@ window.addEventListener('message',event=>{
 </script>
 <script src="ecmo-data.js?v=20261027-contenidos-v6"></script>
 <script src="ecmo.js?v=20261027-integrada-v4-drive"></script>
+<script src="via-data.js?v=20261125-via-v1"></script>
+<script src="via.js?v=20261125-via-v1"></script>
 <script id="uci-app-browser-back-js">
 (function(){
   const stateKey='uciHuVmView';
@@ -5055,6 +5062,7 @@ window.addEventListener('message',event=>{
     ['showLimpieza',()=>({view:'limpieza'})],
     ['showAnalgosedacion',()=>({view:'analgosedacion'})],
     ['showAntibioticos',()=>({view:'antibioticos'})],
+    ['showViaAcceso',()=>({view:'via'})],
     ['showECMO',()=>({view:'ecmo',...window.getECMOViewState()})],
     ['showTcrr',()=>({view:'tcrr'})],
     ['showNE',args=>({view:'ne',panel:['cuidados','disfagia','nutriciones'].includes(args[0])?args[0]:'menu'})],
@@ -5078,6 +5086,7 @@ window.addEventListener('message',event=>{
       case 'limpieza': window.showLimpieza(); break;
       case 'analgosedacion': window.showAnalgosedacion(); break;
       case 'antibioticos': window.showAntibioticos(); break;
+      case 'via': window.showViaAcceso(); break;
       case 'ecmo': window.showECMO(view.panel,view.cardId,view.modal); break;
       case 'tcrr': window.showTcrr(); break;
       case 'ne': window.showNE(view.panel); break;
