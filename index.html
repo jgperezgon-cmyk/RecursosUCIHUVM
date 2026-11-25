@@ -1328,6 +1328,30 @@ html.uci-halloween-searching .uci-halloween-scene *{animation-play-state:paused!
 .tcae-menu-arrow{flex:0 0 auto;margin-left:auto;color:#8395ab;font-size:24px;line-height:1}
 @media(max-width:760px){.tcae-menu{grid-template-columns:1fr;gap:11px}.tcae-menu-option{min-height:100px;padding:16px}.tcae-menu-copy&gt;strong{font-size:16px}.tcae-menu-copy&gt;span{font-size:13px}}
 &lt;/style&gt;
+&lt;style id=&quot;shift-checklist-style&quot;&gt;
+  .shift-checklist { margin-bottom: 26px; }
+  .checklist-card { background: var(--paper); border: 1px solid #e5ece9; border-radius: 14px; box-shadow: var(--shadow); overflow: hidden; }
+  .checklist-bar { display: flex; align-items: center; gap: 14px; padding: 12px 16px; border-bottom: 1px solid var(--line); background: #fafcfb; }
+  .checklist-progress { font-size: 12px; color: var(--muted); white-space: nowrap; }
+  .checklist-progress strong { color: var(--teal-dark); font-size: 14px; }
+  .checklist-meter { flex: 1; height: 6px; border-radius: 999px; background: #e6eeeb; overflow: hidden; }
+  .checklist-meter span { display: block; height: 100%; width: 0; background: var(--teal); border-radius: inherit; transition: width .2s ease; }
+  .checklist-reset { border: 1px solid #d9e6e0; background: white; color: #496b68; border-radius: 999px; padding: 7px 12px; font-size: 11px; font-weight: 700; white-space: nowrap; }
+  .checklist-reset:hover { background: var(--mint); }
+  .checklist-list { list-style: none; margin: 0; padding: 0; }
+  .checklist-list li + li { border-top: 1px solid var(--line); }
+  .checklist-list label { display: flex; align-items: flex-start; gap: 12px; padding: 12px 16px; cursor: pointer; font-size: 14px; line-height: 1.45; color: var(--ink); }
+  .checklist-list label:hover { background: #f8fbfa; }
+  .checklist-list input { flex: 0 0 auto; width: 20px; height: 20px; margin: 1px 0 0; accent-color: var(--teal); cursor: pointer; }
+  .checklist-list input:checked + span { color: #8a9a97; text-decoration: line-through; text-decoration-color: #b8c6c2; }
+  .zero-tol { font-style: normal; font-size: 10px; font-weight: 800; letter-spacing: .06em; text-transform: uppercase; color: #9b2c2c; background: #fbeaea; border-radius: 999px; padding: 2px 7px; margin-left: 4px; white-space: nowrap; vertical-align: 1px; }
+  .checklist-list input:checked + span .zero-tol { color: #a8b4b1; background: #eef2f1; }
+  @media (max-width: 620px) {
+    .checklist-bar { flex-wrap: wrap; gap: 8px 12px; }
+    .checklist-meter { order: 3; flex-basis: 100%; }
+    .checklist-list label { padding: 12px 14px; font-size: 13.5px; }
+  }
+&lt;/style&gt;
 &lt;/head&gt;
 &lt;body&gt;
   &lt;div class=&quot;shell&quot;&gt;
@@ -1355,6 +1379,32 @@ html.uci-halloween-searching .uci-halloween-scene *{animation-play-state:paused!
         &lt;div class=&quot;year-tag&quot;&gt;Objetivos 2026&lt;/div&gt;
       &lt;/section&gt;
 
+      &lt;section class=&quot;section shift-checklist&quot; id=&quot;shift-checklist&quot; aria-labelledby=&quot;checklist-title&quot;&gt;
+        &lt;div class=&quot;section-head&quot;&gt;&lt;span class=&quot;section-num&quot;&gt;PASE DE TURNO&lt;/span&gt;&lt;div class=&quot;section-title-wrap&quot;&gt;&lt;h2 id=&quot;checklist-title&quot;&gt;Checklist para el pase de turno&lt;/h2&gt;&lt;span class=&quot;section-sub&quot; id=&quot;checklist-shift&quot;&gt;Se vacía a las 08:30 y a las 20:30&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;section-rule&quot; aria-hidden=&quot;true&quot;&gt;&lt;/div&gt;&lt;/div&gt;
+        &lt;div class=&quot;checklist-card&quot;&gt;
+          &lt;div class=&quot;checklist-bar&quot;&gt;
+            &lt;div class=&quot;checklist-progress&quot; aria-live=&quot;polite&quot;&gt;&lt;strong id=&quot;checklist-count&quot;&gt;0/14&lt;/strong&gt; completados&lt;/div&gt;
+            &lt;div class=&quot;checklist-meter&quot; aria-hidden=&quot;true&quot;&gt;&lt;span id=&quot;checklist-meter-fill&quot;&gt;&lt;/span&gt;&lt;/div&gt;
+            &lt;button class=&quot;checklist-reset&quot; id=&quot;checklist-reset&quot; type=&quot;button&quot;&gt;Desmarcar todo&lt;/button&gt;
+          &lt;/div&gt;
+          &lt;ul class=&quot;checklist-list&quot; id=&quot;checklist-list&quot;&gt;
+            &lt;li&gt;&lt;label&gt;&lt;input type=&quot;checkbox&quot;&gt;&lt;span&gt;Pulsera identificativa puesta y registrada en todos los pacientes &lt;em class=&quot;zero-tol&quot;&gt;tolerancia cero&lt;/em&gt;&lt;/span&gt;&lt;/label&gt;&lt;/li&gt;
+            &lt;li&gt;&lt;label&gt;&lt;input type=&quot;checkbox&quot;&gt;&lt;span&gt;Alergias registradas en todos los pacientes &lt;em class=&quot;zero-tol&quot;&gt;tolerancia cero&lt;/em&gt;&lt;/span&gt;&lt;/label&gt;&lt;/li&gt;
+            &lt;li&gt;&lt;label&gt;&lt;input type=&quot;checkbox&quot;&gt;&lt;span&gt;Identificación gráfica correcta en todos los pacientes &lt;em class=&quot;zero-tol&quot;&gt;tolerancia cero&lt;/em&gt;&lt;/span&gt;&lt;/label&gt;&lt;/li&gt;
+            &lt;li&gt;&lt;label&gt;&lt;input type=&quot;checkbox&quot;&gt;&lt;span&gt;Contenciones: prescripción firmada por médico y control cada 2 h registrado&lt;/span&gt;&lt;/label&gt;&lt;/li&gt;
+            &lt;li&gt;&lt;label&gt;&lt;input type=&quot;checkbox&quot;&gt;&lt;span&gt;Higiene oral con clorhexidina cada 6–8 h en pacientes intubados&lt;/span&gt;&lt;/label&gt;&lt;/li&gt;
+            &lt;li&gt;&lt;label&gt;&lt;input type=&quot;checkbox&quot;&gt;&lt;span&gt;CAM-ICU realizado y registrado este turno (pacientes con RASS −2 a +4)&lt;/span&gt;&lt;/label&gt;&lt;/li&gt;
+            &lt;li&gt;&lt;label&gt;&lt;input type=&quot;checkbox&quot;&gt;&lt;span&gt;Cambios posturales cada 3–4 h anotados en gráfica&lt;/span&gt;&lt;/label&gt;&lt;/li&gt;
+            &lt;li&gt;&lt;label&gt;&lt;input type=&quot;checkbox&quot;&gt;&lt;span&gt;Alarmas verificadas y bien programadas&lt;/span&gt;&lt;/label&gt;&lt;/li&gt;
+            &lt;li&gt;&lt;label&gt;&lt;input type=&quot;checkbox&quot;&gt;&lt;span&gt;Cabecero entre 30° y 45° y presión de neumotaponamiento entre 20 y 30 cmH₂O (pacientes con VMI)&lt;/span&gt;&lt;/label&gt;&lt;/li&gt;
+            &lt;li&gt;&lt;label&gt;&lt;input type=&quot;checkbox&quot;&gt;&lt;span&gt;Peso del paciente actualizado y anotado en gráfica&lt;/span&gt;&lt;/label&gt;&lt;/li&gt;
+            &lt;li&gt;&lt;label&gt;&lt;input type=&quot;checkbox&quot;&gt;&lt;span&gt;Documentos del paciente (gasometrías, EKG) con ≥ 2 datos identificativos&lt;/span&gt;&lt;/label&gt;&lt;/li&gt;
+            &lt;li&gt;&lt;label&gt;&lt;input type=&quot;checkbox&quot;&gt;&lt;span&gt;Dolor y RASS valorados ≥ 2 veces por turno&lt;/span&gt;&lt;/label&gt;&lt;/li&gt;
+            &lt;li&gt;&lt;label&gt;&lt;input type=&quot;checkbox&quot;&gt;&lt;span&gt;Líneas con perfusión identificadas; cura fechada y anotada en gráfica&lt;/span&gt;&lt;/label&gt;&lt;/li&gt;
+            &lt;li&gt;&lt;label&gt;&lt;input type=&quot;checkbox&quot;&gt;&lt;span&gt;Bioconectores solo en puntos de bolos/perfusiones discontinuas; conexiones limpias y tapadas&lt;/span&gt;&lt;/label&gt;&lt;/li&gt;
+          &lt;/ul&gt;
+        &lt;/div&gt;
+      &lt;/section&gt;
       &lt;div class=&quot;utility-row&quot;&gt;
         &lt;nav class=&quot;frequency-nav&quot; aria-label=&quot;Filtrar por momento&quot;&gt;
           &lt;button class=&quot;filter-chip active&quot; type=&quot;button&quot; data-filter=&quot;all&quot; aria-pressed=&quot;true&quot;&gt;Ver todo&lt;/button&gt;
@@ -1991,6 +2041,70 @@ html.uci-halloween-searching .uci-halloween-scene *{animation-play-state:paused!
   };
   window.selectTcaeContent(&#x27;menu&#x27;);
   render();
+})();
+&lt;/script&gt;
+&lt;script id=&quot;shift-checklist-js&quot;&gt;
+(function(){
+  /* Checklist del pase de turno: las marcas se guardan en este dispositivo
+     y se borran solas media hora después del cambio de turno (08:30 y 20:30),
+     para no perderlas si el pase de turno se alarga. */
+  var KEY = &#x27;uci-huvm.checklist-pase-turno&#x27;;
+  var list = document.getElementById(&#x27;checklist-list&#x27;);
+  if (!list) return;
+  var boxes = Array.prototype.slice.call(list.querySelectorAll(&#x27;input[type=&quot;checkbox&quot;]&#x27;));
+  var count = document.getElementById(&#x27;checklist-count&#x27;);
+  var fill = document.getElementById(&#x27;checklist-meter-fill&#x27;);
+  var shiftLabel = document.getElementById(&#x27;checklist-shift&#x27;);
+  var reset = document.getElementById(&#x27;checklist-reset&#x27;);
+
+  function pad(n){ return (n &lt; 10 ? &#x27;0&#x27; : &#x27;&#x27;) + n; }
+  function currentShift(){
+    var now = new Date(), start = new Date(now), night = false;
+    var min = now.getHours() * 60 + now.getMinutes();
+    if (min &gt;= 8*60+30 &amp;&amp; min &lt; 20*60+30) { start.setHours(8,0,0,0); }
+    else { night = true; if (min &lt; 8*60+30) start.setDate(start.getDate() - 1); start.setHours(20,0,0,0); }
+    var id = start.getFullYear() + &#x27;-&#x27; + pad(start.getMonth()+1) + &#x27;-&#x27; + pad(start.getDate()) + (night ? &#x27;-N&#x27; : &#x27;-D&#x27;);
+    var label = (night ? &#x27;Turno de noche&#x27; : &#x27;Turno de día&#x27;) + &#x27; · &#x27; + pad(start.getDate()) + &#x27;/&#x27; + pad(start.getMonth()+1) + &#x27; · se vacía a las 08:30 y a las 20:30&#x27;;
+    return { id: id, label: label };
+  }
+  function load(shift){
+    try {
+      var saved = JSON.parse(window.localStorage.getItem(KEY) || &#x27;null&#x27;);
+      if (saved &amp;&amp; saved.shift === shift.id &amp;&amp; Array.isArray(saved.checked)) return saved.checked;
+    } catch (e) {}
+    return [];
+  }
+  function save(shift){
+    var checked = [];
+    boxes.forEach(function(b, i){ if (b.checked) checked.push(i); });
+    try { window.localStorage.setItem(KEY, JSON.stringify({ shift: shift.id, checked: checked })); } catch (e) {}
+  }
+  function updateProgress(){
+    var done = boxes.filter(function(b){ return b.checked; }).length;
+    count.textContent = done + &#x27;/&#x27; + boxes.length;
+    fill.style.width = (boxes.length ? Math.round(done * 100 / boxes.length) : 0) + &#x27;%&#x27;;
+  }
+  var shift = null;
+  function sync(){
+    var s = currentShift();
+    if (shift &amp;&amp; s.id === shift.id) return;
+    shift = s;
+    var checked = load(shift);
+    boxes.forEach(function(b, i){ b.checked = checked.indexOf(i) !== -1; });
+    shiftLabel.textContent = shift.label;
+    updateProgress();
+  }
+  boxes.forEach(function(b){
+    b.addEventListener(&#x27;change&#x27;, function(){ sync(); save(shift); updateProgress(); });
+  });
+  reset.addEventListener(&#x27;click&#x27;, function(){
+    boxes.forEach(function(b){ b.checked = false; });
+    save(shift); updateProgress();
+  });
+  sync();
+  /* Si la página se queda abierta durante el cambio de turno, se reinicia sola. */
+  setInterval(sync, 60000);
+  document.addEventListener(&#x27;visibilitychange&#x27;, function(){ if (!document.hidden) sync(); });
 })();
 &lt;/script&gt;
 &lt;/body&gt;
